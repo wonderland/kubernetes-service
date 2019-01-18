@@ -1,0 +1,74 @@
+---
+sidebar: sidebar
+permalink: using-the-kubernetes-cloud-backup.html
+summary: Learn how to install Kubernetes Cloud Backup, and how to restore a Kubernetes cluster from backup.
+---
+
+= Using the Kubernetes Cloud Backup
+
+== Contents
+* <<Introduction>>
+* <<Install the Kubernetes Cloud Backup>>
+* <<Restore a Kubernetes Cluster from Backup>>
+
+== Introduction
+
+Kubernetes Cloud Backup can be used to backup and restore your Kubernetes state information.  This includes deployments, services, Helm release, et cetera. This tutorial covers how to install Kubernetes Cloud Backup, and how to restore a Kubernetes cluster from backup.
+
+* The Kubernetes state cloud backup script is designed to be run as a cron job.
+* Each backup has a `restore_state.sh` script, which will restore the entire cluster's state when run.
+
+== Install the Kubernetes Cloud Backup
+
+To set up the backup solution for the cluster, use the Helm chart and deploy it to Kubernetes as a cron job. This will ensure cluster backups of Kubernetes resource definitions to your AWS S3 or GCS bucket.
+
+=== AWS S3
+
+```
+    bash
+    helm upgrade --install kube-backup kube-state-backup --namespace kube-backup \
+        --set schedule="*/50 * * * *",aws.enabled="true" \
+        --set  aws.accessKeyId="UNF37N93MG374B27",aws.secretAccessKey="AvgjbYndf9TMF8Y3F3J993TMTJ2309T" \
+        --set aws.bucket="my-kube-state-backup-bucket",aws.region="eu-west-2"
+```
+
+=== GCS
+
+```
+    bash
+    helm upgrade --install kube-backup kube-state-backup --namespace kube-backup \
+        --set schedule="*/50 * * * *",gcs.enabled="true",gcs.projectId="project-123" \
+        --set gcs.serviceAccountKey="$(cat sa.json | base64)" \
+        --set gcs.bucket="my-kube-state-backup",gcs.region="eu"
+```
+
+=== Azure
+
+```
+    bash
+    helm upgrade --install spc-kube-backup spc-state-backup --namespace stackpoint-system \
+        --set schedule="*/50 * * * *",azure.enabled="true",storageAccount="azure_storage_account" \
+        --set azure.storageAccessKey="AFSDJJDUEIEOOEOEOOEOEO" \
+        --set azure.storageContainer="my-kube-state-backup-container" \
+        --set jobCleanup.enabled="true" # set it only for k8s v1.5
+```
+
+=== Update the Cron Job
+
+You can also use the `helm upgrade` command to update the cron job. For example, to change the schedule:
+
+```
+    bash
+    helm upgrade kube-backup kube-state-backup --reuse-values --set schedule="*/30 * * * *"
+```
+
+To change the Docker image:
+
+```
+    bash
+    helm upgrade kube-backup kube-state-backup --reuse-values --set imageTag="0.1.8"
+```
+
+== Restore a Kubernetes Cluster from Backup
+
+To restore from backup, download the backup archive from your cloud storage, extract files and run the `restore_state.sh` shell script on the freshly-created cluster. This will restore your cluster. Note: kubectl must be present and set to access your Kubernetes cluster.

@@ -1,0 +1,23 @@
+entries:
+  - title: NKS Docs
+    url: /index.html
+  - title: Keysets
+    entries:
+      - title: Amazon Web Services (AWS)
+        url: /create-auth-credentials-on-aws.html
+      - title: Azure
+        url: /create-auth-credentials-on-azure.html
+      - title: Google Compute Engine (GCE)
+        url: /create-auth-credentials-on-gce.html
+      - title: Google Container Engine (GKE)
+        url: /create-auth-credentials-on-gke.html
+  - title: Setup
+    entries:
+      - title: Install Kubectl
+        url: /install-kubectl-to-control-a-kubernetes-cluster.html
+      - title: Using the Kubernetes Cloud Backup
+        url: /using-the-kubernetes-cloud-backup.html
+      - title: Managing Ingresses on Kubernetes
+        url: /managing-ingresses-on-kubernetes.html
+      - title: Sysdig + Kubernetes
+        url: /a-sysdig-kubernetes-adventure.html
