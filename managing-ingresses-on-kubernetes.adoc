@@ -262,7 +262,7 @@ Create the backends of your choice with `kubectl create -f ...`
 
 We only use standard functionality for this example, so you should be able to use any Ingress controller. I'm using the HAProxy Ingress controller, which is included by default with every NKS cluster build at http://netapp.io.
 
-The HAProxy Ingress controller at NKS is already configured and listening to changes in your Kubernetes cluster. If you prefer to get NGINX, you can also deploy it in any cluster following [these instructions](https://github.com/kubernetes/contrib/tree/master/ingress/controllers/nginx)
+The HAProxy Ingress controller at NKS is already configured and listening to changes in your Kubernetes cluster. If you prefer to get NGINX, you can also deploy it in any cluster following https://github.com/kubernetes/contrib/tree/master/ingress/controllers/nginx[these instructions].
 
 === Ingresses
 
@@ -289,7 +289,7 @@ That's it. We need now to reach HAPRoxy node using the host header `game.domain1
 
 1. Use a domain name. Point the A record to the HAProxy node's IP address.
 2. Use `curl -H "Host: game.domain1.io" real.server.address`
-3. Install a browser plugin to add host header, like [Virtual-Hosts](https://chrome.google.com/webstore/detail/virtual-hosts/aiehidpclglccialeifedhajckcpedom) for Chrome.
+3. Install a browser plugin to add host header, like https://chrome.google.com/webstore/detail/virtual-hosts/aiehidpclglccialeifedhajckcpedom[Virtual-Hosts] for Chrome.
 
 If you use a browser, it shows the 2048 game. However, if you try the IP address without that host header, you get a 503 error.
 
