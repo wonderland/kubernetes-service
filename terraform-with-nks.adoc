@@ -1,0 +1,330 @@
+---
+sidebar: sidebar
+permalink: intro-to-terraform-on-nks.html
+summary: Learn the basics of Terraform, and how to use it to build and manage Kubernetes infrastructure through NKS.
+---
+= Intro to Terraform on NKS
+
+Learn the basics of Terraform, and how to use it to build and manage Kubernetes infrastructure through NKS. HashiCorp Terraform is an open source tool which is designed to help you create and maintain a consistent, reproducible infrastructure.
+
+== Table of Contents
+* <<Requirements>>
+* <<Add SSH Keys to your NKS Account>>
+* <<Install the NKS Provider>>
+* <<Example: Launch an AWS Cluster>>
+
+== Requirements
+
+* Terraform installed on your system. The easiest way to install Terraform is to https://www.terraform.io/downloads.html[download the binary], uncompress the file, and put it in `/usr/local/bin`.
+* A working knowledge of Terraform basics.
+* An NKS account.
+* At least one provider account (AWS, GKE, etc.)
+
+== Add SSH Keys to your NKS Account
+
+The SSH keys are used to securely log in to your nodes. To add SSH keys to your NKS account:
+
+1. Log in at https://stackpoint.io[Stackpoint.io].
+2. Go to **Organization** > **Setup**.
+3. In the **SSH Keys** section, click **ADD SSH KEY**.
+4. Paste the contents of your public key file into the **Key** field.
+5. Click **Create**.
+
+== Get an NKS API Token
+
+The API token is used to authenticate with the NKS API. To obtain a token:
+
+1. Log in at https://stackpoint.io[Stackpoint.io].
+2. Click your profile avatar in the top right corner and select `Edit Profile`.
+3. In the **API Tokens** section, click **Add Token**.
+4. Copy the token and save it somewhere safe. This is your only chance to view your API token. The token cannot be displayed after you leave or reload the page.
+
+NOTE: The API only accepts keys from accounts which have the role of `Owner` in the related Organization.
+
+== Install the NKS Provider
+
+In order to use Terraform with NKS, you will need to install our Terraform provider plug-in.
+
+Download the version for your operating system from https://github.com/NetApp/terraform-provider-nks/releases[our provider plug-in GitHub repository]. Uncompress the file, and move it to the user plug-ins directory:
+
+* **Windows:**	`%APPDATA%\terraform.d\plugins`
+* **All other operating systems:** `~/.terraform.d/plugins`
+
+The NKS provider plug-in will be added to your Terraform installation's list of available providers the next time you run `terraform init`.
+
+== Example: Launch an AWS Cluster
+
+We use AWS as an example throughout this tutorial. However, Terraform can be used with any of the providers which NKS supports. Although some of the details will vary between providers, the basics are the same.
+
+We have created https://github.com/NetApp/terraform-provider-nks/tree/development/examples[a library of example code you can use in your Terraform projects]. For this example, we will use https://github.com/NetApp/terraform-provider-nks/tree/development/examples/aws[these examples for creating an AWS cluster].
+
+To begin, create a directory for your Terraform project. Note: Terraform will load any `.tf` file it finds in this directory.
+
+Create a file called `main.tf` in the Terraform project directory. Put the following content into this file:
+
+----
+provider "nks" {
+    # Set environment variable NKS_API_TOKEN with your API token from NKS
+    # Set environment variable NKS_API_URL with API endpoint,
+    # defaults to NKS production enviroment.
+}
+
+# Organization
+data "nks_organization" "default" {
+    name = "${var.organization_name}"
+}
+
+# Keyset
+data "nks_keyset" "keyset_aws" {
+  # You can specify a custom orgID here or the system will find and use your
+  # default organization ID.
+  org_id = "${data.nks_organization.default.id}"
+  name     = "${var.provider_keyset_name}"
+  category = "provider"
+  entity   = "${var.provider_code}"
+}
+
+data "nks_keyset" "keyset_ssh" {
+  # You can specify a custom orgID here or the system will find and use your
+  # default organization ID.
+  org_id = "${data.nks_organization.default.id}"
+  category = "user_ssh"
+  name     = "${var.ssh_keyset_name}"
+}
+
+# Instance specs
+data "nks_instance_specs" "master-specs" {
+    provider_code = "${var.provider_code}"
+    node_size     = "${var.provider_master_size}"
+}
+
+data "nks_instance_specs" "worker-specs" {
+    provider_code = "${var.provider_code}"
+    node_size     = "${var.provider_worker_size}"
+}
+
+# Cluster
+resource "nks_cluster" "terraform-cluster" {
+    org_id                = "${data.nks_organization.default.id}"
+    cluster_name          = "${var.cluster_name}"
+    provider_code         = "${var.provider_code}"
+    provider_keyset       = "${data.nks_keyset.keyset_aws.id}"
+    region                = "${var.provider_region}"
+    k8s_version           = "${var.provider_k8s_version}"
+    startup_master_size   = "${data.nks_instance_specs.master-specs.node_size}"
+    startup_worker_count  = 2
+    startup_worker_size   = "${data.nks_instance_specs.worker-specs.node_size}"
+    zone                  = "${var.provider_zone}"
+    provider_network_cidr = "${var.provider_network_cidr}"
+    provider_subnet_cidr  = "${var.provider_subnet_cidr}"
+    rbac_enabled          = true
+    dashboard_enabled     = true
+    etcd_type             = "${var.provider_etcd_type}"
+    platform              = "${var.provider_platform}"
+    channel               = "${var.provider_channel}"
+    ssh_keyset            = "${data.nks_keyset.keyset_ssh.id}"
+}
+----
+
+Save and exit the file.
+
+This configuration file will reference variables that you set in the next file we create. Create `variables.tf` and put the following content into the file:
+
+----
+# Organization
+variable "organization_name" {
+  description = "NKS organization name"
+  default     = ""
+}
+
+# Cluster
+variable "cluster_name" {
+  description = "NKS cluster name"
+  default     = ""
+}
+
+# Keyset
+variable "ssh_keyset_name" {
+  description = "NKS ssh keyset name"
+  default     = ""
+}
+
+variable "provider_keyset_name" {
+  description = "Cloud provider keyset name"
+  default     = ""
+}
+
+# Cloud provider configuration variables
+variable "provider_category" {
+  description = "NKS provider category"
+  default     = ""
+}
+
+variable "provider_entity" {
+  description = "NKS ssh keyset name"
+  default     = ""
+}
+
+variable "provider_code" {
+  description = "Cloud provider type code"
+  default     = ""
+}
+
+variable "provider_k8s_version" {
+  description = "Cloud provider kubernetes version"
+  default     = ""
+}
+
+variable "provider_etcd_type" {
+  description = "Cloud provider etcd type"
+  default     = ""
+}
+
+variable "provider_channel" {
+  description = "Cloud provider channel"
+  default     = ""
+}
+
+variable "provider_platform" {
+  description = "Cloud provider platform type"
+  default     = ""
+}
+
+variable "provider_region" {
+  description = "Cloud provider region"
+  default     = ""
+}
+
+variable "provider_zone" {
+  description = "Cloud provider zone"
+  default     = ""
+}
+
+variable "provider_network_id" {
+  description = "Cloud provider network ID"
+  default     = ""
+}
+
+variable "provider_network_cidr" {
+  description = "Cloud provider network CIDR"
+  default     = ""
+}
+
+variable "provider_subnet_id" {
+  description = "Cloud provider subnet ID"
+  default     = ""
+}
+
+variable "provider_subnet_cidr" {
+  description = "Cloud provider subnet CIDR"
+  default     = ""
+}
+
+variable "provider_subnet_id2" {
+  description = "Cloud provider subnet ID for second master"
+  default     = ""
+}
+
+variable "provider_master_size" {
+  description = "Cloud provider master node size"
+  default     = ""
+}
+
+variable "provider_worker_size" {
+  description = "Cloud provider worker node size"
+  default     = ""
+}
+----
+
+Then make `terraform.tfvars` with the following content:
+
+----
+# Organization
+organization_name = "My Organization"
+
+# Cluster
+cluster_name = "Terraform AWS Cluster"
+
+# Keyset
+provider_keyset_name = "My AWS Credentials"
+ssh_keyset_name = "My SSH Keyset"
+
+# Provider
+provider_code = "aws"
+provider_k8s_version = "v1.13.2"
+provider_platform = "coreos"
+provider_channel = "stable"
+provider_etcd_type = "classic"
+provider_region = "us-east-2"
+provider_zone = "us-east-2a"
+provider_network_id = "__new__"
+provider_network_cidr = "10.0.0.0/16"
+provider_subnet_id = "__new__"
+provider_subnet_cidr = "10.0.1.0/24"
+provider_zone2 = "us-east-2a"
+provider_subnet_id2 = "__new__"
+provider_subnet_cidr2 = "10.0.2.0/24"
+provider_master_size = "t2.medium"
+provider_worker_size = "t2.medium"
+----
+
+There are three lines in this file you will need to customize:
+
+----
+organization_name = "My Organization"
+provider_keyset_name = "My AWS Credentials"
+ssh_keyset_name = "My SSH Keyset"
+----
+
+Change these to reflect your actual Organization, provider keyset, and SSH keyset names.
+
+You can also change any of the other values to suit your needs. When you are ready to run the example, first export your NKS API token. From inside your project directory, use the command:
+
+----
+export NKS_API_TOKEN=[Your NKS API token]
+----
+
+Since we have changed the Terraform configuration files, use the command:
+
+----
+terraform init
+----
+
+The next step is to have Terraform check the configuration files, and present you with a plan for executing the changes:
+
+----
+terraform plan
+----
+
+This command will output the details of what Terraform will do, if you approve its plan:
+
+----
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+data.nks_organization.default: Refreshing state...
+data.nks_instance_specs.master-specs: Refreshing state...
+data.nks_instance_specs.worker-specs: Refreshing state...
+data.nks_keyset.keyset_aws: Refreshing state...
+data.nks_keyset.keyset_ssh: Refreshing state...
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + nks_cluster.terraform-cluster
+      id:                      <computed>
+      channel:                 "stable"
+[...]
+
+Plan: 3 to add, 0 to change, 0 to destroy.
+----
+
+If everything looks good, execute this plan and launch your cluster with the command:
+
+----
+terraform apply
+----
