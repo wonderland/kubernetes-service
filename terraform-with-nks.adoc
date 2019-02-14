@@ -24,7 +24,7 @@ Learn the basics of Terraform, and how to use it to build and manage Kubernetes 
 
 The SSH keys are used to securely log in to your nodes. To add SSH keys to your NKS account:
 
-1. Log in at https://stackpoint.io[Stackpoint.io].
+1. Log in at https://netapp.stackpoint.io[netapp.stackpoint.io].
 2. Go to **Organization** > **Setup**.
 3. In the **SSH Keys** section, click **ADD SSH KEY**.
 4. Paste the contents of your public key file into the **Key** field.
