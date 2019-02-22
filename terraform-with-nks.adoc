@@ -1,17 +1,17 @@
 ---
 sidebar: sidebar
 permalink: intro-to-terraform-on-nks.html
-summary: Learn the basics of Terraform, and how to use it to build and manage Kubernetes infrastructure through NKS.
+summary: Learn how to build and manage infrastructure through NKS using Terraform.
 ---
-= Intro to Terraform on NKS
+= Terraform on NKS
 
-Learn the basics of Terraform, and how to use it to build and manage Kubernetes infrastructure through NKS. HashiCorp Terraform is an open source tool which is designed to help you create and maintain a consistent, reproducible infrastructure.
+Learn how to build and manage infrastructure through NKS using Terraform.
 
-== Table of Contents
 * <<Requirements>>
 * <<Add SSH Keys to your NKS Account>>
 * <<Install the NKS Provider>>
 * <<Example: Launch an AWS Cluster>>
+* <<Example: Istio Cross-Cluster Deployment>>
 
 == Requirements
 
@@ -34,7 +34,7 @@ The SSH keys are used to securely log in to your nodes. To add SSH keys to your 
 
 The API token is used to authenticate with the NKS API. To obtain a token:
 
-1. Log in at https://stackpoint.io[Stackpoint.io].
+1. Log in at https://netapp.stackpoint.io[netapp.stackpoint.io].
 2. Click your profile avatar in the top right corner and select `Edit Profile`.
 3. In the **API Tokens** section, click **Add Token**.
 4. Copy the token and save it somewhere safe. This is your only chance to view your API token. The token cannot be displayed after you leave or reload the page.
@@ -76,20 +76,20 @@ data "nks_organization" "default" {
 
 # Keyset
 data "nks_keyset" "keyset_aws" {
-  # You can specify a custom orgID here or the system will find and use your
-  # default organization ID.
-  org_id = "${data.nks_organization.default.id}"
-  name     = "${var.provider_keyset_name}"
-  category = "provider"
-  entity   = "${var.provider_code}"
+    # You can specify a custom orgID here or the system will find and use your
+    # default organization ID.
+    org_id = "${data.nks_organization.default.id}"
+    name     = "${var.provider_keyset_name}"
+    category = "provider"
+    entity   = "${var.provider_code}"
 }
 
 data "nks_keyset" "keyset_ssh" {
-  # You can specify a custom orgID here or the system will find and use your
-  # default organization ID.
-  org_id = "${data.nks_organization.default.id}"
-  category = "user_ssh"
-  name     = "${var.ssh_keyset_name}"
+    # You can specify a custom orgID here or the system will find and use your
+    # default organization ID.
+    org_id = "${data.nks_organization.default.id}"
+    category = "user_ssh"
+    name     = "${var.ssh_keyset_name}"
 }
 
 # Instance specs
@@ -133,106 +133,106 @@ This configuration file will reference variables that you set in the next file w
 ----
 # Organization
 variable "organization_name" {
-  description = "NKS organization name"
-  default     = ""
+    description = "NKS organization name"
+    default     = ""
 }
 
 # Cluster
 variable "cluster_name" {
-  description = "NKS cluster name"
-  default     = ""
+    description = "NKS cluster name"
+    default     = ""
 }
 
 # Keyset
 variable "ssh_keyset_name" {
-  description = "NKS ssh keyset name"
-  default     = ""
+    description = "NKS ssh keyset name"
+    default     = ""
 }
 
 variable "provider_keyset_name" {
-  description = "Cloud provider keyset name"
-  default     = ""
+    description = "Cloud provider keyset name"
+    default     = ""
 }
 
 # Cloud provider configuration variables
 variable "provider_category" {
-  description = "NKS provider category"
-  default     = ""
+    description = "NKS provider category"
+    default     = ""
 }
 
 variable "provider_entity" {
-  description = "NKS ssh keyset name"
-  default     = ""
+    description = "NKS ssh keyset name"
+    default     = ""
 }
 
 variable "provider_code" {
-  description = "Cloud provider type code"
-  default     = ""
+    description = "Cloud provider type code"
+    default     = ""
 }
 
 variable "provider_k8s_version" {
-  description = "Cloud provider kubernetes version"
-  default     = ""
+    description = "Cloud provider kubernetes version"
+    default     = ""
 }
 
 variable "provider_etcd_type" {
-  description = "Cloud provider etcd type"
-  default     = ""
+    description = "Cloud provider etcd type"
+    default     = ""
 }
 
 variable "provider_channel" {
-  description = "Cloud provider channel"
-  default     = ""
+    description = "Cloud provider channel"
+    default     = ""
 }
 
 variable "provider_platform" {
-  description = "Cloud provider platform type"
-  default     = ""
+    description = "Cloud provider platform type"
+    default     = ""
 }
 
 variable "provider_region" {
-  description = "Cloud provider region"
-  default     = ""
+    description = "Cloud provider region"
+    default     = ""
 }
 
 variable "provider_zone" {
-  description = "Cloud provider zone"
-  default     = ""
+    description = "Cloud provider zone"
+    default     = ""
 }
 
 variable "provider_network_id" {
-  description = "Cloud provider network ID"
-  default     = ""
+    description = "Cloud provider network ID"
+    default     = ""
 }
 
 variable "provider_network_cidr" {
-  description = "Cloud provider network CIDR"
-  default     = ""
+    description = "Cloud provider network CIDR"
+    default     = ""
 }
 
 variable "provider_subnet_id" {
-  description = "Cloud provider subnet ID"
-  default     = ""
+    description = "Cloud provider subnet ID"
+    default     = ""
 }
 
 variable "provider_subnet_cidr" {
-  description = "Cloud provider subnet CIDR"
-  default     = ""
+    description = "Cloud provider subnet CIDR"
+    default     = ""
 }
 
 variable "provider_subnet_id2" {
-  description = "Cloud provider subnet ID for second master"
-  default     = ""
+    description = "Cloud provider subnet ID for second master"
+    default     = ""
 }
 
 variable "provider_master_size" {
-  description = "Cloud provider master node size"
-  default     = ""
+    description = "Cloud provider master node size"
+    default     = ""
 }
 
 variable "provider_worker_size" {
-  description = "Cloud provider worker node size"
-  default     = ""
+    description = "Cloud provider worker node size"
+    default     = ""
 }
 ----
 
@@ -261,9 +261,6 @@ provider_network_id = "__new__"
 provider_network_cidr = "10.0.0.0/16"
 provider_subnet_id = "__new__"
 provider_subnet_cidr = "10.0.1.0/24"
-provider_zone2 = "us-east-2a"
-provider_subnet_id2 = "__new__"
-provider_subnet_cidr2 = "10.0.2.0/24"
 provider_master_size = "t2.medium"
 provider_worker_size = "t2.medium"
 ----
@@ -327,4 +324,335 @@ If everything looks good, execute this plan and launch your cluster with the com
 
 ----
 terraform apply
+----
+
+When you are finished, remove the example and delete the clusters with the command:
+
+----
+terraform destroy
+----
+
+== Example: Istio Cross-Cluster Deployment
+
+This example uses the NKS Terraform provider to deploy two Azure clusters. It then connects them with an Istio mesh.
+
+We have created https://github.com/NetApp/terraform-provider-nks/tree/development/examples[a library of example code you can use in your Terraform projects]. For this example, we will use https://github.com/NetApp/terraform-provider-nks/tree/development/examples/istio-mesh[these examples for creating an Istio cross-cluster mesh].
+
+To begin, create a directory for your Terraform project. Note: Terraform will load any `.tf` file it finds in this directory.
+
+Create a file called `main.tf` in the Terraform project directory. Put the following content into this file:
+
+----
+provider "nks" {
+  # Set environment variable NKS_API_TOKEN with your API token from NKS
+  # Set environment variable NKS_API_URL with API endpoint,
+  # defaults to NKS production enviroment.
+}
+
+# Organization
+data "nks_organization" "default" {
+  name = "${var.organization_name}"
+}
+
+# Keysets
+data "nks_keyset" "keyset_default" {
+  # You can specify a custom orgID here or the system will find and use your
+  # default organization ID.
+  org_id = "${data.nks_organization.default.id}"
+
+  name     = "${var.provider_keyset_name}"
+  category = "provider"
+  entity   = "${var.provider_code}"
+}
+
+data "nks_keyset" "keyset_ssh" {
+  # You can specify a custom orgID here or the system will find and use your
+  # default organization ID.
+  org_id = "${data.nks_organization.default.id}"
+
+  category = "user_ssh"
+  name     = "${var.ssh_keyset_name}"
+}
+
+# Instance specs
+data "nks_instance_specs" "master-specs" {
+  provider_code = "${var.provider_code}"
+  node_size     = "${var.provider_master_size}"
+}
+
+data "nks_instance_specs" "worker-specs" {
+  provider_code = "${var.provider_code}"
+  node_size     = "${var.provider_worker_size}"
+}
+
+# Clusters
+resource "nks_cluster" "terraform-cluster-a" {
+  org_id                            = "${data.nks_organization.default.id}"
+  cluster_name                      = "${var.a_cluster_name}"
+  provider_code                     = "${var.provider_code}"
+  provider_keyset                   = "${data.nks_keyset.keyset_default.id}"
+  region                            = "${var.provider_region}"
+  k8s_version                       = "${var.provider_k8s_version}"
+  startup_master_size               = "${data.nks_instance_specs.master-specs.node_size}"
+  startup_worker_count              = 2
+  startup_worker_size               = "${data.nks_instance_specs.worker-specs.node_size}"
+  provider_resource_group_requested = "${var.provider_resource_group}"
+  rbac_enabled                      = true
+  dashboard_enabled                 = true
+  etcd_type                         = "${var.provider_etcd_type}"
+  platform                          = "${var.provider_platform}"
+  channel                           = "${var.provider_channel}"
+  ssh_keyset                        = "${data.nks_keyset.keyset_ssh.id}"
+}
+
+resource "nks_cluster" "terraform-cluster-b" {
+  org_id                            = "${data.nks_organization.default.id}"
+  cluster_name                      = "${var.b_cluster_name}"
+  provider_code                     = "${var.provider_code}"
+  provider_keyset                   = "${data.nks_keyset.keyset_default.id}"
+  region                            = "${var.provider_region}"
+  k8s_version                       = "${var.provider_k8s_version}"
+  startup_master_size               = "${data.nks_instance_specs.master-specs.node_size}"
+  startup_worker_count              = 2
+  startup_worker_size               = "${data.nks_instance_specs.worker-specs.node_size}"
+  provider_resource_group_requested = "${var.provider_resource_group}"
+  rbac_enabled                      = true
+  dashboard_enabled                 = true
+  etcd_type                         = "${var.provider_etcd_type}"
+  platform                          = "${var.provider_platform}"
+  channel                           = "${var.provider_channel}"
+  ssh_keyset                        = "${data.nks_keyset.keyset_ssh.id}"
+}
+
+# Solutions
+resource "nks_solution" "istio-a" {
+  org_id     = "${data.nks_organization.default.id}"
+  cluster_id = "${nks_cluster.terraform-cluster-a.id}"
+  solution   = "istio"
+}
+
+resource "nks_solution" "istio-b" {
+  org_id     = "${data.nks_organization.default.id}"
+  cluster_id = "${nks_cluster.terraform-cluster-b.id}"
+  solution   = "istio"
+}
+
+# Workspace
+data "nks_workspace" "my-workspace" {
+  org_id = "${data.nks_organization.default.id}"
+}
+
+# Istio mesh
+resource "nks_istio_mesh" "terraform-istio-mesh" {
+  name      = "${var.istio_mesh_name}"
+  mesh_type = "${var.istio_mesh_type}"
+  org_id    = "${data.nks_organization.default.id}"
+  workspace = "${data.nks_workspace.my-workspace.id}"
+
+  members = [
+    {
+      cluster           = "${nks_cluster.terraform-cluster-a.id}"
+      role              = "host"
+      istio_solution_id = "${nks_solution.istio-a.id}"
+    },
+    {
+      cluster           = "${nks_cluster.terraform-cluster-b.id}"
+      role              = "guest"
+      istio_solution_id = "${nks_solution.istio-b.id}"
+    },
+  ]
+}
+----
+
+Save and exit the file.
+
+Next, create `variables.tf` and put the following content into the file:
+
+----
+# Organization
+variable "organization_name" {
+  description = "NKS organization name"
+  default     = ""
+}
+
+# Cluster
+variable "a_cluster_name" {
+  description = "NKS cluster name"
+  default     = ""
+}
+
+variable "b_cluster_name" {
+  description = "NKS cluster name"
+  default     = ""
+}
+
+# Keyset
+variable "ssh_keyset_name" {
+  description = "NKS ssh keyset name"
+  default     = ""
+}
+
+variable "provider_keyset_name" {
+  description = "Cloud provider keyset name"
+  default     = ""
+}
+
+# Istio mesh
+variable "istio_mesh_name" {
+  description = "NKS istio mesh name"
+  default     = ""
+}
+
+variable "istio_mesh_type" {
+  description = "NKS istio mesh type"
+  default     = ""
+}
+
+# Cloud provider configuration variables
+variable "provider_code" {
+  description = "Cloud provider type code"
+  default     = ""
+}
+
+variable "provider_k8s_version" {
+  description = "Cloud provider kubernetes version"
+  default     = ""
+}
+
+variable "provider_etcd_type" {
+  description = "Cloud provider etcd type"
+  default     = ""
+}
+
+variable "provider_channel" {
+  description = "Cloud provider channel"
+  default     = ""
+}
+
+variable "provider_platform" {
+  description = "Cloud provider platform type"
+  default     = ""
+}
+
+variable "provider_region" {
+  description = "Cloud provider region"
+  default     = ""
+}
+
+variable "provider_resource_group" {
+  description = "Cloud provider resource group"
+  default     = ""
+}
+
+variable "provider_network_id" {
+  description = "Cloud provider network ID"
+  default     = ""
+}
+
+variable "provider_network_cidr" {
+  description = "Cloud provider network CIDR"
+  default     = ""
+}
+
+variable "provider_subnet_id" {
+  description = "Cloud provider subnet ID"
+  default     = ""
+}
+
+variable "provider_subnet_cidr" {
+  description = "Cloud provider subnet CIDR"
+  default     = ""
+}
+
+variable "provider_master_size" {
+  description = "Cloud provider master node size"
+  default     = ""
+}
+
+variable "provider_worker_size" {
+  description = "Cloud provider worker node size"
+  default     = ""
+}
+----
+
+Save and exit the file.
+
+Finally, create `terraform.tfvars` with the following content:
+
+----
+# Organization
+organization_name = "My Organization"
+
+# Cluster
+a_cluster_name = "TF istio meshes Cluster A"
+b_cluster_name = "TF istio meshes Cluster B"
+
+# Keyset
+provider_keyset_name = "My Provider Credentials"
+ssh_keyset_name = "My SSH Keyset"
+
+# Provider
+provider_code = "azure"
+provider_k8s_version = "v1.13.2"
+provider_platform = "coreos"
+provider_region = "eastus"
+provider_resource_group = "__new__"
+provider_network_id = "__new__"
+provider_network_cidr = "10.0.0.0/16"
+provider_subnet_id = "__new__"
+provider_subnet_cidr = "10.0.1.0/24"
+provider_master_size = "standard_f1"
+provider_worker_size = "standard_f1"
+provider_channel = "stable"
+provider_etcd_type = "classic"
+
+# Istio mesh
+istio_mesh_name = "tf-istio-mesh"
+istio_mesh_type = "cross_cluster"
+----
+
+Customize the variables in this file to match your credentials and desired setup. At a minimum, you will need to edit:
+
+----
+organization_name = "My Organization"
+provider_keyset_name = "My Provider Credentials"
+ssh_keyset_name = "My SSH Keyset"
+----
+
+Save and exit the file.
+
+When you are ready to run the example, first export your NKS API token. From inside your project directory, use the command:
+
+----
+export NKS_API_TOKEN=[Your NKS API token]
+----
+
+Then set the API URL:
+
+----
+export NKS_API_URL=https://api.stackpoint.io/
+----
+
+Since we have changed the Terraform configuration files, use the command:
+
+----
+terraform init
+----
+
+The next step is to have Terraform check the configuration files, and present you with a plan for executing the changes:
+
+----
+terraform plan
+----
+
+If everything in the plan looks correct, execute this plan and launch your clusters with the command:
+
+----
+terraform apply
+----
+
+When you are finished, remove the example and delete the clusters with the command:
+
+----
+terraform destroy
 ----

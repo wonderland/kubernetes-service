@@ -15,19 +15,16 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 
 == Documentation
 
-=== Create Auth Credentials
+=== Setup - Add Credentials
 
 * link:create-auth-credentials-on-aws.html[Create Auth Credentials on Amazon Web Services (AWS)]
 * link:create-auth-credentials-on-azure.html[Create Auth Credentials on Azure]
 * link:create-auth-credentials-on-gce.html[Create Auth Credentials on Google Compute Engine (GCE)]
 * link:create-auth-credentials-on-gke.html[Create Auth Credentials on Google Container Engine (GKE)]
 
-=== Kubernetes Cloud Backup
-
-* link:using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
-
 == Tutorials
 
-* link:managing-ingresses-on-kubernetes.html[Managing Ingresses on Kubernetes]
-* link:a-sysdig-kubernetes-adventure.html[Sysdig+Kubernetes Adventure]
+* link:intro-to-terraform-on-nks.html[Terraform on NKS]
+* link:using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
 * link:install-kubectl-to-control-a-kubernetes-cluster.html[Install kubectl to Control a Kubernetes Cluster]
+* link:managing-ingresses-on-kubernetes.html[Managing Ingresses on Kubernetes]
