@@ -11,6 +11,8 @@ entries:
         url: /create-auth-credentials-on-gce.html
       - title: Create Credentials on GKE
         url: /create-auth-credentials-on-gke.html
+      - title: Find AWS Credentials for CVS
+        url: /find-aws-credentials-for-cvs.html
   - title: Terraform on NKS
     url: /intro-to-terraform-on-nks.html
   - title: Install Kubectl
