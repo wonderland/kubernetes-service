@@ -28,7 +28,7 @@ To set up the backup solution for the cluster, use the Helm chart and deploy it 
     bash
     helm upgrade --install kube-backup kube-state-backup --namespace kube-backup \
         --set schedule="*/50 * * * *",aws.enabled="true" \
-        --set  aws.accessKeyId="UNF37N93MG374B27",aws.secretAccessKey="AvgjbYndf9TMF8Y3F3J993TMTJ2309T" \
+        --set  aws.accessKeyId="ABCDEFG12345678",aws.secretAccessKey="AaBbCcDdEeFfGg123456789" \
         --set aws.bucket="my-kube-state-backup-bucket",aws.region="eu-west-2"
 ```
 
@@ -48,7 +48,7 @@ To set up the backup solution for the cluster, use the Helm chart and deploy it 
     bash
     helm upgrade --install spc-kube-backup spc-state-backup --namespace stackpoint-system \
         --set schedule="*/50 * * * *",azure.enabled="true",storageAccount="azure_storage_account" \
-        --set azure.storageAccessKey="AFSDJJDUEIEOOEOEOOEOEO" \
+        --set azure.storageAccessKey="ABCDEFG12345678" \
         --set azure.storageContainer="my-kube-state-backup-container" \
         --set jobCleanup.enabled="true" # set it only for k8s v1.5
 ```
