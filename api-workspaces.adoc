@@ -1,0 +1,371 @@
+---
+sidebar: sidebar
+permalink: api-workspaces.html
+summary: How to use the Workspaces API resource for the NKS API.
+---
+
+= Workspaces
+
+== Overview
+
+Workspaces allow you to control access for your users.
+
+== GET All Workspaces
+
+Get the list of Workspaces for the specified Organization.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+
+|**Org ID**
+| Yes
+| The Organization ID.
+|===
+
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/workspaces
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/workspaces"
+----
+
+Example response:
+
+[source,json]
+----
+[
+  {
+    "pk": 3,
+    "name": "Default",
+    "slug": "default",
+    "org": 3,
+    "is_default": true,
+    "created": "2019-02-12T20:11:53.479801Z",
+    "clusters": [
+      {
+        "pk": 3,
+        "name": "Yet Another Cluster",
+        "provider": "aws",
+        "state": "draft"
+      },
+      {
+        "pk": 2,
+        "name": "My New Cluster",
+        "provider": "aws",
+        "state": "draft"
+      }
+    ],
+    "federations": [
+    ],
+    "user_solutions": [
+    ],
+    "team_workspaces": [
+      {
+        "pk": 3,
+        "team": {
+          "pk": 3,
+          "name": "Everyone",
+          "slug": "everyone",
+          "org": 3,
+          "is_org_wide": true,
+          "created": "2019-02-12T20:11:53.481354Z"
+        },
+        "workspace": 3,
+        "created": "2019-02-12T20:11:53.583671Z"
+      }
+    ]
+  }
+]
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+
+|**pk** | Workspace ID.
+|**name** | Workspace name.
+|**slug** | A human-readable unique identifier, used for storing Workspace data.
+|**org** | The Organization ID.
+|**is_default** | Whether or not this is the default Workspace.
+|**created** | The Workspace creation timestamp.
+|**clusters** | Any clusters assigned to the specified Workspace.
+|**federations** | Any federations assigned to the specified Workspace.
+|**user_solutions** | Any user solutions assigned to the specified Workspace.
+|**team_workspaces** | Teams assigned to the specified Workspace.
+|===
+
+== GET a Specific Workspace
+
+Get information for a specific Workspace.
+
+**Path Parameters**
+|===
+|**Name** | **Required** | **Description**
+
+|**Org ID** | Yes | The Organization ID.
+|**Workspace ID** | Yes | The Workspace ID.
+|===
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/workspaces/{Workspace ID}
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/workspaces/3"
+----
+
+Example response:
+
+[source,json]
+----
+{
+  "pk": 3,
+  "name": "Default",
+  "slug": "default",
+  "org": 3,
+  "is_default": true,
+  "created": "2019-02-12T20:11:53.479801Z",
+  "clusters": [
+    {
+      "pk": 3,
+      "name": "Yet Another Cluster",
+      "provider": "aws",
+      "state": "draft"
+    },
+    {
+      "pk": 2,
+      "name": "My New Cluster",
+      "provider": "aws",
+      "state": "draft"
+    }
+  ],
+  "federations": [
+  ],
+  "user_solutions": [
+  ],
+  "team_workspaces": [
+    {
+      "pk": 3,
+      "team": {
+        "pk": 3,
+        "name": "Everyone",
+        "slug": "everyone",
+        "org": 3,
+        "is_org_wide": true,
+        "created": "2019-02-12T20:11:53.481354Z"
+      },
+      "workspace": 3,
+      "created": "2019-02-12T20:11:53.583671Z"
+    }
+  ]
+}
+----
+
+**Return Values**
+
+|===
+|**Name** | **Description**
+|**pk** | Workspace ID.
+|**name** | Workspace name.
+|**slug** | A human-readable unique identifier, used for storing Workspace data.
+|**org** | The Organization ID.
+|**is_default** | Whether or not this is the default Workspace.
+|**created** | The Workspace creation timestamp.
+|**clusters** | Any clusters assigned to the specified Workspace.
+|**federations** | Any federations assigned to the specified Workspace.
+|**user_solutions** | Any user solutions assigned to the specified Workspace.
+|**team_workspaces** | Teams assigned to the specified Workspace.
+|===
+
+== POST Create a New Workspace
+
+Create a new Workspace in the user's account.
+
+[source,shell]
+----
+POST https://api.stackpoint.io/orgs/{Org ID}/workspaces
+----
+
+Example Request:
+
+[source,shell]
+----
+curl -X POST \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-d @add-workspace.json \
+"https://api.stackpoint.io/orgs/3/workspaces"
+----
+
+Contents of `add-workspace.json`:
+
+[source,shell]
+----
+{
+  "name": "My New Workspace"
+}
+----
+
+Example Response:
+
+[source,json]
+----
+{
+  "pk": 4,
+  "name": "My New Workspace",
+  "slug": "my-new-workspace",
+  "org": 3,
+  "is_default": false,
+  "created": "2019-02-26T17:50:15.851826Z",
+  "team_workspaces": [
+  ]
+}
+----
+
+**Values**
+|===
+
+|**Name** | **Required** | **Description**
+
+|**name** | Yes | Workspace name.
+|===
+
+**Return Values**
+|===
+|**Name** | **Description**
+
+|**pk** | Workspace ID.
+|**name** | Workspace name.
+|**slug** | A human-readable unique identifier, used for storing Workspace data.
+|**created** | Timestamp of the Organization's create date.
+|**updated** | Timestamp of the last update to the Organization
+|===
+
+
+## PATCH Update an Organization
+
+Update information for an existing Workspace.
+
+**Path Parameters**
+
+|===
+|**Name** | **Required** | **Description**
+
+|**Org ID** | Yes | The Organization ID.
+|**Workspace ID** | Yes | The Workspace ID.
+|===
+
+[source,shell]
+----
+PATCH https://api.stackpoint.io/orgs/{Org ID}/workspaces/{Workspace ID}
+----
+
+Example Request: Update the Organization name from the contents of a JSON file:
+
+[source,shell]
+----
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-d @patch-workspace.json \
+"https://api.stackpoint.io/orgs/3/workspaces/4"
+----
+
+Contents of `postorg.json`:
+
+[source,json]
+----
+{
+  "name": "Slightly Different Workspace Name"
+}
+----
+
+Alternate example: Update the Organization name as form data:
+
+[source,shell]
+----
+curl -X PATCH \
+-H "Content-Type: multipart/form-data" \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-F name="Slightly Different Workspace Name" \
+"https://api.stackpoint.io/orgs/3/workspaces/4"
+----
+
+Example Response
+
+[source,json]
+----
+{
+  "pk": 4,
+  "name": "Slightly Different Workspace Name",
+  "slug": "my-new-workspace",
+  "org": 3,
+  "is_default": false,
+  "created": "2019-02-26T17:50:15.851826Z",
+  "team_workspaces": [
+  ]
+}
+----
+
+**Values**
+|===
+|**Name** | **Type** | **Description**
+
+|**name** | String | Workspace name.
+|**is_default** | Boolean | Whether or not this is the default Workspace. Allowed values are `true` or `false`.
+|===
+
+**Return Values**
+|===
+|**Name** | **Description**
+
+|**pk** | Organization ID.
+|**name** | Organization name.
+|**slug** | A human-readable unique identifier, used for storing Organization data.
+|**is_default** | Whether or not this is the default Workspace.
+|**created** | Timestamp of the Organization's create date.
+|**updated** | Timestamp of the last update to the Organization
+|===
+
+## DELETE a Workspace
+
+Delete the Workspace.
+
+**Path Parameters**
+|===
+|**Name** | **Required** | **Description**
+
+|**Org ID** | Yes | The Organization ID.
+|**Workspace ID** | Yes | The Workspace ID.
+|===
+
+[source,shell]
+----
+curl -X DELETE "https://api.stackpoint.io/orgs/{Org ID}/workspaces/{Workspace ID}"
+----
+
+Example request to delete the Workspace with Workspace ID 4:
+
+[source,shell]
+----
+curl -X DELETE \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+https://api.stackpoint.io/orgs/3/workspaces/4
+----
+
+If the cluster is successfully deleted, this command returns an empty response with status code `204`.

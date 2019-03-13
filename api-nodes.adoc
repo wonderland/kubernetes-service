@@ -1,0 +1,477 @@
+---
+sidebar: sidebar
+permalink: api-nodes.html
+summary: How to use the Nodes API resource for the NKS API.
+---
+
+= Nodes
+
+Each NKS cluster can have 3 or more nodes.
+
+== GET All Nodes for a Cluster
+
+Get all transitioning or running nodes in the specified cluster.
+
+**Path Parameters**
+
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Cluster ID** | Yes | The Cluster ID.
+|===
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/clusters/2/nodes"
+----
+
+Example response:
+
+[source,json]
+----
+{
+  "pk": 2,
+  "name": "Yet Another Cluster",
+  "org": 3,
+  "site": 8,
+  "workspace": {
+    "pk": 3,
+    "name": "Default",
+    "slug": "default",
+    "org": 3,
+    "is_default": true,
+    "created": "2019-02-12T20:11:53.479801Z"
+  },
+  "instance_id": "spcrputqws",
+  "provider": "aws",
+  "provider_keyset": 4,
+  "provider_keyset_name": "My Renamed AWS Keyset2",
+  "region": "us-west-2",
+  "platform": "coreos",
+  "channel": "stable",
+  "state": "draft",
+  "project_id": "",
+  "owner": 3,
+  "user_ssh_keyset": 5,
+  "user_ssh_keyset_name": "Default SPC SSH Keypair",
+  "etcd_type": "self_hosted",
+  "provider_network_id": "vpc-c4a6f5a0",
+  "provider_network_cidr": "172.22.0.0\/16",
+  "provider_subnet_id": "subnet-d19044b6",
+  "provider_subnet_cidr": "172.22.4.0\/24",
+  "provider_balancer_id": null,
+  "provider_resource_group": null,
+  "config": {
+
+  },
+  "layout": {
+
+  },
+  "solutions": [
+    {
+      "pk": 3,
+      "name": "Helm Tiller",
+      "instance_id": "solvmzknxc",
+      "cluster": 3,
+      "solution": "helm_tiller",
+      "installer": "ansible_custom",
+      "keyset": null,
+      "keyset_name": "",
+      "version": "",
+      "version_migrations": [
+
+      ],
+      "state": "draft",
+      "url": "",
+      "username": "",
+      "password": "",
+      "max_nodes": null,
+      "git_repo": "",
+      "git_path": "",
+      "initial": true,
+      "config": {
+
+      },
+      "extra_data": {
+
+      },
+      "created": "2019-02-15T17:22:24.852309Z",
+      "updated": "2019-02-15T17:22:24.852327Z",
+      "is_deleteable": false
+    }
+  ],
+  "features": [
+
+  ],
+  "follower": {
+    "pk": 3,
+    "cluster": 3,
+    "user": 3,
+    "notify": true,
+    "tracked_log": null
+  },
+  "notified": false,
+  "created": "2019-02-15T17:22:24.713614Z",
+  "updated": "2019-02-15T17:22:24.844909Z",
+  "k8s_version": "v1.8.3",
+  "k8s_dashboard_enabled": true,
+  "k8s_rbac_enabled": true,
+  "k8s_etcd_operator_installed": false,
+  "k8s_dashboard_installed": false,
+  "k8s_pod_cidr": "10.2.0.0\/16",
+  "k8s_service_cidr": "10.3.0.0\/24",
+  "is_kubeconfig_available": false,
+  "kubeconfig_path": "\/orgs\/3\/clusters\/3\/kubeconfig",
+  "node_count": 3,
+  "master_count": 1,
+  "master_size": "t2.large",
+  "worker_count": 2,
+  "worker_size": "nodepool-dependent",
+  "image": "ami-0b0f4f5f0c8c1a797",
+  "zone": "us-west-2a",
+  "is_k8s_available": false,
+  "is_failed": true,
+  "federation_role": null,
+  "k8s_etcd_cluster": null,
+  "is_etcd_host": false,
+  "version_migrations": [
+    "v1.8.11"
+  ],
+  "istio_mesh_member": null,
+  "owner_detail": "jdoe@example.com"
+}
+----
+
+**Return Values**
+
+|===
+|**Name** | **Description**
+|**pk** | Cluster ID.
+|**name** | Cluster name.
+|**org** | Organization ID.
+|**site** | The website from which the cluster was created (NKS or an OEM site).
+|**workspace** | Information about the assigned Workspace.
+|**name** | Workspace name.
+|**slug** | A human-readable unique identifier, used for storing Workspace data.
+|**is_default** | Whether or not this is the default Workspace.
+|**created** | The Workspace creation timestamp.
+|**instance_id** | Instance ID.
+|**provider** | The provider on which the cluster is provisioned.
+|**provider_keyset** | The ID of the keyset used to provision the cluster.
+|**provider_keyset_name** | The name of the keyset used to provision the cluster.
+|**region** | The region in which the cluster is provisioned.
+|**platform** | The node's operating system.
+|**channel** | The cluster's OS distribution version.
+|**state** | The cluster's current state (e.g. `running`, `failed`, etc.)
+|**project_id** | Certain providers require a project ID.
+|**owner** | The ID of the user who created the cluster.
+|**user_ssh_keyset** | The ID of the SSH keyset used to create the cluster.
+|**user_ssh_keyset_name** | The name of the SSH keyset used to create the cluster.
+|**etcd_type** | The type of etcd server.
+|**root_disk_size** | Size of the root disk.
+|**zone** | The AWS provider zone. Valid only for master nodes on AWS.
+|**provider_network_id** | VPC ID. AWS only.
+|**provider_network_cidr** | VPC CIDR. AWS only.
+|**provider_subnet_id** | ID of the subnet where the node has been added. Valid only for master nodes on AWS.
+|**provider_subnet_cidr** | The subnet CIDR. Valid only for master nodes on AWS.
+|**provider_balancer_id** | The ID of the load balancer, if applicable.
+|**provider_resource_group** | The ID of the resource group, if applicable.
+|**solutions** | A list of solution objects.
+|**k8s_version** | The Kubernetes version.
+|**k8s_dashboard_enabled** | Whether or not the dashboard is enabled.
+|**k8s_rbac_enabled** | Whether or not RBAC is enabled.
+|**k8s_etcd_operator_installed** | Whether or not the etcd operator is installed.
+|**k8s_dashboard_installed** | Whether or not the dashboard is installed.
+|**k8s_pod_cidr** | The pod's CIDR.
+|**k8s_service_cidr** | The pod's service CIDR.
+|**is_kubeconfig_available** | Whether or not the kubeconfig is available.
+|**kubeconfig_path** | The path to the kubeconfig file.
+|**node_count** | Number of nodes.
+|**master_count** | Number of masters. The only valid value for a cluster creation request is `1`.
+|**master_size** | Size of the master. Consult provider documentation for allowed instance sizes.
+|**worker_count** | Number of workers. The minimum value is `2`.
+|**worker_size** | A single size for all workers. Consult provider documentation for allowed instance sizes.
+|**image** | The image used.
+|**is_k8s_available** | Whether or not Kubernetes is available.
+|**is_failed** | Whether or not the node has failed.
+|**federation_role** | The node's federation role (if applicable).
+|**k8s_etcd_cluster** | The etcd cluster ID.
+|**is_etcd_host** | Whether or not the node is the etc host.
+|**version_migrations** | Available Kubernetes versions for migration.
+|===
+
+== GET a Specific Node
+
+Get the specified node.
+
+**Path Parameters**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Cluster ID** | Yes | The Cluster ID.
+|===
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/clusters/2/nodes/1"
+----
+
+Example response:
+
+[source,json]
+----
+{
+    "pk": 1,
+    "cluster": 2,
+    "pool": null,
+    "pool_name": "",
+    "instance_id": "spca44o3iw-master-1",
+    "role": "master",
+    "group_name": "",
+    "private_ip": "10.136.53.103",
+    "public_ip": "67.205.148.185",
+    "platform": "coreos",
+    "image": "coreos-stable",
+    "channel": "stable",
+    "location": "nyc1",
+    "provider_subnet_id": "",
+    "provider_subnet_cidr": "",
+    "size": "2gb",
+    "state": "running",
+    "is_failed": false,
+    "created": "2017-12-06T02:22:21.768702Z",
+    "updated": "2017-12-07T02:20:57.216553Z"
+}
+----
+
+**Return Values**
+
+|===
+|Parameter | Description
+|**pk** | The node ID.
+|**cluster** | The cluster ID.
+|**pool** | The node pool ID.
+|**pool_name** | The node pool name.
+|**instance_id** | The instance ID.
+|**role** | The type of node: `master` or `worker`.
+|**group_name** | The group name.
+|**private_ip** | The node's private IP address.
+|**public_ip** | The node's public IP address.
+|**platform** | The node's operating system.
+|**image** | The image used.
+|**channel** | The operating system version.
+|**location** | The node's location.
+|**provider_subnet_id** | ID of the subnet where the node has been added. Valid only for master nodes on AWS.
+|**provider_subnet_cidr** | The subnet CIDR. Valid only for master nodes on AWS.
+|**size** | The node's size.
+|**state** | The node's current state (e.g. `running`, `failed`, etc.)
+|**is_failed** | Whether or not the node has failed.
+|**created** | The timestamp of the node's creation.
+|**updated** | The timestamp of the last time the node was updated.
+|===
+
+== POST Add a Node
+
+Add a node to the specified cluster. Adding master and worker nodes require separate requests.
+
+WARNING: Only 1 master node should be added at a time.
+
+**Path Parameters**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Cluster ID** | Yes | The Cluster ID.
+|===
+
+[source,shell]
+----
+POST "https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/add_node"
+----
+
+**Node Attributes**
+
+|===
+|**Name** | **Type** | **Description**
+|**role** | string | Type of node to add, either `master` or `worker`.
+|**size** | string | Instance size for the nodes. Consult provider documentation for available instance sizes.
+|**node_count** | integer | Number of nodes to add
+|**node_pool** | integer | ID of the node pool to which the node should be added. Valid only when adding workers. If no value is specified, the default node pool will be used.
+|**zone** | string | The zone where the node should be added. Valid only for master nodes on AWS.
+|**provider_subnet_id** | string | ID of the subnet where node should be added. Valid only for master nodes on AWS
+|**provider_subnet_cidr** | string | Subnet CIDR. Valid only for master nodes on AWS
+|===
+
+== Example: Add a Master Node
+
+Add a master node to an AWS cluster.
+
+**Path Parameters**
+
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Cluster ID** | Yes | The Cluster ID.
+|===
+
+Example request:
+
+[source,shell]
+----
+curl -X POST \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d @add-master-node.json \
+"https://api.stackpoint.io/orgs/1/clusters/12/add_node"
+----
+
+Contents of `add-master-node.json`:
+
+[source,json]
+----
+{
+    "node_count": 1,
+    "size": "2gb",
+    "role": "master"
+}
+----
+
+Example response:
+
+[source,json]
+----
+[
+  {
+    "pk": 10,
+    "cluster": 3,
+    "pool": null,
+    "pool_name": "",
+    "instance_id": "spcrputqws-master-2",
+    "provider_node_id": "",
+    "role": "master",
+    "group_name": "",
+    "private_ip": "",
+    "public_ip": "",
+    "platform": "coreos",
+    "image": "ami-025acbb0fb1db6a27",
+    "channel": "stable",
+    "etcd_state": "none",
+    "root_disk_size": 50,
+    "gpu_instance_size": "",
+    "gpu_core_count": null,
+    "location": "us-west-2:us-west-2a",
+    "zone": "us-west-2a",
+    "provider_subnet_id": "subnet-d19044b6",
+    "provider_subnet_cidr": "172.22.4.0\/24",
+    "size": "2gb",
+    "state": "draft",
+    "is_failed": false,
+    "created": "2019-03-04T20:49:45.390109Z",
+    "updated": "2019-03-04T20:49:45.390131Z"
+  }
+]
+----
+
+**Node Attributes**
+
+|===
+|**Name** | **Type** | **Description**
+|**role** | string | Type of node to add, either `master` or `worker`.
+|**size** | string | Instance size for the nodes. Consult provider documentation for available instance sizes.
+|**node_count** | integer | Number of nodes to add
+|**node_pool** | integer | ID of the node pool to which the node should be added. Valid only when adding workers. If no value is specified, the default node pool will be used.
+|**zone** | string | The zone where the node should be added. Valid only for master nodes on AWS.
+|**provider_subnet_id** | string | ID of the subnet where node should be added. Valid only for master nodes on AWS
+|**provider_subnet_cidr** | string | Subnet CIDR. Valid only for master nodes on AWS
+|===
+
+== DELETE: Check Node Delete Eligibility
+
+Check whether a specific node can be deleted.
+
+**Path Parameters**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Cluster ID** | Yes | The Cluster ID.
+|**Node ID** | Yes | The Node ID.
+|===
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}/can_delete
+----
+
+Example request:
+
+[source,json]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/clusters/3/nodes/10/can_delete"
+----
+
+If the node can be deleted, the API will return the response:
+
+[source,json]
+----
+{
+    "eligible": True
+}
+----
+
+If the node can not be deleted, the API will return a JSON response with status code `400`:
+
+[source,json]
+----
+{
+    "detail": "Initial master node is essential to the cluster and can't be removed."
+}
+----
+
+== DELETE a Node
+
+Delete the specified node.
+
+**Path Parameters**
+
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Cluster ID** | Yes | The Cluster ID.
+|**Node ID** | Yes | The Node ID.
+|===
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}/can_delete
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X DELETE \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/clusters/3/nodes/10"
+----
+
+If successful, this command returns an empty response with status code `204`

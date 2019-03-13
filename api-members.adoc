@@ -1,0 +1,304 @@
+---
+sidebar: sidebar
+permalink: api-members.html
+summary: How to use the Members API resource for the NKS API.
+---
+
+= Members
+
+Manage members for your Organizations, Teams, and Workspaces.
+
+== GET All Members
+
+Retrieve details for all the members of the specified Organization.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/members
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/members"
+----
+
+Example response:
+
+[source,json]
+----
+[
+  {
+    "pk": 3,
+    "user": {
+      "pk": 3,
+      "username": "jdoe",
+      "email": "jdoe@example.com",
+      "first_name": "",
+      "last_name": "",
+      "full_name": "",
+      "date_joined": "2019-02-01T18:01:29.685916Z"
+    },
+    "org": 3,
+    "role": "owner",
+    "is_owner": true,
+    "is_manager": true,
+    "is_billing_manager": false,
+    "subscription": {
+      "pk": 3,
+      "internal_id": "SPC-RO2IGW7GGL",
+      "user": 3,
+      "state": "active",
+      "access_plan": "stackpointio-standard-monthly",
+      "support_plan": "",
+      "is_metered": true,
+      "is_active": true,
+      "is_exempt": false,
+      "account_balance": {
+        "total_due": 0,
+        "payment_required": false
+      }
+    },
+    "is_default": false,
+    "created": "2019-02-12T20:11:53.463232Z"
+  }
+]
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | Cluster ID.
+|**username** | The user's username.
+|**email** | The user's email address.
+|**first_name** | The user's first name.
+|**last_name** | The user's last name.
+|**full_name** | The user's full name.
+|**org_memberships** | The Organization(s) of which the user is a member.
+|**name** | Organization name.
+|**slug** | A human-readable unique identifier, used for storing Organization data.
+|**logo** | Organization logo. This value is `null` if a custom logo has not been set.
+|**created** | Timestamp of the Organization's create date.
+|**updated** | Timestamp of the last update to the Organization.
+|**is_default** | Whether or not this is the default Organization for the user.
+|**role** | The user's role in the Organization: `owner`, `admin`, or `member`.
+|**is_owner** | Whether or not the user is the owner of the Organization.
+|**is_manager** | Whether or not the user is the manager of the OEM Organization.
+|**is_billing_manager** | Whether or not the user is the billing manager of the OEM Organization.
+|**subscription** | Subscription details for the user's account.
+|**internal_id** | The internal ID of the user's subscription.
+|**user** | The user ID.
+|**state** | The state of the subscription: `trial`, `active`, `inactive`, `canceled`, or `suspended`.
+|**access_plan** | The subscription access plan.
+|**support_plan** | The subscription support plan.
+|**is_metered** | Whether or not the subscription is a metered plan.
+|**is_active** | Whether or not the plan is active.
+|**is_exempt** | Whether or not the user has an employee "exempt" account.
+|**account_balance** | The current account balance.
+|**total_due** | The total balance due.
+|**payment_required** | Whether or not payment is currently required.
+|===
+
+== GET a Specific Member
+
+Retrieve details for a specific member of the specified Organization.
+
+**Path Parameters**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Member ID** | Yes | The Member ID.
+|===
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/members/{Member ID}
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/members/3"
+----
+
+Example response:
+
+[source,json]
+----
+{
+  "pk": 3,
+  "user": {
+    "pk": 3,
+    "username": "erika",
+    "email": "berika@netapp.com",
+    "first_name": "",
+    "last_name": "",
+    "full_name": "",
+    "date_joined": "2019-02-01T18:01:29.685916Z"
+  },
+  "org": 3,
+  "role": "owner",
+  "is_owner": true,
+  "is_manager": true,
+  "is_billing_manager": false,
+  "subscription": {
+    "pk": 3,
+    "internal_id": "SPC-RO2IGW7GGL",
+    "user": 3,
+    "state": "active",
+    "access_plan": "stackpointio-standard-monthly",
+    "support_plan": "",
+    "is_metered": true,
+    "is_active": true,
+    "is_exempt": false,
+    "account_balance": {
+      "total_due": 0,
+      "payment_required": false
+    }
+  },
+  "is_default": false,
+  "created": "2019-02-12T20:11:53.463232Z"
+}
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | Member ID.
+|**username** | The user's username.
+|**email** | The user's email address.
+|**first_name** | The user's first name.
+|**last_name** | The user's last name.
+|**full_name** | The user's full name.
+|**org_memberships** | The Organization(s) of which the user is a member.
+|**name** | Organization name.
+|**slug** | A human-readable unique identifier, used for storing Organization data.
+|**logo** | Organization logo. This value is `null` if a custom logo has not been set.
+|**created** | Timestamp of the Organization's create date.
+|**updated** | Timestamp of the last update to the Organization.
+|**is_default** | Whether or not this is the default Organization for the user.
+|**role** | The user's role in the Organization: `owner`, `admin`, or `member`.
+|**is_owner** | Whether or not the user is the owner of the Organization.
+|**is_manager** | Whether or not the user is the manager of the OEM Organization.
+|**is_billing_manager** | Whether or not the user is the billing manager of the OEM Organization.
+|**subscription** | Subscription details for the user's account.
+|**internal_id** | The internal ID of the user's subscription.
+|**user** | The user ID.
+|**state** | The state of the subscription: `trial`, `active`, `inactive`, `canceled`, or `suspended`.
+|**access_plan** | The subscription access plan.
+|**support_plan** | The subscription support plan.
+|**is_metered** | Whether or not the subscription is a metered plan.
+|**is_active** | Whether or not the plan is active.
+|**is_exempt** | Whether or not the user has an employee "exempt" account.
+|**account_balance** | The current account balance.
+|**total_due** | The total balance due.
+|**payment_required** | Whether or not payment is currently required.
+|===
+
+== Send a New Member Invite
+
+You cannot add a new member directly through the API. However, you can send an email invitation to invite the member to the specified Organization. If the member does not yet have an NKS account, they will be prompted to create one.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+https://api.stackpoint.io/orgs/{Org ID}/invites
+----
+
+Example Request:
+
+[source,shell]
+----
+curl 'https://api.stackpoint.io/orgs/3/invites' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-d '[{"name":"J Doe","email":"jdoe@example.com","role":"member","teams":[]}]' \
+--compressed
+----
+
+Example response:
+
+[source,json]
+----
+[
+  {
+    "pk": 2167,
+    "name": "J Doe",
+    "email": "jdoe@example.com",
+    "org": 3,
+    "role": "member",
+    "teams": [
+
+    ],
+    "user": null,
+    "state": "pending",
+    "invite_url": "\/organization\/3\/accept-invite\/ABCD1234EFGH5678==",
+    "expires": "2019-03-14T21:44:20.481589Z",
+    "is_expired": false,
+    "is_accepted": false,
+    "created": "2019-03-07T21:44:20.481950Z",
+    "updated": "2019-03-07T21:44:20.481968Z"
+  }
+]
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | Request ID.
+|**name** | The user's name.
+|**email** | The user's email address.
+|**org** | The ID of the Organization to which the member is being invited.
+|**role** | The user's role.
+|**state** | The current state of the invitation.
+|**invite_url** | The URL which the user will need to click to accept the invitation.
+|**expires** | The timestamp when the URL expires. Invitation URLs are valid for 7 days after they are created.
+|**is_expired** | Whether or not the invitation is expired.
+|**is_accepted** | Whether or not the invitation is accepted.
+|**created** | The timestamp of the invitation's creation.
+|**updated** | The timestamp of the last update to the invitation.
+|===
+
+== DELETE a Member from an Organization
+
+Remove a member from the specified Organization. Note: This action does not delete the member's NKS account. It simply removes them from the Organization.
+
+**Path Parameters**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Member ID** | Yes | The Member ID.
+|===
+
+[source,shell]
+----
+DELETE https://api.stackpoint.io/orgs/{Org ID}/members/{Member ID}
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X DELETE \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/members/3"
+----
+
+If the member is successfully removed, this command returns an empty response with status code `204`

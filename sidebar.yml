@@ -13,6 +13,28 @@ entries:
         url: /create-auth-credentials-on-gke.html
       - title: Find AWS Credentials for CVS
         url: /find-aws-credentials-for-cvs.html
+
+  - title: API
+    entries:
+      - title: API Basics
+        url: /api-basics.html
+      - title: Organizations
+        url: /api-organizations.html
+      - title: Workspaces
+        url: /api-workspaces.html
+      - title: Teams
+        url: /api-teams.html
+      - title: Members
+        url: /api-members.html
+      - title: Keysets
+        url: /api-keysets.html
+      - title: Clusters
+        url: /api-clusters.html
+      - title: Nodes
+        url: /api-nodes.html
+      - title: Nodepools
+        url: /api-nodepools.html
+
   - title: Terraform on NKS
     url: /intro-to-terraform-on-nks.html
   - title: Install Kubectl

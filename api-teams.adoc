@@ -1,0 +1,371 @@
+---
+sidebar: sidebar
+permalink: api-teams.html
+summary: How to use the Teams API resource for the NKS API.
+---
+
+= Teams
+
+== Overview
+
+Teams allow you to organize your users into groups, in order to manage their access rights.
+
+== GET All Teams
+
+Get the list of Teams for the specified Organization.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/teams
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/teams"
+----
+
+Example response:
+
+[source,json]
+----
+[
+  {
+    "pk": 3,
+    "name": "Everyone",
+    "slug": "everyone",
+    "org": 3,
+    "is_org_wide": true,
+    "created": "2019-02-12T20:11:53.481354Z",
+    "memberships": [
+      {
+        "pk": 3,
+        "user": {
+          "pk": 3,
+          "username": "jdoe",
+          "email": "jdoe@example.com",
+          "first_name": "",
+          "last_name": "",
+          "full_name": "",
+          "date_joined": "2019-02-01T18:01:29.685916Z"
+        },
+        "team": 3,
+        "created": "2019-02-12T20:11:53.570746Z"
+      }
+    ]
+  }
+]
+----
+
+**Return Values**
+|===
+
+|**Name** | **Description**
+
+|**pk** | Team ID.
+|**name** | Team name.
+|**slug** | A human-readable unique identifier, used for storing Team data.
+|**org** | The Organization ID.
+|**is_org_wide** | Whether or not the Team is restricted to a particular Workspace.
+|**created** | The Team creation timestamp.
+|**memberships** | A list of users assigned to this Team.
+|**username** | The user's username.
+|**email** | The user's email address.
+|**first_name** | The user's first name.
+|**last_name** | The user's last name.
+|**full_name** | The user's full name.
+|===
+
+== GET a Specific Team
+
+Get information for a specific Team.
+
+**Path Parameters**
+|===
+|**Name** | **Required** | **Description**
+
+|**Org ID** | Yes | The Organization ID.
+|**Team ID** | Yes | The Team ID.
+|===
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/teams/{Team ID}
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/teams/3"
+----
+
+Example response:
+
+[source,json]
+----
+{
+  "pk": 3,
+  "name": "Everyone",
+  "slug": "everyone",
+  "org": 3,
+  "is_org_wide": true,
+  "created": "2019-02-12T20:11:53.481354Z",
+  "memberships": [
+    {
+      "pk": 3,
+      "user": {
+        "pk": 3,
+        "username": "jdoe",
+        "email": "jdoe@example.com",
+        "first_name": "",
+        "last_name": "",
+        "full_name": "",
+        "date_joined": "2019-02-01T18:01:29.685916Z"
+      },
+      "team": 3,
+      "created": "2019-02-12T20:11:53.570746Z"
+    }
+  ]
+}
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+
+|**pk** | Team ID.
+|**name** | Team name.
+|**slug** | A human-readable unique identifier, used for storing Team data.
+|**org** | The Organization ID.
+|**is_org_wide** | Whether or not the Team is restricted to a particular Workspace.
+|**created** | The Team creation timestamp.
+|**memberships** | A list of users assigned to this Team.
+|**username** | The user's username.
+|**email** | The user's email address.
+|**first_name** | The user's first name.
+|**last_name** | The user's last name.
+|**full_name** | The user's full name.
+|===
+
+== POST Create a New Team
+
+Create a new Team in the specified Organization.
+
+[source,shell]
+----
+POST https://api.stackpoint.io/orgs/{Org ID}/teams
+----
+
+Example Request:
+
+[source,shell]
+----
+curl -X POST \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-d @add-team.json \
+"https://api.stackpoint.io/orgs/3/teams"
+----
+
+Contents of `add-team.json`:
+
+[source,json]
+----
+{
+  "name": "My New Team"
+}
+----
+
+Example response:
+
+[source,json]
+----
+{
+  "pk": 4,
+  "name": "My New Team",
+  "slug": "my-new-team",
+  "org": 3,
+  "is_org_wide": false,
+  "created": "2019-03-01T19:52:23.087626Z",
+  "memberships": [
+
+  ]
+}
+----
+
+**Values**
+|===
+|**Name** | **Required** | **Type** | **Description**
+
+|**name** | Yes | String | Team name.
+|**is_org_wide** | No | Boolean | Whether or not the Team is restricted to a particular Workspace. Allowed values are `true` or `false`.
+|===
+
+**Return Values**
+|===
+|**Name** | **Description**
+
+|**pk** | Team ID.
+|**name** | Team name.
+|**slug** | A human-readable unique identifier, used for storing Team data.
+|**org** | The Organization ID.
+|**is_org_wide** | Whether or not the Team is restricted to a particular Workspace.
+|**created** | The Team creation timestamp.
+|===
+
+== PATCH Update a Team
+
+Update the specified Team. This example adds the first user to the Team.
+
+WARNING: You must include ALL users in your request, not just the new user. The contents of this file will overwrite the existing list of users on the Team.
+
+For example, to add a second user to the team, the contents of `add-team-member.json` should read:
+
+[source,json]
+----
+{"memberships":[{"user":3},{"user":4}]}
+----
+
+**Path Parameters**
+|===
+|**Name** | **Required** | **Description**
+
+|**Org ID** | Yes | The Organization ID.
+|**Team ID** | Yes | The Team ID.
+|===
+
+[source,shell]
+----
+PATCH https://api.stackpoint.io/orgs/{Org ID}/teams/{Team ID}
+----
+
+Example Request: Add the first user to the team from the contents of a JSON file.
+
+NOTE: See warning above about adding additional users.
+
+[source,shell]
+----
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-d @add-team-member.json \
+"https://api.stackpoint.io/orgs/3/teams/3"
+----
+
+Contents of `add-team-member.json`:
+
+[source,json]
+----
+{
+  "memberships": [
+    {
+      "user": 3
+    }
+  ]
+}
+----
+
+Example response:
+
+[source,json]
+----
+{
+  "pk": 3,
+  "name": "Everyone",
+  "slug": "everyone",
+  "org": 3,
+  "is_org_wide": true,
+  "created": "2019-02-12T20:11:53.481354Z",
+  "memberships": [
+    {
+      "pk": 4,
+      "user": {
+        "pk": 3,
+        "username": "jdoe",
+        "email": "jdoe@example.com",
+        "first_name": "",
+        "last_name": "",
+        "full_name": "",
+        "date_joined": "2019-02-01T18:01:29.685916Z"
+      },
+      "team": 3,
+      "created": "2019-03-01T20:32:15.325914Z"
+    }
+  ]
+}
+----
+
+**Values**
+|===
+|**Name** | **Type** | **Description**
+
+|**name** | String | Team name.
+|**is_org_wide** | Boolean | Whether or not the Team is restricted to a particular Workspace. Allowed values are `true` or `false`.
+|**memberships** | Update the list of users.
+|**user** | The user ID.
+|**username** | The user name.
+|**email** | The user's email address.
+|**first_name** | The user's first name.
+|**last_name** | The user's last name.
+|**full_name** | The user's full name.
+|===
+
+**Return Values**
+|===
+|**Name** | **Description**
+
+|**pk** | Team ID.
+|**name** | Team name.
+|**slug** | A human-readable unique identifier, used for storing Team data.
+|**org** | The Organization ID.
+|**is_org_wide** | Whether or not the Team is restricted to a particular Workspace.
+|**created** | The Team creation timestamp.
+|**memberships** | Update the list of users.
+|**user** | The user ID.
+|**username** | The user name.
+|**email** | The user's email address.
+|**first_name** | The user's first name.
+|**last_name** | The user's last name.
+|**full_name** | The user's full name.
+|===
+
+## DELETE a Team
+
+Delete the specified Team.
+
+**Path Parameters**
+|===
+|**Name** | **Required** | **Description**
+
+|**Org ID** | Yes | The Organization ID.
+|**Team ID** | Yes | The Team ID.
+|===
+
+[source,shell]
+----
+DELETE https://api.stackpoint.io/orgs/{Org ID}/teams/{Team ID}
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X DELETE \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/teams/3"
+----
+
+If the team is successfully deleted, this command returns an empty response with status code `204`.
