@@ -1,0 +1,24 @@
+---
+sidebar: sidebar
+permalink: whitelist-ports-and-ip-addresses.html
+summary: Learn which NKS ports and IP addresses need to be whitelisted for your clusters.
+---
+
+= Whitelist Ports and IP Addresses
+
+We recommend you secure your clusters as appropriate for your infrastructure needs.
+
+If you decide to restrict access to your cluster, you will need to whitelist the following ports and IP addresses so that our system will continue to work correctly:
+
+Ports:
+
+* 12443 (proxy to dashboard)
+* 6443 (Kubernetes API)
+* 443
+* 22 (Kubernetes upgrades and other local tasks)
+
+IP addresses:
+
+* 34.222.93.13
+* 34.222.163.188
+* 34.222.244.169
