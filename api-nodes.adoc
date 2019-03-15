@@ -6,7 +6,9 @@ summary: How to use the Nodes API resource for the NKS API.
 
 = Nodes
 
-Each NKS cluster can have 3 or more nodes.
+
+Each https://nks.netapp.io[NetApp Kubernetes Service (NKS)] cluster can have 3 or more nodes.
+
 
 == GET All Nodes for a Cluster
 

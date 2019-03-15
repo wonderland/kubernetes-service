@@ -16,7 +16,7 @@ summary: Learn how to install kubectl to control a Kubernetes cluster.
 
 == Introduction
 
-Kubectl is the command line interface for interacting with a Kubernetes cluster. The kubectl tool lets you connect and run commands against the cluster.
+Kubectl is the command line interface for interacting with a Kubernetes cluster. The kubectl tool lets you connect and run commands against your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] cluster.
 
 More kubectl documentation can be found https://kubernetes.io/docs/reference/kubectl/overview/[on the official Kubernetes site].
 

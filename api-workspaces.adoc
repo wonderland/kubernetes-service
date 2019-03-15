@@ -8,7 +8,8 @@ summary: How to use the Workspaces API resource for the NKS API.
 
 == Overview
 
-Workspaces allow you to control access for your users.
+Workspaces allow you to control access for your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] users.
+
 
 == GET All Workspaces
 

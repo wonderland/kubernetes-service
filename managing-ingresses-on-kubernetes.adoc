@@ -24,7 +24,7 @@ summary: Learn how to manage Ingresses on Kubernetes, so that your app can be ac
 
 == Introduction
 
-Almost everyone who is deploying an application would like the app to be accessible to other people on the public internet.
+Almost everyone who is deploying an application on https://nks.netapp.io[NetApp Kubernetes Service (NKS)] would like the app to be accessible to other people on the public internet.
 
 * If you are an independent developer working with a cloud provider, then you'll ask, what's my public IP address, and what ports are exposed?
 * If you are a developer in a corporation with private data center resources, you'll ask, how do I get the load-balancer rules configured for my set of internal hosts (and whom do I need to talk to)?

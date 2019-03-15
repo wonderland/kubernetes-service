@@ -5,7 +5,9 @@ summary: How to use the Nodepools API resource for the NKS API.
 ---
 = Node Pools
 
-Node pools are used to manage worker nodes with common properties.
+
+Node pools are used to manage https://nks.netapp.io[NetApp Kubernetes Service (NKS)] worker nodes with common properties.
+
 
 Each cluster gets a default node pool when it is created. Master nodes are stand-alone and do not belong to pools.
 

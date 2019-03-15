@@ -6,7 +6,9 @@ summary: How to use the Keysets API resource for the NKS API.
 
 = Keysets
 
-Keysets are credentials used by the system to provision clusters, add nodes, or install applications. Keysets are scoped by organization.
+
+Keysets are credentials used by the https://nks.netapp.io[NetApp Kubernetes Service (NKS)] system to provision clusters, add nodes, or install applications. Keysets are scoped by organization.
+
 
 WARNING: Only an organization Owner or Admin can create, update, or delete Keysets.
 

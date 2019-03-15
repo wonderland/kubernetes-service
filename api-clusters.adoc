@@ -6,7 +6,8 @@ summary: How to use the Keysets API resource for the NKS API.
 
 = Clusters
 
-The Clusters resource lets you create, manage, and delete Kubernetes clusters on the NKS system.
+
+The Clusters resource lets you create, manage, and delete Kubernetes clusters on the https://nks.netapp.io[NetApp Kubernetes Service (NKS)] system.
 
 Clusters are scoped under Organizations as well as Workspaces.
 

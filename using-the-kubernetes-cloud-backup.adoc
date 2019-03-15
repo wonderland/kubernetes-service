@@ -13,7 +13,7 @@ summary: Learn how to install Kubernetes Cloud Backup, and how to restore a Kube
 
 == Introduction
 
-Kubernetes Cloud Backup can be used to backup and restore your Kubernetes state information.  This includes deployments, services, Helm release, et cetera. This tutorial covers how to install Kubernetes Cloud Backup, and how to restore a Kubernetes cluster from backup.
+Kubernetes Cloud Backup can be used to backup and restore your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] Kubernetes state information.  This includes deployments, services, Helm release, et cetera. This tutorial covers how to install Kubernetes Cloud Backup, and how to restore a Kubernetes cluster from backup.
 
 * The Kubernetes state cloud backup script is designed to be run as a cron job.
 * Each backup has a `restore_state.sh` script, which will restore the entire cluster's state when run.

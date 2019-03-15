@@ -6,7 +6,9 @@ summary: How to use the Members API resource for the NKS API.
 
 = Members
 
-Manage members for your Organizations, Teams, and Workspaces.
+
+Manage members for your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] Organizations, Teams, and Workspaces.
+
 
 == GET All Members
 

@@ -8,7 +8,9 @@ summary: How to use the Organizations API resource for the NKS API.
 
 == Overview
 
-Organizations are the highest-level resource. The Organizations resource contains information about the Organization. This includes the ID, which is required for most other API calls.
+
+Organizations are the highest-level resource in the https://nks.netapp.io[NetApp Kubernetes Service (NKS)] API. The Organizations resource contains information about the Organization. This includes the ID, which is required for most other API calls.
+
 
 === Background
 
