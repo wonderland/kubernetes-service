@@ -1,0 +1,13 @@
+---
+sidebar: sidebar
+permalink: news.html
+summary: News and updates for NetApp Kubernetes Service (NKS)
+---
+
+= News
+
+News and updates for NetApp Kubernetes Service (NKS).
+
+== Stackpoint.io Joins the NetApp Family
+
+Seattle and New York — September 17, 2018 — We’re excited to announce we are joining the NetApp family. After numerous conversations where time was forgotten and we got lost in ideas, we realized NetApp’s and Stackpoint’s vision for Cloud Native workload and infrastructure management aligned. https://blog.stackpoint.io/stackpoint-io-joins-the-netapp-family-d0712ad54e81[Click here to read more.]

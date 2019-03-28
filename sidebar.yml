@@ -43,3 +43,5 @@ entries:
     url: /using-the-kubernetes-cloud-backup.html
   - title: Managing Ingresses on Kubernetes
     url: /managing-ingresses-on-kubernetes.html
+  - title: News
+    url: /news.html
