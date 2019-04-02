@@ -5,8 +5,7 @@ summary: Learn how to build and manage infrastructure through NKS using Terrafor
 ---
 = Terraform on NKS
 
-
-Learn how to build and manage infrastructure through https://nks.netapp.io[NetApp Kubernetes Service (NKS)] using Terraform.
+Learn how to build and manage infrastructure through NKS using Terraform.
 
 * <<Requirements>>
 * <<Add SSH Keys to your NKS Account>>
@@ -16,7 +15,8 @@ Learn how to build and manage infrastructure through https://nks.netapp.io[NetAp
 
 == Requirements
 
-* Terraform installed on your system. The easiest way to install Terraform is to https://www.terraform.io/downloads.html[download the binary], uncompress the file, and put it in `/usr/local/bin`.
+* Terraform installed on your system, version 0.11.13 or newer. The easiest way to install Terraform is to https://www.terraform.io/downloads.html[download the binary], uncompress the file, and put it in `/usr/local/bin`.
+* Go installed on your system, version 1.11 or newer.
 * A working knowledge of Terraform basics.
 * An NKS account.
 * At least one provider account (AWS, GKE, etc.)
