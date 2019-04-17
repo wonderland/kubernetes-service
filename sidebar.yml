@@ -25,6 +25,8 @@ entries:
         url: /api-teams.html
       - title: Members
         url: /api-members.html
+      - title: User
+        url: /api-user.html
       - title: Keysets
         url: /api-keysets.html
       - title: Clusters
@@ -33,6 +35,10 @@ entries:
         url: /api-nodes.html
       - title: Nodepools
         url: /api-nodepools.html
+      - title: Federations
+        url: /api-federations.html
+      - title: Trusted Charts
+        url: /api-trusted-charts.html
   - title: Whitelist Ports and IP Addresses
     url: /whitelist-ports-and-ip-addresses.html
   - title: Terraform on NKS
