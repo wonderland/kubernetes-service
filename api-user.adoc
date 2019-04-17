@@ -1,0 +1,436 @@
+---
+sidebar: sidebar
+permalink: api-user.html
+summary: How to use the User API resource for the NKS API.
+---
+
+= User
+
+Get and update your user account information. The user account cannot be deleted through the API.
+
+== GET All User Info
+
+Retrieve profile, organization, keyset, and subscription details for the user who created the API token passed as the Bearer token in the Authorization header.
+
+[source,shell]
+----
+GET https://api.stackpoint.io/rest-auth/user/
+----
+
+Example request
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/rest-auth/user/"
+----
+
+Example response
+
+[source,json]
+----
+{
+  "pk": 11416,
+  "username": "jdoe",
+  "email": "jdoe@example.com",
+  "first_name": "J",
+  "last_name": "Doe",
+  "full_name": "J Doe",
+  "org_memberships": [
+    {
+      "pk": 1,
+      "user": 2,
+      "org": {
+        "pk": 1,
+        "name": "\ud83c\udf82\ud83c\udfb6\u2714",
+        "slug": "",
+        "logo": null,
+        "created": "2018-09-24T18:23:22.889260Z",
+        "updated": "2019-01-31T23:54:28.523403Z"
+      },
+      "role": "owner",
+      "is_owner": true,
+      "is_manager": true,
+      "is_billing_manager": false,
+      "subscription": {
+        "pk": 1,
+        "internal_id": "SPC-ABCDEFG",
+        "user": 3,
+        "state": "suspended",
+        "access_plan": "",
+        "support_plan": "",
+        "is_metered": false,
+        "is_active": true,
+        "is_exempt": true,
+        "account_balance": {
+          "total_due": 0,
+          "payment_required": false
+        }
+      },
+      "is_default": true,
+      "created": "2018-09-24T18:23:22.901163Z"
+    }
+  ],
+  "keysets": [
+    {
+      "pk": 1,
+      "name": "My Azure Credentials",
+      "category": "provider",
+      "entity": "azure",
+      "org": 3,
+      "workspaces": [
+        2
+      ],
+      "user": 3,
+      "is_default": false,
+      "keys": [
+        {
+          "pk": 1,
+          "keyset": 2,
+          "key_type": "pvt",
+          "fingerprint": "",
+          "user": 3
+        },
+        {
+          "pk": 2,
+          "keyset": 3,
+          "key_type": "pub",
+          "fingerprint": "",
+          "user": 3
+        },
+        {
+          "pk": 3,
+          "keyset": 3,
+          "key_type": "tenant",
+          "fingerprint": "",
+          "user": 3
+        },
+        {
+          "pk": 4,
+          "keyset": 4,
+          "key_type": "subscription",
+          "fingerprint": "",
+          "user": 3
+        }
+      ],
+      "created": "2018-09-24T18:34:22.692474Z"
+    },
+    {
+      "pk": 1,
+      "name": "Default SPC SSH Keypair",
+      "category": "user_ssh",
+      "entity": "",
+      "org": 3,
+      "workspaces": [
+
+      ],
+      "user": 3,
+      "is_default": true,
+      "keys": [
+        {
+          "pk": 1,
+          "keyset": 1,
+          "key_type": "pvt",
+          "fingerprint": "",
+          "user": 3
+        },
+        {
+          "pk": 2,
+          "keyset": 2,
+          "key_type": "pub",
+          "fingerprint": "01:02:03:45:67:89:1a:2b:3c:4d",
+          "user": 3
+        }
+      ],
+      "created": "2018-09-24T18:23:50.632854Z"
+    }
+  ],
+  "date_joined": "2018-09-24T18:23:22.811764Z",
+  "subscription": {
+    "pk": 1,
+    "internal_id": "SPC-ABCDEFG",
+    "user": 3,
+    "state": "suspended",
+    "access_plan": "",
+    "support_plan": "",
+    "is_metered": false,
+    "is_active": true,
+    "is_exempt": true,
+    "account_balance": {
+      "total_due": 0,
+      "payment_required": false
+    }
+  },
+  "is_oem_manager": false,
+  "lifetime_cluster_count": 2
+}
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | Cluster ID.
+|**username** | The user's username. Make a note of this value if you need to update the user with a PATCH request.
+|**email** | The user's email address.
+|**first_name** | The user's first name.
+|**last_name** | The user's last name.
+|**full_name** | The user's full name.
+|**org_memberships** | The Organization(s) of which the user is a member.
+|**name** | Organization name.
+|**slug** | A human-readable unique identifier, used for storing Organization data.
+|**logo** | Organization logo. This value is `null` if a custom logo has not been set.
+|**created** | Timestamp of the Organization's create date.
+|**updated** | Timestamp of the last update to the Organization.
+|**name** | Credential name.
+|**category** | Keyset category. Options include `provider`, `solution`, `storage`, `vcs`, and `user_ssh`.
+|**entity** | Provider name.
+|**org** | Organization ID.
+|**workspaces** | The workspace(s) to which the credential is assigned.
+|**user** | The user to whom the credential is assigned.
+|**is_default** | Whether the credential is set as "Default" or not.
+|**keys** | Credentials contained in the keyset.
+|**keyset** | The Keyset ID to which the credential belongs.
+|**key_type** | The type of Key.
+|**fingerprint** | For SSH credentials: The RSA fingerprint.
+|**created** | Timestamp of the Keyset's create date.
+|**subscription** | Subscription details for the user's account.
+|**internal_id** | The internal ID of the user's subscription.
+|**user** | The user ID.
+|**state** | The state of the subscription: `trial`, `active`, `inactive`, `canceled`, or `suspended`.
+|**access_plan** | The subscription access plan.
+|**support_plan** | The subscription support plan.
+|**is_metered** | Whether or not the subscription is a metered plan.
+|**is_active** | Whether or not the plan is active.
+|**is_exempt** | Whether or not the user has an employee "exempt" account.
+|**account_balance** | The current account balance.
+|**total_due** | The total balance due.
+|**payment_required** | Whether or not payment is currently required.
+|===
+
+== PATCH Update User Details
+
+Update your user profile. Use this resource to update your email address, first name, last name, or full name. To update Keyset, Organization, Team, or Workspace information, use their respective API resources instead.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Username** | Yes | The Username. You can find this by using the GET request described above.
+|===
+
+[source,shell]
+----
+PATCH https://api.stackpoint.io/userprofile/{username}
+----
+
+Example request: Update a user's name
+
+[source,shell]
+----
+curl -X PATCH \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-d @update-user-name.json \
+"https://api.stackpoint.io/userprofile/jdoe"
+----
+
+Contents of `update-user-name.json`:
+
+[source,json]
+----
+{
+  "first_name":"Jordan",
+  "last_name":"Doe"
+}
+----
+
+Example response
+
+[source,json]
+----
+{
+  "pk": 11416,
+  "username": "jdoe",
+  "email": "jdoe@example.com",
+  "first_name": "Jordan",
+  "last_name": "Doe",
+  "full_name": "J Doe",
+  "org_memberships": [
+    {
+      "pk": 1,
+      "user": 2,
+      "org": {
+        "pk": 1,
+        "name": "\ud83c\udf82\ud83c\udfb6\u2714",
+        "slug": "",
+        "logo": null,
+        "created": "2018-09-24T18:23:22.889260Z",
+        "updated": "2019-01-31T23:54:28.523403Z"
+      },
+      "role": "owner",
+      "is_owner": true,
+      "is_manager": true,
+      "is_billing_manager": false,
+      "subscription": {
+        "pk": 1,
+        "internal_id": "SPC-ABCDEFG",
+        "user": 3,
+        "state": "suspended",
+        "access_plan": "",
+        "support_plan": "",
+        "is_metered": false,
+        "is_active": true,
+        "is_exempt": true,
+        "account_balance": {
+          "total_due": 0,
+          "payment_required": false
+        }
+      },
+      "is_default": true,
+      "created": "2018-09-24T18:23:22.901163Z"
+    }
+  ],
+  "keysets": [
+    {
+      "pk": 1,
+      "name": "My Azure Credentials",
+      "category": "provider",
+      "entity": "azure",
+      "org": 3,
+      "workspaces": [
+        2
+      ],
+      "user": 3,
+      "is_default": false,
+      "keys": [
+        {
+          "pk": 1,
+          "keyset": 2,
+          "key_type": "pvt",
+          "fingerprint": "",
+          "user": 3
+        },
+        {
+          "pk": 2,
+          "keyset": 3,
+          "key_type": "pub",
+          "fingerprint": "",
+          "user": 3
+        },
+        {
+          "pk": 3,
+          "keyset": 3,
+          "key_type": "tenant",
+          "fingerprint": "",
+          "user": 3
+        },
+        {
+          "pk": 4,
+          "keyset": 4,
+          "key_type": "subscription",
+          "fingerprint": "",
+          "user": 3
+        }
+      ],
+      "created": "2018-09-24T18:34:22.692474Z"
+    },
+    {
+      "pk": 1,
+      "name": "Default SPC SSH Keypair",
+      "category": "user_ssh",
+      "entity": "",
+      "org": 3,
+      "workspaces": [
+
+      ],
+      "user": 3,
+      "is_default": true,
+      "keys": [
+        {
+          "pk": 1,
+          "keyset": 1,
+          "key_type": "pvt",
+          "fingerprint": "",
+          "user": 3
+        },
+        {
+          "pk": 2,
+          "keyset": 2,
+          "key_type": "pub",
+          "fingerprint": "01:02:03:45:67:89:1a:2b:3c:4d",
+          "user": 3
+        }
+      ],
+      "created": "2018-09-24T18:23:50.632854Z"
+    }
+  ],
+  "date_joined": "2018-09-24T18:23:22.811764Z",
+  "subscription": {
+    "pk": 1,
+    "internal_id": "SPC-ABCDEFG",
+    "user": 3,
+    "state": "suspended",
+    "access_plan": "",
+    "support_plan": "",
+    "is_metered": false,
+    "is_active": true,
+    "is_exempt": true,
+    "account_balance": {
+      "total_due": 0,
+      "payment_required": false
+    }
+  },
+  "is_oem_manager": false,
+  "lifetime_cluster_count": 2
+}
+----
+
+**Values**
+|===
+| **Name** | **Type** | **Description**
+|**email** | String | The user's email address.
+|**first_name** | String | The user's first name.
+|**last_name** | String | The user's last name.
+|**full_name** | String | The user's full name.
+|===
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | Cluster ID.
+|**username** | The user's username. Make a note of this value if you need to update the user with a PATCH request.
+|**email** | The user's email address.
+|**first_name** | The user's first name.
+|**last_name** | The user's last name.
+|**full_name** | The user's full name.
+|**org_memberships** | The Organization(s) of which the user is a member.
+|**name** | Organization name.
+|**slug** | A human-readable unique identifier, used for storing Organization data.
+|**logo** | Organization logo. This value is `null` if a custom logo has not been set.
+|**created** | Timestamp of the Organization's create date.
+|**updated** | Timestamp of the last update to the Organization.
+|**name** | Credential name.
+|**category** | Keyset category. Options include `provider`, `solution`, `storage`, `vcs`, and `user_ssh`.
+|**entity** | Provider name.
+|**org** | Organization ID.
+|**workspaces** | The workspace(s) to which the credential is assigned.
+|**user** | The user to whom the credential is assigned.
+|**is_default** | Whether the credential is set as "Default" or not.
+|**keys** | Credentials contained in the keyset.
+|**keyset** | The Keyset ID to which the credential belongs.
+|**key_type** | The type of Key.
+|**fingerprint** | For SSH credentials: The RSA fingerprint.
+|**created** | Timestamp of the Keyset's create date.
+|**subscription** | Subscription details for the user's account.
+|**internal_id** | The internal ID of the user's subscription.
+|**user** | The user ID.
+|**state** | The state of the subscription: `trial`, `active`, `inactive`, `canceled`, or `suspended`.
+|**access_plan** | The subscription access plan.
+|**support_plan** | The subscription support plan.
+|**is_metered** | Whether or not the subscription is a metered plan.
+|**is_active** | Whether or not the plan is active.
+|**is_exempt** | Whether or not the user has an employee "exempt" account.
+|**account_balance** | The current account balance.
+|**total_due** | The total balance due.
+|**payment_required** | Whether or not payment is currently required.
+|===

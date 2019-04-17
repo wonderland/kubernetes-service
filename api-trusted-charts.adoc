@@ -1,0 +1,65 @@
+---
+sidebar: sidebar
+permalink: api-trusted-charts.html
+summary: How to use the Trusted Charts API resource for the NKS API.
+---
+
+= Trusted Charts
+
+This resource lists NKS Trusted Charts for your account.
+
+== GET All Trusted Charts
+
+Get all NKS Trusted Charts for your account.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+GET https://api.stackpoint.io/orgs/{Org ID}/chart-repos/trusted
+----
+
+Example request. Due to the large amount of information returned by this query, we suggest you pipe the JSON output to a file, as shown below. You can then view and edit the trusted-charts.json file.
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.stackpoint.io/orgs/3/chart-repos/trusted" \
+ > trusted-charts.json
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | The ID for the Trusted Charts list.
+|**name** | The name of the Trusted Charts list.
+|**source** | The source for the Trusted Charts.
+|**source_display** | The source display.
+|**org** | The Organization assigned to the list of Trusted Charts. In this context, the value is `null`.
+|**path** | Path to the Trusted Charts. In this context, the value is empty.
+|**url** | The URL to the Trusted Charts repo. In this context, the value is `http:\/\/trusted-charts.stackpoint.io\/staging"`.
+|**is_system** | Whether or not the Trusted Charts are system-wide. In this context, the value is `true`.
+|**is_private** | Whether or not the Trusted Charts are private. In this context, the value is `false`.
+|**keyset** | Any keysets assigned to the Trusted Charts list. In this context, the value is `null`.
+|**chart_index** | The array of NKS Trusted Charts.
+|**name** | The Trusted Chart name.
+|**versions** | An array with information about the available version(s).
+|**version** | The Trusted Chart's version.
+|**file_url** | The URL to the Trusted Chart.
+|**created** | The timestamp of the Trusted Chart's creation.
+|**description** | The description of the Trusted Chart.
+|**appVersion** | The Trusted Chart's app version.
+|**sources** | The Trusted Chart's source URL(s).
+|**maintainers** | Name and contact information for the Trusted Chart's official maintainer(s).
+|**name** | The name of the Trusted Chart's maintainer.
+|**email** | The email address of the Trusted Chart's maintainer.
+|**keywords** | Applicable keywords for the Trusted Chart.
+|**home** | The URL of the Trusted Chart's homepage.
+|**digest** | The Trusted Chart's digest.
+|**icon** | The Trusted Chart's official logo.
+|===
