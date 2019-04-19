@@ -1,9 +1,9 @@
 ---
 sidebar: sidebar
 permalink: eol.html
-summary: More information on the StackPointCloud EOL.
+summary: More information on the StackPoint.io sunset.
 ---
 
-= StackPointCloud EOL Information
+= StackPoint.io Sunset Notification
 
-Coming soon.
+Stackpoint.io will become nks.netapp.io on May 1, 2019. Stackpoint.io users will have until May 17, 2019 to transition to a new nks.netapp.io account. All users are encouraged to make an account on nks.netapp.io today. Stay tuned for more information.
