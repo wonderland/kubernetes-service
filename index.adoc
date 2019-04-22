@@ -23,11 +23,6 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:create-auth-credentials-on-gke.html[Create Auth Credentials on Google Container Engine (GKE)]
 * link:find-aws-credentials-for-cvs.html[Find AWS Credentials for CVS]
 
-== NKS CLI
-
-* link:nks-cli-install.html[Install the NKS CLI]
-* link:nks-cli-use.html[Use the NKS CLI]
-
 == API
 
 * link:api-basics.html[API Basics]
