@@ -13,6 +13,12 @@ entries:
         url: /create-auth-credentials-on-gke.html
       - title: Find AWS Credentials for CVS
         url: /find-aws-credentials-for-cvs.html
+  - title: NKS CLI
+    entries:
+      - title: Install
+        url: /nks-cli-install.html
+      - title: Use
+        url: /nks-cli-use.html
   - title: API
     entries:
       - title: API Basics
