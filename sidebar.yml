@@ -3,13 +3,13 @@ entries:
     url: /index.html
   - title: Setup - Add Credentials
     entries:
-      - title: Create Credentials on AWS
+      - title: Find AWS Credentials
         url: /create-auth-credentials-on-aws.html
-      - title: Create Credentials on Azure
+      - title: Find Azure Credentials
         url: /create-auth-credentials-on-azure.html
-      - title: Create Credentials on GCE
+      - title: Find GCE Credentials
         url: /create-auth-credentials-on-gce.html
-      - title: Create Credentials on GKE
+      - title: Find GKE Credentials
         url: /create-auth-credentials-on-gke.html
       - title: Find AWS Credentials for CVS
         url: /find-aws-credentials-for-cvs.html

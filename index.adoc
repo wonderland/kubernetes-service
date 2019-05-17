@@ -17,10 +17,10 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 
 === Setup - Add Credentials
 
-* link:create-auth-credentials-on-aws.html[Create Auth Credentials on Amazon Web Services (AWS)]
-* link:create-auth-credentials-on-azure.html[Create Auth Credentials on Azure]
-* link:create-auth-credentials-on-gce.html[Create Auth Credentials on Google Compute Engine (GCE)]
-* link:create-auth-credentials-on-gke.html[Create Auth Credentials on Google Container Engine (GKE)]
+* link:create-auth-credentials-on-aws.html[Find Your Amazon Web Services (AWS) Credentials]
+* link:create-auth-credentials-on-azure.html[Find Your Azure Credentials]
+* link:create-auth-credentials-on-gce.html[Find Your Google Compute Engine (GCE) Credentials]
+* link:create-auth-credentials-on-gke.html[Find Your Google Container Engine (GKE) Credentials]
 * link:find-aws-credentials-for-cvs.html[Find AWS Credentials for CVS]
 
 == API
