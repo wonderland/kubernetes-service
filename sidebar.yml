@@ -1,7 +1,7 @@
 entries:
   - title: NKS Docs
     url: /index.html
-  - title: Setup - Add Credentials
+  - title: Setup - Find Credentials
     entries:
       - title: Find AWS Credentials
         url: /create-auth-credentials-on-aws.html
@@ -39,6 +39,8 @@ entries:
         url: /api-federations.html
       - title: Trusted Charts
         url: /api-trusted-charts.html
+  - title: Requirements
+    url: /nks-requirements.html
   - title: Whitelist Ports and IP Addresses
     url: /whitelist-ports-and-ip-addresses.html
   - title: Terraform on NKS

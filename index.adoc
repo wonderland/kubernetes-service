@@ -13,9 +13,7 @@ summary: Welcome to the documentation portal for NetApp Kubernetes Service (NKS)
 
 NetApp Kubernetes Service (NKS) is a universal control plane for creating and managing Kubernetes clusters.
 
-== Documentation
-
-=== Setup - Add Credentials
+== Setup - Find Credentials
 
 * link:create-auth-credentials-on-aws.html[Find Your Amazon Web Services (AWS) Credentials]
 * link:create-auth-credentials-on-azure.html[Find Your Azure Credentials]
@@ -40,6 +38,7 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 
 == Tutorials
 
+* link:nks-requirements.html[Requirements]
 * link:whitelist-ports-and-ip-addresses.html[Whitelist Ports and IP Addresses]
 * link:intro-to-terraform-on-nks.html[Terraform on NKS]
 * link:using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]

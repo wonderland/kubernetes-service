@@ -1,0 +1,26 @@
+---
+sidebar: sidebar
+permalink: nks-requirements.html
+summary: Learn the requirements for using NKS to create and manage Kubernetes clusters
+---
+
+= NKS Requirements
+
+In order to use https://nks.netapp.io[NetApp Kubernetes Service (NKS)] to create and manage Kubernetes clusters, you will need:
+
+1. A set of valid, active credentials from a cloud service provider, in order to host your clusters. NKS currently supports:
+
+    * Amazon Web Services (AWS)
+    * Amazon EKS
+    * Google Compute Engine (GCE)
+    * Google Kubernetes Engine (GKE)
+    * Microsoft Azure
+    * Microsoft AKS
+
+2. A NetApp Kubernetes Service https://nks.netapp.io[NKS] account. We offer a free 30-day trial with no credit card required.
+
+3. Working knowledge of Kubernetes basics. If you are new to Kubernetes, we recommend the following resources:
+
+    * https://kubernetes.io/docs/home/[The official Kubernetes documentation]
+    * The CNCF's free https://www.cncf.io/certification/training/[Intro to Kubernetes] training course.
+    * To learn more about Kubernetes, we recommend Kelsey Hightower's https://github.com/kelseyhightower/kubernetes-the-hard-way[Kubernetes the Hard Way]
