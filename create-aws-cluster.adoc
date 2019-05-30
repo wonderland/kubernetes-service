@@ -1,0 +1,54 @@
+---
+sidebar: sidebar
+permalink: create-an-aws-cluster.html
+summary: Documentation on how to create an AWS cluster using NetApp Kubernetes Service (NKS).
+---
+
+= Create an Amazon Web Services (AWS) Cluster
+
+Learn how to create a Kubernetes cluster on AWS in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
+
+To create an Amazon Web Services (AWS) cluster, you will need:
+
+* A set of AWS credentials. https://docs.netapp.com/us-en/kubernetes-service/create-auth-credentials-on-aws.html[Find your Amazon Web Services (AWS) Credentials].
+* An NKS account.
+
+For more details, see https://docs.netapp.com/us-en/kubernetes-service/nks-requirements.html[our Requirements page].
+
+== Step 1: Add Cluster
+
+Log in to https://nks.netapp.io[NetApp Kubernetes Service (NKS)] and click **+ ADD CLUSTER**.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-aws-01.png?raw=true[Create Kubernetes Cluster on AWS]
+
+Click the **AWS** tile to select AWS as a provider.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-aws-02.png?raw=true[Create Kubernetes Cluster on AWS]
+
+== Step 2: Provider Configuration
+
+In this step, you will set your provider configurations. Here you can update any of the following if you wish:
+
+* Number and size of master and worker nodes.
+* Zone, VPC, and subnet.
+* NKS workspace.
+* GPU support. Click to add the power of NVIDIA Tesla GPUs to your cluster.
+* AWS credentials.
+* SSH keypair.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-aws-03.png?raw=true[Create Kubernetes Cluster on AWS]
+
+If everything looks good, scroll down and click **Submit**.
+
+== Step 3: Cluster Configuration
+
+On the third and final step, you can make any desired changes to your cluster configuration:
+
+* Update the cluster name.
+* Change the Kubernetes version.
+* Change the OS distribution.
+* Add Solutions to the cluster from our solutions gallery, trusted charts, or add your own Helm chart repo.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-aws-04.png?raw=true[Create Kubernetes Cluster on AWS]
+
+When your cluster configurations are ready, click **Submit**. Your cluster will begin building, and will be ready for use within minutes.
