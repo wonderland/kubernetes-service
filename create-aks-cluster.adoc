@@ -1,0 +1,53 @@
+---
+sidebar: sidebar
+permalink: create-aks-cluster.html
+summary: Documentation on how to create a Microsoft AKS cluster using NetApp Kubernetes Service (NKS).
+---
+
+= Create a Microsoft AKS Cluster
+
+Learn how to create a Kubernetes cluster on AKS in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
+
+To create a Microsoft AKS cluster, you will need:
+
+* A set of Azure credentials with AKS permissions. https://docs.netapp.com/us-en/kubernetes-service/create-auth-credentials-on-azure.html[Find Your Azure Credentials].
+* An NKS account.
+
+For more details, see https://docs.netapp.com/us-en/kubernetes-service/nks-requirements.html[our Requirements page].
+
+== Step 1: Add Cluster
+
+Log in to https://nks.netapp.io[NetApp Kubernetes Service (NKS)] and click **+ ADD CLUSTER**.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-aks-01.png?raw=true[Create Kubernetes Cluster on AKS]
+
+Click the **Microsoft AKS** tile to select AKS as a provider.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-aks-02.png?raw=true[Create Kubernetes Cluster on AKS]
+
+== Step 2: Provider Configuration
+
+In this step, you will set your provider configurations. Here you can update any of the following if you wish:
+
+* Number and size of master and worker nodes.
+* Region, Resource Group, Network, or Subnet.
+* NKS workspace.
+* AKS credentials.
+* SSH keypair.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-aks-03.png?raw=true[Create Kubernetes Cluster on AKS]
+
+If everything looks good, scroll down and click **Submit**.
+
+== Step 3: Cluster Configuration
+
+On the third and final step, you can make any desired changes to your cluster configuration:
+
+* Update the cluster name.
+* Change the Kubernetes version.
+* Change the OS distribution.
+* Add Solutions to the cluster from our solutions gallery, trusted charts, or add your own Helm chart repo.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-aks-04.png?raw=true[Create Kubernetes Cluster on AKS]
+
+When your cluster configurations are ready, click **Submit**. Your cluster will begin building, and will be ready for use within minutes.
