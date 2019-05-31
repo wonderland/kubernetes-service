@@ -5,14 +5,28 @@ entries:
     entries:
       - title: Find AWS Credentials
         url: /create-auth-credentials-on-aws.html
+      - title: Find AWS Credentials for CVS
+        url: /find-aws-credentials-for-cvs.html
       - title: Find Azure Credentials
         url: /create-auth-credentials-on-azure.html
       - title: Find GCE Credentials
         url: /create-auth-credentials-on-gce.html
       - title: Find GKE Credentials
         url: /create-auth-credentials-on-gke.html
-      - title: Find AWS Credentials for CVS
-        url: /find-aws-credentials-for-cvs.html
+  - title: Create a Cluster
+    entries:
+      - title: Create an AWS Cluster
+        url: /create-aws-cluster.html
+      - title: Create an AKS Cluster
+        url: /create-aks-cluster.html
+      - title: Create an Azure Cluster
+        url: /create-azure-cluster.html
+      - title: Create an EKS Cluster
+        url: /create-eks-cluster.html
+      - title: Create a GCE Cluster
+        url: /create-gce-cluster.html
+      - title: Create a GKE Cluster
+        url: /create-gke-cluster.html
   - title: API
     entries:
       - title: API Basics

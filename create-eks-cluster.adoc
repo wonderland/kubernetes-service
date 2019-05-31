@@ -1,0 +1,53 @@
+---
+sidebar: sidebar
+permalink: create-eks-cluster.html
+summary: Documentation on how to create an Amazon EKS cluster using NetApp Kubernetes Service (NKS).
+---
+
+= Create an Amazon EKS Cluster
+
+Learn how to create a Kubernetes cluster on EKS in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
+
+To create an Amazon EKS cluster, you will need:
+
+* A set of Amazon Web Service credentials with EKS permissions. https://docs.netapp.com/us-en/kubernetes-service/create-auth-credentials-on-aws.html[Find Your AWS Credentials].
+* An NKS account.
+
+For more details, see https://docs.netapp.com/us-en/kubernetes-service/nks-requirements.html[our Requirements page].
+
+== Step 1: Add Cluster
+
+Log in to https://nks.netapp.io[NetApp Kubernetes Service (NKS)] and click **+ ADD CLUSTER**.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-eks-01.png?raw=true[Create Kubernetes Cluster on EKS]
+
+Click the **Amazon EKS** tile to select EKS as a provider.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-eks-02.png?raw=true[Create Kubernetes Cluster on EKS]
+
+== Step 2: Provider Configuration
+
+In this step, you will set your provider configurations. Here you can update any of the following if you wish:
+
+* Number and size of master and worker nodes.
+* Region, VPC, or Subnet.
+* NKS workspace.
+* EKS credentials.
+* SSH keypair.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-eks-03.png?raw=true[Create Kubernetes Cluster on EKS]
+
+If everything looks good, scroll down and click **Submit**.
+
+== Step 3: Cluster Configuration
+
+On the third and final step, you can make any desired changes to your cluster configuration:
+
+* Update the cluster name.
+* Change the Kubernetes version.
+* Change the OS distribution.
+* Add Solutions to the cluster from our solutions gallery, trusted charts, or add your own Helm chart repo.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-eks-04.png?raw=true[Create Kubernetes Cluster on EKS]
+
+When your cluster configurations are ready, click **Submit**. Your cluster will begin building, and will be ready for use within minutes.
