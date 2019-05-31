@@ -37,6 +37,8 @@ In this step, you will set your provider configurations. Here you can update any
 
 If everything looks good, click **Submit**.
 
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-gke-03.png?raw=true[Create Kubernetes Cluster on GKE]
+
 == Step 3: Cluster Configuration
 
 On the third and final step, you can make any desired changes to your cluster configuration:
@@ -45,5 +47,7 @@ On the third and final step, you can make any desired changes to your cluster co
 * Change the Kubernetes version.
 * Change the OS distribution.
 * Add Solutions to the cluster from our solutions gallery, trusted charts, or add your own Helm chart repo.
+
+image::assets/documentation/create-clusters/create-kubernetes-cluster-on-gke-02.png?raw=true[Create Kubernetes Cluster on GKE]
 
 When your cluster configurations are ready, click **Submit**. Your cluster will begin building, and will be ready for use within minutes.
