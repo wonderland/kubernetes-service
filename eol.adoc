@@ -8,7 +8,9 @@ summary: More information on the StackPoint.io sunset.
 
 Stackpoint.io is now http://nks.netapp.io[NetApp Kubernetes Service (NKS)]. Stackpoint.io users are **unable to create new clusters** and **cannot sign up or renew subscriptions.** All users are encouraged to make an account on nks.netapp.io today.
 
-This transitional period will last until June 17. After June 17, **users will not be able to log in to the site.** Be sure to migrate any active clusters to http://nks.netapp.io[NetApp Kubernetes Service (NKS)] before that date.
+This transitional period will last until June 17. After June 17, **users will not be able to log in to the site.** Any active clusters will be left running at the provider site. We have judged this to be the least disruptive way to handle the transition.
+
+Be sure to migrate any active clusters to http://nks.netapp.io[NetApp Kubernetes Service (NKS)] before that date. If you prefer not to migrate to NKS, we strongly recommend you download your cluster's kubeconfig file and SSH keys before the June 17 shutdown.
 
 == Migration Suggestions and Tips
 
