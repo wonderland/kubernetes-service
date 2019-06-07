@@ -30,7 +30,7 @@ entries:
   - title: Use NKS
     entries:
       - title: Add a Master Node
-        url: /add-a-master-node.html
+        url: /add-a-kubernetes-master-node.html
       - title: Add a Node Pool
         url: /add-a-node-pool.html
       - title: Upgrade Kubernetes

@@ -1,0 +1,37 @@
+---
+sidebar: sidebar
+permalink: upgrade-kubernetes-on-an-nks-cluster.html
+summary: Learn how to upgrade your Kubernetes version on NKS
+---
+
+= Upgrade Kubernetes on an NKS Cluster
+
+Learn how to upgrade the Kubernetes version on a https://nks.netapp.io[NetApp Kubernetes Service (NKS)] cluster. We offer a one-click upgrade process for recent Kubernetes versions. We recommend you upgrade your cluster whenever an upgrade is available.
+
+NOTE: By keeping your cluster's version of Kubernetes up-to-date, you will ensure that you don't get left behind by the upgrade process. If your Kubernetes version falls too far behind what we currently offer, you will have to perform upgrades by hand.
+
+If your cluster is not eligible for a one-click upgrade, you will need to perform the upgrade by hand. For more information on this process, we recommend the official Kubernetes documents on https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/[using kubeadm upgrade].
+
+== Check Cluster Upgrade Eligibility
+
+There are two places you can check to see if your cluster is eligible for a one-click upgrade to the Kubernetes version.
+
+**1. Control Plane**
+
+From the main Control Plane, click the Settings icon for the cluster.
+
+image::assets/documentation/upgrade-to-the-newest-version-of-kubernetes/upgrade-kubernetes-01.png?raw=true[Kubernetes upgrade for an NKS cluster]
+
+If it is eligible for an upgrade, this option will appear on the drop-down menu.
+
+image::assets/documentation/upgrade-to-the-newest-version-of-kubernetes/upgrade-kubernetes-02.png?raw=true[Kubernetes upgrade for an NKS cluster]
+
+Click **Upgrade** to upgrade the cluster's Kubernetes version.
+
+**2. Cluster Details**
+
+If the cluster is eligible for a one-click Kubernetes upgrade, an **UPGRADE** button will be to the right of the cluster name on the Cluster Details page.
+
+image::assets/documentation/upgrade-to-the-newest-version-of-kubernetes/upgrade-kubernetes-03.png?raw=true[Kubernetes upgrade for an NKS cluster]
+
+Click this button to upgrade the cluster's Kubernetes version.
