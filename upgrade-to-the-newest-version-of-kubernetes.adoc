@@ -11,14 +11,14 @@ We have rolled out the ability to upgrade to Kubernetes 1.12. Kubernetes 1.12 of
 * Kubelet TLS bootstrap
 * Azure Virtual Machine Scale Sets (AVMSS)
 * RuntimeClass (alpha)
-
+ 
 And many other features, 38 in total. https://kubernetes.io/blog/2018/09/27/kubernetes-1.12-kubelet-tls-bootstrap-and-azure-virtual-machine-scale-sets-vmss-move-to-general-availability/[You can read the full list here on the official Kubernetes blog.]
 
 We strongly recommend you upgrade your Kubernetes clusters to the latest version. All new clusters will be created with the most recent version of Kubernetes by default.
 
-Clusters running recent versions of Kubernetes can be upgraded through the StackPointCloud Control Plane. Click to select your cluster, then click the **Upgrade** button to upgrade Kubernetes.
+Clusters running recent versions of Kubernetes can be upgraded through the NKS Control Plane. Click to select your cluster, then click the **Upgrade** button to upgrade Kubernetes.
 
-image::assets/documentation/upgrade-to-the-newest-version-of-kubernetes/upgrade-kubernetes-01.png?raw=true[Upgrade Kubernetes]
+image::https://github.com/NetAppDocs/kubernetes-service-stage/blob/master/assets/documentation/upgrade-to-the-newest-version-of-kubernetes/upgrade-kubernetes-01.png?raw=true[Upgrade Kubernetes]
 
 Clusters running older versions of Kubernetes will need to be upgraded manually through a two-step process:
 

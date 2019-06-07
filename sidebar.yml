@@ -27,6 +27,20 @@ entries:
         url: /create-gce-cluster.html
       - title: Create a GKE Cluster
         url: /create-gke-cluster.html
+  - title: Use NKS
+    entries:
+      - title: Add a Master Node
+        url: /add-a-master-node.html
+      - title: Add a Node Pool
+        url: /add-a-node-pool.html
+      - title: Upgrade Kubernetes
+        url: /upgrade-kubernetes-on-an-nks-cluster.html
+      - title: Add a User
+        url: /add-a-user.html
+      - title: Add a Team
+        url: /add-a-team.html
+      - title: Add a Workspace
+        url: /add-a-workspace.html
   - title: API
     entries:
       - title: API Basics

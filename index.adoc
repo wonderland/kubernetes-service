@@ -13,7 +13,7 @@ summary: Welcome to the documentation portal for NetApp Kubernetes Service (NKS)
 
 NetApp Kubernetes Service (NKS) is a universal control plane for creating and managing Kubernetes clusters.
 
-== Setup - Find Credentials
+== Setup - Credentials
 
 * link:create-auth-credentials-on-aws.html[Find Your Amazon Web Services (AWS) Credentials]
 * link:find-aws-credentials-for-cvs.html[Find AWS Credentials for CVS]
@@ -29,6 +29,15 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:create-aks-cluster.html[Create a Microsoft AKS Cluster]
 * link:create-gce-cluster.html[Create a Google Compute Engine (GCE) Cluster]
 * link:create-gke-cluster.html[Create a Google Kubernetes Engine (GKE) Cluster]
+
+== Use NKS
+
+* link:add-a-kubernetes-master-node.html[Add a Kubernetes Master Node]
+* link:add-a-node-pool.html[Add a Node Pool]
+* link:upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
+* link:add-a-user.html[Add a User]
+* link:add-a-team.html[Add a Team]
+* link:add-a-workspace.html[Add a Workspace]
 
 == API
 

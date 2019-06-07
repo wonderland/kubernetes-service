@@ -1,0 +1,28 @@
+---
+sidebar: sidebar
+permalink: add-a-kubernetes-master-node.html
+summary: Learn how to add a master node to your NKS Cluster
+---
+
+= Add a Kubernetes Master Node to an NKS cluster
+
+Learn how to add a master node to an https://nks.netapp.io[NetApp Kubernetes Service (NKS)] cluster.
+
+NOTE: There are various reasons why you may or may not want to add additional master nodes to your Kubernetes cluster. This particular document will not delve into those reasons. It is *strongly recommended* that you consider the decision to add/remove master nodes carefully before making changes to your cluster.
+
+From the main Control Plane view, click the *Cluster Name* to bring up specific cluster details.
+
+image::assets/documentation/add-a-kubernetes-master-node/cluster-details.png?raw=true[NKS cluster details]
+
+From that screen click the *+ ADD MASTER* button. Adjust the options as desired.
+
+image::assets/documentation/add-a-kubernetes-master-node/add-nodes-dialog.png?raw=true[NKS add nodes dialog]
+
+Use the *SUBMIT* button to apply the changes. You will be returned to the cluster details screen. Notice that the new master node provisioning is now in progress.
+
+image::assets/documentation/add-a-kubernetes-master-node/new-master-in-progress.png?raw=true[NKS new master in progress]
+
+**Related Articles**
+
+* https://docs.netapp.com/us-en/kubernetes-service/add-a-node-pool.html[Add a Node Pool]
+* https://docs.netapp.com/us-en/kubernetes-service/upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]

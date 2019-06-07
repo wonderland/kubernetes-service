@@ -1,0 +1,42 @@
+---
+sidebar: sidebar
+permalink: add-a-workspace.html
+summary: Learn how to add a workspace to your NKS Cluster
+---
+
+= Add a Workspace to an NKS cluster
+
+Learn how to add a workspace to an https://nks.netapp.io[NetApp Kubernetes Service (NKS)] cluster.
+
+In NKS a workspace is part of the Organization toolset. A workspace allows us to group Teams and resources found under Setup together. This provides the ability to tailor access to the exact needs of a group of users.
+
+For example, you may want to allow a certain team access to build and manage clusters at one particular hyperscaler. This can be accomplished by creating a workspace for that team (or teams). Then assign specific *Provider Credentials* to that workspace. The same process can be used to enable or restrict access to other resources found under *Setup*:
+
+* Provider Credentials
+* Solution Credentials
+* Storage Credentials
+* VCS (Version Control System) Credentials
+* SSH Keys
+
+**Related Articles**
+
+* https://docs.netapp.com/us-en/kubernetes-service/add-a-user.html[Add a User]
+* https://docs.netapp.com/us-en/kubernetes-service/add-a-team.html[Add a Team]
+
+== Add a Workspace
+
+Log in to NKS and navigate to *Organization -> Workspaces*. You will see the list of current workspaces displayed.
+
+image::assets/documentation/add-a-workspace/nks-workspaces.png?raw=true[NKS default workspaces]
+
+Click the *+ ADD WORKSPACE* button to bring up the Add Workspace dialog box.
+
+image::assets/documentation/add-a-workspace/nks-add-workspace-dialog.png?raw=true[NKS add workspace dialog]
+
+You can now add a *Workspace Name* and choose which *Teams* will have access to this workspace. In this example, we'll name it _Version 2_ and include the _New Features_ and _QA_ teams.
+
+image::assets/documentation/add-a-workspace/nks-add-workspace-dialog-populated.png?raw=true[NKS add workspace dialog populated]
+
+Pressing the *SUBMIT* button will create the new workspace and return us to the *Workspaces* screen. Notice the new workspace _Version 2_ has been added to the list.
+
+image::assets/documentation/add-a-workspace/nks-workspaces-new.png?raw=true[NKS workspaces new]

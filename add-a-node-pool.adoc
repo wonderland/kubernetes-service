@@ -1,0 +1,53 @@
+---
+sidebar: sidebar
+permalink: add-a-node-pool.html
+summary: Learn how to add a node pool to your NKS Cluster
+---
+
+= Add a Node Pool to an NKS cluster
+
+Learn how to add a node pool to an https://nks.netapp.io[NetApp Kubernetes Service (NKS)] cluster.
+
+A node pool is a group of worker nodes with similar configuration that handle cluster workloads.
+
+
+**Related Articles**
+
+* https://docs.netapp.com/us-en/kubernetes-service/add-a-kubernetes-master-node.html[Add a Master Node]
+* https://docs.netapp.com/us-en/kubernetes-service/upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
+
+== Add Nodes to an Existing Node Pool
+
+From the main Control Plane view, click the *Cluster Name* to bring up specific cluster details.
+
+image::assets/documentation/add-a-node-pool/cluster-details.png?raw=true[NKS cluster details]
+
+From that screen click the *+ ADD WORKER* button.
+
+The default node pool can be expanded by adding additional nodes.
+
+NOTE: Instance type and most other parameters are fixed for existing node pools.
+
+Adjust the number of nodes you wish to add to the node pool.
+
+image::assets/documentation/add-a-node-pool/add-a-node-pool-default.png?raw=true[NKS add node pool dialog]
+
+Use the *SUBMIT* button to apply the changes. You will be returned to the cluster details screen. Notice that the new node provisioning is now in progress.
+
+== Create a New Node Pool
+
+If you would like to provision nodes using a different instance type, you'll need to create a new node pool.
+
+From the cluster detail screen, you'll click the *+ ADD WORKER* button. Use the *Node Pool* drop-down to select *<Create New>*.
+
+image::assets/documentation/add-a-node-pool/add-a-node-pool-new.png?raw=true[NKS add a new node pool dialog]
+
+In this example we are adding two _t2.medium_ nodes with _100 GB_ of disk space each.
+
+image::assets/documentation/add-a-node-pool/add-a-node-pool-new-2-medium.png?raw=true[NKS add a new node pool configured]
+
+Configure the options as desired and then use the *SUBMIT* button to start provisoning.
+
+image::assets/documentation/add-a-node-pool/add-a-node-pool-new-provisioning.png?raw=true[NKS add a new node pool configured]
+
+Once provisioning completes, the new nodes will be ready to accept workloads.
