@@ -15,20 +15,34 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 
 == Setup - Credentials
 
-* link:create-auth-credentials-on-aws.html[Find Your Amazon Web Services (AWS) Credentials]
-* link:find-aws-credentials-for-cvs.html[Find AWS Credentials for CVS]
-* link:create-auth-credentials-on-azure.html[Find Your Azure Credentials]
-* link:create-auth-credentials-on-gce.html[Find Your Google Compute Engine (GCE) Credentials]
-* link:create-auth-credentials-on-gke.html[Find Your Google Kubernetes Engine (GKE) Credentials]
+* link:create-auth-credentials-on-aws.html[Amazon Web Services (AWS) Credentials]
+* link:find-aws-credentials-for-cvs.html[AWS Credentials for CVS]
+* link:create-auth-credentials-on-azure.html[Azure Credentials]
+* link:create-auth-credentials-on-gce.html[Google Compute Engine (GCE) Credentials]
+* link:create-auth-credentials-on-gke.html[Google Kubernetes Engine (GKE) Credentials]
 
-== Create a Cluster
+== Cluster Lifecycle
 
+* link:nks-requirements.html[Requirements]
+* link:whitelist-ports-and-ip-addresses.html[Whitelist Ports and IP Addresses]
 * link:create-aws-cluster.html[Create an Amazon Web Services (AWS) Cluster]
 * link:create-eks-cluster.html[Create an Amazon EKS Cluster]
 * link:create-azure-cluster.html[Create an Azure Cluster]
 * link:create-aks-cluster.html[Create a Microsoft AKS Cluster]
 * link:create-gce-cluster.html[Create a Google Compute Engine (GCE) Cluster]
 * link:create-gke-cluster.html[Create a Google Kubernetes Engine (GKE) Cluster]
+* link:add-a-kubernetes-master-node.html[Add a Kubernetes Master Node]
+* link:add-a-node-pool.html[Add a Node Pool]
+* link:upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
+* link:using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
+* link:install-kubectl-to-control-a-kubernetes-cluster.html[Install kubectl to Control a Kubernetes Cluster]
+* link:intro-to-terraform-on-nks.html[Terraform on NKS]
+
+== Manage Access
+
+* link:add-a-user.html[Add a User]
+* link:add-a-team.html[Add a Team]
+* link:add-a-workspace.html[Add a Workspace]
 
 == Use NKS
 
@@ -53,15 +67,6 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:api-nodepools.html[Nodepools]
 * link:api-federations.html[Federations]
 * link:api-trusted-charts.html[Trusted Charts]
-
-== Tutorials
-
-* link:nks-requirements.html[Requirements]
-* link:whitelist-ports-and-ip-addresses.html[Whitelist Ports and IP Addresses]
-* link:intro-to-terraform-on-nks.html[Terraform on NKS]
-* link:using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
-* link:install-kubectl-to-control-a-kubernetes-cluster.html[Install kubectl to Control a Kubernetes Cluster]
-* link:managing-ingresses-on-kubernetes.html[Managing Ingresses on Kubernetes]
 
 == What's New
 

@@ -1,20 +1,24 @@
 entries:
   - title: NKS Docs
     url: /index.html
-  - title: Setup - Find Credentials
+  - title: Setup - Credentials
     entries:
-      - title: Find AWS Credentials
+      - title: AWS Credentials
         url: /create-auth-credentials-on-aws.html
-      - title: Find AWS Credentials for CVS
+      - title: AWS Credentials for CVS
         url: /find-aws-credentials-for-cvs.html
-      - title: Find Azure Credentials
+      - title: Azure Credentials
         url: /create-auth-credentials-on-azure.html
-      - title: Find GCE Credentials
+      - title: GCE Credentials
         url: /create-auth-credentials-on-gce.html
-      - title: Find GKE Credentials
+      - title: GKE Credentials
         url: /create-auth-credentials-on-gke.html
-  - title: Create a Cluster
+  - title: Cluster Lifecycle
     entries:
+      - title: Requirements
+        url: /nks-requirements.html
+      - title: Whitelist Ports and IP Addresses
+        url: /whitelist-ports-and-ip-addresses.html
       - title: Create an AWS Cluster
         url: /create-aws-cluster.html
       - title: Create an AKS Cluster
@@ -27,14 +31,20 @@ entries:
         url: /create-gce-cluster.html
       - title: Create a GKE Cluster
         url: /create-gke-cluster.html
-  - title: Use NKS
-    entries:
       - title: Add a Master Node
         url: /add-a-kubernetes-master-node.html
       - title: Add a Node Pool
         url: /add-a-node-pool.html
       - title: Upgrade Kubernetes
         url: /upgrade-kubernetes-on-an-nks-cluster.html
+      - title: Using the Kubernetes Cloud Backup
+        url: /using-the-kubernetes-cloud-backup.html
+      - title: Install Kubectl
+        url: /install-kubectl-to-control-a-kubernetes-cluster.html
+      - title: Terraform on NKS
+        url: /intro-to-terraform-on-nks.html
+  - title: Manage Access
+    entries:
       - title: Add a User
         url: /add-a-user.html
       - title: Add a Team
@@ -67,17 +77,5 @@ entries:
         url: /api-federations.html
       - title: Trusted Charts
         url: /api-trusted-charts.html
-  - title: Requirements
-    url: /nks-requirements.html
-  - title: Whitelist Ports and IP Addresses
-    url: /whitelist-ports-and-ip-addresses.html
-  - title: Terraform on NKS
-    url: /intro-to-terraform-on-nks.html
-  - title: Install Kubectl
-    url: /install-kubectl-to-control-a-kubernetes-cluster.html
-  - title: Using the Kubernetes Cloud Backup
-    url: /using-the-kubernetes-cloud-backup.html
-  - title: Managing Ingresses on Kubernetes
-    url: /managing-ingresses-on-kubernetes.html
   - title: What's New
     url: /news.html
