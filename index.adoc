@@ -44,15 +44,6 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:add-a-team.html[Add a Team]
 * link:add-a-workspace.html[Add a Workspace]
 
-== Use NKS
-
-* link:add-a-kubernetes-master-node.html[Add a Kubernetes Master Node]
-* link:add-a-node-pool.html[Add a Node Pool]
-* link:upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
-* link:add-a-user.html[Add a User]
-* link:add-a-team.html[Add a Team]
-* link:add-a-workspace.html[Add a Workspace]
-
 == API
 
 * link:api-basics.html[API Basics]
@@ -67,6 +58,8 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:api-nodepools.html[Nodepools]
 * link:api-federations.html[Federations]
 * link:api-trusted-charts.html[Trusted Charts]
+* link:api-subscription.html[Subscription]
+* link:api-invoice.html[Invoices]
 
 == What's New
 

@@ -1,0 +1,169 @@
+---
+sidebar: sidebar
+permalink: api-invoice.html
+summary: How to use the Invoice API resource for the NKS API.
+---
+
+= Invoice
+
+View the current invoice(s) available for the specified user account. Invoices cannot be created, updated, or deleted through the API.
+
+== GET All Invoices
+
+Get the details for all unpaid invoices for the user account specified by the API token.
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/user/invoices
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/user/invoices"
+----
+
+Example response: Note, If there are no unpaid invoices, an empty response is returned.
+
+[source,json]
+----
+[
+  {
+  "pk": 25,
+  "identifier": "NKS-G418VQ3Z75",
+  "org": 352,
+  "org_name": "Divine Dawn",
+  "is_oem": false,
+  "billing_method": "send_invoice",
+  "start_time": "2019-03-01T00:00:00Z",
+  "end_time": "2019-03-31T23:59:59.999999Z",
+  "state": "void",
+  "status_display": "Void",
+  "amount_due": 19.57,
+  "created": "2019-04-01T01:00:00.256132Z",
+  "line_items": [
+
+  ],
+  "billing_period": "March 2019",
+  "is_payable": true,
+  "is_auto_charge": false
+  },
+  {
+    "pk": 74,
+    "identifier": "NKS-V1149AXWQK",
+    "org": 352,
+    "org_name": "Divine Dawn",
+    "is_oem": false,
+    "billing_method": "send_invoice",
+    "start_time": "2019-05-01T00:00:00Z",
+    "end_time": "2019-05-31T23:59:59.999999Z",
+    "state": "void",
+    "status_display": "Void",
+    "amount_due": 49.95,
+    "created": "2019-06-01T01:00:00.310167Z",
+    "line_items": [
+
+    ],
+    "billing_period": "May 2019",
+    "is_payable": true,
+    "is_auto_charge": false
+  }
+]
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | Invoice ID.
+|**identifier** | An internal system ID for the invoice.
+|**org** | The ID of the invoice's Organization.
+|**org_name** | The name of the invoice's Organization.
+|**is_oem** | Whether or not this is an OEM account, `true` or `false`.
+|**billing_method** | The method of billing.
+|**start_time** | The timestamp of the invoice's start time.
+|**end_time** | The timestamp of the invoice's end time.
+|**state** | The invoice's current status.
+|**status_display** | How the invoice's current status is displayed on the site.
+|**amount_due** | The amount due for the invoice.
+|**created** | The timestamp of the invoice's creation.
+|**line_items** | An array containing the billing items for the invoice.
+|**billing_period** | The period covered by the invoice.
+|**is_payable** | Whether or not the invoice is payable, `true` or `false`.
+|**is_auto_charge** | Whether or not the invoice is being auto-billed, `true` or `false`.
+|===
+
+== GET A Specific Invoice
+
+Get the details for a specific invoice.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Invoice ID** | Yes | The invoice ID.
+|===
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/user/invoices/[Invoice ID]
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/user/invoices/25"
+----
+
+Example response:
+
+[source,json]
+----
+[
+  {
+  "pk": 25,
+  "identifier": "NKS-G418VQ3Z75",
+  "org": 352,
+  "org_name": "Divine Dawn",
+  "is_oem": false,
+  "billing_method": "send_invoice",
+  "start_time": "2019-03-01T00:00:00Z",
+  "end_time": "2019-03-31T23:59:59.999999Z",
+  "state": "void",
+  "status_display": "Void",
+  "amount_due": 19.57,
+  "created": "2019-04-01T01:00:00.256132Z",
+  "line_items": [
+
+  ],
+  "billing_period": "March 2019",
+  "is_payable": true,
+  "is_auto_charge": false
+  }
+]
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | Invoice ID.
+|**identifier** | An internal system ID for the invoice.
+|**org** | The ID of the invoice's Organization.
+|**org_name** | The name of the invoice's Organization.
+|**is_oem** | Whether or not this is an OEM account, `true` or `false`.
+|**billing_method** | The method of billing.
+|**start_time** | The timestamp of the invoice's start time.
+|**end_time** | The timestamp of the invoice's end time.
+|**state** | The invoice's current status.
+|**status_display** | How the invoice's current status is displayed on the site.
+|**amount_due** | The amount due for the invoice.
+|**created** | The timestamp of the invoice's creation.
+|**line_items** | An array containing the billing items for the invoice.
+|**billing_period** | The period covered by the invoice.
+|**is_payable** | Whether or not the invoice is payable, `true` or `false`.
+|**is_auto_charge** | Whether or not the invoice is being auto-billed, `true` or `false`.
+|===

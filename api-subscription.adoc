@@ -1,0 +1,139 @@
+---
+sidebar: sidebar
+permalink: api-subscription.html
+summary: How to use the Subscription API resource for the NKS API.
+---
+
+= Subscription
+
+View your subscription information. Subscriptions cannot be created, updated, or deleted through the API.
+
+== GET All Subscription Details
+
+Retrieve details for the subscription of the user, as specified by the API key passed in the authentication header.
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/user/subscription
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/user/subscription"
+----
+
+Example response:
+
+[source,json]
+----
+{
+  "pk": 15561,
+  "user": 18896,
+  "internal_id": "SPC-1234ABCDEF",
+  "customer_id": "",
+  "subscription_id": "",
+  "state": "active",
+  "source_id": "",
+  "access_plan": "metered-monthly",
+  "access_item_id": "",
+  "support_plan": "",
+  "support_item_id": "",
+  "suspension_reason": "trial_end",
+  "billing_contact": {
+
+  },
+  "invoice_data": {
+
+  },
+  "trial_end": "2019-04-04T22:43:57.541971Z",
+  "is_grand_fathered": false,
+  "is_metered": true,
+  "is_exempt": true,
+  "billing_method": "send_invoice",
+  "created": "2019-03-05T22:43:54.603887Z",
+  "updated": "2019-04-04T22:48:21.249153Z",
+  "is_active": true,
+  "is_trial_active": false,
+  "cluster_count": 0,
+  "node_count": 0,
+  "trial_time_left": "0\u00a0minutes",
+  "twitter_handle": "",
+  "customer": {
+
+  },
+  "covered_orgs": [
+    {
+      "pk": 15856,
+      "name": "Shy Bonus",
+      "slug": "shy-bonus-1",
+      "logo": null,
+      "enable_experimental_features": false,
+      "created": "2019-03-05T22:43:54.602681Z",
+      "updated": "2019-03-05T22:43:54.602700Z"
+    },
+    {
+      "pk": 17583,
+      "name": "Twilight Recipe",
+      "slug": "twilight-recipe-1",
+      "logo": null,
+      "enable_experimental_features": false,
+      "created": "2019-05-09T18:32:11.114208Z",
+      "updated": "2019-05-09T18:32:11.114227Z"
+    }
+  ],
+  "is_auto_charge": false,
+  "account_balance": {
+    "total_due": 0,
+    "payment_required": false
+  }
+}
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | Subscription ID.
+|**user** | The user's ID.
+|**internal_id** | The internal account ID.
+|**customer_id** | The customer ID.
+|**subscription_id** | The subscription ID.
+|**state** | The current state of the subscription: `active`, `suspended`, or `trial`.
+|**source_id** | The source ID.
+|**access_plan** | The billing plan.
+|**access_item_id** | The access item ID.
+|**support_plan** | The support plan.
+|**support_item_id** | The support item ID.
+|**suspension_reason** | The reason for the suspension, if the subscription is in `suspended` state.
+|**billing_contact** | The billing contact on file for the subscription.
+|**invoice_data** | Information used in creating invoices.
+|**trial_end** | The end date of the account's trial period.
+|**is_grand_fathered** | Whether or not the account is grandfathered, `true` or `false`.
+|**is_metered** | Whether or not the account is on a metered plan, `true` or `false`.
+|**is_exempt** | Whether or not the account has exempt status, `true` or `false`.
+|**billing_method** | The billing method.
+|**created** | The time stamp when the account was created.
+|**updated** | The time stamp when the account was last updated.
+|**is_active** | Whether or not the account is active, `true` or `false`.
+|**is_trial_active** | Whether or not the account has an active trial, `true` or `false`.
+|**cluster_count** | The number of clusters on the account.
+|**node_count** | The number of nodes on the account.
+|**trial_time_left** | The amount of time left in the trial.
+|**twitter_handle** | The user's Twitter login.
+|**customer** | Customer information.
+|**covered_orgs** | Information about the Organizations covered by this subscription.
+|**pk** | Organization ID.
+|**name** | Organization name.
+|**slug** | A human-readable unique identifier, used for storing Organization data.
+|**logo** | Organization logo. This value is `null` if a custom logo has not been set.
+|**enable_experimental_features** | Whether or not experimental features are enabled on the account, `true` or `false`.
+|**created** | Timestamp of the Organization's create date.
+|**updated** | Timestamp of the last update to the Organization.
+|**is_auto_charge** | Whether or not the account has enabled automatic billing, `true` or `false`.
+|**account_balance** | Information about the current account balance.
+|**total_due** | The total amount due.
+|**payment_required** | Whether or not a payment is due, `true` or `false`.
+|===
