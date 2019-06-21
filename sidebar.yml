@@ -80,6 +80,6 @@ entries:
       - title: Subscription
         url: /api-subscription.html
       - title: Invoices
-        url: /api-invoices.html
+        url: /api-invoice.html
   - title: What's New
     url: /news.html
