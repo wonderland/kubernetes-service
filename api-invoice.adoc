@@ -107,7 +107,7 @@ Get the details for a specific invoice.
 
 [source,shell]
 ----
-GET https://api.nks.netapp.io/user/invoices/[Invoice ID]
+GET https://api.nks.netapp.io/user/invoices/{Invoice ID}
 ----
 
 Example request:
