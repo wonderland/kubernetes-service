@@ -4,7 +4,7 @@ permalink: api-federations.html
 summary: How to use the Federations API resource for the NKS API.
 ---
 
-= Federations
+= Federations 
 
 Federation simplifies the process of managing multiple clusters, by allowing you to sync resources across clusters, auto-configure DNS servers for cross-cluster discovery, and more.
 
@@ -22,7 +22,7 @@ Get all Federations belonging to the specified Organization.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/federations
+GET https://api.nks.netapp.io/orgs/{Org ID}/federations
 ----
 
 Example request:
@@ -31,7 +31,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/federations"
+"https://api.nks.netapp.io/orgs/3/federations"
 ----
 
 Example response:
@@ -332,7 +332,7 @@ Get the details of the specified Federation.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/federations/{Federation ID}
+GET https://api.nks.netapp.io/orgs/{Org ID}/federations/{Federation ID}
 ----
 
 Example request:
@@ -341,7 +341,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/federations/103"
+"https://api.nks.netapp.io/orgs/3/federations/103"
 ----
 
 Example response:
@@ -642,7 +642,7 @@ Add a guest cluster to an existing Federation.
 
 [source,shell]
 ----
-POST https://api.stackpoint.io/orgs/{Org ID}/federations/{Federation ID}/roles
+POST https://api.nks.netapp.io/orgs/{Org ID}/federations/{Federation ID}/roles
 ----
 
 Example request:
@@ -653,7 +653,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -d @add-guest.json \
-"https://api.stackpoint.io/orgs/3/federations/103/roles"
+"https://api.nks.netapp.io/orgs/3/federations/103/roles"
 ----
 
 Contents of `add-guest.json`. Replace `12` with the ID of the cluster you want to add to the Federation:
@@ -834,7 +834,7 @@ Create a new Federation with the specified clusters.
 
 [source,shell]
 ----
-POST https://api.stackpoint.io/orgs/{Org ID}/workspaces/{Workspace ID}/federations
+POST https://api.nks.netapp.io/orgs/{Org ID}/workspaces/{Workspace ID}/federations
 ----
 
 Example request:
@@ -845,7 +845,7 @@ curl -X POST \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -H "Content-Type: application/json" \
 -d @create-aws-federation.json \
-"https://api.stackpoint.io/orgs/1/workspaces/11/federations"
+"https://api.nks.netapp.io/orgs/1/workspaces/11/federations"
 ----
 
 Contents of create-federation.json. Replace the values as specified below. Be sure to specify the `role` for one cluster as `host`, and the rest as `guest`. The host cluster cannot be changed after the Federation has been created.
@@ -1183,7 +1183,7 @@ Disband the specified Federation. The host and guest clusters will be detached f
 
 [source,shell]
 ----
-DELETE https://api.stackpoint.io/orgs/{Org ID}/federations/{Federation ID}
+DELETE https://api.nks.netapp.io/orgs/{Org ID}/federations/{Federation ID}
 ----
 
 Example request:
@@ -1192,7 +1192,7 @@ Example request:
 ----
 curl -X DELETE \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/federations/103"
+"https://api.nks.netapp.io/orgs/3/federations/103"
 ----
 
 A successful DELETE returns an empty response with status code `204`

@@ -4,12 +4,11 @@ permalink: api-teams.html
 summary: How to use the Teams API resource for the NKS API.
 ---
 
-= Teams
+= Teams 
 
 == Overview
 
-Teams allow you to organize your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] users into groups, in order to manage their access rights.
-
+Teams allow you to organize your users into groups, in order to manage their access rights.
 
 == GET All Teams
 
@@ -24,7 +23,7 @@ Get the list of Teams for the specified Organization.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/teams
+GET https://api.nks.netapp.io/orgs/{Org ID}/teams
 ----
 
 Example request:
@@ -33,7 +32,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/teams"
+"https://api.nks.netapp.io/orgs/3/teams"
 ----
 
 Example response:
@@ -101,7 +100,7 @@ Get information for a specific Team.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/teams/{Team ID}
+GET https://api.nks.netapp.io/orgs/{Org ID}/teams/{Team ID}
 ----
 
 Example request:
@@ -110,7 +109,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/teams/3"
+"https://api.nks.netapp.io/orgs/3/teams/3"
 ----
 
 Example response:
@@ -167,7 +166,7 @@ Create a new Team in the specified Organization.
 
 [source,shell]
 ----
-POST https://api.stackpoint.io/orgs/{Org ID}/teams
+POST https://api.nks.netapp.io/orgs/{Org ID}/teams
 ----
 
 Example Request:
@@ -178,7 +177,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -d @add-team.json \
-"https://api.stackpoint.io/orgs/3/teams"
+"https://api.nks.netapp.io/orgs/3/teams"
 ----
 
 Contents of `add-team.json`:
@@ -250,7 +249,7 @@ For example, to add a second user to the team, the contents of `add-team-member.
 
 [source,shell]
 ----
-PATCH https://api.stackpoint.io/orgs/{Org ID}/teams/{Team ID}
+PATCH https://api.nks.netapp.io/orgs/{Org ID}/teams/{Team ID}
 ----
 
 Example Request: Add the first user to the team from the contents of a JSON file.
@@ -263,7 +262,7 @@ curl -X PATCH \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -d @add-team-member.json \
-"https://api.stackpoint.io/orgs/3/teams/3"
+"https://api.nks.netapp.io/orgs/3/teams/3"
 ----
 
 Contents of `add-team-member.json`:
@@ -357,7 +356,7 @@ Delete the specified Team.
 
 [source,shell]
 ----
-DELETE https://api.stackpoint.io/orgs/{Org ID}/teams/{Team ID}
+DELETE https://api.nks.netapp.io/orgs/{Org ID}/teams/{Team ID}
 ----
 
 Example request:
@@ -366,7 +365,7 @@ Example request:
 ----
 curl -X DELETE \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/teams/3"
+"https://api.nks.netapp.io/orgs/3/teams/3"
 ----
 
 If the team is successfully deleted, this command returns an empty response with status code `204`.

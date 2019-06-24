@@ -6,32 +6,30 @@ summary: The basics of using the NKS API, including creating an API token and ho
 
 = Getting Started
 
-
-Welcome to the NetApp Kubernetes Service (NKS) API Reference. This section guides you through the setup process of creating an NKS API token, passing the token in your API requests, and the response codes returned by the API.
+Welcome to the NKS API Reference. This section guides you through the setup process of creating an NKS API token, passing the token in your API requests, and the response codes returned by the API.
 
 == Resource URL
 
-The full resource URL for the NKS API is `https://api.stackpoint.io`.
+The full resource URL for the NKS API is `https://api.nks.netapp.io`.
 
 == Authorization Requirements
 
 All API requests must be authenticated with your API token. To obtain a token:
 
-1. Register or log in at https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
-
+1. Register or log in at https://nks.netapp.io[NKS].
 2. Click your profile avatar in the top right corner and select `Edit Profile`.
 3. In the *API Tokens* section, click *Add Token*.
 4. Copy the token and save it somewhere safe. This is your only chance to view your API token. The token cannot be displayed after you leave or reload the page.
 
 IMPORTANT: The API only accepts keys from accounts which have the role of `Owner` in the related Organization.
 
-== Usage
+== Usage 
 
 [source,shell]
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdev123456789" \
-"https://api.stackpoint.io/orgs"
+"https://api.nks.netapp.io/orgs"
 ----
 
 To authenticate, you must pass the API token as a Bearer token in the Authorization header for all API requests.
@@ -55,7 +53,7 @@ image::assets/documentation/api/api-token-example-code.png?raw=true[API token ex
 ----
 curl -X GET \
 -H "Authorization: Bearer {API token}" \
-"https://api.stackpoint.io/orgs/{Org ID}/clusters"
+"https://api.nks.netapp.io/orgs/{Org ID}/clusters"
 ----
 
 This query returns a list of your current active clusters within the selected organization.
@@ -66,7 +64,7 @@ For example:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdev123456789" \
-"https://api.stackpoint.io/orgs/381/clusters"
+"https://api.nks.netapp.io/orgs/381/clusters"
 ----
 
 == Response Codes
@@ -78,7 +76,7 @@ Example using the `-i` flag to view all headers:
 curl -i -X PATCH \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer abcdef123456789abcdev123456789" \
--d @updateorg.json "https://api.stackpoint.io/orgs/381"
+-d @updateorg.json "https://api.nks.netapp.io/orgs/381"
 ----
 
 This query will trigger a 400 error. Using the `-i` flag returns the additional response:

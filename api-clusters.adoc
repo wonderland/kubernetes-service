@@ -4,10 +4,9 @@ permalink: api-clusters.html
 summary: How to use the Keysets API resource for the NKS API.
 ---
 
-= Clusters
+= Clusters 
 
-
-The Clusters resource lets you create, manage, and delete Kubernetes clusters on the https://nks.netapp.io[NetApp Kubernetes Service (NKS)] system.
+The Clusters resource lets you create, manage, and delete Kubernetes clusters on the NKS system.
 
 Clusters are scoped under Organizations as well as Workspaces.
 
@@ -25,7 +24,7 @@ Get all the Clusters belonging to the specified Organization.
 
 [source,shell]
 ----
-GET "https://api.stackpoint.io/orgs/{Org ID}/clusters"
+GET "https://api.nks.netapp.io/orgs/{Org ID}/clusters"
 ----
 
 Example request:
@@ -34,7 +33,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/2/clusters"
+"https://api.nks.netapp.io/orgs/2/clusters"
 ----
 
 Example response:
@@ -118,7 +117,7 @@ Get information for a specific cluster.
 
 [source,shell]
 ----
-GET "https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}"
+GET "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}"
 ----
 
 Example request:
@@ -127,7 +126,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/2/clusters/45"
+"https://api.nks.netapp.io/orgs/2/clusters/45"
 ----
 
 Example response:
@@ -217,14 +216,14 @@ To create a cluster in the default workspace:
 
 [source,shell]
 ----
-POST "https://api.stackpoint.io/orgs/{Org ID}/clusters"
+POST "https://api.nks.netapp.io/orgs/{Org ID}/clusters"
 ----
 
 To create a cluster in a specific workspace:
 
 [source,shell]
 ----
-POST "https://api.stackpoint.io/orgs/{Org ID}/workspaces/{Workspace ID}/clusters"
+POST "https://api.nks.netapp.io/orgs/{Org ID}/workspaces/{Workspace ID}/clusters"
 ----
 
 **Cluster Attributes**
@@ -283,7 +282,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Accept: application/json" \
 -d @create-aws-cluster.json \
-https://api.stackpoint.io/orgs/3/clusters
+https://api.nks.netapp.io/orgs/3/clusters
 ----
 
 Contents of create-aws-cluster.json:
@@ -446,7 +445,7 @@ Delete the cluster and any associated nodes, solutions and/or volumes.
 
 [source,shell]
 ----
-curl -X DELETE "https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}"
+curl -X DELETE "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}"
 ----
 
 Example request to delete the cluster with Cluster ID 1:
@@ -455,7 +454,7 @@ Example request to delete the cluster with Cluster ID 1:
 ----
 curl -X DELETE \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-https://api.stackpoint.io/orgs/3/clusters/1
+https://api.nks.netapp.io/orgs/3/clusters/1
 ----
 
 If the cluster is successfully deleted, this command returns an empty response with status code `204`.

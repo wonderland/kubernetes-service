@@ -4,7 +4,7 @@ permalink: api-trusted-charts.html
 summary: How to use the Trusted Charts API resource for the NKS API.
 ---
 
-= Trusted Charts
+= Trusted Charts 
 
 This resource lists NKS Trusted Charts for your account.
 
@@ -20,7 +20,7 @@ Get all NKS Trusted Charts for your account.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/chart-repos/trusted
+GET https://api.nks.netapp.io/orgs/{Org ID}/chart-repos/trusted
 ----
 
 Example request. Due to the large amount of information returned by this query, we suggest you pipe the JSON output to a file, as shown below. You can then view and edit the trusted-charts.json file.
@@ -29,7 +29,7 @@ Example request. Due to the large amount of information returned by this query, 
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/chart-repos/trusted" \
+"https://api.nks.netapp.io/orgs/3/chart-repos/trusted" \
  > trusted-charts.json
 ----
 

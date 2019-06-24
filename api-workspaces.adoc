@@ -4,12 +4,11 @@ permalink: api-workspaces.html
 summary: How to use the Workspaces API resource for the NKS API.
 ---
 
-= Workspaces
+= Workspaces 
 
 == Overview
 
-Workspaces allow you to control access for your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] users.
-
+Workspaces allow you to control access for your users.
 
 == GET All Workspaces
 
@@ -27,7 +26,7 @@ Get the list of Workspaces for the specified Organization.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/workspaces
+GET https://api.nks.netapp.io/orgs/{Org ID}/workspaces
 ----
 
 Example request:
@@ -36,7 +35,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/workspaces"
+"https://api.nks.netapp.io/orgs/3/workspaces"
 ----
 
 Example response:
@@ -118,7 +117,7 @@ Get information for a specific Workspace.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/workspaces/{Workspace ID}
+GET https://api.nks.netapp.io/orgs/{Org ID}/workspaces/{Workspace ID}
 ----
 
 Example request:
@@ -127,7 +126,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/workspaces/3"
+"https://api.nks.netapp.io/orgs/3/workspaces/3"
 ----
 
 Example response:
@@ -199,7 +198,7 @@ Create a new Workspace in the user's account.
 
 [source,shell]
 ----
-POST https://api.stackpoint.io/orgs/{Org ID}/workspaces
+POST https://api.nks.netapp.io/orgs/{Org ID}/workspaces
 ----
 
 Example Request:
@@ -210,7 +209,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -d @add-workspace.json \
-"https://api.stackpoint.io/orgs/3/workspaces"
+"https://api.nks.netapp.io/orgs/3/workspaces"
 ----
 
 Contents of `add-workspace.json`:
@@ -273,7 +272,7 @@ Update information for an existing Workspace.
 
 [source,shell]
 ----
-PATCH https://api.stackpoint.io/orgs/{Org ID}/workspaces/{Workspace ID}
+PATCH https://api.nks.netapp.io/orgs/{Org ID}/workspaces/{Workspace ID}
 ----
 
 Example Request: Update the Organization name from the contents of a JSON file:
@@ -284,7 +283,7 @@ curl -X PATCH \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -d @patch-workspace.json \
-"https://api.stackpoint.io/orgs/3/workspaces/4"
+"https://api.nks.netapp.io/orgs/3/workspaces/4"
 ----
 
 Contents of `postorg.json`:
@@ -304,7 +303,7 @@ curl -X PATCH \
 -H "Content-Type: multipart/form-data" \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -F name="Slightly Different Workspace Name" \
-"https://api.stackpoint.io/orgs/3/workspaces/4"
+"https://api.nks.netapp.io/orgs/3/workspaces/4"
 ----
 
 Example Response
@@ -357,7 +356,7 @@ Delete the Workspace.
 
 [source,shell]
 ----
-curl -X DELETE "https://api.stackpoint.io/orgs/{Org ID}/workspaces/{Workspace ID}"
+curl -X DELETE "https://api.nks.netapp.io/orgs/{Org ID}/workspaces/{Workspace ID}"
 ----
 
 Example request to delete the Workspace with Workspace ID 4:
@@ -366,7 +365,7 @@ Example request to delete the Workspace with Workspace ID 4:
 ----
 curl -X DELETE \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-https://api.stackpoint.io/orgs/3/workspaces/4
+https://api.nks.netapp.io/orgs/3/workspaces/4
 ----
 
 If the cluster is successfully deleted, this command returns an empty response with status code `204`.

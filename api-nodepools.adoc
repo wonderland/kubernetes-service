@@ -3,11 +3,9 @@ sidebar: sidebar
 permalink: api-nodepools.html
 summary: How to use the Nodepools API resource for the NKS API.
 ---
-= Node Pools
+= Node Pools 
 
-
-Node pools are used to manage https://nks.netapp.io[NetApp Kubernetes Service (NKS)] worker nodes with common properties.
-
+Node pools are used to manage worker nodes with common properties.
 
 Each cluster gets a default node pool when it is created. Master nodes are stand-alone and do not belong to pools.
 
@@ -24,7 +22,7 @@ Get all the transitioning or running node pools for the specified cluster.
 
 [source,shell]
 ----
-GET "https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools"
+GET "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools"
 ----
 
 Example query:
@@ -33,7 +31,7 @@ Example query:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-https://api.stackpoint.io/orgs/3/clusters/2/nodepools
+https://api.nks.netapp.io/orgs/3/clusters/2/nodepools
 ----
 
 Example response:
@@ -125,7 +123,7 @@ Get information for a specific node pool.
 
 [source,shell]
 ----
-GET "https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools/{Node Pool ID}"
+GET "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools/{Node Pool ID}"
 ----
 
 Example query:
@@ -134,7 +132,7 @@ Example query:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-https://api.stackpoint.io/orgs/3/clusters/2/nodepools/2
+https://api.nks.netapp.io/orgs/3/clusters/2/nodepools/2
 ----
 
 Example response:
@@ -224,7 +222,7 @@ Create a node pool for the specified cluster.
 
 [source,shell]
 ----
-POST "https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools"
+POST "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools"
 ----
 
 
@@ -262,7 +260,7 @@ This example creates a new node pool with four nodes on an existing GCE cluster.
 
 [source,shell]
 ----
-POST "https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools"
+POST "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools"
 ----
 
 Example request:
@@ -274,7 +272,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Accept: application/json" \
 -d @add-node-pool.json \
-https://api.stackpoint.io/orgs/1/clusters/2/nodepools
+https://api.nks.netapp.io/orgs/1/clusters/2/nodepools
 ----
 
 Contents of `add-node-pool.json`:
@@ -340,7 +338,7 @@ To enable or update autoscaling for a node pool, set `autoscaled` to `true` and 
 
 [source,shell]
 ----
-POST "https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools/{Node Pool ID}"
+POST "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools/{Node Pool ID}"
 ----
 
 Example request:
@@ -352,7 +350,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Accept: application/json" \
 -d @enable-node-pool-autoscaling.json \
-https://api.stackpoint.io/orgs/1/clusters/2/nodepools/4
+https://api.nks.netapp.io/orgs/1/clusters/2/nodepools/4
 ----
 
 Contents of `enable-node-pool-autoscaling.json`:
@@ -379,7 +377,7 @@ Contents of `enable-node-pool-autoscaling.json`:
 
 [source,shell]
 ----
-POST "https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools/{Node Pool ID}"
+POST "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodepools/{Node Pool ID}"
 ----
 
 Example request:
@@ -391,7 +389,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Accept: application/json" \
 -d @disable-node-pool-autoscaling.json \
-https://api.stackpoint.io/orgs/1/clusters/2/nodepools/4
+https://api.nks.netapp.io/orgs/1/clusters/2/nodepools/4
 ----
 
 Contents of `disable-node-pool-autoscaling.json`:

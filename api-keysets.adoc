@@ -4,11 +4,9 @@ permalink: api-keysets.html
 summary: How to use the Keysets API resource for the NKS API.
 ---
 
-= Keysets
+= Keysets 
 
-
-Keysets are credentials used by the https://nks.netapp.io[NetApp Kubernetes Service (NKS)] system to provision clusters, add nodes, or install applications. Keysets are scoped by organization.
-
+Keysets are credentials used by the system to provision clusters, add nodes, or install applications. Keysets are scoped by organization.
 
 WARNING: Only an organization Owner or Admin can create, update, or delete Keysets.
 
@@ -26,7 +24,7 @@ Get all of the Keysets belonging to the specified Organization. Each Keyset cont
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/keysets
+GET https://api.nks.netapp.io/orgs/{Org ID}/keysets
 ----
 
 Example request:
@@ -35,7 +33,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/2/keysets"
+"https://api.nks.netapp.io/orgs/2/keysets"
 ----
 
 Example response:
@@ -108,7 +106,7 @@ Get information for a specific Keyset.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/keysets/{Keyset ID}
+GET https://api.nks.netapp.io/orgs/{Org ID}/keysets/{Keyset ID}
 ----
 
 Example request:
@@ -117,7 +115,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/2/keysets/3"
+"https://api.nks.netapp.io/orgs/2/keysets/3"
 ----
 
 Example response:
@@ -174,7 +172,7 @@ Create a new Keyset for the specified organization. Each keyset contains one or 
 
 [source,shell]
 ----
-POST https://api.stackpoint.io/orgs/{Org ID}/keysets
+POST https://api.nks.netapp.io/orgs/{Org ID}/keysets
 ----
 
 Example request: Create an AWS Keyset
@@ -185,7 +183,7 @@ curl -X POST \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -H "Content-Type: application/json" \
 -d @create-aws-keyset.json \
-"https://api.stackpoint.io/orgs/1/keysets"
+"https://api.nks.netapp.io/orgs/1/keysets"
 ----
 
 Contents of `create-aws-keyset.json`:
@@ -331,7 +329,7 @@ NOTE: The PATCH method allows you to update the Workspace(s) for a Keyset. To ac
 
 [source,shell]
 ----
-PATCH https://api.stackpoint.io/orgs/{Org ID}/keysets/{Keyset ID}
+PATCH https://api.nks.netapp.io/orgs/{Org ID}/keysets/{Keyset ID}
 ----
 
 Example request: Update an AWS Keyset name using a JSON file
@@ -342,7 +340,7 @@ curl -X PATCH \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -H "Content-Type: application/json" \
 -d @rename-aws-keyset.json \
-"https://api.stackpoint.io/orgs/2/keysets/4"
+"https://api.nks.netapp.io/orgs/2/keysets/4"
 ----
 
 Contents of `rename-aws-keyset.json`:
@@ -362,7 +360,7 @@ curl -X PATCH \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -H "Content-Type: multipart/form-data" \
 -F name="My Renamed AWS Keyset" \
-"https://api.stackpoint.io/orgs/2/keysets/4"
+"https://api.nks.netapp.io/orgs/2/keysets/4"
 ----
 
 Example response:
@@ -486,7 +484,7 @@ WARNING: If you delete a keyset associated with a running cluster, you will not 
 
 [source,shell]
 ----
-DELETE https://api.stackpoint.io/orgs/{Org ID}/keysets/{Keyset ID}
+DELETE https://api.nks.netapp.io/orgs/{Org ID}/keysets/{Keyset ID}
 ----
 
 Example: Delete Keyset ID 3
@@ -495,7 +493,7 @@ Example: Delete Keyset ID 3
 ----
 curl -X DELETE \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/2/keysets/3"
+"https://api.nks.netapp.io/orgs/2/keysets/3"
 ----
 
 A successful DELETE returns an empty response with status code `204`

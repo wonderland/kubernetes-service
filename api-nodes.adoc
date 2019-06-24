@@ -1,14 +1,12 @@
 ---
 sidebar: sidebar
 permalink: api-nodes.html
-summary: How to use the Nodes API resource for the NKS API.
+summary: How to use the Keysets API resource for the NKS API.
 ---
 
-= Nodes
+= Nodes 
 
-
-Each https://nks.netapp.io[NetApp Kubernetes Service (NKS)] cluster can have 3 or more nodes.
-
+Each NKS cluster can have 3 or more nodes.
 
 == GET All Nodes for a Cluster
 
@@ -24,7 +22,7 @@ Get all transitioning or running nodes in the specified cluster.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes
+GET https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes
 ----
 
 Example request:
@@ -33,7 +31,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/clusters/2/nodes"
+"https://api.nks.netapp.io/orgs/3/clusters/2/nodes"
 ----
 
 Example response:
@@ -224,7 +222,7 @@ Get the specified node.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}
+GET https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}
 ----
 
 Example request:
@@ -233,7 +231,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/clusters/2/nodes/1"
+"https://api.nks.netapp.io/orgs/3/clusters/2/nodes/1"
 ----
 
 Example response:
@@ -305,7 +303,7 @@ WARNING: Only 1 master node should be added at a time.
 
 [source,shell]
 ----
-POST "https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/add_node"
+POST "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/add_node"
 ----
 
 **Node Attributes**
@@ -342,7 +340,7 @@ curl -X POST \
 -H "Content-Type: application/json" \
 -H "Accept: application/json" \
 -d @add-master-node.json \
-"https://api.stackpoint.io/orgs/1/clusters/12/add_node"
+"https://api.nks.netapp.io/orgs/1/clusters/12/add_node"
 ----
 
 Contents of `add-master-node.json`:
@@ -419,7 +417,7 @@ Check whether a specific node can be deleted.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}/can_delete
+GET https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}/can_delete
 ----
 
 Example request:
@@ -428,7 +426,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/clusters/3/nodes/10/can_delete"
+"https://api.nks.netapp.io/orgs/3/clusters/3/nodes/10/can_delete"
 ----
 
 If the node can be deleted, the API will return the response:
@@ -464,7 +462,7 @@ Delete the specified node.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}/can_delete
+GET https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}/can_delete
 ----
 
 Example request:
@@ -473,7 +471,7 @@ Example request:
 ----
 curl -X DELETE \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/clusters/3/nodes/10"
+"https://api.nks.netapp.io/orgs/3/clusters/3/nodes/10"
 ----
 
 If successful, this command returns an empty response with status code `204`

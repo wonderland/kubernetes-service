@@ -4,7 +4,7 @@ permalink: api-user.html
 summary: How to use the User API resource for the NKS API.
 ---
 
-= User
+= User 
 
 Get and update your user account information. The user account cannot be deleted through the API.
 
@@ -16,7 +16,7 @@ Retrieve profile, organization, keyset, and subscription details for the user wh
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/rest-auth/user/
+GET https://api.nks.netapp.io/rest-auth/user/
 ----
 
 Example request
@@ -25,7 +25,7 @@ Example request
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/rest-auth/user/"
+"https://api.nks.netapp.io/rest-auth/user/"
 ----
 
 Example response
@@ -222,7 +222,7 @@ Update your user profile. Use this resource to update your email address, first 
 
 [source,shell]
 ----
-PATCH https://api.stackpoint.io/userprofile/{username}
+PATCH https://api.nks.netapp.io/userprofile/{username}
 ----
 
 Example request: Update a user's name
@@ -233,7 +233,7 @@ curl -X PATCH \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -d @update-user-name.json \
-"https://api.stackpoint.io/userprofile/jdoe"
+"https://api.nks.netapp.io/userprofile/jdoe"
 ----
 
 Contents of `update-user-name.json`:

@@ -4,7 +4,7 @@ permalink: api-subscription.html
 summary: How to use the Subscription API resource for the NKS API.
 ---
 
-= Subscription
+= Subscription 
 
 View your subscription information. Subscriptions cannot be created, updated, or deleted through the API.
 

@@ -4,11 +4,9 @@ permalink: api-members.html
 summary: How to use the Members API resource for the NKS API.
 ---
 
-= Members
+= Members 
 
-
-Manage members for your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] Organizations, Teams, and Workspaces.
-
+Manage members for your Organizations, Teams, and Workspaces.
 
 == GET All Members
 
@@ -22,7 +20,7 @@ Retrieve details for all the members of the specified Organization.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/members
+GET https://api.nks.netapp.io/orgs/{Org ID}/members
 ----
 
 Example request:
@@ -31,7 +29,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/members"
+"https://api.nks.netapp.io/orgs/3/members"
 ----
 
 Example response:
@@ -123,7 +121,7 @@ Retrieve details for a specific member of the specified Organization.
 
 [source,shell]
 ----
-GET https://api.stackpoint.io/orgs/{Org ID}/members/{Member ID}
+GET https://api.nks.netapp.io/orgs/{Org ID}/members/{Member ID}
 ----
 
 Example request:
@@ -132,7 +130,7 @@ Example request:
 ----
 curl -X GET \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/members/3"
+"https://api.nks.netapp.io/orgs/3/members/3"
 ----
 
 Example response:
@@ -221,14 +219,14 @@ You cannot add a new member directly through the API. However, you can send an e
 
 [source,shell]
 ----
-https://api.stackpoint.io/orgs/{Org ID}/invites
+https://api.nks.netapp.io/orgs/{Org ID}/invites
 ----
 
 Example Request:
 
 [source,shell]
 ----
-curl 'https://api.stackpoint.io/orgs/3/invites' \
+curl 'https://api.nks.netapp.io/orgs/3/invites' \
 -H 'Content-Type: application/json;charset=UTF-8' \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
 -d '[{"name":"J Doe","email":"jdoe@example.com","role":"member","teams":[]}]' \
@@ -291,7 +289,7 @@ Remove a member from the specified Organization. Note: This action does not dele
 
 [source,shell]
 ----
-DELETE https://api.stackpoint.io/orgs/{Org ID}/members/{Member ID}
+DELETE https://api.nks.netapp.io/orgs/{Org ID}/members/{Member ID}
 ----
 
 Example request:
@@ -300,7 +298,7 @@ Example request:
 ----
 curl -X DELETE \
 -H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.stackpoint.io/orgs/3/members/3"
+"https://api.nks.netapp.io/orgs/3/members/3"
 ----
 
 If the member is successfully removed, this command returns an empty response with status code `204`
