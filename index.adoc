@@ -57,9 +57,11 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:api-nodes.html[Nodes]
 * link:api-nodepools.html[Nodepools]
 * link:api-federations.html[Federations]
+* link:api-istio-mesh.html[Istio Mesh]
 * link:api-trusted-charts.html[Trusted Charts]
 * link:api-subscription.html[Subscription]
 * link:api-invoice.html[Invoices]
+* link:api-notifications.html[Notifications]
 
 == What's New
 

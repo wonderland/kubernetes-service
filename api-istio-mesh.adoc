@@ -1,0 +1,211 @@
+---
+sidebar: sidebar
+permalink: api-istio-mesh.html
+summary: How to use the Istio Mesh API resource for the NKS API.
+---
+
+= Istio Meshes
+
+The Istio Mesh API resource lets you create and manage Istio meshes with your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] clusters.
+
+**Requirements**
+
+In order to be part of an Istio mesh, each node in the cluster must have:
+
+* Istio installed as a solution.
+* At least 1 provider load balancer available.
+* At least 2 CPU units.
+* At least 4 GB of memory.
+
+== GET All Istio Meshes
+
+Get the details for all existing Istio meshes for the specified organization.
+
+NOTE: Due to the volume of data returned by this query, we recommend you pipe the results into a file as shown in the example request below.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/orgs/{Org ID}/istio-meshes
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/orgs/352/istio-meshes"
+> get-istio-meshes.json
+----
+
+Example response: Note, If there are no Istio meshes for the organization, an empty response is returned.
+
+[source,json]
+----
+{
+  "pk": 112,
+  "name": "New Mesh",
+  "mesh_type": "cross_cluster",
+  "org": 132,
+  "workspace": {
+
+     Workspace details omitted for space considerations. See the Workspaces endpoint reference for response details.
+
+  },
+  "members": [
+
+    Cluster details omitted for space considerations. See the Clusters endpoint reference for response details.
+
+  ],
+
+  "created": "2019-06-27T17:52:31.356392Z",
+  "updated": "2019-06-27T17:52:31.356412Z"
+}
+----
+
+== GET A Specific Istio Mesh
+
+Get the details for the specified Istio mesh.
+
+NOTE: Due to the volume of data returned by this query, we recommend you pipe the results into a file as shown in the example request below.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Istio Mesh ID** | Yes | The Istio mesh ID.
+|===
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/orgs/{Org ID}/istio-meshes/{Istio Mesh ID}
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/orgs/352/istio-meshes/112"
+> get-istio-mesh.json
+----
+
+Example response: Note, If there are no Istio meshes for the organization, an empty response is returned.
+
+[source,json]
+----
+{
+  "pk": 112,
+  "name": "New Mesh",
+  "mesh_type": "cross_cluster",
+  "org": 132,
+  "workspace": {
+
+     Workspace details omitted for space considerations. See the Workspaces endpoint reference for response details.
+
+  },
+  "members": [
+
+    Cluster details omitted for space considerations. See the Clusters endpoint reference for response details.
+
+  ],
+
+  "created": "2019-06-27T17:52:31.356392Z",
+  "updated": "2019-06-27T17:52:31.356412Z"
+}
+----
+
+== POST Create a New Istio Mesh
+
+Create a new Istio mesh with two or more nodes.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Workspace ID** | Yes | The Workspace ID.
+|===
+
+[source,shell]
+----
+POST https://api.nks.netapp.io/orgs/{Org ID}/workspaces/{Workspace ID/istio-meshes
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X POST \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-d @new-istio-mesh.json \
+"https://api.nks.netapp.io/orgs/350/workspaces/182/istio-meshes"
+----
+
+Contents of file `new-istio-mesh.json`:
+
+[source,json]
+----
+{
+  "name": "New Mesh",
+  "mesh_type": "cross_cluster",
+  "workspace": 152,
+  "members": [
+    {
+      "cluster": 6507,
+      "role": "host"
+    },
+    {
+      "cluster": 6503,
+      "role": "guest"
+    }
+  ]
+}
+----
+
+**Istio Mesh Attributes**
+|===
+|**Name** | **Description**
+|**name** | The name of the new Istio mesh.
+|**mesh_type** | The type of mesh. The only type currently available is `cross_cluster`.
+|**workspace** | The ID of the workspace where the mesh will be built.
+|**members** | An array with details for each node in the mesh.
+|**cluster** | The ID of the cluster to add to the mesh.
+|**role** | The role of the cluster in the mesh, either `host` or `guest`. Note: You will need to add at least one of each role.
+|===
+
+If the request is successful, the server will respond with the full details of the mesh and all clusters assigned to the mesh.
+
+== DELETE an Istio Mesh
+
+Disband the specified Istio mesh. Any clusters assigned to the mesh will continue to run.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Istio Mesh ID** | Yes | The Istio mesh ID.
+|===
+
+[source,shell]
+----
+DELETE https://api.nks.netapp.io/orgs/{Org ID}/istio-meshes/{Istio Mesh ID}
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X DELETE \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/orgs/352/istio-meshes/112"
+----
+
+If the operation is successful, an empty response will be returned.

@@ -75,11 +75,15 @@ entries:
         url: /api-nodepools.html
       - title: Federations
         url: /api-federations.html
+      - title: Istio Mesh
+        url: /api-istio-mesh.html
       - title: Trusted Charts
         url: /api-trusted-charts.html
       - title: Subscription
         url: /api-subscription.html
       - title: Invoices
         url: /api-invoice.html
+      - title: Notifications
+        url: /api-notifications.html
   - title: What's New
     url: /news.html
