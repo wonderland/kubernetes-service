@@ -6,7 +6,7 @@ summary: The basics of using the NKS API, including creating an API token and ho
 
 = Getting Started
 
-Welcome to the NKS API Reference. This section guides you through the setup process of creating an NKS API token, passing the token in your API requests, and the response codes returned by the API.
+Welcome to the https://nks.netapp.io[NetApp Kubernetes Service (NKS)] API Reference. This section guides you through the setup process of creating an NKS API token, passing the token in your API requests, and the response codes returned by the API.
 
 == Resource URL
 
@@ -21,9 +21,33 @@ All API requests must be authenticated with your API token. To obtain a token:
 3. In the *API Tokens* section, click *Add Token*.
 4. Copy the token and save it somewhere safe. This is your only chance to view your API token. The token cannot be displayed after you leave or reload the page.
 
-IMPORTANT: The API only accepts keys from accounts which have the role of `Owner` in the related Organization.
+== Access Rights
 
-== Usage 
+Your UI access and your API access are both tied to the same account. This means that you can only do through the API what you would be able to do through the UI.
+
+Most API operations are scoped under the organization. You will only be able to carry out these operations if you have `Owner` level access to the specified organization.
+
+== Scope
+
+The following resources are scoped under the organization:
+
+* Workspaces
+* Teams
+* Members
+* Keysets
+* Clusters
+* Nodes
+* Node Pools
+* Federations
+* Istio Mesh
+* Trusted Charts
+* Subscription
+* Invoices
+* Notifications
+
+The user resource is scoped under the user account.
+
+== Usage
 
 [source,shell]
 ----
