@@ -43,6 +43,16 @@ entries:
         url: /install-kubectl-to-control-a-kubernetes-cluster.html
       - title: Terraform on NKS
         url: /intro-to-terraform-on-nks.html
+  - title: ALM
+    entries:
+      - title: Quickstart Guide
+        url: /alm-quickstart.html
+      - title: Applications
+        url: /alm-applications.html
+      - title: Trackers
+        url: /alm-trackers.html
+      - title: Packages
+        url: /alm-packages.html
   - title: Manage Access
     entries:
       - title: Add a User
