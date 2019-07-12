@@ -30,4 +30,6 @@ For more information about Trackers, see our https://docs.netapp.com/us-en/kuber
 
 == Packages
 
+Packages are Helm charts. You will find a number of commonly used Packages available to added to your Project. You also have the option to import your own charts from an external repository.
+
 For more information about Packages, see our https://docs.netapp.com/us-en/kubernetes-service/alm-packages.html[ALM Packages Guide].
