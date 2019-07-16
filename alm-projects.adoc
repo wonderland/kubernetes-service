@@ -1,0 +1,49 @@
+---
+sidebar: sidebar
+permalink: alm-projects.html
+summary: An explanation of NKS Application Lifecycle Management Projects and how to use them.
+---
+
+= Application Lifecycle Management: Projects
+
+Projects are the top level of Application Lifecycle Management. Projects are created in your desired Workspace, and can contain any combination of Applications, Trackers, and Packages.
+
+NOTE: Application Lifecycle Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
+
+image::assets/documentation/alm-projects/enable-experimental-features.png?raw=true[NKS app management]
+
+**Requirements:**
+
+* A cluster created in the desired Workspace, with "Experimental Features" enabled.
+
+== Create an Application Lifecycle Management Project
+
+Log in to NKS, then go to https://nks.netapp.io/v2[App Management]. Click **View All Workspaces**, then click the Workspace you want to use.
+
+image::assets/documentation/alm-projects/application-select-workspace.png?raw=true[NKS app management]
+
+Click the Projects tab, then click **Add A Project**.
+
+image::assets/documentation/alm-projects/application-click-projects-tab.png?raw=true[NKS app management]
+
+**Name Your Project**
+
+Fill out the project's name. The Kubernetes name will be automatically created, according to Kubernetes naming conventions. Select the cluster you want to use for your Application. Then click **Next**.
+
+image::assets/documentation/alm-projects/name-your-project.png?raw=true[NKS app management]
+
+**Configure Your Project**
+
+Customize Project Quotas, Pod Limits, and Container Limits to suit your needs. Click the lock button to unlock each section for editing. When you are ready to continue, click **Next**.
+
+image::assets/documentation/alm-projects/configure-your-project.png?raw=true[NKS app management]
+
+**Invite Your Team:**
+
+By default, the project will use the same Roles and Permissions as the Workspace to which it is assigned. To accept the settings and create the project, click **Create Project**.
+
+image::assets/documentation/alm-projects/invite-your-team.png?raw=true[NKS app management]
+
+This creates the Project, and directs you to the Project's landing page.
+
+image::assets/documentation/alm-projects/project-landing.png?raw=true[NKS app management]
