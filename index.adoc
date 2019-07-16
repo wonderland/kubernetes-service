@@ -37,7 +37,7 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
 * link:install-kubectl-to-control-a-kubernetes-cluster.html[Install kubectl to Control a Kubernetes Cluster]
 * link:intro-to-terraform-on-nks.html[Terraform on NKS]
-* link:cypher-suites.html[Cypher Suites]
+* link:cipher-suites.html[Cipher Suites]
 
 == ALM
 

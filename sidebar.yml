@@ -43,8 +43,8 @@ entries:
         url: /install-kubectl-to-control-a-kubernetes-cluster.html
       - title: Terraform on NKS
         url: /intro-to-terraform-on-nks.html
-      - title: Cypher Suites
-        url: /cypher-suites.html
+      - title: Cipher Suites
+        url: /cipher-suites.html
   - title: ALM
     entries:
       - title: Quickstart Guide
