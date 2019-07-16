@@ -12,6 +12,10 @@ Learn how to get up and running with https://nks.netapp.io[NetApp Kubernetes Ser
 
 Application Lifecycle Management (ALM) provides a developer-friendly `git push` workflow which lets you deploy your application to an NKS Kubernetes cluster with a simple `git push nks master`. Apps can be deployed with monitoring and more.
 
+NOTE: Application Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
+
+image::assets/documentation/alm-quickstart/enable-experimental-features.png?raw=true[NKS app management]
+
 == Applications
 
 By creating and leveraging Applications, you can quickly build and deploy solutions to your NKS cluster.

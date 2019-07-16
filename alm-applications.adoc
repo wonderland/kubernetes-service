@@ -8,9 +8,9 @@ summary: An explanation of NKS ALM Applications and how to use them.
 
 Wondering what an ALM Application is and how to use it? Get an overview of the Application deployment workflow, and how you can use `git push` to deploy and manage Application with https://nks.netapp.io[NetApp Kubernetes Service (NKS)] Application Lifecycle Management.
 
-NOTE: Applications are currently in Functional Preview mode. To enable this feature you will need to create a new cluster. Be sure to enable experimental features in step 2 of the cluster creation process.
+NOTE: Application Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
 
-For more information on Kubernetes deployments, https://kubernetes.io/docs/concepts/workloads/controllers/deployment/[see the official Kubernetes documentation].
+image::assets/documentation/alm-applications/enable-experimental-features.png?raw=true[NKS app management]
 
 == Understanding Applications
 
