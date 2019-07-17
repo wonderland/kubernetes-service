@@ -42,27 +42,16 @@ NOTE: To serve static HTML pages, be sure to add an empty file named `.static` i
 
 Prerequisites:
 
+* Create a Project for your Application. For more information on Projects, see our https://docs.netapp.com/us-en/kubernetes-service/alm-projects.html[Projects guide].
 * Before deploying your Application on NKS, you will need to commit it to a Git repository. You can either use a local repository on your desktop computer, or use a public https://github.com[GitHub] repository.
 * https://git-scm.com/[Git] installed on your desktop computer.
 
-=== Create an Application
 
-1. Go to App Management https://nks.netapp.io/v2
-2. Select a workspace
-3. Press the Projects tab
-4. Select a project
-5. At the bottom of the page, press the [Add Solution] button
-6. Press Application
-7. Enter a name for identifying your application.
-8. Select an update strategy - this maps to the deployment object in Kubernetes.
-9. Optionally, enable autoscaling of the application by setting minimum and maximum replicas and CPU trigger values.
+=== Deploy Your Application
 
-
-=== Deploy to cluster
-
-1. Copy the `git remote` address from the Project page
+1. Copy the `git remote` address from the Project page.
 2. On your terminal, paste the `git remote` address.
-3. Commit your changes
+3. Commit your changes.
 4. `git push nks master`
 
 And that’s it - `kubectl get pods -n project_name -w` to see the pods come up.
