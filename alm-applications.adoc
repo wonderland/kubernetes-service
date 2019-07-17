@@ -1,14 +1,14 @@
 ---
 sidebar: sidebar
 permalink: alm-applications.html
-summary: An explanation of NKS ALM Applications and how to use them.
+summary: An explanation of NKS Application Lifecycle Management Applications and how to use them.
 ---
 
-= ALM Applications
+= Application Lifecycle Management: Applications
 
-Wondering what an ALM Application is and how to use it? Get an overview of the Application deployment workflow, and how you can use `git push` to deploy and manage Application with https://nks.netapp.io[NetApp Kubernetes Service (NKS)] Application Lifecycle Management.
+Wondering what an Application Lifecycle Management Application is and how to use it? Get an overview of the Application deployment workflow, and how you can use `git push` to deploy and manage your Application with https://nks.netapp.io[NetApp Kubernetes Service (NKS)] Application Lifecycle Management.
 
-NOTE: Application Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
+NOTE: Application Lifecycle Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
 
 image::assets/documentation/alm-applications/enable-experimental-features.png?raw=true[NKS app management]
 

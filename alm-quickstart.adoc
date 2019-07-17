@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar
 permalink: alm-quickstart.html
-summary: Quickstart guide for NKS ALM
+summary: Quickstart guide for NKS Application Lifecycle Management
 ---
 
-= ALM Quickstart Guide
+= Application Lifecycle Management: Quickstart Guide
 
 Learn how to get up and running with https://nks.netapp.io[NetApp Kubernetes Service (NKS)] Application Lifecycle Management.
 
@@ -12,9 +12,15 @@ Learn how to get up and running with https://nks.netapp.io[NetApp Kubernetes Ser
 
 Application Lifecycle Management (ALM) provides a developer-friendly `git push` workflow which lets you deploy your application to an NKS Kubernetes cluster with a simple `git push nks master`. Apps can be deployed with monitoring and more.
 
-NOTE: Application Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
+NOTE: Application Lifecycle Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
 
 image::assets/documentation/alm-quickstart/enable-experimental-features.png?raw=true[NKS app management]
+
+== Projects
+
+Projects are the top level of Application Lifecycle Management. Projects are created in your desired Workspace, and can contain any combination of Applications, Trackers, and Packages.
+
+For more information about Projects, see our https://docs.netapp.com/us-en/kubernetes-service/alm-projects.html[Application Lifecycle Management: Projects Guide].
 
 == Applications
 
@@ -24,16 +30,16 @@ After creating an Application, NKS will provide you with a `git remote` command 
 
 Developers can `git push` code to NKS, and NKS takes it from there. NKS will automatically build the container and deploy your code to the cluster. The Application is deployed to the cluster namespace which matches the project name.
 
-Learn more in our https://docs.netapp.com/us-en/kubernetes-service/alm-applications.html[ALM Applications Guide].
+Learn more in our https://docs.netapp.com/us-en/kubernetes-service/alm-applications.html[Application Lifecycle Management: Applications Guide].
 
 == Trackers
 
 Trackers provide a method to visualize the state of Kubernetes objects that were created by directly applying manifests. This is accomplished by tracking Kubernetes labels and presenting that information in the NKS UI.
 
-For more information about Trackers, see our https://docs.netapp.com/us-en/kubernetes-service/alm-trackers.html[ALM Trackers Guide].
+For more information about Trackers, see our https://docs.netapp.com/us-en/kubernetes-service/alm-trackers.html[Application Lifecycle Management: Trackers Guide].
 
 == Packages
 
-Packages are Helm charts. You will find a number of commonly used Packages available to added to your Project. You also have the option to import your own charts from an external repository.
+Packages are Helm charts. You will find a number of commonly-used Packages available to added to your Project. You also have the option to import your own charts from an external repository.
 
-For more information about Packages, see our https://docs.netapp.com/us-en/kubernetes-service/alm-packages.html[ALM Packages Guide].
+For more information about Packages, see our https://docs.netapp.com/us-en/kubernetes-service/alm-packages.html[Application Lifecycle Management: Packages Guide].

@@ -39,7 +39,7 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:intro-to-terraform-on-nks.html[Terraform on NKS]
 * link:cipher-suites.html[Cipher Suites]
 
-== ALM
+== Application Lifecycle Management
 
 * link:alm-quickstart.html[Quickstart Guide]
 * link:alm-projects.html[Projects]

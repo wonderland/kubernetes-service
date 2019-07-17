@@ -1,18 +1,18 @@
 ---
 sidebar: sidebar
 permalink: alm-packages.html
-summary: An explanation of NKS ALM Packages and how to use them.
+summary: An explanation of NKS Application Lifecycle Management Packages and how to use them.
 ---
 
-= ALM Packages
+= Application Lifecycle Management: Packages
 
-A Package is one of three types of Solutions that can be added to your Project. Keep reading to find out how to use Packages.
+A Package is one of three types of Solutions that can be added to your Application Lifecycle Management Project. Keep reading to find out how to use Packages.
 
 == Packages
 
-Packages are Helm charts. You will find a number of commonly used Packages available to added to your Project. You also have the option to import your own charts from an external repository.
+Packages are Helm charts. You will find a number of commonly-used Packages available to added to your Project. You also have the option to import your own charts from an external repository.
 
-NOTE: Application Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
+NOTE: Application Lifecycle Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
 
 image::assets/documentation/alm-packages/enable-experimental-features.png?raw=true[NKS app management]
 

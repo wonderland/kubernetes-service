@@ -1,14 +1,14 @@
 ---
 sidebar: sidebar
 permalink: alm-trackers.html
-summary: An explanation of NKS ALM Trackers and how to use them.
+summary: An explanation of NKS Application Lifecycle Management Trackers and how to use them.
 ---
 
-= ALM Trackers
+= Application Lifecycle Management: Trackers
 
 Trackers provide a method to visualize the state of Kubernetes objects that were created by directly applying manifests. This is accomplished by tracking Kubernetes labels and presenting that information in the NKS UI.
 
-NOTE: Application Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
+NOTE: Application Lifecycle Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
 
 image::assets/documentation/alm-trackers/enable-experimental-features.png?raw=true[NKS app management]
 
