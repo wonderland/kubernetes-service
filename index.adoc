@@ -21,6 +21,18 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:create-auth-credentials-on-gce.html[Google Compute Engine (GCE) Credentials]
 * link:create-auth-credentials-on-gke.html[Google Kubernetes Engine (GKE) Credentials]
 
+== Application Lifecycle Management
+
+* link:alm-quickstart.html[Quickstart Guide]
+* link:alm-projects.html[Projects]
+* link:alm-applications.html[Applications]
+* link:alm-trackers.html[Trackers]
+* link:alm-packages.html[Packages]
+
+== HCI
+
+* link:hci-requirements.html[HCI Requirements]
+
 == Cluster Lifecycle
 
 * link:nks-requirements.html[Requirements]
@@ -38,14 +50,6 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:install-kubectl-to-control-a-kubernetes-cluster.html[Install kubectl to Control a Kubernetes Cluster]
 * link:intro-to-terraform-on-nks.html[Terraform on NKS]
 * link:cipher-suites.html[Cipher Suites]
-
-== Application Lifecycle Management
-
-* link:alm-quickstart.html[Quickstart Guide]
-* link:alm-projects.html[Projects]
-* link:alm-applications.html[Applications]
-* link:alm-trackers.html[Trackers]
-* link:alm-packages.html[Packages]
 
 == Manage Access
 
