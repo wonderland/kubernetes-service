@@ -28,6 +28,7 @@ entries:
   - title: HCI
     entries:
       - title: HCI Requirements
+        url: /hci-requirements.html
   - title: Cluster Lifecycle
     entries:
       - title: Requirements
