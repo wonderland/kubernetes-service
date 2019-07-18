@@ -25,9 +25,9 @@ entries:
         url: /alm-trackers.html
       - title: ALM Packages
         url: /alm-packages.html
-  - title: HCI
+  - title: NetApp HCI
     entries:
-      - title: HCI Requirements
+      - title: Requirements
         url: /hci-requirements.html
   - title: Cluster Lifecycle
     entries:

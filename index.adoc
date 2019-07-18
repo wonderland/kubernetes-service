@@ -29,9 +29,9 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:alm-trackers.html[Trackers]
 * link:alm-packages.html[Packages]
 
-== HCI
+== NetApp HCI
 
-* link:hci-requirements.html[HCI Requirements]
+* link:hci-requirements.html[Requirements]
 
 == Cluster Lifecycle
 
