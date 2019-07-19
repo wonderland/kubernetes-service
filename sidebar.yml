@@ -1,7 +1,7 @@
 entries:
   - title: NKS Docs
     url: /index.html
-  - title: Setup - Credentials
+  - title: Setup and Credentials
     entries:
       - title: AWS Credentials
         url: /create-auth-credentials-on-aws.html
@@ -25,13 +25,11 @@ entries:
         url: /alm-trackers.html
       - title: ALM Packages
         url: /alm-packages.html
-  - title: NetApp HCI
-    entries:
-      - title: Requirements
-        url: /hci-requirements.html
   - title: Cluster Lifecycle
     entries:
-      - title: Requirements
+      - title: NetApp HCI Requirements
+        url: /hci-requirements.html
+      - title: NKS Requirements
         url: /nks-requirements.html
       - title: Whitelist Ports and IP Addresses
         url: /whitelist-ports-and-ip-addresses.html
@@ -104,4 +102,4 @@ entries:
       - title: Notifications
         url: /api-notifications.html
   - title: What's New
-    url: /news.html
+    url: /news.html 

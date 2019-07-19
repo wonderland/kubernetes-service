@@ -13,7 +13,11 @@ summary: Welcome to the documentation portal for NetApp Kubernetes Service (NKS)
 
 NetApp Kubernetes Service (NKS) is a universal control plane for creating and managing Kubernetes clusters.
 
-== Setup - Credentials
+== Setup - Add Credentials
+
+After you create an NKS account, one of your first tasks will be to add your provider credentials. Provider credentials are the authorization keys for your account on AWS, NetApp HCI, Azure, and other supported providers. This lets you create clusters on the supported provider of your choice.
+    
+Get step-by-step instructions for adding provider credentials for:
 
 * link:create-auth-credentials-on-aws.html[Amazon Web Services (AWS) Credentials]
 * link:find-aws-credentials-for-cvs.html[AWS Credentials for CVS]
@@ -23,6 +27,10 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 
 == Application Lifecycle Management
 
+Application Lifecycle Management provides a developer-friendly `git push` workflow which lets you deploy your application to an NKS Kubernetes cluster with a simple `git push nks master`. Apps can be deployed with monitoring and more.
+
+Explore Application Lifecycle Management in our series of guides and step-by-step instructional articles:
+
 * link:alm-quickstart.html[Quickstart Guide]
 * link:alm-projects.html[Projects]
 * link:alm-applications.html[Applications]
@@ -31,33 +39,47 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 
 == NetApp HCI
 
+Get started with NetApp HCI on NKS by reading our guides on the following topics:
+
 * link:hci-requirements.html[Requirements]
 
-== Cluster Lifecycle
+== Create a Kubernetes Cluster
 
-* link:nks-requirements.html[Requirements]
-* link:whitelist-ports-and-ip-addresses.html[Whitelist Ports and IP Addresses]
+Now that you have set up your NKS account, it's time to launch a Kubernetes cluster with our famously easy, "three clicks and done" process.
+
+Learn how to create a cluster at the provider of your choice with our handy guides:
+
 * link:create-aws-cluster.html[Create an Amazon Web Services (AWS) Cluster]
 * link:create-eks-cluster.html[Create an Amazon EKS Cluster]
 * link:create-azure-cluster.html[Create an Azure Cluster]
 * link:create-aks-cluster.html[Create a Microsoft AKS Cluster]
 * link:create-gce-cluster.html[Create a Google Compute Engine (GCE) Cluster]
 * link:create-gke-cluster.html[Create a Google Kubernetes Engine (GKE) Cluster]
+
+== Manage Access
+
+Learn how to use NKS Teams and Workspaces to manage access for your users. NKS lets you set up multiple levels of access, so that you can restrict authorization keys to certain groups of users, prevent users from one group from creating or deleting clusters in another group's Workspace, and more.
+
+* link:add-a-user.html[Add a User]
+* link:add-a-team.html[Add a Team]
+* link:add-a-workspace.html[Add a Workspace]
+
+== Cluster Lifecycle
+
+You have set up your NKS account, and launched one or more Kubernetes clusters. Now what? Learn more about how to use and extend NKS, and how to automate your NKS workflow with our new Terraform provider.
+
 * link:add-a-kubernetes-master-node.html[Add a Kubernetes Master Node]
 * link:add-a-node-pool.html[Add a Node Pool]
 * link:upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
 * link:using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
 * link:install-kubectl-to-control-a-kubernetes-cluster.html[Install kubectl to Control a Kubernetes Cluster]
 * link:intro-to-terraform-on-nks.html[Terraform on NKS]
-* link:cipher-suites.html[Cipher Suites]
-
-== Manage Access
-
-* link:add-a-user.html[Add a User]
-* link:add-a-team.html[Add a Team]
-* link:add-a-workspace.html[Add a Workspace]
 
 == API
+
+Interested in doing things programmatically instead of clicking through a UI? Check out our API. We provide full access to the NKS services through the API. Anything you can do in the UI, you can do through the API as well.
+
+See our extensive API documentation for more information:
 
 * link:api-basics.html[API Basics]
 * link:api-organizations.html[Organizations]
@@ -76,6 +98,17 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 * link:api-invoice.html[Invoices]
 * link:api-notifications.html[Notifications]
 
+== Requirements and Other Details
+
+The following articles cover specific requirements and other details necessary for the healthy functioning of your NKS account and systems.
+
+* link:hci-requirements.html[Requirements]
+* link:nks-requirements.html[NKS Requirements]
+* link:whitelist-ports-and-ip-addresses.html[Whitelist Ports and IP Addresses]
+* link:cipher-suites.html[Cipher Suites]
+
 == What's New
+
+Get the latest news and updates on NKS.
 
 * link:news.html[NetApp Kubernetes Service (NKS) News]
