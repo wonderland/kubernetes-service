@@ -1,0 +1,182 @@
+---
+sidebar: sidebar
+permalink: api-notifications.html
+summary: How to use the Notifications API resource for the NKS API.
+---
+
+= Notifications
+
+The Notifications API resource lets you read notifications on your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] account.
+
+Notifications are scoped to the user account, as determined by the API key. Notifications cannot be updated, marked as read, or deleted through the API.
+
+== GET All Notifications
+
+Get the details for all existing notifications for the user.
+
+NOTE: This query will return all notifications on the account, both read and unread. In most cases, the response from the API will be extensive. For better readability we recommend you pipe the results of the API request to a file as shown in the example request.
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/orgs/user/notifications
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/user/notifications" \
+> nks-notifications.json
+----
+
+Example response:
+
+[source,json]
+----
+[
+  {
+    "pk": 74770,
+    "message": "",
+    "details": "",
+    "category": "cluster",
+    "topic": "cluster_component",
+    "level": "error",
+    "announcement": null,
+    "build_log": {
+      "pk": 110695,
+      "cluster": 6494,
+      "event_category": "kubernetes",
+      "event_type": "k8s_node_config",
+      "event_state": "failure",
+      "message": "Error configuring Kubernetes nodes: K8s Builder task [TASK: network_plugin\/flannel\/v0.10\/install : Create Flannel assets] failed. Error from server (Forbidden)",
+      "reference": "",
+      "created": "2019-06-26T16:38:54.237723Z"
+    },
+    "extra_data": {
+      "org": {
+        "pk": 132,
+        "name": "Sitting Ducks"
+      },
+      "cluster": {
+        "pk": 6494,
+        "name": "Istio Mesh 2"
+      }
+    },
+    "read": false,
+    "seen": false,
+    "issued": "2019-06-26T16:39:25.905771Z"
+  },
+  {
+    "pk": 74729,
+    "message": "",
+    "details": "",
+    "category": "cluster",
+    "topic": "cluster_component",
+    "level": "error",
+    "announcement": null,
+    "build_log": {
+      "pk": 110694,
+      "cluster": 6493,
+      "event_category": "kubernetes",
+      "event_type": "k8s_node_config",
+      "event_state": "failure",
+      "message": "Error configuring Kubernetes nodes: K8s Builder task [TASK: network_plugin\/flannel\/v0.10\/install : Create Flannel assets] failed. Error from server (Forbidden):",
+      "reference": "",
+      "created": "2019-06-26T16:38:21.916119Z"
+    },
+    "extra_data": {
+      "org": {
+        "pk": 132,
+        "name": "Sitting Ducks"
+      },
+      "cluster": {
+        "pk": 6493,
+        "name": "Istio Mesh 1"
+      }
+    },
+    "read": false,
+    "seen": false,
+    "issued": "2019-06-26T16:38:25.820345Z"
+  }
+]
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | Notification ID.
+|**message** | Message content.
+|**details** | Additional details about the notification.
+|**category** | The notification category.
+|**topic** | The notification topic.
+|**level** | The notification level.
+|**announcement** | Announcement content.
+|**build_log** | Build log content, for build notifications.
+|**cluster** | The cluster ID referenced in the build notification.
+|**event_category** | The category of the event which triggered the build notification.
+|**event_type** | The type of event which triggered the build notification.
+|**event_state** | The state of the event which triggered the build notification.
+|**message** | The notification message.
+|**reference** | A reference number.
+|**created** | The timestamp when the notification was created.
+|**extra_data** | More identifying details for the notification: the organization and cluster.
+|**org** | The organization for which the notification was triggered.
+|**pk** | The Organization ID for which the notification was triggered.
+|**name** | The name of the organization for which the notification was triggered.
+|**cluster** | The cluster for which the notification was triggered.
+|**pk** | The Cluster ID for which the notification was triggered.
+|**name** | The cluster name for which the notification was triggered.
+|**read** | Whether or not the notification has been marked as read, `true` or `false`.
+|**seen** | Whether or not the notification has been see, `true` or `false`.
+|**issued** | The timestamp when the notification was created.
+|===
+
+== GET A Specific Notification
+
+Get the details for a specific notification.
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/orgs/user/notifications/{Notification ID}
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/user/notifications/35" \
+----
+
+Example response:
+
+[source,json]
+----
+{
+  "pk": 74856,
+  "message": "Deletion initiated.",
+  "details": "",
+  "category": "cluster",
+  "topic": "cluster_delete",
+  "level": "info",
+  "announcement": null,
+  "build_log": null,
+  "extra_data": {
+    "org": {
+      "pk": 132,
+      "name": "Sitting Ducks"
+    },
+    "reference": 6494,
+    "cluster": {
+      "pk": 6494,
+      "name": "Istio Mesh 2"
+    }
+  },
+  "read": true,
+  "seen": true,
+  "issued": "2019-06-26T16:54:58.419514Z"
+}
+---
