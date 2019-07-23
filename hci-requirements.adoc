@@ -20,6 +20,6 @@ The following are requirements for using NetApp HCI with https://nks.netapp.io[N
 * NetAppHCI system successfully installed.
 * An https://nks.netapp.io[NKS] account.
 * An NKS API token, which will authorize the installer to access the NKS Organization. To create an NKS API token, log in to NKS and click your user icon in the upper right-hand corner. Click **Edit Profile** then **Add Token**.
-* mNode 2.1 (requires updates from the 2.0 version shipped with 19.1 stack)```
+* mNode 2.1 (requires updates from the 2.0 version shipped with 19.1 stack).
 
 NOTE: We only support VDS as it stands today. If you only have VSS in place, you will not be able to install NKS
