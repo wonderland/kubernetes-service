@@ -56,3 +56,5 @@ To add members to a team, click the Settings icon, then click edit.
 image::assets/documentation/add-a-team/add-a-team-03.png?raw=true[Add an NKS Team]
 
 In the pop-up window which appears, click to select the members you want to add, then click **Submit**.
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

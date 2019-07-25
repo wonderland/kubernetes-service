@@ -59,3 +59,5 @@ And that’s it - `kubectl get pods -n project_name -w` to see the pods come up.
 === Access the application
 
 From the application detail page, press the link or copy the link.
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

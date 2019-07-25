@@ -131,3 +131,5 @@ image::assets/documentation/alm-packages/my-charts-guestbook-configuration.png?r
 == More Information
 
 Additional information about Helm charts can be found in the https://helm.sh/docs[Docs] section of the https://helm.sh/[Helm website].
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

@@ -40,3 +40,5 @@ image::assets/documentation/add-a-workspace/nks-add-workspace-dialog-populated.p
 Pressing the *SUBMIT* button will create the new workspace and return us to the *Workspaces* screen. Notice the new workspace _Version 2_ has been added to the list.
 
 image::assets/documentation/add-a-workspace/nks-workspaces-new.png?raw=true[NKS workspaces new]
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

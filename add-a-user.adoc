@@ -59,3 +59,5 @@ image::assets/documentation/add-a-user/add-user-03.png?raw=true[Add an NKS User]
 You can click here to resend the invitation email. You can also click to copy the link to your clipboard, so that you can send the invitation link to the user.
 
 When the user accepts the invitation and joins your Organization, their status will change to **Joined on [date]** and the `copy link | resend email` links will disappear.
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

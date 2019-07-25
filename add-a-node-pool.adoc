@@ -51,3 +51,5 @@ Configure the options as desired and then use the *SUBMIT* button to start provi
 image::assets/documentation/add-a-node-pool/add-a-node-pool-new-provisioning.png?raw=true[NKS add a new node pool configured]
 
 Once provisioning completes, the new nodes will be ready to accept workloads.
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

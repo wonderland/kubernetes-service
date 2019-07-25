@@ -51,3 +51,5 @@ On the third and final step, you can make any desired changes to your cluster co
 image::assets/documentation/create-clusters/create-kubernetes-cluster-on-gce-04.png?raw=true[Create Kubernetes Cluster on GCE]
 
 When your cluster configurations are ready, click **Submit**. Your cluster will begin building, and will be ready for use within minutes.
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

@@ -16,7 +16,7 @@ NetApp Kubernetes Service (NKS) is a universal control plane for creating and ma
 == Setup - Add Credentials
 
 After you create an NKS account, one of your first tasks will be to add your provider credentials. Provider credentials are the authorization keys for your account on AWS, NetApp HCI, Azure, and other supported providers. This lets you create clusters on the supported provider of your choice.
-    
+
 Get step-by-step instructions for adding provider credentials for:
 
 * link:create-auth-credentials-on-aws.html[Amazon Web Services (AWS) Credentials]
@@ -112,3 +112,5 @@ The following articles cover specific requirements and other details necessary f
 Get the latest news and updates on NKS.
 
 * link:news.html[NetApp Kubernetes Service (NKS) News]
+
+_Did these articles answer your question? If not, mailto:nks@netapp.com[contact us.]_
