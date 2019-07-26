@@ -1,0 +1,48 @@
+---
+sidebar: sidebar
+permalink: ssh-to-a-node-in-an-nks-cluster.html
+summary: Learn how to SSH to a node in an NKS cluster.
+---
+
+= SSH to a Node in an NKS Cluster
+
+Whenever possible, you will want to use Dockerfiles or the `kubectl` command to interact with a cluster. However, there are some cases when you may need (or want) to SSH directly to a node in an NKS cluster.
+
+NOTE: If you are familiar with using SSH to interact with a Linux server, the username is `core` (on ContainerLinux) or `ubuntu` (on Ubuntu). Download the SSH keys from your NKS Profile page, then use them to authenticate on the node.
+
+You can log in as the user `core` (on ContainerLinux) or `ubuntu` (on Ubuntu) with a command like:
+
+```
+ssh -i ~/.ssh/id_rsa core@192.168.0.1
+```
+
+== Get the SSH Keys
+
+To improve security, NKS nodes use SSH keys for authentication instead of passwords. You will need to download and install these SSH keys before you can SSH to a node in the cluster. You will need to install the SSH keys on your desktop computer.
+
+Log in to https://nks.netapp.io[NetApp Kubernetes Service (NKS)] and go to **Organization > Setup**. In the **SSH Keys** section, click the "download" icon to download your SSH keypair.
+
+Unzip the contents of this file, and move both files to the desired directory on your computer. By common convention, this directory is `/home/[your username]/.ssh` on Linux and Mac, and `C:\[your username]\.ssh` on Windows.
+
+== SSH to the Node
+
+To find the public IP for the node, go to the NKS **Control Plane** and click the cluster's name. Note the Public IP address for the node.
+
+Open a Terminal (on Mac) or PuTTY (on Windows) session and SSH to the node:
+
+```
+ssh -i [/path/to/id_rsa] [login name]@[public IP address]
+```
+
+The login name will depend on the node’s operating system:
+
+* ContainerLinux: `core`
+* Ubuntu: `ubuntu`
+
+For example, the command to connect to a ContainerLinux node at IP address 192.168.0.1 when you have stored your SSH keys in the `/home/JDoe/.ssh` directory is:
+
+```
+ssh -i /home/JDoe/.ssh/id_rsa core@192.168.0.1
+```
+
+This will connect you to the node.

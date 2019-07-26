@@ -63,6 +63,7 @@ Learn how to use NKS Teams and Workspaces to manage access for your users. NKS l
 * link:add-a-user.html[Add a User]
 * link:add-a-team.html[Add a Team]
 * link:add-a-workspace.html[Add a Workspace]
+* link:ssh-to-a-node-in-an-nks-cluster.html[SSH to a Node in an NKS Cluster]
 
 == Cluster Lifecycle
 

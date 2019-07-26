@@ -67,6 +67,8 @@ entries:
         url: /add-a-team.html
       - title: Add a Workspace
         url: /add-a-workspace.html
+      - title: SSH to a Node in an NKS Cluster
+        url: /ssh-to-a-node-in-an-nks-cluster.html
   - title: API
     entries:
       - title: API Basics
@@ -102,4 +104,4 @@ entries:
       - title: Notifications
         url: /api-notifications.html
   - title: What's New
-    url: /news.html 
+    url: /news.html
