@@ -13,7 +13,7 @@ entries:
         url: /create-auth-credentials-on-gce.html
       - title: GKE Credentials
         url: /create-auth-credentials-on-gke.html
-  - title: ALM
+  - title: Application Lifecycle Management
     entries:
       - title: ALM Quickstart Guide
         url: /alm-quickstart.html
@@ -25,14 +25,12 @@ entries:
         url: /alm-trackers.html
       - title: ALM Packages
         url: /alm-packages.html
-  - title: Cluster Lifecycle
+  - title: NetApp HCI
     entries:
       - title: NetApp HCI Requirements
         url: /hci-requirements.html
-      - title: NKS Requirements
-        url: /nks-requirements.html
-      - title: Whitelist Ports and IP Addresses
-        url: /whitelist-ports-and-ip-addresses.html
+  - title: Create a Kubernetes Cluster
+    entries:
       - title: Create an AWS Cluster
         url: /create-aws-cluster.html
       - title: Create an AKS Cluster
@@ -45,6 +43,18 @@ entries:
         url: /create-gce-cluster.html
       - title: Create a GKE Cluster
         url: /create-gke-cluster.html
+  - title: Manage Access
+    entries:
+      - title: Add a User
+        url: /add-a-user.html
+      - title: Add a Team
+        url: /add-a-team.html
+      - title: Add a Workspace
+        url: /add-a-workspace.html
+      - title: SSH to a Node in an NKS Cluster
+        url: /ssh-to-a-node-in-an-nks-cluster.html
+  - title: Cluster Lifecycle
+    entries:
       - title: Add a Master Node
         url: /add-a-kubernetes-master-node.html
       - title: Add a Node Pool
@@ -57,18 +67,6 @@ entries:
         url: /install-kubectl-to-control-a-kubernetes-cluster.html
       - title: Terraform on NKS
         url: /intro-to-terraform-on-nks.html
-      - title: Cipher Suites
-        url: /cipher-suites.html
-  - title: Manage Access
-    entries:
-      - title: Add a User
-        url: /add-a-user.html
-      - title: Add a Team
-        url: /add-a-team.html
-      - title: Add a Workspace
-        url: /add-a-workspace.html
-      - title: SSH to a Node in an NKS Cluster
-        url: /ssh-to-a-node-in-an-nks-cluster.html
   - title: API
     entries:
       - title: API Basics
@@ -103,5 +101,15 @@ entries:
         url: /api-invoice.html
       - title: Notifications
         url: /api-notifications.html
+  - title: Requirements and Other Details
+    entries:
+      - title: NetApp HCI Requirements
+        url: /hci-requirements.html
+      - title: NKS Requirements
+        url: /nks-requirements.html
+      - title: Whitelist Ports and IP Addresses
+        url: /whitelist-ports-and-ip-addresses.html
+      - title: Cipher Suites
+        url: /cipher-suites.html
   - title: What's New
     url: /news.html
