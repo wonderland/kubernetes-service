@@ -34,25 +34,25 @@ This section will walk you through creating and using your first Tracker. Follow
 
 Go to https://nks.netapp.io/v2[App Management] and select a pinned workspace or **View All Workspaces**.
 
-image::assets/documentation/alm-trackers/app-management.png?raw=true[NKS app management]
+image::assets/documentation/alm-trackers/app-management-1.png?raw=true[NKS app management]
 
 Select a workspace by clicking on its name.
 
 NOTE: You may use also utilize the Search feature to find a specific workspace.)
 
-image::assets/documentation/alm-trackers/select-a-workspace.png?raw=true[NKS select workspace]
+image::assets/documentation/alm-trackers/select-a-workspace-1.png?raw=true[NKS select workspace]
 
 You will be taken to the workspace overview page.
 
-image::assets/documentation/alm-trackers/workspace-overview.png?raw=true[NKS workspace overview]
+image::assets/documentation/alm-trackers/workspace-overview-1.png?raw=true[NKS workspace overview]
 
 Go to the *Projects* tab.
 
-image::assets/documentation/alm-trackers/workspace-projects.png?raw=true[NKS workspace projects]
+image::assets/documentation/alm-trackers/workspace-projects-1.png?raw=true[NKS workspace projects]
 
 Select a project by clicking its underlined name. This will take you to the overview page for that specific project.
 
-image::assets/documentation/alm-trackers/project-overview.png?raw=true[NKS project overview]
+image::assets/documentation/alm-trackers/project-overview-1.png?raw=true[NKS project overview]
 
 At the bottom of the page, press the blue **+ Add Solution** button.
 
@@ -64,11 +64,11 @@ image::assets/documentation/alm-trackers/select-solution-type.png?raw=true[NKS a
 
 This takes to you the *Create Solution Tracker* screen.
 
-image::assets/documentation/alm-trackers/create-solution-tracker.png?raw=true[NKS create solution tracker screen]
+image::assets/documentation/alm-trackers/create-solution-tracker-1.png?raw=true[NKS create solution tracker screen]
 
 Give the Tracker a name in the *Tracker Name* field, and provide at least one key:value pair in place of *Type labels to track*.
 
-image::assets/documentation/alm-trackers/create-solution-tracker-example.png?raw=true[NKS create solution tracker example]
+image::assets/documentation/alm-trackers/create-solution-tracker-example-1.png?raw=true[NKS create solution tracker example]
 
 As instructed, you'll need to press enter to add the key:value pair to the list of tracked labels. When you have finished adding labels to track, press the **Create Tracker** button.
 
@@ -86,11 +86,11 @@ image::assets/documentation/alm-trackers/tracker-active.png?raw=true[NKS tracker
 
 Once you have created one or more Trackers, you can access them from inside their associated Project on the *Solutions* tab. The installed solutions can be filtered to just display Trackers by using the *Tracker* tab.
 
-image::assets/documentation/alm-trackers/project-solutions-filter-trackers.png?raw=true[NKS project solutions filter trackers]
+image::assets/documentation/alm-trackers/project-solutions-filter-trackers-1.png?raw=true[NKS project solutions filter trackers]
 
 Clicking the name of a Tracker will take you to the detail page.
 
-image::assets/documentation/alm-trackers/tracker-detail.png?raw=true[NKS tracker detail]
+image::assets/documentation/alm-trackers/tracker-detail-1.png?raw=true[NKS tracker detail]
 
 If the Tracker has associated deployments, you will see them at the bottom of the detail page and can interact with them by modifying replica counts, or utilizing the *Actions* menu.
 
@@ -104,16 +104,24 @@ image::assets/documentation/alm-trackers/tracker-deployments.png?raw=true[NKS tr
 NOTE: You can remove an existing label from the tracker by clicking the X next to it.
 1. Save the changes by pressing the *Update* button.
 
-image::assets/documentation/alm-trackers/edit-tracker.png?raw=true[NKS edit tracker]
+image::assets/documentation/alm-trackers/edit-tracker-1.png?raw=true[NKS edit tracker]
 
 === Delete a Tracker
 
-At the moment, a tracker cannot be deleted from inside the NKS UI.
+A Tracker can be deleted using the "Delete this solution" link on the update page.
+
+image::assets/documentation/alm-trackers/delete-this-solution.png?raw=true[NKS delete tracker]
+
+You will be prompted to confirm that you want to delete the Tracker.
+
+image::assets/documentation/alm-trackers/delete-this-solution-confirmation.png?raw=true[NKS confirm delete tracker]
+
+Type in the full name of the Tracker and click the "Yes, delete this solution" button.
 
 === More Information
 
 More information about Kubernetes labels can be found at this link.
 
-https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/[Kuberntes Documentation - Labels]
+https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/[Kubernetes Documentation - Labels]
 
 _Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_
