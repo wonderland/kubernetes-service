@@ -1,0 +1,35 @@
+---
+sidebar: sidebar
+permalink: api-push-notifications-to-slack.html
+summary: How to push NKS API notifications to a Slack channel
+---
+
+= Push API Notifications to Slack
+
+If your team is already using https://slack.com[Slack], pushing your NKS notifications to a Slack channel is a convenient way to keep an eye on activity happening on your NKS account. Notifications include alerts for clusters being built, destroyed, or failed, in addition to many other account actions.
+
+Notifications are scoped to the user account, as determined by the API key. Notifications cannot be updated, marked as read, or deleted through the API.
+
+Read more about Slack integration https://api.slack.com/internal-integrations[here in the official Slack documentation].
+
+== Security
+
+In order to receive meaningful information from your Slack integration, you will need to provide the Slack notifier with an Admin-level API key. This API key has full API access to your NKS account.
+
+For security reasons, we recommend creating a separate API key for your Slack integration. Your NKS account can have multiple active API keys at the same time, which lets you easily grant or revoke access on a key-by-key basis if necessary.
+
+For information on using the NKS API, including how to create an API token and how to pass the API authorization in your API request, https://docs.netapp.com/us-en/kubernetes-service/api-basics.html[see our article on API Basics].
+
+== Create an App and Enable Incoming Webhooks
+
+Slack's feature Incoming Webhooks allows you to post messages to a Slack channel. https://api.slack.com/incoming-webhooks[Follow the instructions provided here] to create an app and enable Incoming Webhooks for your app.
+
+Give your app a descriptive name like "NKS Notifier." You will be able to authorize the app to post to a specific channel on Slack. Choose the channel where you want to receive notifications.
+
+NOTE: If you have an active NKS account, the volume of notification posts can quickly become annoying in a conversational Slack channel. In this situation, we suggest you create a separate Slack channel dedicated to receiving your NKS notifications.
+
+== Send Notifications to Slack
+
+Build a script in the language of your choice. This script will need to make API calls to the NKS system to fetch notifications, process the response (if desired), and POST it to the Incoming Webhook URL for your Slack account.
+
+Details on how to format the POST call to the Slack API can be found https://api.slack.com/incoming-webhooks[in the Slack article linked above]. For more information on how to make API calls to the NKS API to receive notifications, see https://docs.netapp.com/us-en/kubernetes-service/api-notifications.html[our article on the Notifications API endpoint].

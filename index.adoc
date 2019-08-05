@@ -98,6 +98,7 @@ See our extensive API documentation for more information:
 * link:api-subscription.html[Subscription]
 * link:api-invoice.html[Invoices]
 * link:api-notifications.html[Notifications]
+* link:api-notifications-to-slack.html[Tutorial: Push NKS Notifications to a Slack Channel]
 
 == Requirements and Other Details
 

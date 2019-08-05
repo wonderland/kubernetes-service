@@ -101,6 +101,8 @@ entries:
         url: /api-invoice.html
       - title: Notifications
         url: /api-notifications.html
+      - title: Push NKS Notifications to a Slack Channel
+        url: /api-notifications-to-slack.html
   - title: Requirements and Other Details
     entries:
       - title: NetApp HCI Requirements
