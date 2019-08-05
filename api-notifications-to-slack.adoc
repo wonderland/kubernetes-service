@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: api-push-notifications-to-slack.html
+permalink: api-notifications-to-slack.html
 summary: How to push NKS API notifications to a Slack channel
 ---
 
