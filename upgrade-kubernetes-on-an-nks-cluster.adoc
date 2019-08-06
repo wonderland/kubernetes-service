@@ -6,7 +6,7 @@ summary: Learn how to upgrade your Kubernetes version on NKS
 
 = Upgrade Kubernetes on an NKS Cluster
 
-Learn how to upgrade the Kubernetes version on a https://nks.netapp.io[NetApp Kubernetes Service (NKS)] cluster. We offer a one-click upgrade process for recent Kubernetes versions. We recommend you upgrade your cluster whenever an upgrade is available.
+This NKS documentation shows how to upgrade the Kubernetes version on a https://nks.netapp.io[NetApp Kubernetes Service (NKS)] cluster. We offer a one-click upgrade process for recent Kubernetes versions. We recommend you upgrade your cluster whenever an upgrade is available.
 
 NOTE: By keeping your cluster's version of Kubernetes up-to-date, you will ensure that you don't get left behind by the upgrade process. If your Kubernetes version falls too far behind what we currently offer, you will have to perform upgrades by hand.
 

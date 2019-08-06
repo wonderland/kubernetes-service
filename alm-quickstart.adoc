@@ -6,7 +6,7 @@ summary: Quickstart guide for NKS Application Lifecycle Management
 
 = Application Lifecycle Management: Quickstart Guide
 
-Learn how to get up and running with https://nks.netapp.io[NetApp Kubernetes Service (NKS)] Application Lifecycle Management.
+This NKS documentation covers how to get up and running with https://nks.netapp.io[NetApp Kubernetes Service (NKS)] Application Lifecycle Management.
 
 == Overview
 

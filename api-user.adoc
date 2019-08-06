@@ -4,9 +4,9 @@ permalink: api-user.html
 summary: How to use the User API resource for the NKS API.
 ---
 
-= User 
+= User
 
-Get and update your user account information. The user account cannot be deleted through the API.
+Learn how to get and update your user account information with this NKS documentation. The user account cannot be deleted through the API.
 
 Note: Calling this API with a valid auth token creates a new user.
 

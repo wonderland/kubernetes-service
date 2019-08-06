@@ -4,9 +4,9 @@ permalink: api-invoice.html
 summary: How to use the Invoice API resource for the NKS API.
 ---
 
-= Invoice 
+= Invoice
 
-View the current invoice(s) available for the specified user account. Invoices cannot be created, updated, or deleted through the API.
+This NKS documentation shows you how to view the current invoice(s) available for the specified user account. Invoices cannot be created, updated, or deleted through the API.
 
 == GET All Invoices
 

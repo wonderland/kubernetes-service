@@ -6,7 +6,7 @@ summary: Documentation on how to create a GKE cluster using NetApp Kubernetes Se
 
 = Create a Google Kubernetes Engine (GKE) Cluster
 
-Learn how to create a Kubernetes cluster on GKE in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
+This NKS documentation shows you how to create a Kubernetes cluster on GKE in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 
 To create a Google Kubernetes Engine (GKE) cluster, you will need:
 
