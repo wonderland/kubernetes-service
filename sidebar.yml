@@ -28,7 +28,7 @@ entries:
   - title: NetApp HCI
     entries:
       - title: NetApp HCI Requirements
-        url: /hci-requirements.html
+        url: /netapp-hci-requirements.html
   - title: Create a Kubernetes Cluster
     entries:
       - title: Create an AWS Cluster
@@ -106,7 +106,7 @@ entries:
   - title: Requirements and Other Details
     entries:
       - title: NetApp HCI Requirements
-        url: /hci-requirements.html
+        url: /netapp-hci-requirements.html
       - title: NKS Requirements
         url: /nks-requirements.html
       - title: Whitelist Ports and IP Addresses

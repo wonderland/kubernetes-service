@@ -41,7 +41,7 @@ Explore Application Lifecycle Management in our series of guides and step-by-ste
 
 Get started with NetApp HCI on NKS by reading our guides on the following topics:
 
-* link:hci-requirements.html[NetApp HCI Requirements]
+* link:netapp-hci-requirements.html[NetApp HCI Requirements]
 
 == Create a Kubernetes Cluster
 
@@ -104,7 +104,7 @@ See our extensive API documentation for more information:
 
 The following articles cover specific requirements and other details necessary for the healthy functioning of your NKS account and systems.
 
-* link:hci-requirements.html[NetApp HCI Requirements]
+* link:netapp-hci-requirements.html[NetApp HCI Requirements]
 * link:nks-requirements.html[NKS Requirements]
 * link:whitelist-ports-and-ip-addresses.html[Whitelist Ports and IP Addresses]
 * link:cipher-suites.html[Cipher Suites]
