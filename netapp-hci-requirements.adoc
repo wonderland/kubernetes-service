@@ -3,21 +3,23 @@ sidebar: sidebar
 permalink: netapp-hci-requirements.html
 summary: Requirements for using NetApp HCI with NKS
 ---
- 
+
 = NetApp HCI Requirements
 
 The following are requirements for using NetApp HCI with https://nks.netapp.io[NetApp Kubernetes Service (NKS)]. For more information about using NetApp HCI, see http://docs.netapp.com/hci/index.jsp[the official NetApp HCI documentation].
 
-* A NetApp HCI system. We do not currently support cloud services on non-HCI systems.
+* A NetApp HCI system successfully installed. We do not currently support cloud services on non-HCI systems.
 * System size requirements:
     - 2x4 systems are not supported for production use. However, you can use these for demo work.
     - 3x4 systems are the minimum production system size we support.
     - 4x4 systems are the recommended minimum size.
     - NetApp HCI v1.6 or later.
-* Any NDE supported version of vSphere
+* Any version of vSphere supported by NetApp HCI.
 * vSphere distributed switches (VDS). We do not support installing to standard switches.
+* Management node 2.1 (requires updates from the 2.0 version).
 * Optional: Networks for NKS (and other services) pre-created in vCenter.
-* NetApp HCI system successfully installed.
 * An https://nks.netapp.io[NKS] account.
-* An NKS API token, which will authorize the installer to access the NKS Organization. To create an NKS API token, log in to NKS and click your user icon in the upper right-hand corner. Click **Edit Profile** then **Add Token**.
-* mNode 2.1 (requires updates from the 2.0 version shipped with 19.1 stack).
+* An NKS API token.
+    - This token authorizes the installer to access your NKS Organization.
+    - To create an NKS API token, log in to NKS and click your user icon in the upper right-hand corner. Click **Edit Profile** then **Add Token**.
+    - You can create the token at any time, even if you have not yet enabled cloud services on NetApp HCI.
