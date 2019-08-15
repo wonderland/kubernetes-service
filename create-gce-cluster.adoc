@@ -21,7 +21,7 @@ Log in to https://nks.netapp.io[NetApp Kubernetes Service (NKS)] and click **+ A
 
 image::assets/documentation/create-clusters/create-kubernetes-cluster-on-gce-01.png?raw=true[Create Kubernetes Cluster on GCE]
 
-Click the **GCE** tile to select GKE as a provider.
+Click the **GCE** tile to select GCE as a provider.
 
 image::assets/documentation/create-clusters/create-kubernetes-cluster-on-gce-02.png?raw=true[Create Kubernetes Cluster on GCE]
 
