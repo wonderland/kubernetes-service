@@ -29,6 +29,8 @@ entries:
     entries:
       - title: NetApp HCI Requirements
         url: /netapp-hci-requirements.html
+      - title: Enable NKS for NetApp HCI
+        url: /hci-enable-nks-for-netapp-hci.html
   - title: Create a Kubernetes Cluster
     entries:
       - title: Create an AWS Cluster

@@ -42,6 +42,8 @@ Explore Application Lifecycle Management in our series of guides and step-by-ste
 Get started with NetApp HCI on NKS by reading our guides on the following topics:
 
 * link:netapp-hci-requirements.html[NetApp HCI Requirements]
+* link:hci-enable-nks-for-netapp-hci.html[Enable NKS for NetApp HCI]
+
 
 == Create a Kubernetes Cluster
 
