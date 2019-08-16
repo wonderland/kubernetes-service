@@ -111,6 +111,12 @@ The following articles cover specific requirements and other details necessary f
 * link:whitelist-ports-and-ip-addresses.html[Whitelist Ports and IP Addresses]
 * link:cipher-suites.html[Cipher Suites]
 
+== More Resources
+
+A collection of links to other useful related resources, including NetApp websites and external documentation sites.
+
+* link:more-resources.html[More Resources]
+
 == What's New
 
 Get the latest news and updates on NKS.

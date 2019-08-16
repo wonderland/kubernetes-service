@@ -115,5 +115,7 @@ entries:
         url: /whitelist-ports-and-ip-addresses.html
       - title: Cipher Suites
         url: /cipher-suites.html
+  - title: More Resources
+    url: /more-resources.html
   - title: What's New
     url: /news.html
