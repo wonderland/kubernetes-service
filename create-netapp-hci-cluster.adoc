@@ -1,0 +1,60 @@
+---
+sidebar: sidebar
+permalink: create-netapp-hci-cluster.html
+summary: Learn how to create a NetApp HCI Kubernetes cluster using NetApp Kubernetes Service (NKS).
+keywords: netapp, hci, on premise, cloud services, kubernetes
+---
+
+= Create a Kubernetes Cluster on NetApp HCI
+:hardbreaks:
+:nofooter:
+:icons: font
+:linkattrs:
+:imagesdir: assets/documentation/create-clusters/
+
+Learn how to create a Kubernetes cluster on NetApp HCI in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
+
+To create a NetApp HCI cluster, you will need:
+
+* NKS enabled for your NetApp HCI account. https://docs.netapp.com/us-en/kubernetes-service/hci-enable-nks-for-netapp-hci.html[See our step-by-step instructions here.]
+* An NKS account.
+
+For more details, see the https://docs.netapp.com/us-en/kubernetes-service/nks-requirements.html[NKS Requirements] and https://docs.netapp.com/us-en/kubernetes-service/netapp-hci-requirements.html[NetApp HCI Requirements] pages.
+
+== Step 1: Choose a Provider
+
+Log in to https://nks.netapp.io[NetApp Kubernetes Service (NKS)] and click **+ ADD CLUSTER**.
+
+image::create-kubernetes-cluster-on-netapp-hci.png?raw=true[Create Kubernetes Cluster on NetApp HCI]
+
+Click the **NetApp HCI** tile to select NetApp HCI as a provider.
+
+image::select-netapp-hci-provider.png?raw=true[Create Kubernetes Cluster on NetApp HCI]
+
+== Step 2: Configure Your Provider
+
+In this step, you will set your provider configurations. Here you can update any of the following if you wish:
+
+* Number and size of master and worker nodes.
+* The HCI installation you wish to use.
+* NKS workspace.
+* SSH keypair.
+
+image::configure-netapp-hci-provider.png?raw=true[Create Kubernetes Cluster on NetApp HCI]
+
+When you have all the provider configurations set, click **SUBMIT** to continue.
+
+== Step 3: Configure Your Cluster
+
+On the third and final step, you can make any desired changes to your cluster configuration:
+
+* Set the cluster name.
+* Change the Kubernetes version.
+* Update the Pod and/or Service Network
+* Change the OS distribution.
+
+image::configure-kubernetes-cluster-on-netapp-hci.png?raw=true[Create Kubernetes Cluster on NetApp HCI]
+
+Review all your cluster configurations, and when everything is correct, click **Submit**. Your cluster will begin building, and will be ready for use within minutes.
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

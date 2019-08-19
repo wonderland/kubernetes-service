@@ -31,6 +31,8 @@ entries:
         url: /netapp-hci-requirements.html
       - title: Enable NKS for NetApp HCI
         url: /hci-enable-nks-for-netapp-hci.html
+      - title: Create a NetApp HCI Cluster
+        url: /create-netapp-hci-cluster.html
   - title: Create a Kubernetes Cluster
     entries:
       - title: Create an AWS Cluster
@@ -45,6 +47,8 @@ entries:
         url: /create-gce-cluster.html
       - title: Create a GKE Cluster
         url: /create-gke-cluster.html
+      - title: Create a NetApp HCI Cluster
+        url: /create-netapp-hci-cluster.html
   - title: Manage Access
     entries:
       - title: Add a User

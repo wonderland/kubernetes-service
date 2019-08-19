@@ -43,6 +43,7 @@ Get started with NetApp HCI on NKS by reading our guides on the following topics
 
 * link:netapp-hci-requirements.html[NetApp HCI Requirements]
 * link:hci-enable-nks-for-netapp-hci.html[Enable NKS for NetApp HCI]
+* link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI Cluster]
 
 
 == Create a Kubernetes Cluster
@@ -57,6 +58,7 @@ Learn how to create a cluster at the provider of your choice with our handy guid
 * link:create-aks-cluster.html[Create a Microsoft AKS Cluster]
 * link:create-gce-cluster.html[Create a Google Compute Engine (GCE) Cluster]
 * link:create-gke-cluster.html[Create a Google Kubernetes Engine (GKE) Cluster]
+* link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI Cluster]
 
 == Manage Access
 
