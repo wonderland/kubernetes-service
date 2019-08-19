@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar
 permalink: create-gce-cluster.html
-summary: Documentation on how to create a GCE cluster using NetApp Kubernetes Service (NKS).
+summary: Documentation on how to create a Kubernetes cluster on GCE using NetApp Kubernetes Service (NKS).
 ---
 
-= Create a Google Compute Engine (GCE) Cluster
+= Create a Kubernetes Cluster on Google Compute Engine (GCE)
 
 Learn how to create a Kubernetes cluster on GCE in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 

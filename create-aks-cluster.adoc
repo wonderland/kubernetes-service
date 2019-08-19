@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar
 permalink: create-aks-cluster.html
-summary: Documentation on how to create a Microsoft AKS cluster using NetApp Kubernetes Service (NKS).
+summary: Documentation on how to create a Kubernetes cluster on Microsoft AKS using NetApp Kubernetes Service (NKS).
 ---
 
-= Create a Microsoft AKS Cluster
+= Create a Kubernetes Cluster on Microsoft AKS
 
 Learn how to create a Kubernetes cluster on AKS in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 

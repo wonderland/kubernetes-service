@@ -52,12 +52,12 @@ Now that you have set up your NKS account, it's time to launch a Kubernetes clus
 
 Learn how to create a cluster at the provider of your choice with our handy guides:
 
-* link:create-aws-cluster.html[Create an Amazon Web Services (AWS) Cluster]
-* link:create-eks-cluster.html[Create an Amazon EKS Cluster]
-* link:create-azure-cluster.html[Create an Azure Cluster]
-* link:create-aks-cluster.html[Create a Microsoft AKS Cluster]
-* link:create-gce-cluster.html[Create a Google Compute Engine (GCE) Cluster]
-* link:create-gke-cluster.html[Create a Google Kubernetes Engine (GKE) Cluster]
+* link:create-aws-cluster.html[Create a Kubernetes Cluster on Amazon Web Services (AWS)]
+* link:create-eks-cluster.html[Create a Kubernetes Cluster on Amazon EKS]
+* link:create-azure-cluster.html[Create a Kubernetes Cluster on Azure]
+* link:create-aks-cluster.html[Create a Kubernetes Cluster on Microsoft AKS]
+* link:create-gce-cluster.html[Create a Kubernetes Cluster on Google Compute Engine (GCE)]
+* link:create-gke-cluster.html[Create a Kubernetes Cluster on Google Kubernetes Engine (GKE)]
 * link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI Cluster]
 
 == Manage Access

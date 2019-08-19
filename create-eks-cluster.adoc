@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar
 permalink: create-eks-cluster.html
-summary: Documentation on how to create an Amazon EKS cluster using NetApp Kubernetes Service (NKS).
+summary: Documentation on how to create a Kubernetes cluster on Amazon EKS using NetApp Kubernetes Service (NKS).
 ---
 
-= Create an Amazon EKS Cluster
+= Create a Kubernetes Cluster on Amazon EKS
 
 Learn how to create a Kubernetes cluster on EKS in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 

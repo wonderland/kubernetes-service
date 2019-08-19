@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar
 permalink: create-aws-cluster.html
-summary: Documentation on how to create an AWS cluster using NetApp Kubernetes Service (NKS).
+summary: Documentation on how to create a Kubernetes cluster on AWS using NetApp Kubernetes Service (NKS).
 ---
 
-= Create an Amazon Web Services (AWS) Cluster
+= Create a Kubernetes Cluster on Amazon Web Services (AWS)
 
 Learn how to create a Kubernetes cluster on AWS in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 

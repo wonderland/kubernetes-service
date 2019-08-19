@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar
 permalink: create-azure-cluster.html
-summary: Documentation on how to create an Azure cluster using NetApp Kubernetes Service (NKS).
+summary: Documentation on how to create a Kubernetes cluster on Azure using NetApp Kubernetes Service (NKS).
 ---
 
-= Create an Azure Cluster
+= Create a Kubernetes Cluster on Azure
 
 Learn how to create a Kubernetes cluster on Microsoft Azure in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 
