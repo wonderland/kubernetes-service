@@ -14,7 +14,7 @@ For more details on using the Hybrid Cloud Control wizard, see the http://docs.n
 
 NOTE: The following steps will enable cloud volumes with a 90-day trial license. To convert the trial license to a production license, upload the NetApp license file (.nlf file) to your account.
 
-== 1. Log In at NetApp Cloud Central
+== Log In at NetApp Cloud Central
 
 To access the NetApp HCI Hybrid Cloud Control wizard, go to the IP address of the management node in a browser.
 
@@ -22,7 +22,7 @@ If you don't have a Cloud Central login, you will be prompted to create one. Oth
 
 image::hcc-enable-cloud-services.png[NetApp Hybrid Cloud Control wizard image]
 
-== 2. Enable Cloud Services
+== Enable Cloud Services
 
 Go to **Enable Cloud Services > Services**, then select the services that you want to enable. In addition to NKS, you can also enable Cloud Volumes and Cloud Insights here.
 
@@ -31,7 +31,7 @@ Go to **Enable Cloud Services > Services**, then select the services that you wa
 
 After choosing the service(s) you wish to enable, click **Continue** to go to the next step.
 
-== 3. Add Your NKS API Token
+== Add Your NKS API Token
 
 On this step, you will add your NKS API token. You can use an existing NKS API token if you have one. If you don't already have an API token, click the link to https://nks.netapp.io/user/profile[your NKS User Profile page] to create one.
 
@@ -41,7 +41,7 @@ image::nks-api-token-paste-small.png[NetApp Hybrid Cloud Control wizard image]
 
 This creates your registration and connects you to Cloud Central.
 
-== 4. Register Your Installation
+== Register Your Installation
 
 On the Enable Cloud Services step, select your Cloud Central organization and region name.
 
@@ -49,7 +49,7 @@ The region name is used to identify your NetApp HCI installation. It is also use
 
 Click *Continue* to go to the next step.
 
-== 5. Select vCenter Resources
+== Select vCenter Resources
 
 On the vCenter step, choose your Data center and Cluster. After you select these, the vCenter instance and related admin user will be displayed.
 
@@ -57,13 +57,13 @@ image::hcc-enable-cloud-services-vcenter.png[Enable Cloud Services vCenter Resou
 
 Click *Continue* to go to the next step.
 
-== 6. Select Networking Options
+== Select Networking Options
 
 On the Networking page, review and configure the following:
 
-* **NetApp Kubernetes Service Management Network**: Enter the IP addresses and info for your NKS service and workload clusters.
-*	**NetApp Kubernetes Service Workload Network**: Enter the network information needed by your workload clusters (where you will host your applications). When you create your workload clusters, NKS uses the IP addresses entered here.
-*	**NetApp Kubernetes Service Data Network**: Enter the network information to connect your Kubernetes workload clusters to persistent volume claims (PVCs) on your NetApp HCI system.
+* **NetApp Kubernetes Service Management Network**:  Select the vSphere distributed port group to use for management traffic for the NKS service cluster. This network requires outbound Internet access.
+*	**NetApp Kubernetes Service Workload Network**: Select the vSphere distributed port group to use for management traffic for the NKS user (workload) clusters. This network requires outbound Internet access.
+*	**NetApp Kubernetes Service Data Network**: Select the vSphere distributed port group to use for persistent volume data traffic for the NKS user clusters. This is a private, non-routed network.
 
 Click *Continue* to review and confirm your choices.
 
