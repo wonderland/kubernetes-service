@@ -45,11 +45,7 @@ Get started with NetApp HCI on NKS by reading our guides on the following topics
 
 * link:netapp-hci-requirements.html[NetApp HCI Requirements]
 * link:hci-enable-nks-for-netapp-hci.html[Enable NKS for NetApp HCI]
-* link:register-vmware.html[Register Your VMware Environment]
-* link:register-flexpod.html[Register Your FlexPod Environment]
 * link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI]
-* link:create-flexpod-cluster.html[Create a Kubernetes Cluster on FlexPod]
-* link:create-vmware-cluster.html[Create a Kubernetes Cluster on VMWare]
 
 == Create a Kubernetes Cluster
 

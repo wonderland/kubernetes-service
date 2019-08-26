@@ -35,16 +35,8 @@ entries:
         url: /netapp-hci-requirements.html
       - title: Enable NKS for NetApp HCI
         url: /hci-enable-nks-for-netapp-hci.html
-      - title: Register FlexPod
-        url: /register-flexpod.html
-      - title: Register VMware
-        url: /register-vmware.html
       - title: Create a NetApp HCI Cluster
         url: /create-netapp-hci-cluster.html
-      - title: Create a FlexPod Cluster
-        url: /create-flexpod-cluster.html
-      - title: Create a VMware Cluster
-        url: /create-vmware-cluster.html
   - title: Create a Kubernetes Cluster
     entries:
       - title: Create an AWS Cluster

@@ -1,36 +1,35 @@
 ---
 sidebar: sidebar
 permalink: create-vmware-cluster.html
-summary: Learn how to create a Kubernetes cluster on NetApp HCI in your VMware environment
+summary: Learn how to create a Kubernetes cluster in your VMware environment
 ---
 
 
-= Create a Kubernetes Cluster on NetApp HCI in Your VMware Environment
+= Create a Kubernetes Cluster in Your VMware Environment
 :imagesdir: assets/documentation/create-clusters/
 
-Learn how to create a Kubernetes cluster on NetApp HCI in your VMware environment in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
+Learn how to create a Kubernetes cluster in your VMware environment in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 
 To create a VMware cluster, you will need:
 
 * VMware installed, configured, and registered with NKS. https://docs.netapp.com/us-en/kubernetes-service/register-vmware.html[Click here to learn how to register your VMware environment with NKS].
-* NKS enabled for your NetApp HCI account. https://docs.netapp.com/us-en/kubernetes-service/hci-enable-nks-for-netapp-hci.html[Click here to learn how to enable NKS for NetApp HCI].
 * An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
 
 == Step 1: Add Cluster
 
 Log in to https://nks.netapp.io[NetApp Kubernetes Service (NKS)] and click **+ ADD CLUSTER**.
 
-image::create-kubernetes-cluster-on-vmware-01.png?raw=true[Create Kubernetes Cluster on vmware]
+image::vmware-add-cluster.png?raw=true[Create Kubernetes Cluster on vmware]
 
-Click the **NetApp HCI** tile to select NetApp HCI as the provider.
+Click the **VMware** tile to select VMware as the provider.
 
-image::create-kubernetes-cluster-on-vmware-02.png?raw=true[Create Kubernetes Cluster on vmware]
+image::vmware-click-tile.png?raw=true[Create Kubernetes Cluster on vmware]
 
 == Step 2: Provider Configuration
 
-Click the **Edit** link on the left to edit the provider details. Select your VMware environment from the **HCI Installation** drop-down menu, then click **Save**.
+Click the **Edit** link on the left to edit the provider details. Select your VMware environment from the **VMware Installation** drop-down menu, then click **Save**.
 
-image::create-kubernetes-cluster-on-vmware-03.png?raw=true[Create Kubernetes Cluster on vmware]
+image::vmware-choose-installation.png?raw=true[Create Kubernetes Cluster on vmware]
 
 Update any of the following if you wish:
 
@@ -38,7 +37,7 @@ Update any of the following if you wish:
 * NKS workspace.
 * SSH keypair.
 
-image::create-kubernetes-cluster-on-vmware-04.png?raw=true[Create Kubernetes Cluster on vmware]
+image::vmware-configure-provider.png?raw=true[Create Kubernetes Cluster on vmware]
 
 When your provider configurations are ready, click **SUBMIT**.
 
@@ -51,8 +50,8 @@ On this step, you can configure your Kubernetes cluster:
 * Update the Pod and/or Service Network
 * Change the OS distribution.
 
-image::create-kubernetes-cluster-on-vmware-05.png?raw=true[Create Kubernetes Cluster on vmware]
+image::vmware-configure-cluster.png?raw=true[Create Kubernetes Cluster on vmware]
 
-Verify that all the choices are correct, then click **Submit**. This will start building your NetApp HCI cluster on VMware, and it will be ready for use within minutes.
+Verify that all the choices are correct, then click **Submit**. This will start building your NetApp on VMware, and it will be ready for use within minutes.
 
 _Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_
