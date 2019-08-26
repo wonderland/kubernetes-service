@@ -8,7 +8,7 @@ summary: Learn which NKS ports and IP addresses need to be whitelisted for your 
 
 We recommend you secure your clusters as appropriate for your infrastructure needs.
 
-If you decide to restrict access to your cluster, you will need to whitelist the following ports and IP addresses so that the https://nks.netapp.io[NetApp Kubernetes Service (NKS)] system will continue to work correctly:
+If you decide to restrict access to your cluster, you will need to whitelist the following ports and IP addresses so that our system will continue to work correctly:
 
 Ports:
 
@@ -17,8 +17,17 @@ Ports:
 * 443
 * 22 (Kubernetes upgrades and other local tasks)
 
+**NKS**
+
 IP addresses:
 
 * 34.208.181.140
-* 54.187.65.159
 * 34.217.162.31
+* 54.187.65.159
+* 18.236.231.155
+
+**NetApp HCI**
+
+* `connect.pub.nks.cloud`
+* 52.88.189.147
+* 52.37.216.171
