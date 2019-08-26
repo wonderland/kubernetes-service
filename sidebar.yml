@@ -9,6 +9,8 @@ entries:
         url: /find-aws-credentials-for-cvs.html
       - title: Azure Credentials
         url: /create-auth-credentials-on-azure.html
+      - title: FlexPod
+        url: /flexpod-register-your-environment-with-nks.html
       - title: GCE Credentials
         url: /create-auth-credentials-on-gce.html
       - title: GKE Credentials
@@ -43,6 +45,8 @@ entries:
         url: /create-azure-cluster.html
       - title: Create an EKS Cluster
         url: /create-eks-cluster.html
+      - title: Create a FlexPod Cluster
+        url: /create-a-netapp-hci-cluster-in-your-flexpod-environment.html
       - title: Create a GCE Cluster
         url: /create-gce-cluster.html
       - title: Create a GKE Cluster

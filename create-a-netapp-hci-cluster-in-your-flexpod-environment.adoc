@@ -1,0 +1,57 @@
+---
+sidebar: sidebar
+permalink: create-a-netapp-hci-cluster-in-your-flexpod-environment.html
+summary: Learn how to create a Kubernetes cluster on NetApp HCI in your FlexPod environment
+---
+:imagesdir: assets/documentation/create-clusters/
+
+= Create a Kubernetes Cluster on NetApp HCI in Your FlexPod Environment
+
+Learn how to create a Kubernetes cluster on NetApp HCI in your FlexPod environment in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
+
+To create a FlexPod cluster, you will need:
+
+* FlexPod installed, configured, and registered with NKS. https://docs.netapp.com/us-en/kubernetes-service/flexpod-register-your-environment-with-nks.html[Click here to learn how to register your FlexPod environment with NKS].
+* NKS enabled for your NetApp HCI account. https://docs.netapp.com/us-en/kubernetes-service/hci-enable-nks-for-netapp-hci.html[Click here to learn how to enable NKS for NetApp HCI].
+* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
+== Step 1: Add Cluster
+
+Log in to https://nks.netapp.io[NetApp Kubernetes Service (NKS)] and click **+ ADD CLUSTER**.
+
+image::create-kubernetes-cluster-on-flexpod-01.png?raw=true[Create Kubernetes Cluster on FlexPod]
+
+Click the **NetApp HCI** tile to select NetApp HCI as the provider.
+
+image::create-kubernetes-cluster-on-flexpod-02.png?raw=true[Create Kubernetes Cluster on FlexPod]
+
+== Step 2: Provider Configuration
+
+Click the **Edit** link on the left to edit the provider details. Select your FlexPod environment from the **HCI Installation** drop-down menu, then click **Save**.
+
+image::create-kubernetes-cluster-on-flexpod-03.png?raw=true[Create Kubernetes Cluster on FlexPod]
+
+Update any of the following if you wish:
+
+* Number and size of master and worker nodes.
+* NKS workspace.
+* SSH keypair.
+
+image::create-kubernetes-cluster-on-flexpod-04.png?raw=true[Create Kubernetes Cluster on FlexPod]
+
+When your provider configurations are ready, click **SUBMIT**.
+
+== Step 3: Configure Your Cluster
+
+On this step, you can configure your Kubernetes cluster:
+
+* Set the cluster name.
+* Change the Kubernetes version.
+* Update the Pod and/or Service Network
+* Change the OS distribution.
+
+image::create-kubernetes-cluster-on-flexpod-05.png?raw=true[Create Kubernetes Cluster on FlexPod]
+
+Verify that all the choices are correct, then click **Submit**. This will start building your NetApp HCI cluster on FlexPod, and it will be ready for use within minutes.
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_
