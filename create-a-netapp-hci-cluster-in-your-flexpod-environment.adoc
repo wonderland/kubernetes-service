@@ -3,9 +3,10 @@ sidebar: sidebar
 permalink: create-a-netapp-hci-cluster-in-your-flexpod-environment.html
 summary: Learn how to create a Kubernetes cluster on NetApp HCI in your FlexPod environment
 ---
-:imagesdir: assets/documentation/create-clusters/
+
 
 = Create a Kubernetes Cluster on NetApp HCI in Your FlexPod Environment
+:imagesdir: assets/documentation/create-clusters/
 
 Learn how to create a Kubernetes cluster on NetApp HCI in your FlexPod environment in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 
