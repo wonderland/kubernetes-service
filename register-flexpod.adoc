@@ -1,0 +1,79 @@
+---
+sidebar: sidebar
+permalink: register-flexpod.html
+summary: How to register your FlexPod environment with NKS.
+---
+
+= Register Your FlexPod Environment With NKS
+
+Learn how to register your FlexPod environment for https://nks.netapp.io[the NetApp Kubernetes Service (NKS)] so that you can use NKS to create Kubernetes clusters on FlexPod.
+
+**Requirements**
+
+* NKS Registrator command-line tool installed and configured.
+* FlexPod installed and configured.
+* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
+== Create an NKS API token
+
+In order to register your FlexPod environment with NKS, you will need an NKS API token. You can use an existing NKS API token if you have one.
+
+To create a new API token:
+
+1. Register or log in at https://nks.netapp.io[NKS].
+2. Click your profile avatar in the top right corner and select `Edit Profile`.
+3. In the *API Tokens* section, click *Add Token*.
+4. Copy the token and save it somewhere safe. This is your only chance to view your API token. The token cannot be displayed after you leave or reload the page.
+
+== Register FlexPod
+
+From the command line, invoke the NKS Registrator command-line utility. You have several possible options for registering in NKS:
+
+* `easy-configure`: Reads the configuration from vSphere and writes out the configuration.
+* `help`: Help information for any command.
+* `vsphere`: Register a vSphere environment with NKS (advanced).
+* `vsphere-easy`: Register a vSphere environment with NKS (easy).
+* `vsphere-unregister`: Unregister a vSphere environment with NKS.
+
+You can view these options at any time by using the command:
+
+```
+./nks-register --help
+```
+
+In most cases, you will want to use `vsphere-easy` to register your FlexPod environment:
+
+```
+./nks-register vsphere-easy
+```
+
+To begin, you will need to log in to vCenter. Enter your information at the prompts:
+
+* Your vCenter URL.
+* Your vCenter username.
+* Your vCenter password.
+
+Next, you will be presented with a series of menus. Use your arrow key to navigate through the choices, and click Enter to select:
+
+* Your vCenter resource pool. Use the arrow key to select **NKS Pool** from the list.
+* Your vCenter datastore.
+* Your vCenter Management Network. If you are unsure, choose **VM_Network**.
+* Your vCenter Storage Network. If you are unsure, choose **iSCSI--B**.
+
+Enter a name for your new region. This name should be unique to your system, and specific enough to be easily identifiable when you need to select it to provision an NKS cluster.
+
+Enter the NKS API URL https://api.nks.netapp.io.
+
+Paste in your NKS API token.
+
+Use the arrow key to select the NKS organization you want to use for provisioning clusters on FlexPod.
+
+Optional: If you want to set up Element storage for your region, select it here.
+
+This completes the information collection.
+
+The registration process will begin, and you will see a message that the Bootstrap VM output will be dumped to a local file. Make a note of the bootstrap output file name.
+
+The progress meter will count up to 100, at which point the registration process is complete, and you are returned to the command line prompt. You can read the bootstrap output file to verify that registration completed successfully.
+
+You can now create a NetApp HCI cluster in your FlexPod environment. https://docs.netapp.com/us-en/kubernetes-service/create-flexpod-cluster.html[Click here for step-by-step instructions.]

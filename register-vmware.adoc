@@ -1,22 +1,35 @@
 ---
 sidebar: sidebar
-permalink: flexpod-register-your-environment-with-nks.html
-summary: How to register your FlexPod environment with NKS.
+permalink: register-vmware.html
+summary: How to register your VMware environment with NKS.
 ---
 
-= Register Your FlexPod Environment With NKS
+= Register Your VMware Environment With NKS
 
-Learn how to register your FlexPod environment for https://nks.netapp.io[the NetApp Kubernetes Service (NKS)] so that you can use NKS to create Kubernetes clusters on FlexPod.
+Learn how to register your VMware environment for https://nks.netapp.io[the NetApp Kubernetes Service (NKS)] so that you can use NKS to create Kubernetes clusters on VMware.
 
 **Requirements**
 
-* NKS Registrator command-line tool installed and configured.
-* FlexPod installed and configured.
 * An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
+VMware
+
+* VMware Virtual Distributed Switch installed.
+* DHCP on the VM network.
+* A defined resource pool.
+
+Your registration machine environment
+
+* An `id_rsa`, `id_rsa.pub` keypair in your `~/.ssh` directory.
+* NKS Registration binary.
+* Helpful but not required:
+    - https://golang.org/[Golang] version 1.12.5 or later installed.
+    - https://github.com/vmware/govmomi[Govc] version 0.18.0 or later installed.
+
 
 == Create an NKS API token
 
-In order to register your FlexPod environment with NKS, you will need an NKS API token. You can use an existing NKS API token if you have one.
+In order to register your VMware environment with NKS, you will need an NKS API token. You can use an existing NKS API token if you have one.
 
 To create a new API token:
 
@@ -25,7 +38,7 @@ To create a new API token:
 3. In the *API Tokens* section, click *Add Token*.
 4. Copy the token and save it somewhere safe. This is your only chance to view your API token. The token cannot be displayed after you leave or reload the page.
 
-== Register FlexPod
+== Register VMware
 
 From the command line, invoke the NKS Registrator command-line utility. You have several possible options for registering in NKS:
 
@@ -41,7 +54,7 @@ You can view these options at any time by using the command:
 ./nks-register --help
 ```
 
-In most cases, you will want to use `vsphere-easy` to register your FlexPod environment:
+In most cases, you will want to use `vsphere-easy` to register your VMware environment:
 
 ```
 ./nks-register vsphere-easy
@@ -66,7 +79,7 @@ Enter the NKS API URL https://api.nks.netapp.io.
 
 Paste in your NKS API token.
 
-Use the arrow key to select the NKS organization you want to use for provisioning clusters on FlexPod.
+Use the arrow key to select the NKS organization you want to use for provisioning clusters on VMware.
 
 Optional: If you want to set up Element storage for your region, select it here.
 
@@ -76,4 +89,4 @@ The registration process will begin, and you will see a message that the Bootstr
 
 The progress meter will count up to 100, at which point the registration process is complete, and you are returned to the command line prompt. You can read the bootstrap output file to verify that registration completed successfully.
 
-You can now create a NetApp HCI cluster in your FlexPod environment. https://docs.netapp.com/us-en/kubernetes-service/create-a-netapp-hci-cluster-in-your-flexpod-environment.html[Click here for step-by-step instructions.]
+You can now create a NetApp HCI cluster in your VMware environment. https://docs.netapp.com/us-en/kubernetes-service/create-vmware-cluster.html[Click here for step-by-step instructions.]

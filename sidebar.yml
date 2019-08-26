@@ -10,11 +10,13 @@ entries:
       - title: Azure Credentials
         url: /create-auth-credentials-on-azure.html
       - title: FlexPod
-        url: /flexpod-register-your-environment-with-nks.html
+        url: /register-flexpod.html
       - title: GCE Credentials
         url: /create-auth-credentials-on-gce.html
       - title: GKE Credentials
         url: /create-auth-credentials-on-gke.html
+      - title: VMware
+        url: /register-vmware.html
   - title: Application Lifecycle Management
     entries:
       - title: ALM Quickstart Guide
@@ -33,8 +35,16 @@ entries:
         url: /netapp-hci-requirements.html
       - title: Enable NKS for NetApp HCI
         url: /hci-enable-nks-for-netapp-hci.html
+      - title: Register FlexPod
+        url: /register-flexpod.html
+      - title: Register VMware
+        url: /register-vmware.html
       - title: Create a NetApp HCI Cluster
         url: /create-netapp-hci-cluster.html
+      - title: Create a FlexPod Cluster
+        url: /create-flexpod-cluster.html
+      - title: Create a VMware Cluster
+        url: /create-vmware-cluster.html
   - title: Create a Kubernetes Cluster
     entries:
       - title: Create an AWS Cluster
@@ -46,13 +56,15 @@ entries:
       - title: Create an EKS Cluster
         url: /create-eks-cluster.html
       - title: Create a FlexPod Cluster
-        url: /create-a-netapp-hci-cluster-in-your-flexpod-environment.html
+        url: /create-flexpod-cluster.html
       - title: Create a GCE Cluster
         url: /create-gce-cluster.html
       - title: Create a GKE Cluster
         url: /create-gke-cluster.html
       - title: Create a NetApp HCI Cluster
         url: /create-netapp-hci-cluster.html
+      - title: Create a VMware Cluster
+        url: /create-vmware-cluster.html
   - title: Manage Access
     entries:
       - title: Add a User
