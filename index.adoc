@@ -24,6 +24,7 @@ Get step-by-step instructions for adding provider credentials for:
 * link:create-auth-credentials-on-azure.html[Azure Credentials]
 * link:create-auth-credentials-on-gce.html[Google Compute Engine (GCE) Credentials]
 * link:create-auth-credentials-on-gke.html[Google Kubernetes Engine (GKE) Credentials]
+= link:register-vmware.html[VMware]
 
 == Application Lifecycle Management
 
@@ -58,6 +59,7 @@ Learn how to create a cluster at the provider of your choice with our handy guid
 * link:create-gce-cluster.html[Create a Kubernetes Cluster on Google Compute Engine (GCE)]
 * link:create-gke-cluster.html[Create a Kubernetes Cluster on Google Kubernetes Engine (GKE)]
 * link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI Cluster]
+* link:create-vmware-cluster.html[Create a Kubernetes Cluster on VMware]
 
 == Manage Access
 

@@ -13,6 +13,8 @@ entries:
         url: /create-auth-credentials-on-gce.html
       - title: GKE Credentials
         url: /create-auth-credentials-on-gke.html
+      - title: VMware Credentials
+        url: /register-vmware.html
   - title: Application Lifecycle Management
     entries:
       - title: ALM Quickstart Guide
@@ -49,6 +51,8 @@ entries:
         url: /create-gke-cluster.html
       - title: Create a NetApp HCI Cluster
         url: /create-netapp-hci-cluster.html
+      - title: Create VMware Cluster
+        url: /create-vmware-cluster.html
   - title: Manage Access
     entries:
       - title: Add a User
