@@ -51,7 +51,7 @@ entries:
         url: /create-gke-cluster.html
       - title: Create a NetApp HCI Cluster
         url: /create-netapp-hci-cluster.html
-      - title: Create VMware Cluster
+      - title: Create a VMware Cluster
         url: /create-vmware-cluster.html
   - title: Manage Access
     entries:
