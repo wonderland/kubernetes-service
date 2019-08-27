@@ -8,6 +8,8 @@ summary: An explanation of NKS Application Lifecycle Management Packages and how
 
 A Package is one of three types of Solutions that can be added to your Application Lifecycle Management Project. Keep reading to find out how to use Packages.
 
+To use this feature, you will need an NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
 == Packages
 
 Packages are Helm charts. You will find a number of commonly-used Packages available to added to your Project. You also have the option to import your own charts from an external repository.

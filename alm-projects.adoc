@@ -8,6 +8,8 @@ summary: An explanation of NKS Application Lifecycle Management Projects and how
 
 Projects are the top level of Application Lifecycle Management. Projects are created in your desired Workspace, and can contain any combination of Applications, Trackers, and Packages.
 
+To use this feature, you will need an NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
 NOTE: Application Lifecycle Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
 
 image::assets/documentation/alm-projects/enable-experimental-features.png?raw=true[NKS app management]

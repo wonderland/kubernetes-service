@@ -11,7 +11,7 @@ This NKS documentation shows you how to create a Kubernetes cluster on GKE in th
 To create a Google Kubernetes Engine (GKE) cluster, you will need:
 
 * A set of GKE credentials. https://docs.netapp.com/us-en/kubernetes-service/create-auth-credentials-on-gke.html[Find Your GKE Credentials].
-* An NKS account.
+* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
 
 For more details, see https://docs.netapp.com/us-en/kubernetes-service/nks-requirements.html[our Requirements page].
 

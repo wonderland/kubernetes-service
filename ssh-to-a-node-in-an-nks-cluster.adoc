@@ -8,6 +8,8 @@ summary: Learn how to SSH to a node in an NKS cluster.
 
 Whenever possible, you will want to use Dockerfiles or the `kubectl` command to interact with a cluster. However, there are some cases when you may need (or want) to SSH directly to a node in an NKS cluster.
 
+To use this feature, you will need an NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
 NOTE: If you are familiar with using SSH to interact with a Linux server, the username is `core` (on ContainerLinux) or `ubuntu` (on Ubuntu). Download the SSH keys from your NKS Profile page, then use them to authenticate on the node.
 
 You can log in as the user `core` (on ContainerLinux) or `ubuntu` (on Ubuntu) with a command like:

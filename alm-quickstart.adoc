@@ -12,6 +12,8 @@ This NKS documentation covers how to get up and running with https://nks.netapp.
 
 Application Lifecycle Management (ALM) provides a developer-friendly `git push` workflow which lets you deploy your application to an NKS Kubernetes cluster with a simple `git push nks master`. Apps can be deployed with monitoring and more.
 
+To use Application Lifecycle Management, you will need an NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
 NOTE: Application Lifecycle Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
 
 image::assets/documentation/alm-quickstart/enable-experimental-features.png?raw=true[NKS app management]

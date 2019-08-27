@@ -11,7 +11,7 @@ Learn how to create a Kubernetes cluster on Microsoft Azure in three clicks, usi
 To create an Azure cluster, you will need:
 
 * A set of Azure credentials. https://docs.netapp.com/us-en/kubernetes-service/create-auth-credentials-on-azure.html[Find your Azure Credentials].
-* An NKS account.
+* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
 
 For more details, see https://docs.netapp.com/us-en/kubernetes-service/nks-requirements.html[our Requirements page].
 

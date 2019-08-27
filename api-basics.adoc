@@ -8,6 +8,8 @@ summary: The basics of using the NKS API, including creating an API token and ho
 
 Welcome to the https://nks.netapp.io[NetApp Kubernetes Service (NKS)] API Reference. This section guides you through the setup process of creating an NKS API token, passing the token in your API requests, and the response codes returned by the API.
 
+To use the NKS API, you will need an NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
 == Resource URL
 
 The full resource URL for the NKS API is `https://api.nks.netapp.io`.
