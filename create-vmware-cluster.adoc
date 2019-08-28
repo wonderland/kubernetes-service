@@ -10,7 +10,9 @@ summary: Learn how to create a Kubernetes cluster in your VMware environment
 
 Learn how to create a Kubernetes cluster in your VMware environment in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 
-To create a VMware cluster, you will need:
+NOTE: The ability to create VMware clusters with NKS is currently in pre-release. This feature is not GA (Generally Available).
+
+**Requirements**
 
 * VMware installed, configured, and registered with NKS. https://docs.netapp.com/us-en/kubernetes-service/register-vmware.html[Click here to learn how to register your VMware environment with NKS].
 * An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
