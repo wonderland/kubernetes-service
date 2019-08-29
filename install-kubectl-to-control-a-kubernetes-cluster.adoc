@@ -4,21 +4,11 @@ permalink: install-kubectl-to-control-a-kubernetes-cluster.html
 summary: Learn how to install kubectl to control a Kubernetes cluster.
 ---
 
-= Install kubectl to Control a Kubernetes Cluster
+Kubectl is the command line interface for interacting with a Kubernetes cluster. In many cases, you will not need to use kubectl with a Kubernetes cluster on https://nks.netapp.io[NetApp Kubernetes Service (NKS)]. You can easily create and manage clusters through the NKS Control Plane.
 
-== Contents
+If you don’t already have an NKS account, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
 
-* <<Introduction>>
-* <<Windows>>
-* <<Mac OS>>
-* <<External Linux Server>>
-
-
-== Introduction
-
-Kubectl is the command line interface for interacting with a Kubernetes cluster. The kubectl tool lets you connect and run commands against your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] cluster.
-
-More kubectl documentation can be found https://kubernetes.io/docs/reference/kubectl/overview/[on the official Kubernetes site].
+**Overview**
 
 Kubectl gets its cluster connection and login information from the cluster’s `kubeconfig` file. In order to use kubectl you will need to:
 
@@ -26,6 +16,7 @@ Kubectl gets its cluster connection and login information from the cluster’s `
 2. Download the cluster’s kubeconfig file from the NKS Cluster Details page.
 3. Move the kubeconfig file to your user directory, then update your shell’s environment.
 
+More kubectl documentation can be found https://kubernetes.io/docs/reference/kubectl/overview/[on the official Kubernetes site].
 
 == Windows
 
