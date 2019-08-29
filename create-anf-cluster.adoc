@@ -1,0 +1,64 @@
+---
+sidebar: sidebar
+permalink: create-anf-cluster.html
+summary: Learn how to use NetApp Kubernetes Service (NKS) to create a Kubernetes cluster with Azure NetApp Files (ANF)
+---
+
+= Create a Kubernetes Cluster with Azure NetApp Files (ANF)
+:imagesdir: assets/documentation/create-clusters/
+
+Learn the fast, easy way to create a Kubernetes cluster with Azure NetApp Files using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
+
+Azure NetApp Files (ANF) is an enterprise-class, high-performance file storage service which is highly available and offers tiered service and performance levels, as well as many other features. Learn how to easily use this high-performance file storage method with your NKS Kubernetes clusters.
+
+**Requirements**
+
+* ANF set up and configured on your Azure account. For more information about setting up and using Azure NetApp Files, https://docs.microsoft.com/en-us/azure/azure-netapp-files/[see the official documentation on the Microsoft website].
+* An NKS account. If you don’t have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
+For more details, see https://docs.netapp.com/us-en/kubernetes-service/nks-requirements.html[our Requirements page].
+
+== Step 1: Choose a Provider
+
+Log in to https://nks.netapp.io[NetApp Kubernetes Service (NKS)] and click **+ ADD CLUSTER**.
+
+image::create-kubernetes-cluster-on-anf.png?raw=true[Click ADD CLUSTER]
+
+Click the **Microsoft Azure** tile to select Azure as a provider.
+
+image::select-microsoft-azure-provider.png?raw=true[Click Azure tile]
+
+== Step 2: Configure Your Provider
+
+In this step, you will set your provider configurations. Here you can update any of the following if you wish:
+
+* Number and size of master and worker nodes.
+* Region, resource group, network, or subnet.
+* NKS workspace.
+* Azure credentials.
+* SSH keypair.
+
+image::configure-azure-provider.png?raw=true[Update Azure provider configurations]
+
+When you have all the provider configurations set, click **SUBMIT** to continue.
+
+== Step 3: Configure Your Cluster
+
+To add Azure NetApp Files to your Kubernetes cluster, click **ADD SOLUTIONS**. Browse our NetApp Kubernetes Service Solutions and click the Azure NetApp Files tile.
+
+image::click-anf-tile.png?raw=true[Click the ANF tile]
+
+Configure ANF by choosing the NetApp account, capacity pool, service level, and subnet you wish to use. When everything is set, click **SAVE** to continue and return to the cluster configuration page.
+
+Finally, review your cluster settings and make any necessary configuration changes:
+
+* Set the cluster name.
+* Change the Kubernetes version.
+* Add other solutions to the cluster from our solutions gallery, trusted charts, or your own Helm chart repo.
+* Change the OS distribution.
+
+image::configure-kubernetes-cluster-on-anf.png?raw=true[Create Kubernetes Cluster on NetApp HCI]
+
+When everything is correct, click **Submit**. Your cluster will begin building, and will be ready for use within minutes.
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

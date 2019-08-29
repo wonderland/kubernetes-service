@@ -43,6 +43,8 @@ entries:
         url: /create-aks-cluster.html
       - title: Create an Azure Cluster
         url: /create-azure-cluster.html
+      - title: Create an ANF Cluster
+        url: /create-anf-cluster.html
       - title: Create an EKS Cluster
         url: /create-eks-cluster.html
       - title: Create a GCE Cluster
