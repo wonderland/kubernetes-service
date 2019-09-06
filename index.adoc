@@ -96,7 +96,7 @@ See our extensive API documentation for more information:
 * link:api-user.html[User]
 * link:api-keysets.html[Keysets]
 * link:api-clusters.html[Clusters]
-* link:api-migrate-version.html[Migrate Version (Upgrade}]
+* link:api-migrate-version.html[Migrate Version (Upgrade)]
 * link:api-nodes.html[Nodes]
 * link:api-nodepools.html[Nodepools]
 * link:api-federations.html[Federations]
