@@ -1,0 +1,42 @@
+---
+sidebar: sidebar
+permalink: api-migrate-version.html
+summary: How to use the migrate_version API resource for the NKS API.
+---
+
+= Migrate Version (Upgrade)
+
+Learn how to use the Migrate Version resource to upgrade an NKS cluster's Kubernetes version through the API. This lets you migrate your Kubernetes cluster to a newer Kubernetes version.
+
+The Migrate Version resource is scoped under Clusters. For more information on working with clusters through the API, see our documentation on https://docs.netapp.com/us-en/kubernetes-service/api-clusters.html[Clusters].
+
+== POST Upgrade a Cluster
+
+Upgrade a cluster to the specified Kubernetes version. Pass the Kubernetes version number in the `--data-binary` header, as shown in the example request.
+
+If the request is successful, the API returns an empty response, and the NKS system upgrades the cluster.
+
+**Path Parameter**
+
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Cluster ID** | Yes | The Cluster ID.
+|===
+
+[source,shell]
+----
+POST "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/migrate_version"
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X POST \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-H 'Accept: application/json, text/plain, */*' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-binary '{"version":"v1.15.3"}' \
+"https://api.nks.netapp.io/orgs/2/clusters/13/migrate_version"
+----

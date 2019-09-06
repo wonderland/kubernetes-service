@@ -4,11 +4,13 @@ permalink: api-clusters.html
 summary: How to use the Keysets API resource for the NKS API.
 ---
 
-= Clusters 
+= Clusters
 
 The Clusters resource lets you create, manage, and delete Kubernetes clusters on the NKS system.
 
 Clusters are scoped under Organizations as well as Workspaces.
+
+The Migrate Version resource is scoped under Clusters. For more information on upgrading a Kubernetes cluster through the API, see our documentation on https://docs.netapp.com/us-en/kubernetes-service/api-migrate-version.html[Migrate Version (Upgrade)].
 
 
 == GET All Clusters

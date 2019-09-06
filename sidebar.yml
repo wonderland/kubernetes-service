@@ -97,6 +97,8 @@ entries:
         url: /api-keysets.html
       - title: Clusters
         url: /api-clusters.html
+      - title: Migrate Version (Upgrade)
+        url: /api-migrate-version.html
       - title: Nodes
         url: /api-nodes.html
       - title: Nodepools

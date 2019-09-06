@@ -55,7 +55,7 @@ Learn how to create a cluster at the provider of your choice with our handy guid
 * link:create-aws-cluster.html[Create a Kubernetes Cluster on Amazon Web Services (AWS)]
 * link:create-eks-cluster.html[Create a Kubernetes Cluster on Amazon EKS]
 * link:create-azure-cluster.html[Create a Kubernetes Cluster on Azure]
-* link:create-anf-cluster.html[Create a Kubernetes Cluster with Azure NetApp Files (ANF)]
+* link:create-anf-cluster.html[Create a Kubernetes Cluster with Azure NetApp Files (ANF)]s
 * link:create-aks-cluster.html[Create a Kubernetes Cluster on Microsoft AKS]
 * link:create-gce-cluster.html[Create a Kubernetes Cluster on Google Compute Engine (GCE)]
 * link:create-gke-cluster.html[Create a Kubernetes Cluster on Google Kubernetes Engine (GKE)]
@@ -96,6 +96,7 @@ See our extensive API documentation for more information:
 * link:api-user.html[User]
 * link:api-keysets.html[Keysets]
 * link:api-clusters.html[Clusters]
+* link:api-migrate-version.html[Migrate Version (Upgrade}]
 * link:api-nodes.html[Nodes]
 * link:api-nodepools.html[Nodepools]
 * link:api-federations.html[Federations]
