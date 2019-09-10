@@ -4,30 +4,23 @@ permalink: whitelist-ports-and-ip-addresses.html
 summary: Learn which NKS ports and IP addresses need to be whitelisted for your clusters.
 ---
 
-= Whitelist Ports and IP Addresses
+= Network Security and Access Controls
 
-We recommend you secure your clusters as appropriate for your infrastructure needs.
+We recommend you secure your NetApp Kubernetes Service (NKS) clusters appropriately for your infrastructure and workload security requirements, regardless of where they are deployed.
 
-If you decide to restrict access to your cluster, you will need to whitelist the following ports and IP addresses so that our system will continue to work correctly:
+In the case of NKS operating on-premises (such as NKS on NetApp HCI, and NKS on VMware), network access controls at the corporate firewall level may need take into account any secure channels which are required for communicating between the public-cloud-hosted NKS controller elements and your on-premises resources.
 
-Ports:
+If you decide to restrict access to individual NKS clusters, you will need to whitelist the following ports, hostnames, and IP addresses so that the NetApp Kubernetes Service can operate correctly.
 
-* 12443 (proxy to dashboard)
-* 6443 (Kubernetes API)
-* 443
-* 22 (Kubernetes upgrades and other local tasks)
+= Hostnames, Ports, and IP Addresses
 
-**NKS**
-
-IP addresses:
-
-* 34.208.181.140
-* 34.217.162.31
-* 54.187.65.159
-* 18.236.231.155
-
-**NetApp HCI**
-
-* `connect.pub.nks.cloud`
-* 52.88.189.147
-* 52.37.216.171
+|===
+|**Address** | **Port** | **Direction** | **Purpose** | **Description**
+| connect.pub.nks.cloud | 443 | Outbound | Secure "Dispatch" tunnel communications | Provides secure communications between NKS Cloud Providers and the hosted NKS Service; e.g.when NKS is deployed on NetApp HCI or VMware on-premises traffic makes use of this Northbound MTLS secured channel.
+| api.nks.netapp.io | 443 | Outbound | Region registration | Facilitates initial deployment-time registration of on-premises "regions."
+| repo.netapp.com | 443 | Outbound | Artifact repository | Provides access to components necessary to install/update on-premises deployment.
+| 34.208.181.140 34.217.162.31 54.187.65.159 18.236.231.155 | 443 | Inbound | HTTPS | Applies to securing individual NKS-provisioned Kubernetes cluster(s) in Public Clouds. All traffic flows outbound through 443 for on-premises deployed clusters.
+| | 6443 | Inbound | Kubernetes API |
+| | 12443 | Inbound | Proxy to dashboard |
+| | 22 | Inbound | Kubernetes upgrades and other local tasks. |
+|===
