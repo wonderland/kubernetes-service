@@ -21,6 +21,6 @@ If you decide to restrict access to individual NKS clusters, you will need to wh
 | repo.netapp.com | 443 | Outbound | Artifact repository | Provides access to components necessary to install/update on-premises deployment.
 .4+| 34.208.181.140 34.217.162.31 54.187.65.159 18.236.231.155 | 443 | Inbound | HTTPS .4+| Applies to securing individual NKS-provisioned Kubernetes cluster(s) in Public Clouds. All traffic flows outbound through 443 for on-premises deployed clusters.
 | 6443 | Inbound | Kubernetes API
-| 12443 Inbound | Proxy to dashboard
+| 12443 | Inbound | Proxy to dashboard
 | 22 | Inbound | Kubernetes upgrades and other local tasks.
 |===
