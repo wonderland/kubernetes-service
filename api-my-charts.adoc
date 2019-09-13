@@ -1,0 +1,316 @@
+---
+sidebar: sidebar
+permalink: api-my-charts.html
+summary: How to use the My Charts API resource for the NKS API.
+---
+
+= My Charts
+
+The My Charts resource lets you import Helm charts from any Github repo or specify a packaged charts URL.
+
+== GET All My Charts
+
+Get information about the repositories which have been added to My Charts for your organization.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/orgs/{Organization ID}/chart-repos
+----
+
+Example request. Due to the large amount of information returned by this query, we suggest you pipe the JSON output to a file, as shown below. You can then view and edit the my-charts.json file.
+
+[source,shell]
+----
+curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/orgs/12/chart-repos" \
+ > my-charts.json
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | The ID for the chart repository.
+|**name** | The chart repo name.
+|**source** | The chart repo source.
+|**source_display** | The display name for the chart repo source.
+|**org** | The NKS organization to which the My Charts repo belongs.
+|**path** | The path to the chart repo (if local).
+|**url** | The URL of the chart repo (if public).
+|**is_system** | Whether or not this is a system repo.
+|**is_private** | Whether or not this is a private repo.
+|**keyset** | The keyset used for the repo, if applicable.
+|**chart_index** | An array containing information about the charts in the repo.
+|**name** | The name of the chart.
+|**apiVersion** | The NKS API version (v1 or v2).
+|**maintainers** | Name and contact information for the chart maintainers.
+|**name** | The name of the chart maintainer.
+|**email** | The email address of the chart maintainer.
+|**version** | The chart version.
+|**keywords** | Chart keywords.
+|**home** | The URL of the chart's home page.
+|**icon** | The URL of the chart's icon.
+|**sha** | The cryptographic hash used to verify the chart.
+|**values** | More information about the chart.
+|**path** | The path to the chart.
+|**spec** | More chart specifications.
+|===
+
+== POST Add a Chart Repo
+
+Import charts from a GitHub repo or a packaged charts URL. This is a two-step process:
+
+Step 1: Send the NKS API a check request for the repository.
+
+Step 2: Pass the results of that request back to create the My Charts repository.
+
+=== Step 1: Send a Check Request
+
+In this step, you send the NKS API a request to the `check` endpoint, for the repository you want to add to My Charts. For this example, we will use the https://github.com/mdn/helm-charts GitHub repo.
+
+The response from the `check` endpoint is piped into the `add-my-chart.json` file, which you will use in step 2.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+curl https://api.nks.netapp.io/orgs/{Organization ID}/chart-repos/check
+----
+
+Example request:
+
+[source,shell]
+----
+curl 'https://api.nks.netapp.io/orgs/12/chart-repos/check' \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-H 'Accept: application/json, text/plain, */*' \
+-H 'Content-Type: application/json;charset=UTF-8' \
+--data-binary '{"name":"add-new-my-charts","source":"github","path":"","url":"https://github.com/mdn/helm-charts","keyset":null,"is_private":false,"config":{"error":null}}' \
+--compressed \
+> add-my-chart.json
+----
+
+=== Step 2: Add the Chart Repo
+
+In this step, you edit the response from the check request and send it back to the NKS API. You will need to add some content to the beginning and end of the `add-my-chart.json` file which we created in the previous step.
+
+Edit the `add-my-chart.json` file and add the following content to the beginning of the file. This is the same chart data which you passed in the previous step:
+
+```
+ [{"name":"add-new-my-charts","source":"github","path":"","url":"https://github.com/mdn/helm-charts","keyset":null,"is_private":false,"config":
+```
+
+Add the following content to the end of the file:
+
+```
+ }]
+```
+
+Save and exit the file. Then send this file to the NKS API as specified in the following example.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+curl https://api.nks.netapp.io/orgs/{Organization ID}/chart-repos
+----
+
+Example request:
+
+[source,shell]
+----
+curl 'https://api.nks.netapp.io/orgs/12/chart-repos' \
+-H "Authorization: Token abcdef123456789abcdef123456789" \
+-H "Content-Type: application/json" \
+-d @add-my-chart.json
+----
+
+Example response:
+
+[source,shell]
+----
+[
+  {
+    "pk": 612,
+    "name": "add-new-my-charts",
+    "source": "github",
+    "source_display": "Github",
+    "org": 12,
+    "path": "",
+    "url": "github.com\/mdn\/helm-charts",
+    "is_system": false,
+    "is_private": false,
+    "keyset": null,
+    "chart_index": [
+
+    ],
+    "state": "unindexed",
+    "owner": 18896,
+    "is_accessible": true,
+    "synced": null,
+    "created": "2019-09-13T17:04:22.028297Z",
+    "updated": "2019-09-13T17:04:22.028321Z"
+  }
+]
+----
+
+**Return Values**
+|===
+|**Name** | **Description**
+|**pk** | The ID for the chart repository.
+|**name** | The My Charts repo name.
+|**source** | The My Charts repo source.
+|**source_display** | The display name for the My Charts repo source.
+|**org** | The NKS organization to which the My Charts repo belongs.
+|**path** | The path to the My Charts repo (if local).
+|**url** | The URL of the My Charts repo (if public).
+|**is_system** | Whether or not this is a system My Charts repo.
+|**is_private** | Whether or not this is a private My Charts repo.
+|**keyset** | The keyset used for the My Charts repo, if applicable.
+|**chart_index** | An array containing information about the charts in the My Charts repo.
+|**state** | The current state of the My Charts repo.
+|**owner** | The ID of the My Charts repo's owner.
+|**is_accessible** | Whether or not the My Charts repo is accessible.
+|**synced** | Timestamp of when the My Charts repo was most recently synced.
+|**created** | Timestamp of when the My Charts repo was created.
+|**updated** | Timestamp of when the My Charts repo was last updated.
+|===
+
+== Re-Sync a My Charts Repo
+
+If you see outdated version numbers on your charts, you may need to re-sync the repository with our systems. You can do this by sending a GET request to the `chart-repos` endpoint.
+
+=== Step 1: Check Your Charts
+
+To check the version numbers on your charts and find the Repo ID, send a GET request to the `chart-repos` endpoint. Due to the volume of data returned by this request, we recommend you pipe the results into a file as shown in the example below.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/orgs/{Organization ID}/chart-repos/check
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+'https://api.nks.netapp.io/orgs/12/chart-repos' \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+> check-my-charts.json
+----
+
+=== Step 2: Re-Sync Your Charts
+
+Read the `check-my-charts.json` file to find the Repo ID. The Repo ID is the first value in the file, labeled **pk** (for "primary key").
+
+In this example excerpt, the Repo ID is 612:
+
+```
+[{"pk":612,"name":"add-new-my-charts","source":"github","source_display":"Github","org":18843,"path":"","url":"gi
+thub.com/mdn/helm-charts","is_system":false,
+```
+
+To re-sync this repository, send a GET request to the `sync` endpoint.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|**Repo ID** | Yes | The My Charts Repo ID.
+|===
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/orgs/{Organization ID}/chart-repos/{Repo ID}/sync
+----
+
+Example request. A successful request will return an empty response.
+
+[source,shell]
+----
+curl -X GET \
+'https://api.nks.netapp.io/orgs/12/chart-repos/612/sync' \
+-H "Authorization: Bearer abcdef123456789abcdef123456789"
+----
+
+== DELETE a Chart Repo
+
+If you delete a chart repository, all charts from the repository will be removed. Existing installations will not be affected.
+
+=== Step 1: Find the Chart Repo ID
+
+To find the Repo ID, send a GET request to the `chart-repos` endpoint. Due to the volume of data returned by this request, we recommend you pipe the results into a file as shown in the example below.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+GET https://api.nks.netapp.io/orgs/{Organization ID}/chart-repos/check
+----
+
+Example request:
+
+[source,shell]
+----
+curl -X GET \
+'https://api.nks.netapp.io/orgs/12/chart-repos' \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+> check-my-charts.json
+----
+
+Read the `check-my-charts.json` file to find the Repo ID. The Repo ID is the first value in the file, labeled **pk** (for "primary key").
+
+In this example excerpt, the Repo ID is 612:
+
+```
+[{"pk":612,"name":"add-new-my-charts","source":"github","source_display":"Github","org":18843,"path":"","url":"gi
+thub.com/mdn/helm-charts","is_system":false,
+```
+
+=== Step 2: Delete the Chart Repo
+
+Next, send a DELETE request to the `chart-repos` resource with the Repo ID you wish to delete.
+
+**Path Parameter**
+|===
+|**Name** | **Required** | **Description**
+|**Org ID** | Yes | The Organization ID.
+|===
+
+[source,shell]
+----
+DELETE https://api.nks.netapp.io/orgs/{Organization ID}/chart-repos/{Repo ID}
+----
+
+Example request. A successful request returns an empty response.
+
+[source,shell]
+----
+curl -X DELETE \
+'https://api.nks.netapp.io/orgs/12/chart-repos/612' \
+-H "Authorization: Bearer abcdef123456789abcdef123456789"
+----
