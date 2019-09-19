@@ -23,3 +23,13 @@ The following are requirements for using NetApp HCI with https://nks.netapp.io[N
     - This token authorizes the installer to access your NKS Organization.
     - To create an NKS API token, log in to NKS and click your user icon in the upper right-hand corner. Click **Edit Profile** then **Add Token**.
     - You can create the token at any time, even if you have not yet enabled cloud services on NetApp HCI.
+
+== More NetApp HCI Resources
+
+If you have any of the following issues:
+
+* Replica pods deployed on different worker nodes. Trident’s guardrails prohibit the PVC Access Mode RWX with an iSCSI driver.  In this case, no pods will come up.
+* Kubernetes Rolling Updates unsuccessful when a persistent volume is attached to the pod with iSCSI.
+* Ungraceful Kubernetes worker node loss due to multi-attach errors when RWO is configured.
+
+https://kb.netapp.com/app/answers/answer_view/a_id/1091520[See this KB article for solutions.]
