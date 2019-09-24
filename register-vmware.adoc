@@ -8,7 +8,7 @@ summary: How to register your VMware environment with NKS.
 
 Learn how to register your VMware environment for https://nks.netapp.io[the NetApp Kubernetes Service (NKS)] so that you can use NKS to create Kubernetes clusters on VMware.
 
-NOTE: The ability to create VMware clusters with NKS is currently in pre-release. This feature is not GA (Generally Available). 
+NOTE: The ability to create VMware clusters with NKS is currently in pre-release. This feature is not GA (Generally Available).
 
 **Requirements**
 
@@ -44,11 +44,15 @@ To create a new API token:
 
 From the command line, invoke the NKS Registrator command-line utility. You have several possible options for registering in NKS:
 
-* `easy-configure`: Reads the configuration from vSphere and writes out the configuration.
+* `FlexPod`: Register NetApp FlexPod as a region in NKS (interactive mode).
+* `HCI`: Register NetApp HCI as a region in NKS (interactive mode).
+* `vSphere`: Register generic vSphere as a region in NKS (interactive mode).
+* `unregister`: Remove any FlexPod, HCI or generic VMware region from NKS and delete associated on-premise resources.
+* `create-configuration`: Collect configuration values from vSphere and user input and write to a config file.
+* `from-config`: Register a region in NKS using an existing configuration file.
 * `help`: Help information for any command.
-* `vsphere`: Register a vSphere environment with NKS (advanced).
-* `vsphere-easy`: Register a vSphere environment with NKS (easy).
-* `vsphere-unregister`: Unregister a vSphere environment with NKS.
+
+Please note that commands are case-sensitive.
 
 You can view these options at any time by using the command:
 
@@ -56,10 +60,10 @@ You can view these options at any time by using the command:
 ./nks-register --help
 ```
 
-In most cases, you will want to use `vsphere-easy` to register your VMware environment:
+In most cases, you will want to use `vSphere` to register your VMware environment:
 
 ```
-./nks-register vsphere-easy
+./nks-register vSphere
 ```
 
 To begin, you will need to log in to vCenter. Enter your information at the prompts:
