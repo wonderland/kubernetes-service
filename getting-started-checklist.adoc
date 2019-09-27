@@ -1,0 +1,37 @@
+---
+sidebar: sidebar
+permalink: getting-started-checklist.html
+summary: User access introductory NKS training
+---
+
+= Getting Started: Checklist
+
+Here's a checklist of introductory, "Day 1" tasks for setting up your NKS account.
+
+== User Access
+
+See our article on https://docs.netapp.com/us-en/kubernetes-service/getting-started-user-access.html[Setting up user access] for more details.
+
+**Organization**
+
+* Choose the email address for your main NKS account.
+* Set up the NKS account for this address.
+* Create a new company organization.
+
+**Workspaces**
+
+* Set up workspaces for the broadest user categories, if applicable.
+
+**Teams**
+
+* Set up teams for fine-grained control of user groups.
+
+**Members**
+
+* Invite members to your new organization.
+* If you have your own NKS account, be sure to invite yourself.
+* Choose the right privilege levels. Users with Admin rights can view and change the billing, subscription, and provider keys on the entire account.
+
+== Provider Credentials
+
+* Add your provider credentials to your organization. https://docs.netapp.com/us-en/kubernetes-service/getting-started-add-credentials.html[More information]

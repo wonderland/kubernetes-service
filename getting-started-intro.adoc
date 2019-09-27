@@ -1,0 +1,33 @@
+---
+sidebar: sidebar
+permalink: getting-started-intro.html
+summary: Introductory training for NKS
+---
+
+= Getting Started: Intro to NKS
+
+Welcome to https://nks.netapp.io[NetApp Kubernetes Service (NKS)]!
+
+We have put together some introductory training articles for new NKS users with the expectation that you have some basic Kubernetes knowledge. If you are new to Kubernetes, we recommend you start with any of a number of online resources for learning Kubernetes basics, including:
+
+* https://www.cncf.io/certification/training/[Introduction to Kubernetes], a free training course from the Cloud Native Computing Foundation (CNCF).
+* https://kubernetes.io/docs/home/[The official Kubernetes documentation], which includes tutorials and an excellent Getting Started section.
+* https://www.katacoda.com/courses/kubernetes[Katacoda's interactive browser-based training scenarios.]
+
+== NKS Overview
+
+NKS lets you easily create and manage Kubernetes clusters. The NKS dashboard gives you a clean, simple layout for using and managing Kubernetes.
+
+If you're a power user, we have a full API, and a Terraform provider plug-in. If you're using Terraform, our provider plug-in makes it easy to manage your NKS usage. It particularly makes it easy to migrate your existing setup to NKS.
+
+Another benefit of NKS is the ability to restrict user access, using organizations and teams. This means that, for example, you can prevent the QA team from accidentally deleting clusters being used by your developers, or keep your sales team from using the QA team's Amazon credentials.
+
+As you set up your NKS account, https://docs.netapp.com/us-en/kubernetes-service/getting-started-checklist.html[use our checklist] to track your progress and make sure you don't overlook any important tasks.
+
+== Step 1: User Access
+
+Learn how to set up user access to control and manage your users. See our article on https://docs.netapp.com/us-en/kubernetes-service/getting-started-user-access.html[Setting up user access] for more details.
+
+== Step 2: Add Credentials
+
+The next step is to locate your provider credentials and add them to your NKS account. When you add your provider credentials, you have the option to assign the credentials to a specific workspace and/or team. https://docs.netapp.com/us-en/kubernetes-service/getting-started-add-credentials.html[Read more about adding credentials.]

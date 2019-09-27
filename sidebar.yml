@@ -1,7 +1,17 @@
 entries:
   - title: NKS Docs
     url: /index.html
-  - title: Setup and Credentials
+  - title: Getting Started
+    entries:
+      - title: Intro to NKS
+        url: /getting-started-intro.html
+      - title: Checklist
+        url: /getting-started-checklist.html
+      - title: User Access
+        url: /getting-started-user-access.html
+      - title: Credentials
+        url: /getting-started-add-credentials.html
+  - title: Add Credentials
     entries:
       - title: AWS Credentials
         url: /create-auth-credentials-on-aws.html

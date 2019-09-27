@@ -13,9 +13,18 @@ summary: Welcome to the documentation portal for NetApp Kubernetes Service (NKS)
 
 NetApp Kubernetes Service (NKS) is a universal control plane for creating and managing Kubernetes clusters. If you don't already have an NKS account, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
 
-== Setup - Add Credentials
+== Getting Started
 
-After you create an NKS account, one of your first tasks will be to add your provider credentials. Provider credentials are the authorization keys for your account on AWS, NetApp HCI, Azure, and other supported providers. This lets you create clusters on the supported provider of your choice.
+Welcome to NKS! Read through our series of Getting Started articles for an overview of the process, and learn how to start off right by setting up your NKS account.
+
+* link:getting-started-intro.html[Intro to NKS]
+* link:getting-started-checklist.html[Checklist]
+* link:getting-started-user-access.html[Controlling User Access]
+* link:getting-started-add-credentials.html[Add Provider Credentials]
+
+== Add Credentials
+
+Provider credentials are the authorization keys for your account on AWS, NetApp HCI, Azure, and other supported providers. This lets you create clusters on the supported provider of your choice.
 
 Get step-by-step instructions for adding provider credentials for:
 

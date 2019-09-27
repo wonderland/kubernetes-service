@@ -1,0 +1,63 @@
+---
+sidebar: sidebar
+permalink: getting-started-user-access.html
+summary: User access introductory NKS training
+---
+
+= Getting Started: Controlling User Access with Organizations, Workspaces, Teams, and Members
+
+Before you get too far into setting up your NKS account, it's worth giving some thought to how you might want to restrict access.
+
+NOTE: It's important that you set up your organization up front. However, you can always add or manage teams and workspaces at a later date.
+
+=== Organizations
+
+Each user has their personal organization, which is created when their account is set up. Each user doesn't need to set up a paid subscription for their personal organization. The exception being if they want to launch and manage Kubernetes clusters under their personal organization.
+
+Most business users will want to set up a separate organization for business use. This organization will belong to a member account with a paid subscription. The subscription covers all of the organizations on that member's account.
+
+This member account will not only handle the billing, it will also be the main point of contact with NKS for support and other issues. Therefore, you will want to choose your main member account carefully.
+
+As an example, let's say you are in charge of setting up the NKS account for Acme Industries. For the main account, you decide to set up an NKS subscription for devops@acmeindustries.com. This email address is a group account which several people in DevOps can access (including the DevOps manager, who can approve billing).
+
+After signing up for a subscription, your next step is to create an organization called Acme Inc. This organization will be the home of all future Acme Industries Kubernetes projects.
+
+**Day 1: Organizations Checklist**
+
+* Choose the email address for your main NKS account.
+* Set up the NKS account for this address.
+* Create a new company organization.
+
+=== Workspaces
+
+Workspaces are the middle layer of user access. Each organization can have multiple workspaces. Each workspace can have multiple teams. However, each workspace can only belong to one organization, and each team can only belong to one workspace.
+
+Acme Industries is a global, multinational conglomerate with thousands of potential NKS users. To begin, you might create workspaces for the Sales, Development, and QA departments.
+
+**Day 1: Workspaces Checklist**
+
+* Set up workspaces for the broadest user categories, if applicable.
+* Don't worry, you can always add and manage workspaces later.
+
+=== Teams
+
+Teams are the most granular layer of user access. Each member can belong to multiple teams.
+
+For example, you might create two teams assigned to the Sales department's workspace: one for the West Coast sales team, and one for the East Coast sales team. These teams have separate cost centers, so they want to keep their provider credentials separate. (There's also some friction between the two teams, so you want to keep the peace by ensuring that they can't accidentally delete each other's clusters.)
+
+**Day 1: Teams Checklist**
+
+* Set up teams for fine-grained control of user groups.
+* Don't worry, you can always add and manage workspaces later.
+
+=== Members
+
+Now it's time to start inviting and assigning members. You can do this at **Organization > Members > + ADD MEMBER**. When you create the invitation, you can specify which team you want the member to be assigned to (if any), and the member's roles.
+
+Be sure to remind your invitees that they don't have to sign up for a paid subscription for their personal organization. However, they will need to switch organizations as soon as they log in. They can do this by clicking the icon in the upper right, next to their profile icon.
+
+**Day 1: Members Checklist**
+
+* Invite members to your new organization.
+* If you have your own NKS account, be sure to invite yourself.
+* Choose the right privilege levels. Users with Admin rights can view and change the billing, subscription, and provider keys on the entire account.
