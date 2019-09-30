@@ -8,7 +8,7 @@ summary: Requirements for using NetApp HCI with NKS
 
 The following are requirements for using NetApp HCI with https://nks.netapp.io[NetApp Kubernetes Service (NKS)]. For more information about using NetApp HCI, see http://docs.netapp.com/hci/index.jsp[the official NetApp HCI documentation].
 
-* A NetApp HCI system successfully installed. We do not currently support cloud services on non-HCI systems.
+* A NetApp HCI system successfully installed.
 * System size requirements:
     - 2x4 systems are not supported for production use. However, you can use these for demo work.
     - 3x4 systems are the minimum production system size we support.
