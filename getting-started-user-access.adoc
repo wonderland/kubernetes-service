@@ -59,5 +59,6 @@ Be sure to remind your invitees that they don't have to sign up for a paid subsc
 **Day 1: Members Checklist**
 
 * Invite members to your new organization.
-* If you have your own NKS account, be sure to invite yourself.
+
+* If you use more than one NKS account, be sure to invite your alternate accounts to the organization, too. 
 * Choose the right privilege levels. Users with Admin rights can view and change the billing, subscription, and provider keys on the entire account.
