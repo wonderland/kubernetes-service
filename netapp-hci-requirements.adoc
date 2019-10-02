@@ -10,9 +10,9 @@ The following are requirements for using NetApp HCI with https://nks.netapp.io[N
 
 * A NetApp HCI system successfully installed.
 * System size requirements:
-    - 2x4 systems are not supported for production use. However, you can use these for demo work.
-    - 3x4 systems are the minimum production system size we support.
-    - 4x4 systems are the recommended minimum size.
+    - 2x4 (2 compute nodes x 4 storage nodes) systems are not supported for production use. However, you can use these for demo work.
+    - 3x4 (3 compute nodes x 4 storage nodes) systems are the minimum production system size we support.
+    - 4x4 (4 compute nodes x 4 storage nodes) systems are the recommended minimum size.
     - NetApp HCI v1.6 or later.
 * Any version of vSphere supported by NetApp HCI.
 * vSphere distributed switches (VDS). We do not support installing to standard switches.
