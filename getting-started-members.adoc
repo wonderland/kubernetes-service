@@ -1,0 +1,27 @@
+---
+sidebar: sidebar
+permalink: getting-started-members.html
+summary: Members introductory NKS training
+---
+
+= Getting Started: Members
+
+After you have set up your organization and any workspaces and teams you want to use, it's time to start inviting and assigning members. You can do this at **Organization > Members > + ADD MEMBER**. When you create the invitation, you can specify which team you want the member to be assigned to (if any), and the member's roles.
+
+== Access Rights
+
+Members with the Admin role can view, access, and manage your account's subscription and credentials. Admin role users have access to the **Organization > Setup** and **Organization > Subscription** areas of the site.
+
+Members with the Member role will not see those sections on the menu, and will not be able to access your subscription, credentials, or account setup information.
+
+== Subscription
+
+Everyone you invite to your organization will need to set up an NKS account. However, they will not need to sign up for a paid subscription for their accounts and personal organizations.
+
+When they sign in to NKS, they will default to their personal organization. They will need to switch to your organization after they log in, by clicking the icon in the upper right, next to their profile icon.
+
+**Members Checklist**
+
+* Invite members to your new organization.
+* If you use more than one NKS account, be sure to invite your alternate accounts to the organization, too.
+* Choose the right privilege levels. Users with Admin rights can view and change the billing, subscription, and provider keys on the entire account.

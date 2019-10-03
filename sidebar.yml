@@ -7,8 +7,12 @@ entries:
         url: /getting-started-intro.html
       - title: Checklist
         url: /getting-started-checklist.html
+      - title: Organizations
+        url: /getting-started-organizations.html
       - title: User Access
         url: /getting-started-user-access.html
+      - title: Members
+        url: /getting-started-members.html
       - title: Credentials
         url: /getting-started-add-credentials.html
   - title: Add Credentials

@@ -1,0 +1,27 @@
+---
+sidebar: sidebar
+permalink: getting-started-organizations.html
+summary: Introductory NKS training about organizations
+---
+
+= Getting Started: Organizations
+
+Each user has their personal organization, which is created when their account is set up. Each user doesn't need to set up a paid subscription for their personal organization if they only intend to use your business organization.
+
+Most business users will want to set up a separate organization for business use. This organization will belong to a member account with a paid subscription. The subscription covers all of the organizations on that member's account.
+
+This member account will not only handle the billing, it will also be the main point of contact with NKS for support and other issues. Therefore, you will want to choose your main member account carefully.
+
+Ideally, this account will be tied to an email address which several people can access. That way, if one person leaves your company, it doesn't create a single point of failure for billing or communications with NKS.
+
+**Example**
+
+Let's say you are in charge of setting up the NKS account for Acme Industries. For the main account, you decide to set up an NKS subscription for devops@acmeindustries.com. This email address is a group account which several people in DevOps can access, including the DevOps manager, who can approve billing.
+
+After signing up for a subscription, your next step is to create an organization called Acme Inc. This organization will be the home of all future Acme Industries Kubernetes projects.
+
+**Organizations Checklist**
+
+* Choose the email address for your main NKS account.
+* Set up the NKS account for this address.
+* Create a new company organization.
