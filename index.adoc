@@ -19,6 +19,7 @@ Welcome to NKS! Read through our series of Getting Started articles for an overv
 
 * link:getting-started-intro.html[Intro to NKS]
 * link:getting-started-checklist.html[Checklist]
+* link:getting-started-subscription.html[Subscription]
 * link:getting-started-organizations.html[Organizations]
 * link:getting-started-user-access.html[Controlling User Access]
 * link:getting-started-members.html[Members]

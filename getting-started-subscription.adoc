@@ -1,0 +1,26 @@
+---
+sidebar: sidebar
+permalink: getting-started-subscription.html
+summary: Introductory NKS training about subscriptions
+---
+
+= Getting Started: Subscription
+
+Every NKS account starts with a free 30-day trial, no credit card required. After the trial expires, you have several options for setting up a paid subscription. You can find pricing information https://cloud.netapp.com/kubernetes-service[here on the NKS Cloud Central website].
+
+NKS subscriptions exist at the member level. For each member's account, the subscription covers all organizations on that account.
+
+Members do not need to have a paid subscription on their NKS account in order to use another organization to which they have been invited. This means if you have a company organization on a paid account, your employees do not need to pay subscriptions on their individual accounts in order to use your organization.
+
+To manage your subscription, go to **Organization > Subscription**. Here you can:
+
+* View and update your subscription
+* Delete your NKS account
+* View the organizations covered by your subscription
+* Update your payment information
+* View your invoice history
+* Update your billing contact information
+
+**Subscription Checklist**
+
+* Set up your subscription.
