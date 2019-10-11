@@ -17,6 +17,8 @@ entries:
         url: /getting-started-members.html
       - title: Credentials
         url: /getting-started-add-credentials.html
+      - title: Working with NKS Clusters
+        url: /getting-started-working-with-clusters.html
   - title: Add Credentials
     entries:
       - title: AWS Credentials

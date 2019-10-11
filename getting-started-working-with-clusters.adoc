@@ -1,0 +1,48 @@
+---
+sidebar: sidebar
+permalink: getting-started-working-with-clusters.html
+summary: Intro to working with NKS Kubernetes clusters
+---
+
+= Getting Started: Working with NKS Kubernetes Clusters
+
+After you set up your NKS account, it's time to start creating and managing Kubernetes clusters.
+
+== Create a Kubernetes Cluster
+
+NOTE: Before you create a Kubernetes cluster with NKS, you will need to https://docs.netapp.com/us-en/kubernetes-service/getting-started-add-credentials.html[add your provider credentials].
+
+To create a Kubernetes cluster in NKS, click the **+CREATE CLUSTER** button. Customize any defaults you want, including changing the region, size and number of nodes, adding packaged Helm charts, etc. Then NKS will create your cluster on the provider of your choice.
+
+For step-by-step instructions, see our guides by provider:
+
+* https://docs.netapp.com/us-en/kubernetes-service/create-aws-cluster.html[Amazon Web Services (AWS)]
+* https://docs.netapp.com/us-en/kubernetes-service/create-aks-cluster.html[Amazon Kubernetes Service (AKS)]
+* https://docs.netapp.com/us-en/kubernetes-service/create-azure-cluster.html[Azure]
+* https://docs.netapp.com/us-en/kubernetes-service/create-anf-cluster.html[Azure NetApp Files (ANF)]
+* https://docs.netapp.com/us-en/kubernetes-service/create-eks-cluster.html[Amazon Elastic Kubernetes Service (EKS)]
+* https://docs.netapp.com/us-en/kubernetes-service/create-gce-cluster.html[Google Compute Engine (GCE)]
+* https://docs.netapp.com/us-en/kubernetes-service/create-gke-cluster.html[Google Kubernetes Engine (GKE)]
+* https://docs.netapp.com/us-en/kubernetes-service/create-vmware-cluster.html[VMware]
+
+== Manage an NKS Kubernetes Cluster
+
+After your cluster is built, you can manage it from the Control Plane. Click the cluster to see details about it, including the number and size of nodes, deployments, services, event log, and more.
+
+From the cluster detail page, click **Kubernetes Dashboard** to view the standard Kubernetes dashboard. This view gives you the familiar Kubernetes dashboard view of your cluster's usage, features, workloads, configurations, and other settings.
+
+== Access an NKS Kubernetes Cluster
+
+You can perform many basic Kubernetes management functions through the NKS Control Plane. For example, you can add and delete nodes, create Istio routes, and add solutions to your cluster from the cluster detail page.
+
+=== Kubectl
+
+To work directly with the cluster, you will want to install and use Kubectl. Kubectl is the command-line interface for interacting with a Kubernetes cluster, and is available for Windows, Mac, and Linux.
+
+For more information on using Kubectl to work with an NKS cluster, https://docs.netapp.com/us-en/kubernetes-service/install-kubectl-to-control-a-kubernetes-cluster.html[see our article on how to install and use Kubectl].
+
+=== SSH
+
+Whenever possible, you should use Kubectl to interact with an NKS Kubernetes cluster. However, sometimes you may encounter a situation where you need to SSH directly to a node in a cluster.
+
+To learn how to SSH to a node in an NKS Kubernetes cluster, https://docs.netapp.com/us-en/kubernetes-service/ssh-to-a-node-in-an-nks-cluster.html[see our article on using SSH with NKS].

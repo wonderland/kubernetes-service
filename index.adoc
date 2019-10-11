@@ -24,6 +24,7 @@ Welcome to NKS! Read through our series of Getting Started articles for an overv
 * link:getting-started-user-access.html[Controlling User Access]
 * link:getting-started-members.html[Members]
 * link:getting-started-add-credentials.html[Add Provider Credentials]
+* link:getting-started-working-with-clusters.html[Working with NKS Kubernetes Clusters]
 
 == Add Credentials
 
