@@ -33,26 +33,6 @@ entries:
         url: /create-auth-credentials-on-gke.html
       - title: VMware Credentials
         url: /register-vmware.html
-  - title: Application Lifecycle Management
-    entries:
-      - title: ALM Quickstart Guide
-        url: /alm-quickstart.html
-      - title: ALM Projects
-        url: /alm-projects.html
-      - title: ALM Applications
-        url: /alm-applications.html
-      - title: ALM Trackers
-        url: /alm-trackers.html
-      - title: ALM Packages
-        url: /alm-packages.html
-  - title: NetApp HCI
-    entries:
-      - title: NetApp HCI Requirements
-        url: /netapp-hci-requirements.html
-      - title: Enable NKS for NetApp HCI
-        url: /hci-enable-nks-for-netapp-hci.html
-      - title: Create a NetApp HCI Cluster
-        url: /create-netapp-hci-cluster.html
   - title: Create a Kubernetes Cluster
     entries:
       - title: Create an AWS Cluster
@@ -95,6 +75,30 @@ entries:
         url: /install-kubectl-to-control-a-kubernetes-cluster.html
       - title: Terraform on NKS
         url: /intro-to-terraform-on-nks.html
+  - title: Application Lifecycle Management
+    entries:
+      - title: ALM Quickstart Guide
+        url: /alm-quickstart.html
+      - title: ALM Projects
+        url: /alm-projects.html
+      - title: ALM Applications
+        url: /alm-applications.html
+      - title: ALM Trackers
+        url: /alm-trackers.html
+      - title: ALM Packages
+        url: /alm-packages.html
+  - title: NetApp HCI
+    entries:
+      - title: NetApp HCI Requirements
+        url: /netapp-hci-requirements.html
+      - title: Enable NKS for NetApp HCI
+        url: /hci-enable-nks-for-netapp-hci.html
+      - title: Create a NetApp HCI Cluster
+        url: /create-netapp-hci-cluster.html
+  - title: Istio
+    entries:
+      - title: Create an Istio Mesh
+        url: /create-an-istio-mesh.html
   - title: API
     entries:
       - title: API Basics
@@ -144,8 +148,8 @@ entries:
       - title: Whitelist Ports and IP Addresses
         url: /whitelist-ports-and-ip-addresses.html
       - title: Cipher Suites
-        url: /cipher-suites.html
-  - title: More Resources
-    url: /more-resources.html
+        url: /cipher-suites.
+      - title: More Resources
+        url: /more-resources.html
   - title: What's New
     url: /news.html

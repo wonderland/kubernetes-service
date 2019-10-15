@@ -39,26 +39,6 @@ Get step-by-step instructions for adding provider credentials for:
 * link:create-auth-credentials-on-gke.html[Google Kubernetes Engine (GKE) Credentials]
 * link:register-vmware.html[VMware]
 
-== Application Lifecycle Management
-
-Application Lifecycle Management provides a developer-friendly `git push` workflow which lets you deploy your application to an NKS Kubernetes cluster with a simple `git push nks master`. Apps can be deployed with monitoring and more.
-
-Explore Application Lifecycle Management in our series of guides and step-by-step instructional articles:
-
-* link:alm-quickstart.html[Quickstart Guide]
-* link:alm-projects.html[Projects]
-* link:alm-applications.html[Applications]
-* link:alm-trackers.html[Trackers]
-* link:alm-packages.html[Packages]
-
-== NetApp HCI
-
-Get started with NetApp HCI on NKS by reading our guides on the following topics:
-
-* link:netapp-hci-requirements.html[NetApp HCI Requirements]
-* link:hci-enable-nks-for-netapp-hci.html[Enable NKS for NetApp HCI]
-* link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI]
-
 == Create a Kubernetes Cluster
 
 Now that you have set up your NKS account, it's time to launch a Kubernetes cluster with our famously easy, "three clicks and done" process.
@@ -95,6 +75,32 @@ You have set up your NKS account, and launched one or more Kubernetes clusters. 
 * link:install-kubectl-to-control-a-kubernetes-cluster.html[Install kubectl to Control a Kubernetes Cluster]
 * link:intro-to-terraform-on-nks.html[Terraform on NKS]
 
+== Application Lifecycle Management
+
+Application Lifecycle Management provides a developer-friendly `git push` workflow which lets you deploy your application to an NKS Kubernetes cluster with a simple `git push nks master`. Apps can be deployed with monitoring and more.
+
+Explore Application Lifecycle Management in our series of guides and step-by-step instructional articles:
+
+* link:alm-quickstart.html[Quickstart Guide]
+* link:alm-projects.html[Projects]
+* link:alm-applications.html[Applications]
+* link:alm-trackers.html[Trackers]
+* link:alm-packages.html[Packages]
+
+== NetApp HCI
+
+Get started with NetApp HCI on NKS by reading our guides on the following topics:
+
+* link:netapp-hci-requirements.html[NetApp HCI Requirements]
+* link:hci-enable-nks-for-netapp-hci.html[Enable NKS for NetApp HCI]
+* link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI]
+
+== Istio
+
+Use Istio to create a service mesh with your NKS Kubernetes clusters.
+
+* link:create-an-istio-mesh.html[Create an Istio Mesh]
+
 == API
 
 Interested in doing things programmatically instead of clicking through a UI? Check out our API. We provide full access to the NKS services through the API. Anything you can do in the UI, you can do through the API as well.
@@ -129,11 +135,6 @@ The following articles cover specific requirements and other details necessary f
 * link:nks-requirements.html[NKS Requirements]
 * link:whitelist-ports-and-ip-addresses.html[Whitelist Ports and IP Addresses]
 * link:cipher-suites.html[Cipher Suites]
-
-== More Resources
-
-A collection of links to other useful related resources, including NetApp websites and external documentation sites.
-
 * link:more-resources.html[More Resources]
 
 == What's New
