@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  generation: 1
+  name: spccc-reviews-egress-splitter-virtual-service
+  namespace: ""
+  resourceVersion: ""
+  selfLink: /apis/networking.istio.io/v1alpha3/namespaces/default/virtualservices/spccc-reviews-egress-splitter-virtual-service
+  uid: ""
+spec:
+  hosts:
+  - reviews.default.svc.cluster.local
+  http:
+  - rewrite:
+      authority: reviews.default.svc.netnjqb65k.remote
+    route:
+    - destination:
+        host: svc.netnjqb65k.remote
+        port:
+          number: 443
+      weight: 50
+    - destination:
+        host: reviews
+      weight: 50
