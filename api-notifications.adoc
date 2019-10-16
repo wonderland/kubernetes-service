@@ -18,7 +18,7 @@ NOTE: This query will return all notifications on the account, both read and unr
 
 [source,shell]
 ----
-GET https://api.nks.netapp.io/orgs/user/notifications
+GET https://api.nks.netapp.io/user/notifications
 ----
 
 Example request:
@@ -139,7 +139,7 @@ Get the details for a specific notification.
 
 [source,shell]
 ----
-GET https://api.nks.netapp.io/orgs/user/notifications/{Notification ID}
+GET https://api.nks.netapp.io/user/notifications/{Notification ID}
 ----
 
 Example request:
