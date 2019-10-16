@@ -35,11 +35,11 @@ From the cluster detail page, click **Kubernetes Dashboard** to view the standar
 
 You can perform many basic Kubernetes management functions through the NKS Control Plane. For example, you can add and delete nodes, create Istio routes, and add solutions to your cluster from the cluster detail page.
 
-=== Kubectl
+=== Kubeconfig File and Kubectl
 
 To work directly with the cluster, you will want to install and use Kubectl. Kubectl is the command-line interface for interacting with a Kubernetes cluster, and is available for Windows, Mac, and Linux.
 
-For more information on using Kubectl to work with an NKS cluster, https://docs.netapp.com/us-en/kubernetes-service/install-kubectl-to-control-a-kubernetes-cluster.html[see our article on how to install and use Kubectl].
+To use Kubectl, install it on your computer, then download the cluster's kubeconfig file from the Cluster Details page. For more information on using Kubectl to work with an NKS cluster, https://docs.netapp.com/us-en/kubernetes-service/install-kubectl-to-control-a-kubernetes-cluster.html[see our article on how to install and use Kubectl].
 
 === SSH
 
