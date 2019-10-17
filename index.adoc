@@ -99,7 +99,8 @@ Get started with NetApp HCI on NKS by reading our guides on the following topics
 
 Use Istio to create a service mesh with your NKS Kubernetes clusters.
 
-* link:create-an-istio-mesh.html[Create an Istio Mesh]
+* link:istio-create-cross-cluster-mesh.html[Create an Istio Mesh]
+* link:istio-test-cross-cluster-mesh.html[Test an Istio Cross-Cluster Mesh]
 
 == API
 

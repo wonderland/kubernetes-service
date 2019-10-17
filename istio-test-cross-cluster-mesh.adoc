@@ -1,0 +1,141 @@
+---
+sidebar: sidebar
+permalink: istio-test-cross-cluster-mesh.html
+summary: Learn how to deploy a demo to test your Istio cross-cluster mesh
+---
+
+= Test Your Istio Cross-Cluster Mesh
+
+Learn how to deploy a custom demo to visually test out your Istio cross-cluster mesh.
+
+This tutorial will walk you through the process of setting up and demonstrating a two-cluster Istio cross-cluster mesh. The clusters can be created on the same service, or across different services (like AWS and GKE).
+
+To demonstrate the mesh, we will install a customized version of Istio's Bookinfo example application. The Bookinfo app creates a book review on a web page, which you can view at the provided URL.
+
+The Bookinfo app comes in three versions. Each version has a different decoration on the book rating:
+
+* Version 1: No stars.
+* Version 2: Black stars.
+* Version 3: Red stars.
+
+We will install version 1 on cluster A, and version 3 on cluster B. Thus, when you see a “no stars” review, you know you are looking at cluster A. If you see a “red stars” review, you are looking at cluster B.
+
+**Requirements**
+
+* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+* Two clusters provisioned and added to an Istio mesh. For step-by-step instructions, see our article https://docs.netapp.com/us-en/kubernetes-service/create-an-istio-mesh.html[Create an Istio Mesh].
+* Kubectl installed, so that you can use each cluster's `kubeconfig` file to deploy the Istio manifests. For step-by-step instructions on installing Kubectl and using `kubeconfig` files, see our article
+https://docs.netapp.com/us-en/kubernetes-service/install-kubectl-to-control-a-kubernetes-cluster.html[Install Kubectl to Control a Kubernetes Cluster].
+* Download the .zip file which contains the custom Istio files for this tutorial. Uncompress the file's contents into the directory of your choice.
+
+== Prep Cluster A
+
+In this section, you will set up cluster A to serve version 1 (no stars) of the Bookinfo application.
+
+=== Push Bookinfo to Cluster A
+
+Go to the NKS Control Plane and click on cluster A to go to the Cluster Details page. On the left-hand side of the screen, click to download the `kubeconfig` file for this cluster. Move the `kubeconfig` file to your Kubectl home directory.
+
+Push the custom Bookinfo manifest to cluster A:
+
+[source,shell]
+----
+kubectl apply -f cluster-a-bookinfo-manifests.yaml
+----
+
+=== Customize Cluster A
+
+In the next steps you will check the egress rule on cluster A to find the host info for cluster B. You then add the host info for cluster B to the `destinationrule.yaml` and `splitter.yaml` files, so that cluster A knows where to send traffic.
+
+**Get Cluster B Host Info**
+
+On cluster A, check the egress rule to find the host info for cluster B:
+
+[source,shell]
+----
+kubectl describe serviceentry spccc-egress-service-entry
+----
+
+Look for the section which reads:
+
+[source,shell]
+----
+    Spec:
+      Endpoints:
+        Address:  35.199.144.87
+      Hosts:
+        svc.netpgcxz4x.remote
+----
+
+Just to double-check, the IP address here should match the Istio IP of cluster B.
+
+Get the Hosts name for cluster B (in this example, `svc.netpgcxz4x.remote`).
+
+**Create the DestinationRule**
+
+Paste the host info for cluster B into `destinationrule.yaml` under `host` so that it reads:
+
+[source,shell]
+----
+    spec:
+      host: svc.netpgcxz4x.remote
+----
+
+Save the file. Push it to cluster A:
+
+[source,shell]
+----
+kubectl apply -f destinationrule.
+----
+
+**Create the Splitter**
+
+Paste the host info for cluster B into the `splitter.yaml` file. The host info needs to be added in two places:
+
+[source,shell]
+----
+  http:
+  - rewrite:
+      authority: reviews.default.[Cluster B host info]
+    route:
+    - destination:
+        host: [Cluster B host info]
+----
+
+In this example, you would change this to read:
+
+[source,shell]
+----
+http:
+- rewrite:
+    authority: reviews.default.svc.netpgcxz4x.remote
+  route:
+  - destination:
+      host: svc.netpgcxz4x.remote
+----
+
+Save this file. Push it to cluster A:
+
+[source,shell]
+----
+kubectl apply -f splitter.yaml
+----
+
+== Prep Cluster B
+
+Now you will set up cluster B to serve version 3 (red stars) of the Bookinfo application.
+
+Get the `kubeconfig` file for cluster B and update your kubectl environment. Then push the custom Bookinfo manifest to cluster B:
+
+[source,shell]
+----
+kubectl apply -f cluster-b-bookinfo-manifests.yaml
+----
+
+== View the Demo
+
+From the main NKS Control Plane, click to view the details of cluster A. Find the Istio Ingress URL, and append it with `/productpage` to view Bookinfo, like:
+
+http://35.227.159.142/productpage
+
+Repeatedly refresh the page. You will see the same review with either no stars or red stars. This demonstrates that traffic is being split between the two clusters.

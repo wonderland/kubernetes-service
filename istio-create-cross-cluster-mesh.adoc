@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: create-an-istio-mesh.html
+permalink: istio-create-cross-cluster-mesh.html
 summary: Learn how to create an Istio mesh with NKS
 ---
 
@@ -30,4 +30,4 @@ Select the clusters you want to add to the mesh.
 
 image::create-istio-mesh-choose-clusters.png[Choose the clusters for the Istio mesh]
 
-Click **Submit** to create the Istio mesh. 
+Click **Submit** to create the Istio mesh.

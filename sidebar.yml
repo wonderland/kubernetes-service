@@ -98,7 +98,9 @@ entries:
   - title: Istio
     entries:
       - title: Create an Istio Mesh
-        url: /create-an-istio-mesh.html
+        url: /istio-create-cross-cluster-mesh.html
+      - title: Test an Istio Mesh
+        url: /istio-test-cross-cluster-mesh.html
   - title: API
     entries:
       - title: API Basics
