@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Terraform on NKS | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Terraform on NKS | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/us-en/intro-to-terraform-on-nks.html" />
+	<meta property="og:description" content="Learn how to build and manage infrastructure through NKS using Terraform." />
+  <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/us-en/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="Learn how to build and manage infrastructure through NKS using Terraform.">
+  <meta name="keywords" content=" ">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/kubernetes-service/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/kubernetes-service/us-en/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/kubernetes-service/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/kubernetes-service/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/kubernetes-service/us-en/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/kubernetes-service/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/kubernetes-service/us-en/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/kubernetes-service/us-en/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/prism-netapp.css' type='text/css'>
+
+  <script src='/kubernetes-service/us-en/js/clouddocs.js'></script>
+  <script src='/kubernetes-service/us-en/js/s_code_impl.js'></script>
+  <script src='/kubernetes-service/us-en/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/kubernetes-service/us-en/js/toc.js'></script>
+  <script src='/kubernetes-service/us-en/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <span class="ie-i18n-lang">English</span>
+              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/kubernetes-service/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">NKS Docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting Started</a>
+      <ul>
+        
+
+  
+    <li><a href="getting-started-intro.html">Intro to NKS</a></li>
+  
+
+  
+    <li><a href="getting-started-checklist.html">Checklist</a></li>
+  
+
+  
+    <li><a href="getting-started-subscription.html">Subscription</a></li>
+  
+
+  
+    <li><a href="getting-started-organizations.html">Organizations</a></li>
+  
+
+  
+    <li><a href="getting-started-user-access.html">User Access</a></li>
+  
+
+  
+    <li><a href="getting-started-members.html">Members</a></li>
+  
+
+  
+    <li><a href="getting-started-add-credentials.html">Credentials</a></li>
+  
+
+  
+    <li><a href="getting-started-working-with-clusters.html">Working with NKS Clusters</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Add Credentials</a>
+      <ul>
+        
+
+  
+    <li><a href="create-auth-credentials-on-aws.html">AWS Credentials</a></li>
+  
+
+  
+    <li><a href="find-aws-credentials-for-cvs.html">AWS Credentials for CVS</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-azure.html">Azure Credentials</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-gce.html">GCE Credentials</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-gke.html">GKE Credentials</a></li>
+  
+
+  
+    <li><a href="register-vmware.html">VMware Credentials</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Create a Kubernetes Cluster</a>
+      <ul>
+        
+
+  
+    <li><a href="create-aws-cluster.html">Create an AWS Cluster</a></li>
+  
+
+  
+    <li><a href="create-aks-cluster.html">Create an AKS Cluster</a></li>
+  
+
+  
+    <li><a href="create-azure-cluster.html">Create an Azure Cluster</a></li>
+  
+
+  
+    <li><a href="create-anf-cluster.html">Create an ANF Cluster</a></li>
+  
+
+  
+    <li><a href="create-eks-cluster.html">Create an EKS Cluster</a></li>
+  
+
+  
+    <li><a href="create-gce-cluster.html">Create a GCE Cluster</a></li>
+  
+
+  
+    <li><a href="create-gke-cluster.html">Create a GKE Cluster</a></li>
+  
+
+  
+    <li><a href="create-vmware-cluster.html">Create a VMware Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Manage Access</a>
+      <ul>
+        
+
+  
+    <li><a href="add-a-user.html">Add a User</a></li>
+  
+
+  
+    <li><a href="add-a-team.html">Add a Team</a></li>
+  
+
+  
+    <li><a href="add-a-workspace.html">Add a Workspace</a></li>
+  
+
+  
+    <li><a href="ssh-to-a-node-in-an-nks-cluster.html">SSH to a Node in an NKS Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cluster Lifecycle</a>
+      <ul>
+        
+
+  
+    <li><a href="add-a-kubernetes-master-node.html">Add a Master Node</a></li>
+  
+
+  
+    <li><a href="add-a-node-pool.html">Add a Node Pool</a></li>
+  
+
+  
+    <li><a href="upgrade-kubernetes-on-an-nks-cluster.html">Upgrade Kubernetes</a></li>
+  
+
+  
+    <li><a href="using-the-kubernetes-cloud-backup.html">Using the Kubernetes Cloud Backup</a></li>
+  
+
+  
+    <li><a href="install-kubectl-to-control-a-kubernetes-cluster.html">Install Kubectl</a></li>
+  
+
+  
+    <li class="active"><a href="intro-to-terraform-on-nks.html">Terraform on NKS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Application Lifecycle Management</a>
+      <ul>
+        
+
+  
+    <li><a href="alm-quickstart.html">ALM Quickstart Guide</a></li>
+  
+
+  
+    <li><a href="alm-projects.html">ALM Projects</a></li>
+  
+
+  
+    <li><a href="alm-applications.html">ALM Applications</a></li>
+  
+
+  
+    <li><a href="alm-trackers.html">ALM Trackers</a></li>
+  
+
+  
+    <li><a href="alm-packages.html">ALM Packages</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">NetApp HCI</a>
+      <ul>
+        
+
+  
+    <li><a href="netapp-hci-requirements.html">NetApp HCI Requirements</a></li>
+  
+
+  
+    <li><a href="hci-enable-nks-for-netapp-hci.html">Enable NKS for NetApp HCI</a></li>
+  
+
+  
+    <li><a href="create-netapp-hci-cluster.html">Create a NetApp HCI Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Istio</a>
+      <ul>
+        
+
+  
+    <li><a href="istio-create-cross-cluster-mesh.html">Create an Istio Mesh</a></li>
+  
+
+  
+    <li><a href="istio-test-cross-cluster-mesh.html">Test an Istio Mesh</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">API</a>
+      <ul>
+        
+
+  
+    <li><a href="api-basics.html">API Basics</a></li>
+  
+
+  
+    <li><a href="api-clusters.html">Clusters</a></li>
+  
+
+  
+    <li><a href="api-federations.html">Federations</a></li>
+  
+
+  
+    <li><a href="api-invoice.html">Invoices</a></li>
+  
+
+  
+    <li><a href="api-istio-mesh.html">Istio Mesh</a></li>
+  
+
+  
+    <li><a href="api-keysets.html">Keysets</a></li>
+  
+
+  
+    <li><a href="api-members.html">Members</a></li>
+  
+
+  
+    <li><a href="api-migrate-version.html">Migrate Version (Upgrade)</a></li>
+  
+
+  
+    <li><a href="api-my-charts.html">My Charts</a></li>
+  
+
+  
+    <li><a href="api-nodepools.html">Nodepools</a></li>
+  
+
+  
+    <li><a href="api-nodes.html">Nodes</a></li>
+  
+
+  
+    <li><a href="api-notifications.html">Notifications</a></li>
+  
+
+  
+    <li><a href="api-organizations.html">Organizations</a></li>
+  
+
+  
+    <li><a href="api-subscription.html">Subscription</a></li>
+  
+
+  
+    <li><a href="api-teams.html">Teams</a></li>
+  
+
+  
+    <li><a href="api-trusted-charts.html">Trusted Charts</a></li>
+  
+
+  
+    <li><a href="api-user.html">User</a></li>
+  
+
+  
+    <li><a href="api-workspaces.html">Workspaces</a></li>
+  
+
+  
+    <li><a href="api-notifications-to-slack.html">Tutorial - Push NKS Notifications to a Slack Channel</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Requirements and Other Details</a>
+      <ul>
+        
+
+  
+    <li><a href="netapp-hci-requirements.html">NetApp HCI Requirements</a></li>
+  
+
+  
+    <li><a href="nks-requirements.html">NKS Requirements</a></li>
+  
+
+  
+    <li><a href="whitelist-ports-and-ip-addresses.html">Whitelist Ports and IP Addresses</a></li>
+  
+
+  
+    <li><a href="cipher-suites.">Cipher Suites</a></li>
+  
+
+  
+    <li><a href="more-resources.html">More Resources</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="news.html">What's New</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Terraform on NKS
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/terraform-with-nks.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Terraform on NKS](https://docs.netapp.com/us-en/kubernetes-service/intro-to-terraform-on-nks.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2019-08-27 18:51:59 +0000">08/27/2019</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/ebarcott">
+    <img  class="avatar avatar-small"
+          alt="ebarcott"
+          width="20" height="20"
+          src="https://avatars3.githubusercontent.com/u/44878916?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/baldwinSPC">
+    <img  class="avatar avatar-small"
+          alt="baldwinSPC"
+          width="20" height="20"
+          src="https://avatars0.githubusercontent.com/u/6981744?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Learn how to build and manage infrastructure through <a href="https://nks.netapp.io">NetApp Kubernetes Service (NKS)</a> using Terraform.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="requirements">Requirements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Terraform installed on your system. The easiest way to install Terraform is to <a href="https://www.terraform.io/downloads.html">download the binary</a>, uncompress the file, and put it in <code>/usr/local/bin</code>.</p>
+</li>
+<li>
+<p>Go installed on your system, version 1.11 or newer.</p>
+</li>
+<li>
+<p>A working knowledge of Terraform basics.</p>
+</li>
+<li>
+<p>An NKS account. If you don&#8217;t have one already, you can sign up for a free 30-day trial with no credit card required at <a href="https://nks.netapp.io" class="bare">https://nks.netapp.io</a>.</p>
+</li>
+<li>
+<p>At least one provider account (AWS, GKE, etc.)</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The following tutorials are for Terraform version 0.11. For help with version 0.12, please <a href="mailto:nks@netapp.com">contact us</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="add-ssh-keys-to-your-nks-account">Add SSH Keys to your NKS Account</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The SSH keys are used to securely log in to your nodes. To add SSH keys to your NKS account:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in at <a href="https://nks.netapp.io">nks.netapp.io</a>.</p>
+</li>
+<li>
+<p>Go to <strong>Organization</strong> &gt; <strong>Setup</strong>.</p>
+</li>
+<li>
+<p>In the <strong>SSH Keys</strong> section, click <strong>ADD SSH KEY</strong>.</p>
+</li>
+<li>
+<p>Paste the contents of your public key file into the <strong>Key</strong> field.</p>
+</li>
+<li>
+<p>Click <strong>Create</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="get-an-nks-api-token">Get an NKS API Token</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The API token is used to authenticate with the NKS API. To obtain a token:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in at <a href="https://nks.netapp.io">nks.netapp.io</a>.</p>
+</li>
+<li>
+<p>Click your profile avatar in the top right corner and select <code>Edit Profile</code>.</p>
+</li>
+<li>
+<p>In the <strong>API Tokens</strong> section, click <strong>Add Token</strong>.</p>
+</li>
+<li>
+<p>Copy the token and save it somewhere safe. This is your only chance to view your API token. The token cannot be displayed after you leave or reload the page.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The API only accepts keys from accounts which have the role of <code>Owner</code> in the related Organization.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="install-the-nks-provider">Install the NKS Provider</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to use Terraform with NKS, you will need to install our Terraform provider plug-in.</p>
+</div>
+<div class="paragraph">
+<p>Download the version for your operating system from <a href="https://github.com/NetApp/terraform-provider-nks/releases">our provider plug-in GitHub repository</a>. Uncompress the file, and move it to the user plug-ins directory:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Windows:</strong>	<code>%APPDATA%\terraform.d\plugins</code></p>
+</li>
+<li>
+<p><strong>All other operating systems:</strong> <code>~/.terraform.d/plugins</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The NKS provider plug-in will be added to your Terraform installation&#8217;s list of available providers the next time you run <code>terraform init</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-launch-an-aws-cluster">Example: Launch an AWS Cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We use AWS as an example throughout this tutorial. However, Terraform can be used with any of the providers which NKS supports. Although some of the details will vary between providers, the basics are the same.</p>
+</div>
+<div class="paragraph">
+<p>We have created <a href="https://github.com/NetApp/terraform-provider-nks/tree/development/examples">a library of example code you can use in your Terraform projects</a>. For this example, we will use <a href="https://github.com/NetApp/terraform-provider-nks/tree/development/examples/aws">these examples for creating an AWS cluster</a>.</p>
+</div>
+<div class="paragraph">
+<p>To begin, create a directory for your Terraform project. Note: Terraform will load any <code>.tf</code> file it finds in this directory.</p>
+</div>
+<div class="paragraph">
+<p>Create a file called <code>main.tf</code> in the Terraform project directory. Put the following content into this file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>provider "nks" {
+    # Set environment variable NKS_API_TOKEN with your API token from NKS
+    # Set environment variable NKS_API_URL with API endpoint,
+    # defaults to NKS production enviroment.
+}
+
+# Organization
+data "nks_organization" "default" {
+    name = "${var.organization_name}"
+}
+
+# Keyset
+data "nks_keyset" "keyset_aws" {
+    # You can specify a custom orgID here or the system will find and use your
+    # default organization ID.
+    org_id = "${data.nks_organization.default.id}"
+    name     = "${var.provider_keyset_name}"
+    category = "provider"
+    entity   = "${var.provider_code}"
+}
+
+data "nks_keyset" "keyset_ssh" {
+    # You can specify a custom orgID here or the system will find and use your
+    # default organization ID.
+    org_id = "${data.nks_organization.default.id}"
+    category = "user_ssh"
+    name     = "${var.ssh_keyset_name}"
+}
+
+# Instance specs
+data "nks_instance_specs" "master-specs" {
+    provider_code = "${var.provider_code}"
+    node_size     = "${var.provider_master_size}"
+}
+
+data "nks_instance_specs" "worker-specs" {
+    provider_code = "${var.provider_code}"
+    node_size     = "${var.provider_worker_size}"
+}
+
+# Cluster
+resource "nks_cluster" "terraform-cluster" {
+    org_id                = "${data.nks_organization.default.id}"
+    cluster_name          = "${var.cluster_name}"
+    provider_code         = "${var.provider_code}"
+    provider_keyset       = "${data.nks_keyset.keyset_aws.id}"
+    region                = "${var.provider_region}"
+    k8s_version           = "${var.provider_k8s_version}"
+    startup_master_size   = "${data.nks_instance_specs.master-specs.node_size}"
+    startup_worker_count  = 2
+    startup_worker_size   = "${data.nks_instance_specs.worker-specs.node_size}"
+    zone                  = "${var.provider_zone}"
+    provider_network_cidr = "${var.provider_network_cidr}"
+    provider_subnet_cidr  = "${var.provider_subnet_cidr}"
+    rbac_enabled          = true
+    dashboard_enabled     = true
+    etcd_type             = "${var.provider_etcd_type}"
+    platform              = "${var.provider_platform}"
+    channel               = "${var.provider_channel}"
+    ssh_keyset            = "${data.nks_keyset.keyset_ssh.id}"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Save and exit the file.</p>
+</div>
+<div class="paragraph">
+<p>This configuration file will reference variables that you set in the next file we create. Create <code>variables.tf</code> and put the following content into the file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># Organization
+variable "organization_name" {
+    description = "NKS organization name"
+    default     = ""
+}
+
+# Cluster
+variable "cluster_name" {
+    description = "NKS cluster name"
+    default     = ""
+}
+
+# Keyset
+variable "ssh_keyset_name" {
+    description = "NKS ssh keyset name"
+    default     = ""
+}
+
+variable "provider_keyset_name" {
+    description = "Cloud provider keyset name"
+    default     = ""
+}
+
+# Cloud provider configuration variables
+variable "provider_category" {
+    description = "NKS provider category"
+    default     = ""
+}
+
+variable "provider_entity" {
+    description = "NKS ssh keyset name"
+    default     = ""
+}
+
+variable "provider_code" {
+    description = "Cloud provider type code"
+    default     = ""
+}
+
+variable "provider_k8s_version" {
+    description = "Cloud provider kubernetes version"
+    default     = ""
+}
+
+variable "provider_etcd_type" {
+    description = "Cloud provider etcd type"
+    default     = ""
+}
+
+variable "provider_channel" {
+    description = "Cloud provider channel"
+    default     = ""
+}
+
+variable "provider_platform" {
+    description = "Cloud provider platform type"
+    default     = ""
+}
+
+variable "provider_region" {
+    description = "Cloud provider region"
+    default     = ""
+}
+
+variable "provider_zone" {
+    description = "Cloud provider zone"
+    default     = ""
+}
+
+variable "provider_network_id" {
+    description = "Cloud provider network ID"
+    default     = ""
+}
+
+variable "provider_network_cidr" {
+    description = "Cloud provider network CIDR"
+    default     = ""
+}
+
+variable "provider_subnet_id" {
+    description = "Cloud provider subnet ID"
+    default     = ""
+}
+
+variable "provider_subnet_cidr" {
+    description = "Cloud provider subnet CIDR"
+    default     = ""
+}
+
+variable "provider_subnet_id2" {
+    description = "Cloud provider subnet ID for second master"
+    default     = ""
+}
+
+variable "provider_master_size" {
+    description = "Cloud provider master node size"
+    default     = ""
+}
+
+variable "provider_worker_size" {
+    description = "Cloud provider worker node size"
+    default     = ""
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then make <code>terraform.tfvars</code> with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># Organization
+organization_name = "My Organization"
+
+# Cluster
+cluster_name = "Terraform AWS Cluster"
+
+# Keyset
+provider_keyset_name = "My AWS Credentials"
+ssh_keyset_name = "My SSH Keyset"
+
+# Provider
+provider_code = "aws"
+provider_k8s_version = "v1.13.2"
+provider_platform = "coreos"
+provider_channel = "stable"
+provider_etcd_type = "classic"
+provider_region = "us-east-2"
+provider_zone = "us-east-2a"
+provider_network_id = "__new__"
+provider_network_cidr = "10.0.0.0/16"
+provider_subnet_id = "__new__"
+provider_subnet_cidr = "10.0.1.0/24"
+provider_master_size = "t2.medium"
+provider_worker_size = "t2.medium"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There are three lines in this file you will need to customize:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>organization_name = "My Organization"
+provider_keyset_name = "My AWS Credentials"
+ssh_keyset_name = "My SSH Keyset"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Change these to reflect your actual Organization, provider keyset, and SSH keyset names.</p>
+</div>
+<div class="paragraph">
+<p>You can also change any of the other values to suit your needs. When you are ready to run the example, first export your NKS API token. From inside your project directory, use the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>export NKS_API_TOKEN=[Your NKS API token]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Since we have changed the Terraform configuration files, use the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>terraform init</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The next step is to have Terraform check the configuration files, and present you with a plan for executing the changes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>terraform plan</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command will output the details of what Terraform will do, if you approve its plan:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+data.nks_organization.default: Refreshing state...
+data.nks_instance_specs.master-specs: Refreshing state...
+data.nks_instance_specs.worker-specs: Refreshing state...
+data.nks_keyset.keyset_aws: Refreshing state...
+data.nks_keyset.keyset_ssh: Refreshing state...
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + nks_cluster.terraform-cluster
+      id:                      &lt;computed&gt;
+      channel:                 "stable"
+[...]
+
+Plan: 3 to add, 0 to change, 0 to destroy.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If everything looks good, execute this plan and launch your cluster with the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>terraform apply</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you are finished, remove the example and delete the clusters with the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>terraform destroy</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-istio-cross-cluster-deployment">Example: Istio Cross-Cluster Deployment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This example uses the NKS Terraform provider to deploy two Azure clusters. It then connects them with an Istio mesh.</p>
+</div>
+<div class="paragraph">
+<p>We have created <a href="https://github.com/NetApp/terraform-provider-nks/tree/development/examples">a library of example code you can use in your Terraform projects</a>. For this example, we will use <a href="https://github.com/NetApp/terraform-provider-nks/tree/development/examples/istio-mesh">these examples for creating an Istio cross-cluster mesh</a>.</p>
+</div>
+<div class="paragraph">
+<p>To begin, create a directory for your Terraform project. Note: Terraform will load any <code>.tf</code> file it finds in this directory.</p>
+</div>
+<div class="paragraph">
+<p>Create a file called <code>main.tf</code> in the Terraform project directory. Put the following content into this file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>provider "nks" {
+  # Set environment variable NKS_API_TOKEN with your API token from NKS
+  # Set environment variable NKS_API_URL with API endpoint,
+  # defaults to NKS production enviroment.
+}
+
+# Organization
+data "nks_organization" "default" {
+  name = "${var.organization_name}"
+}
+
+# Keysets
+data "nks_keyset" "keyset_default" {
+  # You can specify a custom orgID here or the system will find and use your
+  # default organization ID.
+  org_id = "${data.nks_organization.default.id}"
+
+  name     = "${var.provider_keyset_name}"
+  category = "provider"
+  entity   = "${var.provider_code}"
+}
+
+data "nks_keyset" "keyset_ssh" {
+  # You can specify a custom orgID here or the system will find and use your
+  # default organization ID.
+  org_id = "${data.nks_organization.default.id}"
+
+  category = "user_ssh"
+  name     = "${var.ssh_keyset_name}"
+}
+
+# Instance specs
+data "nks_instance_specs" "master-specs" {
+  provider_code = "${var.provider_code}"
+  node_size     = "${var.provider_master_size}"
+}
+
+data "nks_instance_specs" "worker-specs" {
+  provider_code = "${var.provider_code}"
+  node_size     = "${var.provider_worker_size}"
+}
+
+# Clusters
+resource "nks_cluster" "terraform-cluster-a" {
+  org_id                            = "${data.nks_organization.default.id}"
+  cluster_name                      = "${var.a_cluster_name}"
+  provider_code                     = "${var.provider_code}"
+  provider_keyset                   = "${data.nks_keyset.keyset_default.id}"
+  region                            = "${var.provider_region}"
+  k8s_version                       = "${var.provider_k8s_version}"
+  startup_master_size               = "${data.nks_instance_specs.master-specs.node_size}"
+  startup_worker_count              = 2
+  startup_worker_size               = "${data.nks_instance_specs.worker-specs.node_size}"
+  provider_resource_group_requested = "${var.provider_resource_group}"
+  rbac_enabled                      = true
+  dashboard_enabled                 = true
+  etcd_type                         = "${var.provider_etcd_type}"
+  platform                          = "${var.provider_platform}"
+  channel                           = "${var.provider_channel}"
+  ssh_keyset                        = "${data.nks_keyset.keyset_ssh.id}"
+}
+
+resource "nks_cluster" "terraform-cluster-b" {
+  org_id                            = "${data.nks_organization.default.id}"
+  cluster_name                      = "${var.b_cluster_name}"
+  provider_code                     = "${var.provider_code}"
+  provider_keyset                   = "${data.nks_keyset.keyset_default.id}"
+  region                            = "${var.provider_region}"
+  k8s_version                       = "${var.provider_k8s_version}"
+  startup_master_size               = "${data.nks_instance_specs.master-specs.node_size}"
+  startup_worker_count              = 2
+  startup_worker_size               = "${data.nks_instance_specs.worker-specs.node_size}"
+  provider_resource_group_requested = "${var.provider_resource_group}"
+  rbac_enabled                      = true
+  dashboard_enabled                 = true
+  etcd_type                         = "${var.provider_etcd_type}"
+  platform                          = "${var.provider_platform}"
+  channel                           = "${var.provider_channel}"
+  ssh_keyset                        = "${data.nks_keyset.keyset_ssh.id}"
+}
+
+# Solutions
+resource "nks_solution" "istio-a" {
+  org_id     = "${data.nks_organization.default.id}"
+  cluster_id = "${nks_cluster.terraform-cluster-a.id}"
+  solution   = "istio"
+}
+
+resource "nks_solution" "istio-b" {
+  org_id     = "${data.nks_organization.default.id}"
+  cluster_id = "${nks_cluster.terraform-cluster-b.id}"
+  solution   = "istio"
+}
+
+# Workspace
+data "nks_workspace" "my-workspace" {
+  org_id = "${data.nks_organization.default.id}"
+}
+
+# Istio mesh
+resource "nks_istio_mesh" "terraform-istio-mesh" {
+  name      = "${var.istio_mesh_name}"
+  mesh_type = "${var.istio_mesh_type}"
+  org_id    = "${data.nks_organization.default.id}"
+  workspace = "${data.nks_workspace.my-workspace.id}"
+
+  members = [
+    {
+      cluster           = "${nks_cluster.terraform-cluster-a.id}"
+      role              = "host"
+      istio_solution_id = "${nks_solution.istio-a.id}"
+    },
+    {
+      cluster           = "${nks_cluster.terraform-cluster-b.id}"
+      role              = "guest"
+      istio_solution_id = "${nks_solution.istio-b.id}"
+    },
+  ]
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Save and exit the file.</p>
+</div>
+<div class="paragraph">
+<p>Next, create <code>variables.tf</code> and put the following content into the file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># Organization
+variable "organization_name" {
+  description = "NKS organization name"
+  default     = ""
+}
+
+# Cluster
+variable "a_cluster_name" {
+  description = "NKS cluster name"
+  default     = ""
+}
+
+variable "b_cluster_name" {
+  description = "NKS cluster name"
+  default     = ""
+}
+
+# Keyset
+variable "ssh_keyset_name" {
+  description = "NKS ssh keyset name"
+  default     = ""
+}
+
+variable "provider_keyset_name" {
+  description = "Cloud provider keyset name"
+  default     = ""
+}
+
+# Istio mesh
+variable "istio_mesh_name" {
+  description = "NKS istio mesh name"
+  default     = ""
+}
+
+variable "istio_mesh_type" {
+  description = "NKS istio mesh type"
+  default     = ""
+}
+
+# Cloud provider configuration variables
+variable "provider_code" {
+  description = "Cloud provider type code"
+  default     = ""
+}
+
+variable "provider_k8s_version" {
+  description = "Cloud provider kubernetes version"
+  default     = ""
+}
+
+variable "provider_etcd_type" {
+  description = "Cloud provider etcd type"
+  default     = ""
+}
+
+variable "provider_channel" {
+  description = "Cloud provider channel"
+  default     = ""
+}
+
+variable "provider_platform" {
+  description = "Cloud provider platform type"
+  default     = ""
+}
+
+variable "provider_region" {
+  description = "Cloud provider region"
+  default     = ""
+}
+
+variable "provider_resource_group" {
+  description = "Cloud provider resource group"
+  default     = ""
+}
+
+variable "provider_network_id" {
+  description = "Cloud provider network ID"
+  default     = ""
+}
+
+variable "provider_network_cidr" {
+  description = "Cloud provider network CIDR"
+  default     = ""
+}
+
+variable "provider_subnet_id" {
+  description = "Cloud provider subnet ID"
+  default     = ""
+}
+
+variable "provider_subnet_cidr" {
+  description = "Cloud provider subnet CIDR"
+  default     = ""
+}
+
+variable "provider_master_size" {
+  description = "Cloud provider master node size"
+  default     = ""
+}
+
+variable "provider_worker_size" {
+  description = "Cloud provider worker node size"
+  default     = ""
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Save and exit the file.</p>
+</div>
+<div class="paragraph">
+<p>Finally, create <code>terraform.tfvars</code> with the following content:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># Organization
+organization_name = "My Organization"
+
+# Cluster
+a_cluster_name = "TF istio meshes Cluster A"
+b_cluster_name = "TF istio meshes Cluster B"
+
+# Keyset
+provider_keyset_name = "My Provider Credentials"
+ssh_keyset_name = "My SSH Keyset"
+
+# Provider
+provider_code = "azure"
+provider_k8s_version = "v1.13.2"
+provider_platform = "coreos"
+provider_region = "eastus"
+provider_resource_group = "__new__"
+provider_network_id = "__new__"
+provider_network_cidr = "10.0.0.0/16"
+provider_subnet_id = "__new__"
+provider_subnet_cidr = "10.0.1.0/24"
+provider_master_size = "standard_f1"
+provider_worker_size = "standard_f1"
+provider_channel = "stable"
+provider_etcd_type = "classic"
+
+# Istio mesh
+istio_mesh_name = "tf-istio-mesh"
+istio_mesh_type = "cross_cluster"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Customize the variables in this file to match your credentials and desired setup. At a minimum, you will need to edit:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>organization_name = "My Organization"
+provider_keyset_name = "My Provider Credentials"
+ssh_keyset_name = "My SSH Keyset"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Save and exit the file.</p>
+</div>
+<div class="paragraph">
+<p>When you are ready to run the example, first export your NKS API token. From inside your project directory, use the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>export NKS_API_TOKEN=[Your NKS API token]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then set the API URL:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>export NKS_API_URL=https://api.nks.netapp.io/</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Since we have changed the Terraform configuration files, use the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>terraform init</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The next step is to have Terraform check the configuration files, and present you with a plan for executing the changes:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>terraform plan</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If everything in the plan looks correct, execute this plan and launch your clusters with the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>terraform apply</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you are finished, remove the example and delete the clusters with the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>terraform destroy</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Did this article answer your question? If not, <a href="mailto:nks@netapp.com">contact us.</a></em></p>
+</div>
+</div>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/kubernetes-service/us-en/common/js/components.js"></script>
+    <script src="/kubernetes-service/us-en/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>

@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Nodes | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Nodes | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/us-en/api-nodes.html" />
+	<meta property="og:description" content="How to use the Keysets API resource for the NKS API." />
+  <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/us-en/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="How to use the Keysets API resource for the NKS API.">
+  <meta name="keywords" content=" ">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/kubernetes-service/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/kubernetes-service/us-en/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/kubernetes-service/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/kubernetes-service/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/kubernetes-service/us-en/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/kubernetes-service/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/kubernetes-service/us-en/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/kubernetes-service/us-en/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/prism-netapp.css' type='text/css'>
+
+  <script src='/kubernetes-service/us-en/js/clouddocs.js'></script>
+  <script src='/kubernetes-service/us-en/js/s_code_impl.js'></script>
+  <script src='/kubernetes-service/us-en/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/kubernetes-service/us-en/js/toc.js'></script>
+  <script src='/kubernetes-service/us-en/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <span class="ie-i18n-lang">English</span>
+              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/kubernetes-service/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">NKS Docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting Started</a>
+      <ul>
+        
+
+  
+    <li><a href="getting-started-intro.html">Intro to NKS</a></li>
+  
+
+  
+    <li><a href="getting-started-checklist.html">Checklist</a></li>
+  
+
+  
+    <li><a href="getting-started-subscription.html">Subscription</a></li>
+  
+
+  
+    <li><a href="getting-started-organizations.html">Organizations</a></li>
+  
+
+  
+    <li><a href="getting-started-user-access.html">User Access</a></li>
+  
+
+  
+    <li><a href="getting-started-members.html">Members</a></li>
+  
+
+  
+    <li><a href="getting-started-add-credentials.html">Credentials</a></li>
+  
+
+  
+    <li><a href="getting-started-working-with-clusters.html">Working with NKS Clusters</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Add Credentials</a>
+      <ul>
+        
+
+  
+    <li><a href="create-auth-credentials-on-aws.html">AWS Credentials</a></li>
+  
+
+  
+    <li><a href="find-aws-credentials-for-cvs.html">AWS Credentials for CVS</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-azure.html">Azure Credentials</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-gce.html">GCE Credentials</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-gke.html">GKE Credentials</a></li>
+  
+
+  
+    <li><a href="register-vmware.html">VMware Credentials</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Create a Kubernetes Cluster</a>
+      <ul>
+        
+
+  
+    <li><a href="create-aws-cluster.html">Create an AWS Cluster</a></li>
+  
+
+  
+    <li><a href="create-aks-cluster.html">Create an AKS Cluster</a></li>
+  
+
+  
+    <li><a href="create-azure-cluster.html">Create an Azure Cluster</a></li>
+  
+
+  
+    <li><a href="create-anf-cluster.html">Create an ANF Cluster</a></li>
+  
+
+  
+    <li><a href="create-eks-cluster.html">Create an EKS Cluster</a></li>
+  
+
+  
+    <li><a href="create-gce-cluster.html">Create a GCE Cluster</a></li>
+  
+
+  
+    <li><a href="create-gke-cluster.html">Create a GKE Cluster</a></li>
+  
+
+  
+    <li><a href="create-vmware-cluster.html">Create a VMware Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Manage Access</a>
+      <ul>
+        
+
+  
+    <li><a href="add-a-user.html">Add a User</a></li>
+  
+
+  
+    <li><a href="add-a-team.html">Add a Team</a></li>
+  
+
+  
+    <li><a href="add-a-workspace.html">Add a Workspace</a></li>
+  
+
+  
+    <li><a href="ssh-to-a-node-in-an-nks-cluster.html">SSH to a Node in an NKS Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cluster Lifecycle</a>
+      <ul>
+        
+
+  
+    <li><a href="add-a-kubernetes-master-node.html">Add a Master Node</a></li>
+  
+
+  
+    <li><a href="add-a-node-pool.html">Add a Node Pool</a></li>
+  
+
+  
+    <li><a href="upgrade-kubernetes-on-an-nks-cluster.html">Upgrade Kubernetes</a></li>
+  
+
+  
+    <li><a href="using-the-kubernetes-cloud-backup.html">Using the Kubernetes Cloud Backup</a></li>
+  
+
+  
+    <li><a href="install-kubectl-to-control-a-kubernetes-cluster.html">Install Kubectl</a></li>
+  
+
+  
+    <li><a href="intro-to-terraform-on-nks.html">Terraform on NKS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Application Lifecycle Management</a>
+      <ul>
+        
+
+  
+    <li><a href="alm-quickstart.html">ALM Quickstart Guide</a></li>
+  
+
+  
+    <li><a href="alm-projects.html">ALM Projects</a></li>
+  
+
+  
+    <li><a href="alm-applications.html">ALM Applications</a></li>
+  
+
+  
+    <li><a href="alm-trackers.html">ALM Trackers</a></li>
+  
+
+  
+    <li><a href="alm-packages.html">ALM Packages</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">NetApp HCI</a>
+      <ul>
+        
+
+  
+    <li><a href="netapp-hci-requirements.html">NetApp HCI Requirements</a></li>
+  
+
+  
+    <li><a href="hci-enable-nks-for-netapp-hci.html">Enable NKS for NetApp HCI</a></li>
+  
+
+  
+    <li><a href="create-netapp-hci-cluster.html">Create a NetApp HCI Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Istio</a>
+      <ul>
+        
+
+  
+    <li><a href="istio-create-cross-cluster-mesh.html">Create an Istio Mesh</a></li>
+  
+
+  
+    <li><a href="istio-test-cross-cluster-mesh.html">Test an Istio Mesh</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">API</a>
+      <ul>
+        
+
+  
+    <li><a href="api-basics.html">API Basics</a></li>
+  
+
+  
+    <li><a href="api-clusters.html">Clusters</a></li>
+  
+
+  
+    <li><a href="api-federations.html">Federations</a></li>
+  
+
+  
+    <li><a href="api-invoice.html">Invoices</a></li>
+  
+
+  
+    <li><a href="api-istio-mesh.html">Istio Mesh</a></li>
+  
+
+  
+    <li><a href="api-keysets.html">Keysets</a></li>
+  
+
+  
+    <li><a href="api-members.html">Members</a></li>
+  
+
+  
+    <li><a href="api-migrate-version.html">Migrate Version (Upgrade)</a></li>
+  
+
+  
+    <li><a href="api-my-charts.html">My Charts</a></li>
+  
+
+  
+    <li><a href="api-nodepools.html">Nodepools</a></li>
+  
+
+  
+    <li class="active"><a href="api-nodes.html">Nodes</a></li>
+  
+
+  
+    <li><a href="api-notifications.html">Notifications</a></li>
+  
+
+  
+    <li><a href="api-organizations.html">Organizations</a></li>
+  
+
+  
+    <li><a href="api-subscription.html">Subscription</a></li>
+  
+
+  
+    <li><a href="api-teams.html">Teams</a></li>
+  
+
+  
+    <li><a href="api-trusted-charts.html">Trusted Charts</a></li>
+  
+
+  
+    <li><a href="api-user.html">User</a></li>
+  
+
+  
+    <li><a href="api-workspaces.html">Workspaces</a></li>
+  
+
+  
+    <li><a href="api-notifications-to-slack.html">Tutorial - Push NKS Notifications to a Slack Channel</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Requirements and Other Details</a>
+      <ul>
+        
+
+  
+    <li><a href="netapp-hci-requirements.html">NetApp HCI Requirements</a></li>
+  
+
+  
+    <li><a href="nks-requirements.html">NKS Requirements</a></li>
+  
+
+  
+    <li><a href="whitelist-ports-and-ip-addresses.html">Whitelist Ports and IP Addresses</a></li>
+  
+
+  
+    <li><a href="cipher-suites.">Cipher Suites</a></li>
+  
+
+  
+    <li><a href="more-resources.html">More Resources</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="news.html">What's New</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Nodes
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/api-nodes.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Nodes](https://docs.netapp.com/us-en/kubernetes-service/api-nodes.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2019-08-09 19:37:19 +0000">08/09/2019</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/ebarcott">
+    <img  class="avatar avatar-small"
+          alt="ebarcott"
+          width="20" height="20"
+          src="https://avatars3.githubusercontent.com/u/44878916?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each NKS cluster can have 3 or more nodes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="get-all-nodes-for-a-cluster">GET All Nodes for a Cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Get all transitioning or running nodes in the specified cluster.</p>
+</div>
+<div class="paragraph">
+<p><strong>Path Parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Org ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Organization ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cluster ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cluster ID.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">GET https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/orgs/3/clusters/2/nodes"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "pk": 2,
+  "name": "Yet Another Cluster",
+  "org": 3,
+  "site": 8,
+  "workspace": {
+    "pk": 3,
+    "name": "Default",
+    "slug": "default",
+    "org": 3,
+    "is_default": true,
+    "created": "2019-02-12T20:11:53.479801Z"
+  },
+  "instance_id": "spcrputqws",
+  "provider": "aws",
+  "provider_keyset": 4,
+  "provider_keyset_name": "My Renamed AWS Keyset2",
+  "region": "us-west-2",
+  "platform": "coreos",
+  "channel": "stable",
+  "state": "draft",
+  "project_id": "",
+  "owner": 3,
+  "user_ssh_keyset": 5,
+  "user_ssh_keyset_name": "Default SPC SSH Keypair",
+  "etcd_type": "self_hosted",
+  "provider_network_id": "vpc-c4a6f5a0",
+  "provider_network_cidr": "172.22.0.0\/16",
+  "provider_subnet_id": "subnet-d19044b6",
+  "provider_subnet_cidr": "172.22.4.0\/24",
+  "provider_balancer_id": null,
+  "provider_resource_group": null,
+  "config": {
+
+  },
+  "layout": {
+
+  },
+  "solutions": [
+    {
+      "pk": 3,
+      "name": "Helm Tiller",
+      "instance_id": "solvmzknxc",
+      "cluster": 3,
+      "solution": "helm_tiller",
+      "installer": "ansible_custom",
+      "keyset": null,
+      "keyset_name": "",
+      "version": "",
+      "version_migrations": [
+
+      ],
+      "state": "draft",
+      "url": "",
+      "username": "",
+      "password": "",
+      "max_nodes": null,
+      "git_repo": "",
+      "git_path": "",
+      "initial": true,
+      "config": {
+
+      },
+      "extra_data": {
+
+      },
+      "created": "2019-02-15T17:22:24.852309Z",
+      "updated": "2019-02-15T17:22:24.852327Z",
+      "is_deleteable": false
+    }
+  ],
+  "features": [
+
+  ],
+  "follower": {
+    "pk": 3,
+    "cluster": 3,
+    "user": 3,
+    "notify": true,
+    "tracked_log": null
+  },
+  "notified": false,
+  "created": "2019-02-15T17:22:24.713614Z",
+  "updated": "2019-02-15T17:22:24.844909Z",
+  "k8s_version": "v1.8.3",
+  "k8s_dashboard_enabled": true,
+  "k8s_rbac_enabled": true,
+  "k8s_etcd_operator_installed": false,
+  "k8s_dashboard_installed": false,
+  "k8s_pod_cidr": "10.2.0.0\/16",
+  "k8s_service_cidr": "10.3.0.0\/24",
+  "is_kubeconfig_available": false,
+  "kubeconfig_path": "\/orgs\/3\/clusters\/3\/kubeconfig",
+  "node_count": 3,
+  "master_count": 1,
+  "master_size": "t2.large",
+  "worker_count": 2,
+  "worker_size": "nodepool-dependent",
+  "image": "ami-0b0f4f5f0c8c1a797",
+  "zone": "us-west-2a",
+  "is_k8s_available": false,
+  "is_failed": true,
+  "federation_role": null,
+  "k8s_etcd_cluster": null,
+  "is_etcd_host": false,
+  "version_migrations": [
+    "v1.8.11"
+  ],
+  "istio_mesh_member": null,
+  "owner_detail": "jdoe@example.com"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Return Values</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cluster ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cluster name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>org</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Organization ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>site</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The website from which the cluster was created (NKS or an OEM site).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>workspace</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Information about the assigned Workspace.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Workspace name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>slug</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A human-readable unique identifier, used for storing Workspace data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_default</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not this is the default Workspace.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>created</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Workspace creation timestamp.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>instance_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The provider on which the cluster is provisioned.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_keyset</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the keyset used to provision the cluster.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_keyset_name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the keyset used to provision the cluster.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>region</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The region in which the cluster is provisioned.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>platform</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node&#8217;s operating system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>channel</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The cluster&#8217;s OS distribution version.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>state</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The cluster&#8217;s current state (e.g. <code>running</code>, <code>failed</code>, etc.)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>project_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Certain providers require a project ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>owner</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the user who created the cluster.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>user_ssh_keyset</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the SSH keyset used to create the cluster.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>user_ssh_keyset_name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the SSH keyset used to create the cluster.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>etcd_type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of etcd server.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>root_disk_size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Size of the root disk.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>zone</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The AWS provider zone. Valid only for master nodes on AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_network_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC ID. AWS only.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_network_cidr</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPC CIDR. AWS only.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_subnet_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the subnet where the node has been added. Valid only for master nodes on AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_subnet_cidr</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The subnet CIDR. Valid only for master nodes on AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_balancer_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the load balancer, if applicable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_resource_group</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the resource group, if applicable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>solutions</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A list of solution objects.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>k8s_version</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Kubernetes version.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>k8s_dashboard_enabled</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the dashboard is enabled.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>k8s_rbac_enabled</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not RBAC is enabled.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>k8s_etcd_operator_installed</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the etcd operator is installed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>k8s_dashboard_installed</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the dashboard is installed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>k8s_pod_cidr</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The pod&#8217;s CIDR.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>k8s_service_cidr</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The pod&#8217;s service CIDR.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_kubeconfig_available</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the kubeconfig is available.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>kubeconfig_path</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The path to the kubeconfig file.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>node_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of nodes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>master_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of masters. The only valid value for a cluster creation request is <code>1</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>master_size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Size of the master. Consult provider documentation for allowed instance sizes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>worker_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of workers. The minimum value is <code>2</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>worker_size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A single size for all workers. Consult provider documentation for allowed instance sizes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>image</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The image used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_k8s_available</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not Kubernetes is available.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_failed</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the node has failed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>federation_role</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node&#8217;s federation role (if applicable).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>k8s_etcd_cluster</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The etcd cluster ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_etcd_host</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the node is the etc host.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>version_migrations</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Available Kubernetes versions for migration.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="get-a-specific-node">GET a Specific Node</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Get the specified node.</p>
+</div>
+<div class="paragraph">
+<p><strong>Path Parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Org ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Organization ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cluster ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cluster ID.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">GET https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/orgs/3/clusters/2/nodes/1"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "pk": 1,
+    "cluster": 2,
+    "pool": null,
+    "pool_name": "",
+    "instance_id": "spca44o3iw-master-1",
+    "role": "master",
+    "group_name": "",
+    "private_ip": "10.136.53.103",
+    "public_ip": "67.205.148.185",
+    "platform": "coreos",
+    "image": "coreos-stable",
+    "channel": "stable",
+    "location": "nyc1",
+    "provider_subnet_id": "",
+    "provider_subnet_cidr": "",
+    "size": "2gb",
+    "state": "running",
+    "is_failed": false,
+    "created": "2017-12-06T02:22:21.768702Z",
+    "updated": "2017-12-07T02:20:57.216553Z"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Return Values</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cluster</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The cluster ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pool</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node pool ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pool_name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node pool name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>instance_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The instance ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>role</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of node: <code>master</code> or <code>worker</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>group_name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The group name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>private_ip</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node&#8217;s private IP address.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>public_ip</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node&#8217;s public IP address.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>platform</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node&#8217;s operating system.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>image</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The image used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>channel</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The operating system version.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>location</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node&#8217;s location.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_subnet_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the subnet where the node has been added. Valid only for master nodes on AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_subnet_cidr</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The subnet CIDR. Valid only for master nodes on AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node&#8217;s size.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>state</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The node&#8217;s current state (e.g. <code>running</code>, <code>failed</code>, etc.)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_failed</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the node has failed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>created</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timestamp of the node&#8217;s creation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>updated</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The timestamp of the last time the node was updated.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="post-add-a-node">POST Add a Node</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Add a node to the specified cluster. Adding master and worker nodes require separate requests.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
+Only 1 master node should be added at a time.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Path Parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Org ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Organization ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cluster ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cluster ID.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">POST "https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/add_node"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Node Attributes</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>role</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of node to add, either <code>master</code> or <code>worker</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance size for the nodes. Consult provider documentation for available instance sizes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>node_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of nodes to add</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>node_pool</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the node pool to which the node should be added. Valid only when adding workers. If no value is specified, the default node pool will be used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>zone</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The zone where the node should be added. Valid only for master nodes on AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_subnet_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the subnet where node should be added. Valid only for master nodes on AWS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_subnet_cidr</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet CIDR. Valid only for master nodes on AWS</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-add-a-master-node">Example: Add a Master Node</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Add a master node to an AWS cluster.</p>
+</div>
+<div class="paragraph">
+<p><strong>Path Parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Org ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Organization ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cluster ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cluster ID.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Example request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">curl -X POST \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d @add-master-node.json \
+"https://api.nks.netapp.io/orgs/1/clusters/12/add_node"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Contents of <code>add-master-node.json</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "node_count": 1,
+    "size": "2gb",
+    "role": "master"
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">[
+  {
+    "pk": 10,
+    "cluster": 3,
+    "pool": null,
+    "pool_name": "",
+    "instance_id": "spcrputqws-master-2",
+    "provider_node_id": "",
+    "role": "master",
+    "group_name": "",
+    "private_ip": "",
+    "public_ip": "",
+    "platform": "coreos",
+    "image": "ami-025acbb0fb1db6a27",
+    "channel": "stable",
+    "etcd_state": "none",
+    "root_disk_size": 50,
+    "gpu_instance_size": "",
+    "gpu_core_count": null,
+    "location": "us-west-2:us-west-2a",
+    "zone": "us-west-2a",
+    "provider_subnet_id": "subnet-d19044b6",
+    "provider_subnet_cidr": "172.22.4.0\/24",
+    "size": "2gb",
+    "state": "draft",
+    "is_failed": false,
+    "created": "2019-03-04T20:49:45.390109Z",
+    "updated": "2019-03-04T20:49:45.390131Z"
+  }
+]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Node Attributes</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>role</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of node to add, either <code>master</code> or <code>worker</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>size</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Instance size for the nodes. Consult provider documentation for available instance sizes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>node_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Number of nodes to add</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>node_pool</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the node pool to which the node should be added. Valid only when adding workers. If no value is specified, the default node pool will be used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>zone</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The zone where the node should be added. Valid only for master nodes on AWS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_subnet_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the subnet where node should be added. Valid only for master nodes on AWS</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>provider_subnet_cidr</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subnet CIDR. Valid only for master nodes on AWS</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="delete-check-node-delete-eligibility">DELETE: Check Node Delete Eligibility</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Check whether a specific node can be deleted.</p>
+</div>
+<div class="paragraph">
+<p><strong>Path Parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Org ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Organization ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cluster ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cluster ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Node ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Node ID.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">GET https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}/can_delete</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/orgs/3/clusters/3/nodes/10/can_delete"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the node can be deleted, the API will return the response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "eligible": True
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the node can not be deleted, the API will return a JSON response with status code <code>400</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "detail": "Initial master node is essential to the cluster and can't be removed."
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="delete-a-node">DELETE a Node</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Delete the specified node.</p>
+</div>
+<div class="paragraph">
+<p><strong>Path Parameters</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Required</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Org ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Organization ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cluster ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Cluster ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Node ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Node ID.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">GET https://api.nks.netapp.io/orgs/{Org ID}/clusters/{Cluster ID}/nodes/{Node ID}/can_delete</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">curl -X DELETE \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/orgs/3/clusters/3/nodes/10"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If successful, this command returns an empty response with status code <code>204</code></p>
+</div>
+</div>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/kubernetes-service/us-en/common/js/components.js"></script>
+    <script src="/kubernetes-service/us-en/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>

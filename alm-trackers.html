@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Application Lifecycle Management: Trackers | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Application Lifecycle Management: Trackers | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/alm-trackers.html" />
+	<meta property="og:description" content="An explanation of NKS Application Lifecycle Management Trackers and how to use them." />
+  <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="An explanation of NKS Application Lifecycle Management Trackers and how to use them.">
+  <meta name="keywords" content=" ">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/kubernetes-service/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/kubernetes-service/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/kubernetes-service/common/css/esb.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/common/css/doc.css">
+  <link rel="stylesheet" href="/kubernetes-service/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/kubernetes-service/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/kubernetes-service/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/kubernetes-service/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/kubernetes-service/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/kubernetes-service/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/kubernetes-service/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/kubernetes-service/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/kubernetes-service/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/kubernetes-service/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/css/prism-netapp.css' type='text/css'>
+
+  <script src='/kubernetes-service/js/clouddocs.js'></script>
+  <script src='/kubernetes-service/js/s_code_impl.js'></script>
+  <script src='/kubernetes-service/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/kubernetes-service/js/toc.js'></script>
+  <script src='/kubernetes-service/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/kubernetes-service/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/kubernetes-service/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/kubernetes-service/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <span class="ie-i18n-lang">English</span>
+              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/kubernetes-service/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/kubernetes-service/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">NKS Docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting Started</a>
+      <ul>
+        
+
+  
+    <li><a href="getting-started-intro.html">Intro to NKS</a></li>
+  
+
+  
+    <li><a href="getting-started-checklist.html">Checklist</a></li>
+  
+
+  
+    <li><a href="getting-started-subscription.html">Subscription</a></li>
+  
+
+  
+    <li><a href="getting-started-organizations.html">Organizations</a></li>
+  
+
+  
+    <li><a href="getting-started-user-access.html">User Access</a></li>
+  
+
+  
+    <li><a href="getting-started-members.html">Members</a></li>
+  
+
+  
+    <li><a href="getting-started-add-credentials.html">Credentials</a></li>
+  
+
+  
+    <li><a href="getting-started-working-with-clusters.html">Working with NKS Clusters</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Add Credentials</a>
+      <ul>
+        
+
+  
+    <li><a href="create-auth-credentials-on-aws.html">AWS Credentials</a></li>
+  
+
+  
+    <li><a href="find-aws-credentials-for-cvs.html">AWS Credentials for CVS</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-azure.html">Azure Credentials</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-gce.html">GCE Credentials</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-gke.html">GKE Credentials</a></li>
+  
+
+  
+    <li><a href="register-vmware.html">VMware Credentials</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Create a Kubernetes Cluster</a>
+      <ul>
+        
+
+  
+    <li><a href="create-aws-cluster.html">Create an AWS Cluster</a></li>
+  
+
+  
+    <li><a href="create-aks-cluster.html">Create an AKS Cluster</a></li>
+  
+
+  
+    <li><a href="create-azure-cluster.html">Create an Azure Cluster</a></li>
+  
+
+  
+    <li><a href="create-anf-cluster.html">Create an ANF Cluster</a></li>
+  
+
+  
+    <li><a href="create-eks-cluster.html">Create an EKS Cluster</a></li>
+  
+
+  
+    <li><a href="create-gce-cluster.html">Create a GCE Cluster</a></li>
+  
+
+  
+    <li><a href="create-gke-cluster.html">Create a GKE Cluster</a></li>
+  
+
+  
+    <li><a href="create-vmware-cluster.html">Create a VMware Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Manage Access</a>
+      <ul>
+        
+
+  
+    <li><a href="add-a-user.html">Add a User</a></li>
+  
+
+  
+    <li><a href="add-a-team.html">Add a Team</a></li>
+  
+
+  
+    <li><a href="add-a-workspace.html">Add a Workspace</a></li>
+  
+
+  
+    <li><a href="ssh-to-a-node-in-an-nks-cluster.html">SSH to a Node in an NKS Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cluster Lifecycle</a>
+      <ul>
+        
+
+  
+    <li><a href="add-a-kubernetes-master-node.html">Add a Master Node</a></li>
+  
+
+  
+    <li><a href="add-a-node-pool.html">Add a Node Pool</a></li>
+  
+
+  
+    <li><a href="upgrade-kubernetes-on-an-nks-cluster.html">Upgrade Kubernetes</a></li>
+  
+
+  
+    <li><a href="using-the-kubernetes-cloud-backup.html">Using the Kubernetes Cloud Backup</a></li>
+  
+
+  
+    <li><a href="install-kubectl-to-control-a-kubernetes-cluster.html">Install Kubectl</a></li>
+  
+
+  
+    <li><a href="intro-to-terraform-on-nks.html">Terraform on NKS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Application Lifecycle Management</a>
+      <ul>
+        
+
+  
+    <li><a href="alm-quickstart.html">ALM Quickstart Guide</a></li>
+  
+
+  
+    <li><a href="alm-projects.html">ALM Projects</a></li>
+  
+
+  
+    <li><a href="alm-applications.html">ALM Applications</a></li>
+  
+
+  
+    <li class="active"><a href="alm-trackers.html">ALM Trackers</a></li>
+  
+
+  
+    <li><a href="alm-packages.html">ALM Packages</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">NetApp HCI</a>
+      <ul>
+        
+
+  
+    <li><a href="netapp-hci-requirements.html">NetApp HCI Requirements</a></li>
+  
+
+  
+    <li><a href="hci-enable-nks-for-netapp-hci.html">Enable NKS for NetApp HCI</a></li>
+  
+
+  
+    <li><a href="create-netapp-hci-cluster.html">Create a NetApp HCI Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Istio</a>
+      <ul>
+        
+
+  
+    <li><a href="istio-create-cross-cluster-mesh.html">Create an Istio Mesh</a></li>
+  
+
+  
+    <li><a href="istio-test-cross-cluster-mesh.html">Test an Istio Mesh</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">API</a>
+      <ul>
+        
+
+  
+    <li><a href="api-basics.html">API Basics</a></li>
+  
+
+  
+    <li><a href="api-clusters.html">Clusters</a></li>
+  
+
+  
+    <li><a href="api-federations.html">Federations</a></li>
+  
+
+  
+    <li><a href="api-invoice.html">Invoices</a></li>
+  
+
+  
+    <li><a href="api-istio-mesh.html">Istio Mesh</a></li>
+  
+
+  
+    <li><a href="api-keysets.html">Keysets</a></li>
+  
+
+  
+    <li><a href="api-members.html">Members</a></li>
+  
+
+  
+    <li><a href="api-migrate-version.html">Migrate Version (Upgrade)</a></li>
+  
+
+  
+    <li><a href="api-my-charts.html">My Charts</a></li>
+  
+
+  
+    <li><a href="api-nodepools.html">Nodepools</a></li>
+  
+
+  
+    <li><a href="api-nodes.html">Nodes</a></li>
+  
+
+  
+    <li><a href="api-notifications.html">Notifications</a></li>
+  
+
+  
+    <li><a href="api-organizations.html">Organizations</a></li>
+  
+
+  
+    <li><a href="api-subscription.html">Subscription</a></li>
+  
+
+  
+    <li><a href="api-teams.html">Teams</a></li>
+  
+
+  
+    <li><a href="api-trusted-charts.html">Trusted Charts</a></li>
+  
+
+  
+    <li><a href="api-user.html">User</a></li>
+  
+
+  
+    <li><a href="api-workspaces.html">Workspaces</a></li>
+  
+
+  
+    <li><a href="api-notifications-to-slack.html">Tutorial - Push NKS Notifications to a Slack Channel</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Requirements and Other Details</a>
+      <ul>
+        
+
+  
+    <li><a href="netapp-hci-requirements.html">NetApp HCI Requirements</a></li>
+  
+
+  
+    <li><a href="nks-requirements.html">NKS Requirements</a></li>
+  
+
+  
+    <li><a href="whitelist-ports-and-ip-addresses.html">Whitelist Ports and IP Addresses</a></li>
+  
+
+  
+    <li><a href="cipher-suites.">Cipher Suites</a></li>
+  
+
+  
+    <li><a href="more-resources.html">More Resources</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="news.html">What's New</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Application Lifecycle Management: Trackers
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/alm-trackers.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Application Lifecycle Management: Trackers](https://docs.netapp.com/us-en/kubernetes-service/alm-trackers.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2019-08-27 18:51:59 +0000">08/27/2019</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/ebarcott">
+    <img  class="avatar avatar-small"
+          alt="ebarcott"
+          width="20" height="20"
+          src="https://avatars3.githubusercontent.com/u/44878916?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/ericknauer">
+    <img  class="avatar avatar-small"
+          alt="ericknauer"
+          width="20" height="20"
+          src="https://avatars3.githubusercontent.com/u/13070552?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Trackers provide a method to visualize the state of Kubernetes objects that were created by directly applying manifests. This is accomplished by tracking Kubernetes labels and presenting that information in the NKS UI.</p>
+</div>
+<div class="paragraph">
+<p>To use this feature, you will need an NKS account. If you don&#8217;t have one already, you can sign up for a free 30-day trial with no credit card required at <a href="https://nks.netapp.io" class="bare">https://nks.netapp.io</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Application Lifecycle Management is currently in Functional Preview mode. To enable this feature you will need to create a new cluster, and "Enable experimental features."
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/enable-experimental-features.png?raw=true" alt="NKS app management">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="understanding-trackers">Understanding Trackers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By creating Trackers, you can get a customized view of related objects in a Kubernetes cluster. This view is based on Kubernetes labels, which are key-value pairs of metadata. These labels can be specified in YAML or JSON manifests to help cluster operators organize the workloads running in a cluster.</p>
+</div>
+<div class="paragraph">
+<p>Trackers can be especially useful when you have an application that was deployed directly to the cluster from manifests. Perhaps using <code>kubectl apply</code>, or another tool outside of the NKS UI. This could also include Helm charts that were installed without using the <strong>Solutions - Packages</strong> feature of NKS.</p>
+</div>
+<div class="paragraph">
+<p>Many applications are made up of multiple parts such as a frontend webserver, a backend database, and additional custom components. Applying labels and configuring a Tracker can provide a unified picture of the entire application stack.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Trackers will only be able to see labels in the project&#8217;s namespace.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can see available labels that can be used with a tracker by looking in the Kubernetes Dashboard for your cluster, and then choosing the namespace that matches your project.</p>
+</div>
+<div class="paragraph">
+<p>You can also use <code>kubectl</code> to get information about labels. To see the labels on pods in the "exploration" namespace, run <code>kubectl get pods --namespace exploration --show-labels</code>. The output will contain a column of labels.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="using-trackers">Using Trackers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section will walk you through creating and using your first Tracker. Following along requires that you have already created a workspace with a cluster and a project.</p>
+</div>
+<div class="sect2">
+<h3 id="create-a-tracker">Create a Tracker</h3>
+<div class="paragraph">
+<p>Go to <a href="https://nks.netapp.io/v2">App Management</a> and select a pinned workspace or <strong>View All Workspaces</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/app-management-1.png?raw=true" alt="NKS app management">
+</div>
+</div>
+<div class="paragraph">
+<p>Select a workspace by clicking on its name.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+You may use also utilize the Search feature to find a specific workspace.)
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/select-a-workspace-1.png?raw=true" alt="NKS select workspace">
+</div>
+</div>
+<div class="paragraph">
+<p>You will be taken to the workspace overview page.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/workspace-overview-1.png?raw=true" alt="NKS workspace overview">
+</div>
+</div>
+<div class="paragraph">
+<p>Go to the <strong>Projects</strong> tab.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/workspace-projects-1.png?raw=true" alt="NKS workspace projects">
+</div>
+</div>
+<div class="paragraph">
+<p>Select a project by clicking its underlined name. This will take you to the overview page for that specific project.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/project-overview-1.png?raw=true" alt="NKS project overview">
+</div>
+</div>
+<div class="paragraph">
+<p>At the bottom of the page, press the blue <strong>+ Add Solution</strong> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/add-solution-button.png?raw=true" alt="NKS add solution button">
+</div>
+</div>
+<div class="paragraph">
+<p>Press the <strong>+ ADD A NEW TRACKER</strong> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/select-solution-type.png?raw=true" alt="NKS add solution button">
+</div>
+</div>
+<div class="paragraph">
+<p>This takes to you the <strong>Create Solution Tracker</strong> screen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/create-solution-tracker-1.png?raw=true" alt="NKS create solution tracker screen">
+</div>
+</div>
+<div class="paragraph">
+<p>Give the Tracker a name in the <strong>Tracker Name</strong> field, and provide at least one key:value pair in place of <strong>Type labels to track</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/create-solution-tracker-example-1.png?raw=true" alt="NKS create solution tracker example">
+</div>
+</div>
+<div class="paragraph">
+<p>As instructed, you&#8217;ll need to press enter to add the key:value pair to the list of tracked labels. When you have finished adding labels to track, press the <strong>Create Tracker</strong> button.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The new Tracker will NOT be active immediately.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>It takes some time (~15 mintues) for the NKS system to register a new tracker.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/tracker-not-active.png?raw=true" alt="NKS tracker not active">
+</div>
+</div>
+<div class="paragraph">
+<p>When the tracker is ready, the red icon will change to green.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/tracker-active.png?raw=true" alt="NKS tracker not active">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="access-a-tracker">Access a Tracker</h3>
+<div class="paragraph">
+<p>Once you have created one or more Trackers, you can access them from inside their associated Project on the <strong>Solutions</strong> tab. The installed solutions can be filtered to just display Trackers by using the <strong>Tracker</strong> tab.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/project-solutions-filter-trackers-1.png?raw=true" alt="NKS project solutions filter trackers">
+</div>
+</div>
+<div class="paragraph">
+<p>Clicking the name of a Tracker will take you to the detail page.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/tracker-detail-1.png?raw=true" alt="NKS tracker detail">
+</div>
+</div>
+<div class="paragraph">
+<p>If the Tracker has associated deployments, you will see them at the bottom of the detail page and can interact with them by modifying replica counts, or utilizing the <strong>Actions</strong> menu.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/tracker-deployments.png?raw=true" alt="NKS tracker deployments">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="update-a-tracker">Update a Tracker</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigate to the Tracker. <strong>Project&#8594;Solutions&#8594;Trackers</strong></p>
+</li>
+<li>
+<p>Make changes to the Tracker name or labels.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+You can remove an existing label from the tracker by clicking the X next to it.
+1. Save the changes by pressing the <strong>Update</strong> button.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/edit-tracker-1.png?raw=true" alt="NKS edit tracker">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-a-tracker">Delete a Tracker</h3>
+<div class="paragraph">
+<p>A Tracker can be deleted using the "Delete this solution" link on the update page.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/delete-this-solution.png?raw=true" alt="NKS delete tracker">
+</div>
+</div>
+<div class="paragraph">
+<p>You will be prompted to confirm that you want to delete the Tracker.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/alm-trackers/delete-this-solution-confirmation.png?raw=true" alt="NKS confirm delete tracker">
+</div>
+</div>
+<div class="paragraph">
+<p>Type in the full name of the Tracker and click the "Yes, delete this solution" button.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="more-information">More Information</h3>
+<div class="paragraph">
+<p>More information about Kubernetes labels can be found at this link.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/">Kubernetes Documentation - Labels</a></p>
+</div>
+<div class="paragraph">
+<p><em>Did this article answer your question? If not, <a href="mailto:nks@netapp.com">contact us.</a></em></p>
+</div>
+</div>
+</div>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/kubernetes-service/common/js/components.js"></script>
+    <script src="/kubernetes-service/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/kubernetes-service/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/kubernetes-service/js/prism.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>

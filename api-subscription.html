@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Subscription | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Subscription | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/api-subscription.html" />
+	<meta property="og:description" content="How to use the Subscription API resource for the NKS API." />
+  <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="How to use the Subscription API resource for the NKS API.">
+  <meta name="keywords" content=" ">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/kubernetes-service/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/kubernetes-service/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/kubernetes-service/common/css/esb.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/common/css/doc.css">
+  <link rel="stylesheet" href="/kubernetes-service/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/kubernetes-service/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/kubernetes-service/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/kubernetes-service/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/kubernetes-service/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/kubernetes-service/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/kubernetes-service/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/kubernetes-service/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/kubernetes-service/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/kubernetes-service/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/css/prism-netapp.css' type='text/css'>
+
+  <script src='/kubernetes-service/js/clouddocs.js'></script>
+  <script src='/kubernetes-service/js/s_code_impl.js'></script>
+  <script src='/kubernetes-service/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/kubernetes-service/js/toc.js'></script>
+  <script src='/kubernetes-service/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/kubernetes-service/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/kubernetes-service/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/kubernetes-service/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <span class="ie-i18n-lang">English</span>
+              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/kubernetes-service/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/kubernetes-service/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">NKS Docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting Started</a>
+      <ul>
+        
+
+  
+    <li><a href="getting-started-intro.html">Intro to NKS</a></li>
+  
+
+  
+    <li><a href="getting-started-checklist.html">Checklist</a></li>
+  
+
+  
+    <li><a href="getting-started-subscription.html">Subscription</a></li>
+  
+
+  
+    <li><a href="getting-started-organizations.html">Organizations</a></li>
+  
+
+  
+    <li><a href="getting-started-user-access.html">User Access</a></li>
+  
+
+  
+    <li><a href="getting-started-members.html">Members</a></li>
+  
+
+  
+    <li><a href="getting-started-add-credentials.html">Credentials</a></li>
+  
+
+  
+    <li><a href="getting-started-working-with-clusters.html">Working with NKS Clusters</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Add Credentials</a>
+      <ul>
+        
+
+  
+    <li><a href="create-auth-credentials-on-aws.html">AWS Credentials</a></li>
+  
+
+  
+    <li><a href="find-aws-credentials-for-cvs.html">AWS Credentials for CVS</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-azure.html">Azure Credentials</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-gce.html">GCE Credentials</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-gke.html">GKE Credentials</a></li>
+  
+
+  
+    <li><a href="register-vmware.html">VMware Credentials</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Create a Kubernetes Cluster</a>
+      <ul>
+        
+
+  
+    <li><a href="create-aws-cluster.html">Create an AWS Cluster</a></li>
+  
+
+  
+    <li><a href="create-aks-cluster.html">Create an AKS Cluster</a></li>
+  
+
+  
+    <li><a href="create-azure-cluster.html">Create an Azure Cluster</a></li>
+  
+
+  
+    <li><a href="create-anf-cluster.html">Create an ANF Cluster</a></li>
+  
+
+  
+    <li><a href="create-eks-cluster.html">Create an EKS Cluster</a></li>
+  
+
+  
+    <li><a href="create-gce-cluster.html">Create a GCE Cluster</a></li>
+  
+
+  
+    <li><a href="create-gke-cluster.html">Create a GKE Cluster</a></li>
+  
+
+  
+    <li><a href="create-vmware-cluster.html">Create a VMware Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Manage Access</a>
+      <ul>
+        
+
+  
+    <li><a href="add-a-user.html">Add a User</a></li>
+  
+
+  
+    <li><a href="add-a-team.html">Add a Team</a></li>
+  
+
+  
+    <li><a href="add-a-workspace.html">Add a Workspace</a></li>
+  
+
+  
+    <li><a href="ssh-to-a-node-in-an-nks-cluster.html">SSH to a Node in an NKS Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Cluster Lifecycle</a>
+      <ul>
+        
+
+  
+    <li><a href="add-a-kubernetes-master-node.html">Add a Master Node</a></li>
+  
+
+  
+    <li><a href="add-a-node-pool.html">Add a Node Pool</a></li>
+  
+
+  
+    <li><a href="upgrade-kubernetes-on-an-nks-cluster.html">Upgrade Kubernetes</a></li>
+  
+
+  
+    <li><a href="using-the-kubernetes-cloud-backup.html">Using the Kubernetes Cloud Backup</a></li>
+  
+
+  
+    <li><a href="install-kubectl-to-control-a-kubernetes-cluster.html">Install Kubectl</a></li>
+  
+
+  
+    <li><a href="intro-to-terraform-on-nks.html">Terraform on NKS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Application Lifecycle Management</a>
+      <ul>
+        
+
+  
+    <li><a href="alm-quickstart.html">ALM Quickstart Guide</a></li>
+  
+
+  
+    <li><a href="alm-projects.html">ALM Projects</a></li>
+  
+
+  
+    <li><a href="alm-applications.html">ALM Applications</a></li>
+  
+
+  
+    <li><a href="alm-trackers.html">ALM Trackers</a></li>
+  
+
+  
+    <li><a href="alm-packages.html">ALM Packages</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">NetApp HCI</a>
+      <ul>
+        
+
+  
+    <li><a href="netapp-hci-requirements.html">NetApp HCI Requirements</a></li>
+  
+
+  
+    <li><a href="hci-enable-nks-for-netapp-hci.html">Enable NKS for NetApp HCI</a></li>
+  
+
+  
+    <li><a href="create-netapp-hci-cluster.html">Create a NetApp HCI Cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Istio</a>
+      <ul>
+        
+
+  
+    <li><a href="istio-create-cross-cluster-mesh.html">Create an Istio Mesh</a></li>
+  
+
+  
+    <li><a href="istio-test-cross-cluster-mesh.html">Test an Istio Mesh</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">API</a>
+      <ul>
+        
+
+  
+    <li><a href="api-basics.html">API Basics</a></li>
+  
+
+  
+    <li><a href="api-clusters.html">Clusters</a></li>
+  
+
+  
+    <li><a href="api-federations.html">Federations</a></li>
+  
+
+  
+    <li><a href="api-invoice.html">Invoices</a></li>
+  
+
+  
+    <li><a href="api-istio-mesh.html">Istio Mesh</a></li>
+  
+
+  
+    <li><a href="api-keysets.html">Keysets</a></li>
+  
+
+  
+    <li><a href="api-members.html">Members</a></li>
+  
+
+  
+    <li><a href="api-migrate-version.html">Migrate Version (Upgrade)</a></li>
+  
+
+  
+    <li><a href="api-my-charts.html">My Charts</a></li>
+  
+
+  
+    <li><a href="api-nodepools.html">Nodepools</a></li>
+  
+
+  
+    <li><a href="api-nodes.html">Nodes</a></li>
+  
+
+  
+    <li><a href="api-notifications.html">Notifications</a></li>
+  
+
+  
+    <li><a href="api-organizations.html">Organizations</a></li>
+  
+
+  
+    <li class="active"><a href="api-subscription.html">Subscription</a></li>
+  
+
+  
+    <li><a href="api-teams.html">Teams</a></li>
+  
+
+  
+    <li><a href="api-trusted-charts.html">Trusted Charts</a></li>
+  
+
+  
+    <li><a href="api-user.html">User</a></li>
+  
+
+  
+    <li><a href="api-workspaces.html">Workspaces</a></li>
+  
+
+  
+    <li><a href="api-notifications-to-slack.html">Tutorial - Push NKS Notifications to a Slack Channel</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Requirements and Other Details</a>
+      <ul>
+        
+
+  
+    <li><a href="netapp-hci-requirements.html">NetApp HCI Requirements</a></li>
+  
+
+  
+    <li><a href="nks-requirements.html">NKS Requirements</a></li>
+  
+
+  
+    <li><a href="whitelist-ports-and-ip-addresses.html">Whitelist Ports and IP Addresses</a></li>
+  
+
+  
+    <li><a href="cipher-suites.">Cipher Suites</a></li>
+  
+
+  
+    <li><a href="more-resources.html">More Resources</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="news.html">What's New</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Subscription
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/api-subscription.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Subscription](https://docs.netapp.com/us-en/kubernetes-service/api-subscription.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2019-08-09 19:37:19 +0000">08/09/2019</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/ebarcott">
+    <img  class="avatar avatar-small"
+          alt="ebarcott"
+          width="20" height="20"
+          src="https://avatars3.githubusercontent.com/u/44878916?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>View your subscription information. Subscriptions cannot be created, updated, or deleted through the API.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="get-all-subscription-details">GET All Subscription Details</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Retrieve details for the subscription of the user, as specified by the API key passed in the authentication header.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">GET https://api.nks.netapp.io/user/subscription</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example request:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">curl -X GET \
+-H "Authorization: Bearer abcdef123456789abcdef123456789" \
+"https://api.nks.netapp.io/user/subscription"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example response:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+  "pk": 15561,
+  "user": 18896,
+  "internal_id": "SPC-1234ABCDEF",
+  "customer_id": "",
+  "subscription_id": "",
+  "state": "active",
+  "source_id": "",
+  "access_plan": "metered-monthly",
+  "access_item_id": "",
+  "support_plan": "",
+  "support_item_id": "",
+  "suspension_reason": "trial_end",
+  "billing_contact": {
+
+  },
+  "invoice_data": {
+
+  },
+  "trial_end": "2019-04-04T22:43:57.541971Z",
+  "is_grand_fathered": false,
+  "is_metered": true,
+  "is_exempt": true,
+  "billing_method": "send_invoice",
+  "created": "2019-03-05T22:43:54.603887Z",
+  "updated": "2019-04-04T22:48:21.249153Z",
+  "is_active": true,
+  "is_trial_active": false,
+  "cluster_count": 0,
+  "node_count": 0,
+  "trial_time_left": "0\u00a0minutes",
+  "twitter_handle": "",
+  "customer": {
+
+  },
+  "covered_orgs": [
+    {
+      "pk": 15856,
+      "name": "Shy Bonus",
+      "slug": "shy-bonus-1",
+      "logo": null,
+      "enable_experimental_features": false,
+      "created": "2019-03-05T22:43:54.602681Z",
+      "updated": "2019-03-05T22:43:54.602700Z"
+    },
+    {
+      "pk": 17583,
+      "name": "Twilight Recipe",
+      "slug": "twilight-recipe-1",
+      "logo": null,
+      "enable_experimental_features": false,
+      "created": "2019-05-09T18:32:11.114208Z",
+      "updated": "2019-05-09T18:32:11.114227Z"
+    }
+  ],
+  "is_auto_charge": false,
+  "account_balance": {
+    "total_due": 0,
+    "payment_required": false
+  }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Return Values</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subscription ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>user</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>internal_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The internal account ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>customer_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The customer ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subscription_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The subscription ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>state</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The current state of the subscription: <code>active</code>, <code>suspended</code>, or <code>trial</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The source ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>access_plan</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The billing plan.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>access_item_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The access item ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>support_plan</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The support plan.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>support_item_id</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The support item ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>suspension_reason</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The reason for the suspension, if the subscription is in <code>suspended</code> state.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>billing_contact</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The billing contact on file for the subscription.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>invoice_data</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Information used in creating invoices.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>trial_end</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The end date of the account&#8217;s trial period.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_grand_fathered</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account is grandfathered, <code>true</code> or <code>false</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_metered</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account is on a metered plan, <code>true</code> or <code>false</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_exempt</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account has exempt status, <code>true</code> or <code>false</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>billing_method</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The billing method.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>created</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The time stamp when the account was created.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>updated</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The time stamp when the account was last updated.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_active</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account is active, <code>true</code> or <code>false</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_trial_active</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account has an active trial, <code>true</code> or <code>false</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cluster_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of clusters on the account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>node_count</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The number of nodes on the account.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>trial_time_left</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The amount of time left in the trial.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>twitter_handle</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s Twitter login.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>customer</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Customer information.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>covered_orgs</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Information about the Organizations covered by this subscription.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Organization ID.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Organization name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>slug</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A human-readable unique identifier, used for storing Organization data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>logo</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Organization logo. This value is <code>null</code> if a custom logo has not been set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>enable_experimental_features</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not experimental features are enabled on the account, <code>true</code> or <code>false</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>created</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the Organization&#8217;s create date.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>updated</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the last update to the Organization.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_auto_charge</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account has enabled automatic billing, <code>true</code> or <code>false</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>account_balance</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Information about the current account balance.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>total_due</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The total amount due.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>payment_required</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not a payment is due, <code>true</code> or <code>false</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/kubernetes-service/common/js/components.js"></script>
+    <script src="/kubernetes-service/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/kubernetes-service/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/kubernetes-service/js/prism.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>
