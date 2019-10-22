@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Create an Istio Mesh | NetApp Cloud Docs</title>
+  <title>Create a Cross-Cluster Istio Mesh | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Create an Istio Mesh | NetApp Cloud Docs" />
+  <meta property="og:title" content="Create a Cross-Cluster Istio Mesh | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/istio-create-cross-cluster-mesh.html" />
 	<meta property="og:description" content="Learn how to create an Istio mesh with NKS" />
@@ -518,6 +518,22 @@
   
     <!-- Check Container -->
     <li class="subfolders">
+      <a href="#">Private Registry</a>
+      <ul>
+        
+
+  
+    <li><a href="private-registry-intro.html">Intro to Private Registry</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
       <a href="#">NetApp HCI</a>
       <ul>
         
@@ -698,11 +714,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Create an Istio Mesh
+  <h1 class="n-doc__component-detail-heading">Create a Cross-Cluster Istio Mesh
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/istio-create-cross-cluster-mesh.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Create an Istio Mesh](https://docs.netapp.com/us-en/kubernetes-service/istio-create-cross-cluster-mesh.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Create a Cross-Cluster Istio Mesh](https://docs.netapp.com/us-en/kubernetes-service/istio-create-cross-cluster-mesh.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -710,7 +726,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-17 20:05:20 +0000">10/17/2019</time>
+<time datetime="2019-10-22 16:38:35 +0000">10/22/2019</time>
 
 
 <span>Contributors
@@ -732,6 +748,18 @@
 <div class="paragraph">
 <p>You can create an Istio mesh between NKS Kubernetes clusters in just a few clicks. An Istio mesh connects Kubernetes clusters, even those which are located in different data centers, or on different providers.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Istio mesh is not currently available for on-prem solutions.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p><strong>Requirements</strong></p>
 </div>
@@ -744,6 +772,12 @@
 <p>Two or more NKS clusters with Istio installed. On Step 2 of the cluster creation process, click <strong>Add Solutions</strong> and select Istio from the Solutions gallery.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p><strong>Related</strong></p>
+</div>
+<div class="paragraph">
+<p>After you create your Istio mesh, <a href="https://docs.netapp.com/us-en/kubernetes-service/istio-test-cross-cluster-mesh.html">click here to learn how to deploy a demo to test the cross-cluster mesh</a>.</p>
 </div>
 </div>
 </div>
