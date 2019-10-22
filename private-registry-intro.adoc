@@ -1,0 +1,42 @@
+---
+sidebar: sidebar
+permalink: private-registry-intro.html
+summary: An introduction to the NKS Private Registry
+---
+
+= Intro to Private Registry
+:imagesdir: assets/documentation/private-registry/
+
+Learn more about the NKS Private Registry, including an overview of the Private Registry features, and how to use the NKS Private Registry to easily launch your app on a Kubernetes cluster.
+
+The private registry lets you push a Docker image or Helm chart directly to a Kubernetes cluster on NKS. This provides security and privacy for your app. It also makes it easy to migrate your app from your desktop or development server to the cloud, using NKS.
+
+NOTE: Private Registry is currently in pre-release. This feature is not GA (Generally Available).
+
+**Requirements**
+
+* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+* An NKS Kubernetes cluster up and running at the provider of your choice.
+* An app to deploy, either in the form of a https://www.docker.com/[Docker] image or a https://helm.sh/[Helm] chart.
+
+== Find Private Registry
+
+Log in to your NKS account and go to **Solutions > Private Registry**. This Solutions page gives you an overview of your private registry images and charts. This is where you can install your private registry on an existing cluster.
+
+image::locate-private-registry.png?raw=true[Find Private Registry]
+
+== Log In and Push an Image or Chart
+
+The Private Registry page displays the Docker commands you can use to log in to your private registry, and to push an image or chart to your private registry.
+
+image::registry-login-commands.png?raw=true[Private registry commands]
+
+Copy and paste these commands to your desktop or development server, and you're all set.
+
+== Security Scanning
+
+If you like, NKS can perform a security scan on your image or chart before deploying it on your cluster. This scan will alert you to any potential security issues before you launch.
+
+image::private-registry-enable-scanning.png?raw=true[Enable private registry security scanning]
+
+Click **enable scanning** to toggle this feature off and on.

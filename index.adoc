@@ -87,6 +87,12 @@ Explore Application Lifecycle Management in our series of guides and step-by-ste
 * link:alm-trackers.html[Trackers]
 * link:alm-packages.html[Packages]
 
+== Private Registry
+
+The private registry lets you push a Docker image or Helm chart directly to a Kubernetes cluster on NKS. This provides security and privacy for your app. It also makes it easy to migrate your app from your desktop or development server to the cloud, using NKS.
+
+* link:private-registry-intro.html[Intro to Private Registry]
+
 == NetApp HCI
 
 Get started with NetApp HCI on NKS by reading our guides on the following topics:

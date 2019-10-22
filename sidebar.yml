@@ -87,6 +87,10 @@ entries:
         url: /alm-trackers.html
       - title: ALM Packages
         url: /alm-packages.html
+  - title: Private Registry
+    entries:
+      - title: Intro to Private Registry
+        url: /private-registry-intro.html
   - title: NetApp HCI
     entries:
       - title: NetApp HCI Requirements
