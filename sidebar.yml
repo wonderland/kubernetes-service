@@ -27,6 +27,8 @@ entries:
         url: /find-aws-credentials-for-cvs.html
       - title: Azure Credentials
         url: /create-auth-credentials-on-azure.html
+      - title: FlexPod
+        url: /register-flexpod.html
       - title: GCE Credentials
         url: /create-auth-credentials-on-gce.html
       - title: GKE Credentials
@@ -45,6 +47,8 @@ entries:
         url: /create-anf-cluster.html
       - title: Create an EKS Cluster
         url: /create-eks-cluster.html
+      - title: Create a FlexPod Cluster
+        url: /create-flexpod-cluster.html
       - title: Create a GCE Cluster
         url: /create-gce-cluster.html
       - title: Create a GKE Cluster
@@ -87,10 +91,6 @@ entries:
         url: /alm-trackers.html
       - title: ALM Packages
         url: /alm-packages.html
-  - title: Private Registry
-    entries:
-      - title: Intro to Private Registry
-        url: /private-registry-intro.html
   - title: NetApp HCI
     entries:
       - title: NetApp HCI Requirements

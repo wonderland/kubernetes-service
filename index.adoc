@@ -35,6 +35,7 @@ Get step-by-step instructions for adding provider credentials for:
 * link:create-auth-credentials-on-aws.html[Amazon Web Services (AWS) Credentials]
 * link:find-aws-credentials-for-cvs.html[AWS Credentials for CVS]
 * link:create-auth-credentials-on-azure.html[Azure Credentials]
+* link:register-flexpod.html[FlexPod]
 * link:create-auth-credentials-on-gce.html[Google Compute Engine (GCE) Credentials]
 * link:create-auth-credentials-on-gke.html[Google Kubernetes Engine (GKE) Credentials]
 * link:register-vmware.html[VMware]
@@ -50,6 +51,7 @@ Learn how to create a cluster at the provider of your choice with our handy guid
 * link:create-azure-cluster.html[Create a Kubernetes Cluster on Azure]
 * link:create-anf-cluster.html[Create a Kubernetes Cluster with Azure NetApp Files (ANF)]s
 * link:create-aks-cluster.html[Create a Kubernetes Cluster on Microsoft AKS]
+* link:create-flexpod-cluster.html[Create a Kubernetes Cluster on FlexPod]
 * link:create-gce-cluster.html[Create a Kubernetes Cluster on Google Compute Engine (GCE)]
 * link:create-gke-cluster.html[Create a Kubernetes Cluster on Google Kubernetes Engine (GKE)]
 * link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI Cluster]
@@ -86,12 +88,6 @@ Explore Application Lifecycle Management in our series of guides and step-by-ste
 * link:alm-applications.html[Applications]
 * link:alm-trackers.html[Trackers]
 * link:alm-packages.html[Packages]
-
-== Private Registry
-
-The private registry lets you push a Docker image or Helm chart directly to a Kubernetes cluster on NKS. This provides security and privacy for your app. It also makes it easy to migrate your app from your desktop or development server to the cloud, using NKS.
-
-* link:private-registry-intro.html[Intro to Private Registry]
 
 == NetApp HCI
 
