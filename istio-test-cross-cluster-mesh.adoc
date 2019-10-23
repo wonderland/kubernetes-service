@@ -23,11 +23,10 @@ We will install version 1 on cluster A, and version 3 on cluster B. Thus, when y
 **Requirements**
 
 * An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
-* https://docs.netapp.com/us-en/kubernetes-service/istio-cross-cluster-demo.zip[Download the .zip file which contains the custom Istio files for this tutorial.] Uncompress the file's contents into the directory of your choice.
+* https://docs.netapp.com/us-en/kubernetes-service/assets/istio-cross-cluster-demo.zip[Download the .zip file which contains the custom Istio files for this tutorial.] Uncompress the file's contents into the directory of your choice.
 * Two clusters provisioned and added to an Istio mesh. For step-by-step instructions, see our article https://docs.netapp.com/us-en/kubernetes-service/create-an-istio-mesh.html[Create an Istio Mesh].
 * Kubectl installed, so that you can use each cluster's `kubeconfig` file to deploy the Istio manifests. For step-by-step instructions on installing Kubectl and using `kubeconfig` files, see our article
 https://docs.netapp.com/us-en/kubernetes-service/install-kubectl-to-control-a-kubernetes-cluster.html[Install Kubectl to Control a Kubernetes Cluster].
-
 
 == Prep Cluster A
 
