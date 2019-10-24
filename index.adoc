@@ -42,9 +42,9 @@ Get step-by-step instructions for adding provider credentials for:
 
 == Create a Kubernetes Cluster
 
-Now that you have set up your NKS account, it's time to launch a Kubernetes cluster with our famously easy, "three clicks and done" process.
+After you set up your NKS account, it's time to create a Kubernetes cluster.
 
-Learn how to create a cluster at the provider of your choice with our handy guides:
+Learn how to create a cluster at the provider of your choice with our step-by-step guides:
 
 * link:create-aws-cluster.html[Create a Kubernetes Cluster on Amazon Web Services (AWS)]
 * link:create-eks-cluster.html[Create a Kubernetes Cluster on Amazon EKS]
@@ -88,6 +88,12 @@ Explore Application Lifecycle Management in our series of guides and step-by-ste
 * link:alm-applications.html[Applications]
 * link:alm-trackers.html[Trackers]
 * link:alm-packages.html[Packages]
+
+== Private Registry
+
+The private registry lets you push a Docker image or Helm chart directly to a Kubernetes cluster on NKS. This provides security and privacy for your app. It also makes it easy to migrate your app from your desktop or development server to the cloud, using NKS.
+
+* link:private-registry-intro.html[Intro to Private Registry]
 
 == NetApp HCI
 

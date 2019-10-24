@@ -16,14 +16,15 @@ To create a Kubernetes cluster in NKS, click the **+CREATE CLUSTER** button. Cus
 
 For step-by-step instructions, see our guides by provider:
 
-* https://docs.netapp.com/us-en/kubernetes-service/create-aws-cluster.html[Amazon Web Services (AWS)]
-* https://docs.netapp.com/us-en/kubernetes-service/create-aks-cluster.html[Amazon Kubernetes Service (AKS)]
-* https://docs.netapp.com/us-en/kubernetes-service/create-azure-cluster.html[Azure]
-* https://docs.netapp.com/us-en/kubernetes-service/create-anf-cluster.html[Azure NetApp Files (ANF)]
-* https://docs.netapp.com/us-en/kubernetes-service/create-eks-cluster.html[Amazon Elastic Kubernetes Service (EKS)]
-* https://docs.netapp.com/us-en/kubernetes-service/create-gce-cluster.html[Google Compute Engine (GCE)]
-* https://docs.netapp.com/us-en/kubernetes-service/create-gke-cluster.html[Google Kubernetes Engine (GKE)]
-* https://docs.netapp.com/us-en/kubernetes-service/create-vmware-cluster.html[VMware]
+* link:create-aws-cluster.html[Amazon Web Services (AWS)]
+* link:create-aks-cluster.html[Amazon Kubernetes Service (AKS)]
+* link:create-azure-cluster.html[Azure]
+* link:create-anf-cluster.html[Azure NetApp Files (ANF)]
+* link:create-eks-cluster.html[Amazon Elastic Kubernetes Service (EKS)]
+* link:create-flexpod-cluster.html[FlexPod]
+* link:create-gce-cluster.html[Google Compute Engine (GCE)]
+* link:create-gke-cluster.html[Google Kubernetes Engine (GKE)]
+* link:kubernetes-service/create-vmware-cluster.html[VMware]
 
 == Manage an NKS Kubernetes Cluster
 

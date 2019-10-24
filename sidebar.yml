@@ -37,6 +37,8 @@ entries:
         url: /register-vmware.html
   - title: Create a Kubernetes Cluster
     entries:
+      - title: Intro to Creating Clusters
+        url: /create-cluster-intro.html
       - title: Create an AWS Cluster
         url: /create-aws-cluster.html
       - title: Create an AKS Cluster
@@ -91,6 +93,10 @@ entries:
         url: /alm-trackers.html
       - title: ALM Packages
         url: /alm-packages.html
+  - title: Private Registry
+    entries:
+      - title: Intro to Private Registry
+        url: /private-registry-intro.html
   - title: NetApp HCI
     entries:
       - title: NetApp HCI Requirements

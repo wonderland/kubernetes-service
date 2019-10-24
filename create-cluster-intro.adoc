@@ -1,0 +1,25 @@
+---
+sidebar: sidebar
+permalink: create-cluster-intro.html
+summary: Learn how to use NKS to create a Kubernetes cluster on the cloud provider of your choice.
+---
+
+= Intro to Creating Clusters
+
+In order to create Kubernetes clusters using NetApp Kubernetes Service (NKS) you need:
+
+* An NKS account. If you don’t have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+* Your link:getting-started-add-credentials.html[provider credentials].
+* Need more information on how to set up your NKS account? Check out our link:getting-started-intro.html[Getting Started Guide] for more information.
+
+When you're ready to create your first cluster, learn how to create it at the provider of your choice with our step-by-step guides:
+
+* link:create-aws-cluster.html[Amazon Web Services (AWS)]
+* link:create-aks-cluster.html[Amazon Kubernetes Service (AKS)]
+* link:create-azure-cluster.html[Azure]
+* link:create-anf-cluster.html[Azure NetApp Files (ANF)]
+* link:create-eks-cluster.html[Amazon Elastic Kubernetes Service (EKS)]
+* link:create-flexpod-cluster.html[FlexPod]
+* link:create-gce-cluster.html[Google Compute Engine (GCE)]
+* link:create-gke-cluster.html[Google Kubernetes Engine (GKE)]
+* link:kubernetes-service/create-vmware-cluster.html[VMware]
