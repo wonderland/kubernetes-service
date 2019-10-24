@@ -1,0 +1,9 @@
+---
+sidebar: sidebar
+permalink: storage-intro.html
+summary: Learn how to use NKS storage
+---
+
+= Intro to Storage
+
+Coming soon.
