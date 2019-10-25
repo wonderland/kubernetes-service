@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+<channel>
+  <title>NetApp Kubernetes Service: What's New</title>
+  <link>https://docs.netapp.com/us-en/kubernetes-service/news.html</link>
+  <description>News and updates for NetApp Kubernetes Service (NKS)</description>
+  <item>
+    <title>Introducing the NetApp Kubernetes Services Terraform Provider</title>
+    <link>https://blog.stackpoint.io/introducing-the-netapp-kubernetes-services-terraform-provider-df60eba53d5a</link>
+    <description>Terraform gives us a predictable method to build, update, and version our infrastructure. It has become an essential tool at many enterprises that use NKS. We’re excited to announce that, in the 1.0.0 release of the NetApp Kubernetes Services Terraform Provider, you can automate management of your multi-cloud Kubernetes infrastructure and the workload running on it. This can be done on a single cluster or many clusters — across one or many cloud providers.</description>
+  </item>
+  <item>
+    <title>Stackpoint.io Joins the NetApp Family</title>
+    <link>https://blog.stackpoint.io/stackpoint-io-joins-the-netapp-family-d0712ad54e81</link>
+    <description>Seattle and New York — September 17, 2018 — We’re excited to announce we are joining the NetApp family. After numerous conversations where time was forgotten and we got lost in ideas, we realized NetApp’s and Stackpoint’s vision for Cloud Native workload and infrastructure management aligned. Click here to read more.</description>
+  </item>
+</channel>
+
+</rss>
