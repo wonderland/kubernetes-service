@@ -81,18 +81,10 @@ entries:
         url: /install-kubectl-to-control-a-kubernetes-cluster.html
       - title: Terraform on NKS
         url: /intro-to-terraform-on-nks.html
-  - title: Application Lifecycle Management
+  - title: Solutions
     entries:
-      - title: ALM Quickstart Guide
-        url: /alm-quickstart.html
-      - title: ALM Projects
-        url: /alm-projects.html
-      - title: ALM Applications
-        url: /alm-applications.html
-      - title: ALM Trackers
-        url: /alm-trackers.html
-      - title: ALM Packages
-        url: /alm-packages.html
+      - title: Add a Solution from GitHub
+        url: /solutions-add-solution-from-github.html
   - title: Private Registry
     entries:
       - title: Intro to Private Registry

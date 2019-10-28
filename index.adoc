@@ -77,17 +77,11 @@ You have set up your NKS account, and launched one or more Kubernetes clusters. 
 * link:install-kubectl-to-control-a-kubernetes-cluster.html[Install kubectl to Control a Kubernetes Cluster]
 * link:intro-to-terraform-on-nks.html[Terraform on NKS]
 
-== Application Lifecycle Management
+== Solutions
 
-Application Lifecycle Management provides a developer-friendly `git push` workflow which lets you deploy your application to an NKS Kubernetes cluster with a simple `git push nks master`. Apps can be deployed with monitoring and more.
+Solutions provide a developer-friendly Git workflow which lets you deploy your application to an NKS Kubernetes cluster with a few clicks.
 
-Explore Application Lifecycle Management in our series of guides and step-by-step instructional articles:
-
-* link:alm-quickstart.html[Quickstart Guide]
-* link:alm-projects.html[Projects]
-* link:alm-applications.html[Applications]
-* link:alm-trackers.html[Trackers]
-* link:alm-packages.html[Packages]
+* link:solutions-add-solution-from-github.html[Add a Solution from GitHub]
 
 == Private Registry
 
