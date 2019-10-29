@@ -60,7 +60,7 @@ image::solutions-add-github-solution-add-remote-url.png[Add the Remote URL]
 
 **Private Deploy Key**
 
-For this step you will need an SSH keypair. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article]. 
+For this step you will need an SSH keypair. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article].
 
 NOTE: Do not set a passphrase for the keypair.
 
@@ -101,13 +101,13 @@ Go to the GitHub page for your repository and click **Settings**.
 
 image::solutions-add-github-solution-github-settings.png[GitHub Settings]
 
-**Add the Deploy Key**
+=== Add the Deploy Key
 
-Click **Deploy keys** then click **Add deploy key**. Be sure to add the **public** (not private) SSH key. Do not allow write access.
+Click **Deploy keys** then click **Add deploy key**. Be sure to add the **public** (not private) SSH key. You do not need to enable write access.
 
 image::solutions-add-github-solution-add-deploy-key.png[Add deploy key to GitHub]
 
-**Add the Webhook**
+=== Add the Webhook
 
 Click **Webhooks** then click **Add webhook**.
 
