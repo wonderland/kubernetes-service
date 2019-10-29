@@ -15,7 +15,7 @@ Learn how to deploy a Solution from a GitHub repository.
 * A Project set up and configured on your NKS account.
 * An NKS cluster with Build Version: `Classic`.
 * An application in a GitHub repository.
-* An SSH keypair for use as the deploy key. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article]. Be sure to https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account[follow the steps to add the public key to your GitHub account].
+* An SSH keypair for use as the deploy key. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article].
 
 == Add the Solution
 
@@ -60,7 +60,7 @@ image::solutions-add-github-solution-add-remote-url.png[Add the Remote URL]
 
 **Private Deploy Key**
 
-For this step you will need an SSH keypair. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article]. Be sure to https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account[follow the steps to add the public key to your GitHub account].
+For this step you will need an SSH keypair. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article]. 
 
 NOTE: Do not set a passphrase for the keypair.
 
