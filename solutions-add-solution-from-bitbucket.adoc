@@ -1,0 +1,133 @@
+---
+sidebar: sidebar
+permalink: solutions-add-solution-from-bitbucket.html
+summary: Learn how to deploy a Solution from a Bitbucket repository.
+---
+
+= Add a Solution from Bitbucket
+:imagesdir: assets/documentation/solutions/
+
+Learn how to deploy a Solution from a Bitbucket repository.
+
+**Requirements**
+
+* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+* A Project set up and configured on your NKS account.
+* An NKS cluster with Build Version: `Classic`.
+* An application in a Bitbucket repository.
+* An SSH keypair for use as the deploy key. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article].
+
+== Add the Solution
+
+The first step is to add the Solution to your NKS account.
+
+=== Select Solution Type
+
+Click **Projects** then select the Project you want to use.
+
+image::solutions-add-bitbucket-solution-select-project.png[Select your Project]
+
+Click **+ Add Solution**.
+
+image::solutions-add-bitbucket-solution-add-solution.png[Click to add Solution]
+
+Click **Application** as the Solution type.
+
+image::solutions-add-bitbucket-solution-click-application.png[Click Application Solution type]
+
+Select the Workspace, Cluster, and Project you want to use, then click **Next**.
+
+image::solutions-add-bitbucket-solution-select-cluster.png[Select Workspace, Cluster, and Project]
+
+=== Define Version Control
+
+In this step you will define the version control specifics. You will need to provide two things:
+
+* The Remote URL
+* The Private Deploy Key
+
+**Remote URL**
+
+For a Bitbucket project, this is the project's SSH Clone URL. To get this URL, visit your project's Bitbucket repository page and click the **Clone** link in the upper right-hand corner.
+
+NOTE: You must clone with SSH. If the pop-up says HTTPS, click the drop-down menu in the upper right-hand corner of the pop-up to switch to SSH.
+
+image::solutions-add-bitbucket-solution-clone-with-ssh.png[Clone with SSH]
+
+Click to copy the SSH URL. Paste this in to NKS as the Remote URL.
+
+image::solutions-add-bitbucket-solution-add-remote-url.png[Add the Remote URL]
+
+**Private Deploy Key**
+
+For this step you will need an SSH keypair. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article].
+
+NOTE: Do not set a passphrase for the keypair.
+
+* Give the **public** key to Bitbucket.
+* Paste the **private** key into the Private Deploy Key field.
+
+image::solutions-add-bitbucket-solution-add-private-key.png[Add your private key]
+
+Click **Next** to continue.
+
+=== Configure Application
+
+Set the application's name, update strategy, and scaling. Click **Next** to continue.
+
+image::solutions-add-bitbucket-solution-configure-application.png[Configure the application]
+
+=== Review and Confirm
+
+Review and confirm all your settings. To change a setting, click the Edit button. When you are sure that everything is correct, click **Create** to create the Solution.
+
+image::solutions-add-bitbucket-solution-create-solution.png[Click to add the Solution]
+
+This creates your Solution and redirects you to the Application's page.
+
+== Deploy and Update Code
+
+Next, you will add configurations to your Bitbucket repository. To do this, you will give Bitbucket:
+
+* The **public** key from the SSH keypair you used for the Deploy Key.
+* The Payload URL.
+
+You will find the Payload URL on the application's page.
+
+image::solutions-add-bitbucket-solution-deploy-code.png[Deploy the code]
+
+Go to the Bitbucket page for your repository and click **Settings**.
+
+image::solutions-add-bitbucket-solution-bitbucket-settings.png[Bitbucket Settings]
+
+=== Add the Deploy Key
+
+Click **Access Keys** then click **Add key**. Be sure to add the **public** (not private) SSH key.
+
+image::solutions-add-bitbucket-solution-add-deploy-key.png[Add deploy key to Bitbucket]
+
+=== Add the Webhook
+
+Click **Webhooks** then click **Add webhook**.
+
+Return to the NKS application page, where you will find the Payload URL.
+
+image::solutions-add-bitbucket-solution-deploy-code.png[Deploy the code]
+
+Paste this in to the URL field.
+
+image::solutions-add-bitbucket-solution-add-webhook.png[Add the webhook]
+
+Set the events you want to trigger the webhook, then click **Add webhook** to add it.
+
+=== Trigger the Webhook if Necessary
+
+When you add your webhook, Bitbucket gives you a list of choices for events which trigger the webhook. By default, a repository push is the webhook trigger. If this is the case for your webhook, you will need to do a `git push` to trigger the webhook.
+
+== Check Your Application
+
+At this point everything is configured, although it make take a few minutes for the deployment to complete. You can monitor the process on the Solution's **Metrics** tab.
+
+When the deployment is ready, you can view your application by visiting the ingress URL which NKS automatically created for your application.
+
+image::solutions-add-bitbucket-solution-ingress-url.png[Get your ingress URL]

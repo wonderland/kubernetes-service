@@ -85,6 +85,8 @@ entries:
     entries:
       - title: Add a Solution from GitHub
         url: /solutions-add-solution-from-github.html
+      - title: Add a Solution from Bitbucket
+        url: /solutions-add-solution-from-bitbucket.html
   - title: Private Registry
     entries:
       - title: Intro to Private Registry

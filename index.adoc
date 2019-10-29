@@ -82,6 +82,7 @@ You have set up your NKS account, and launched one or more Kubernetes clusters. 
 Solutions provide a developer-friendly Git workflow which lets you deploy your application to an NKS Kubernetes cluster with a few clicks.
 
 * link:solutions-add-solution-from-github.html[Add a Solution from GitHub]
+* link:solutions-add-solution-from-bitbucket.html[Add a Solution from Bitbucket]
 
 == Private Registry
 
