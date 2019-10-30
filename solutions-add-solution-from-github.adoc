@@ -58,7 +58,7 @@ For this step you will need an SSH keypair. To learn how to generate an SSH keyp
 
 NOTE: Do not set a passphrase for the keypair.
 
-* Give the **public** key to GitHub.
+* Give the **public** key to GitHub as the Deploy Key.
 * Paste the **private** key into the Private Deploy Key field.
 
 image::solutions-add-github-solution-add-private-key.png[Add your private key]
@@ -79,7 +79,7 @@ When you are sure that everything is correct, click **Create** to create the Sol
 
 Next, you will add configurations to your GitHub repository. To do this, you will give GitHub:
 
-* The **public** key from the SSH keypair you used for the Deploy Key.
+* The Deploy Key. This is the **public** key from the SSH keypair you created. 
 * The Payload URL (webhook).
 * The Webhook Secret.
 

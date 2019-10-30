@@ -79,7 +79,7 @@ When you are sure that everything is correct, click **Create** to create the Sol
 
 Next, you will add configurations to your Bitbucket repository. To do this, you will give Bitbucket:
 
-* The **public** key from the SSH keypair you used for the Deploy Key.
+* The **public** key you created.
 * The Payload URL (webhook).
 
 === Add the Deploy Key
@@ -88,7 +88,7 @@ Go to the Bitbucket page for your repository and click **Settings**.
 
 image::solutions-add-bitbucket-solution-bitbucket-settings.png[bitbucket Settings]
 
-Click **Access Keys** then click **Add key**. Be sure to add the **public** (not private) SSH key.
+Click **Access Keys** then click **Add key**. Add the **public** SSH key you created.
 
 === Add the Webhook
 
