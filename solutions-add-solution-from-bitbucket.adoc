@@ -7,7 +7,7 @@ summary: Learn how to deploy a Solution from a Bitbucket repository.
 = Add a Solution from Bitbucket
 :imagesdir: assets/documentation/solutions/
 
-Learn how to deploy a Solution from a Bitbucket repository.
+Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from a Bitbucket repository.
 
 **Requirements**
 
@@ -35,10 +35,10 @@ Select the Workspace, Cluster, and Project you want to use, then click **Next**.
 
 === Define Version Control
 
-In this step you will use two things:
+In this step you will set two items:
 
-* The Remote URL
-* The Private Deploy Key
+* NKS: The Remote URL
+* Bitbucket: The Private Deploy Key
 
 **Remote URL**
 
@@ -58,8 +58,8 @@ For this step you will need an SSH keypair. To learn how to generate an SSH keyp
 
 NOTE: Do not set a passphrase for the keypair.
 
-* Give the **public** key to Bitbucket.
-* Paste the **private** key into the Private Deploy Key field.
+* You will use the **public** key as the Deploy Key on Bitbucket in the next section.
+* Paste the **private** key into the Private Deploy Key field on NKS.
 
 image::solutions-add-bitbucket-solution-add-private-key.png[Add your private key]
 
@@ -79,8 +79,8 @@ When you are sure that everything is correct, click **Create** to create the Sol
 
 Next, you will add configurations to your Bitbucket repository. To do this, you will give Bitbucket:
 
-* The **public** key you created.
-* The Payload URL (webhook).
+* The Deploy Key. This is the **public** key you created.
+* The Payload URL (webhook) from NKS.
 
 === Add the Deploy Key
 
