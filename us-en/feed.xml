@@ -8,16 +8,16 @@
     <description>The latest updates from NetApp Cloud Docs</description>
     <language>en-us</language>
     <ttl>60</ttl>
-    <pubDate>Wed, 30 Oct 2019 16:58:07 +0000</pubDate>
-    <lastBuildDate>Wed, 30 Oct 2019 16:58:07 +0000</lastBuildDate>
+    <pubDate>Wed, 30 Oct 2019 17:15:24 +0000</pubDate>
+    <lastBuildDate>Wed, 30 Oct 2019 17:15:24 +0000</lastBuildDate>
     
     
     
     <item>
       <title>What&amp;#8217;s New (26 Aug 2019)</title>
-      <pubDate>Mon, 26 Aug 2019 20:43:06 +0000</pubDate>
-      <link>https://docs.netapp.com/us-en/kubernetes-service/news.html?time=1566852186</link>
-      <guid isPermaLink="false">Mon, 26 Aug 2019 20:43:06 +0000</guid>
+      <pubDate>Mon, 26 Aug 2019 23:05:04 +0000</pubDate>
+      <link>https://docs.netapp.com/us-en/kubernetes-service/news.html?time=1566860704</link>
+      <guid isPermaLink="false">Mon, 26 Aug 2019 23:05:04 +0000</guid>
       <description><![CDATA[ News and updates for NetApp Kubernetes Service (NKS) ]]></description>
     </item>
     

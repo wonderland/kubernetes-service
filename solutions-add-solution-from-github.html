@@ -726,7 +726,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-29 16:47:33 +0000">10/29/2019</time>
+<time datetime="2019-10-30 17:09:46 +0000">10/30/2019</time>
 
 
 <span>Contributors
@@ -789,15 +789,7 @@
 </div>
 </div>
 <div class="paragraph">
-<p>Click <strong>+ Add Solution</strong>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-add-solution.png" alt="Click to add Solution">
-</div>
-</div>
-<div class="paragraph">
-<p>Click <strong>Application</strong> as the Solution type.</p>
+<p>Click <strong>+ Add Solution</strong>. Click <strong>Application</strong> as the Solution type.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -807,16 +799,11 @@
 <div class="paragraph">
 <p>Select the Workspace, Cluster, and Project you want to use, then click <strong>Next</strong>.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-select-cluster.png" alt="Select Workspace" width="Cluster" height="and Project">
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="define-version-control">Define Version Control</h3>
 <div class="paragraph">
-<p>In this step you will define the version control specifics. You will need to provide two things:</p>
+<p>In this step you will use two things:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -832,7 +819,7 @@
 <p><strong>Remote URL</strong></p>
 </div>
 <div class="paragraph">
-<p>For a GitHub project, this is the project&#8217;s SSH Clone URL. To get this URL, visit your project&#8217;s GitHub repository page and click the green <strong>Clone or download</strong> button.</p>
+<p>To get this URL, visit your project&#8217;s GitHub repository page and click the green <strong>Clone or download</strong> button.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -901,24 +888,14 @@ Do not set a passphrase for the keypair.
 <div class="paragraph">
 <p>Set the application&#8217;s name, update strategy, and scaling. Click <strong>Next</strong> to continue.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-configure-application.png" alt="Configure the application">
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="review-and-confirm">Review and Confirm</h3>
 <div class="paragraph">
-<p>Review and confirm all your settings. To change a setting, click the Edit button. When you are sure that everything is correct, click <strong>Create</strong> to create the Solution.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-create-solution.png" alt="Click to add the Solution">
-</div>
+<p>Review and confirm all your settings. To change a setting, click the Edit button.</p>
 </div>
 <div class="paragraph">
-<p>This creates your Solution and redirects you to the Application&#8217;s page.</p>
+<p>When you are sure that everything is correct, click <strong>Create</strong> to create the Solution. This creates your Solution and redirects you to the Application&#8217;s page.</p>
 </div>
 </div>
 </div>
@@ -935,21 +912,15 @@ Do not set a passphrase for the keypair.
 <p>The <strong>public</strong> key from the SSH keypair you used for the Deploy Key.</p>
 </li>
 <li>
-<p>The Payload URL.</p>
+<p>The Payload URL (webhook).</p>
 </li>
 <li>
 <p>The Webhook Secret.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>You will find the Payload URL and Webhook Secret on the application&#8217;s page.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-deploy-code.png" alt="Deploy the code">
-</div>
-</div>
+<div class="sect2">
+<h3 id="add-the-deploy-key">Add the Deploy Key</h3>
 <div class="paragraph">
 <p>Go to the GitHub page for your repository and click <strong>Settings</strong>.</p>
 </div>
@@ -958,21 +929,24 @@ Do not set a passphrase for the keypair.
 <img src="assets/documentation/solutions/solutions-add-github-solution-github-settings.png" alt="GitHub Settings">
 </div>
 </div>
-<div class="sect2">
-<h3 id="add-the-deploy-key">Add the Deploy Key</h3>
 <div class="paragraph">
-<p>Click <strong>Deploy keys</strong> then click <strong>Add deploy key</strong>. Be sure to add the <strong>public</strong> (not private) SSH key. You do not need to enable write access.</p>
+<p>Click <strong>Deploy keys</strong> then click <strong>Add deploy key</strong>.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-add-deploy-key.png" alt="Add deploy key to GitHub">
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Be sure to add the <strong>public</strong> (not private) SSH key.</p>
+</li>
+<li>
+<p>You do not need to enable write access.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="add-the-webhook">Add the Webhook</h3>
 <div class="paragraph">
-<p>Click <strong>Webhooks</strong> then click <strong>Add webhook</strong>.</p>
+<p>From the GitHub <strong>Settings</strong> page, click <strong>Webhooks</strong> then click <strong>Add webhook</strong>.</p>
 </div>
 <div class="paragraph">
 <p>Return to the NKS application page, where you will find the Payload URL and Webhook Secret.</p>
@@ -983,15 +957,23 @@ Do not set a passphrase for the keypair.
 </div>
 </div>
 <div class="paragraph">
-<p>Paste these in to the Payload URL and Webhook Secret fields on GitHub. For <strong>Content Type</strong> select <code>application/json</code>.</p>
+<p>Paste these in to the Payload URL and Webhook Secret fields on GitHub.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-add-webhook.png" alt="Add the webhook to GitHub">
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <strong>Content Type</strong> select <code>application/json</code>.</p>
+</li>
+<li>
+<p>Enable SSL verification.</p>
+</li>
+<li>
+<p>Set the events you want to trigger the webhook.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Enable SSL verification, set the events you want to trigger the webhook, then click <strong>Add webhook</strong> to add it.</p>
+<p>Click <strong>Add webhook</strong> to add the webhook.</p>
 </div>
 </div>
 <div class="sect2">
