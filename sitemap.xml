@@ -15,42 +15,42 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/a-sysdig-kubernetes-adventure.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/add-a-kubernetes-master-node.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/add-a-node-pool.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/add-a-team.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/add-a-user.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/add-a-workspace.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
@@ -120,21 +120,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-federations.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-invoice.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-istio-mesh.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
@@ -148,7 +148,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-members.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
@@ -169,21 +169,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-nodepools.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-nodes.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-notifications-to-slack.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
@@ -197,56 +197,56 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-organizations.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-subscription.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-teams.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-trusted-charts.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-user.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api-workspaces.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/api.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/cipher-suites.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
@@ -260,7 +260,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/create-an-aws-cluster.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
@@ -365,7 +365,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/eol.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
@@ -435,7 +435,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/hci-enable-nks-for-netapp-hci.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
@@ -470,14 +470,14 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/managing-ingresses-on-kubernetes.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/more-resources.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
@@ -491,7 +491,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/news.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
@@ -526,21 +526,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service//search.html</loc>
       
-        <lastmod>2019-10-30T17:10:54+00:00</lastmod>
+        <lastmod>2019-10-30T17:49:26+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/solutions-add-solution-from-bitbucket.html</loc>
       
-        <lastmod>2019-10-30T17:09:46+00:00</lastmod>
+        <lastmod>2019-10-30T17:48:18+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/solutions-add-solution-from-github.html</loc>
       
-        <lastmod>2019-10-30T17:09:46+00:00</lastmod>
+        <lastmod>2019-10-30T17:48:18+00:00</lastmod>
       
     </url>
   
@@ -568,21 +568,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/upgrade-kubernetes-on-an-nks-cluster.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/upgrade-to-the-newest-version-of-kubernetes.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/kubernetes-service/using-the-kubernetes-cloud-backup.html</loc>
       
-        <lastmod>2019-08-26T23:05:04+00:00</lastmod>
+        <lastmod>2019-08-26T23:37:56+00:00</lastmod>
       
     </url>
   
