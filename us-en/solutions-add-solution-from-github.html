@@ -726,7 +726,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-30 17:48:18 +0000">10/30/2019</time>
+<time datetime="2019-10-30 19:26:29 +0000">10/30/2019</time>
 
 
 <span>Contributors
@@ -746,7 +746,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Learn how to deploy a Solution from a GitHub repository.</p>
+<p>Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from a GitHub repository.</p>
 </div>
 <div class="paragraph">
 <p><strong>Requirements</strong></p>
@@ -803,15 +803,15 @@
 <div class="sect2">
 <h3 id="define-version-control">Define Version Control</h3>
 <div class="paragraph">
-<p>In this step you will use two things:</p>
+<p>In this step you will set two items:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The Remote URL</p>
+<p>NKS: The Remote URL</p>
 </li>
 <li>
-<p>The Private Deploy Key</p>
+<p>GitHub: The Private Deploy Key</p>
 </li>
 </ul>
 </div>
@@ -867,10 +867,10 @@ Do not set a passphrase for the keypair.
 <div class="ulist">
 <ul>
 <li>
-<p>Give the <strong>public</strong> key to GitHub as the Deploy Key.</p>
+<p>You will use the <strong>public</strong> key as the Deploy Key on GitHub in the next section.</p>
 </li>
 <li>
-<p>Paste the <strong>private</strong> key into the Private Deploy Key field.</p>
+<p>Paste the <strong>private</strong> key into the Private Deploy Key field on NKS.</p>
 </li>
 </ul>
 </div>
@@ -909,13 +909,13 @@ Do not set a passphrase for the keypair.
 <div class="ulist">
 <ul>
 <li>
-<p>The Deploy Key. This is the <strong>public</strong> key from the SSH keypair you created.</p>
+<p>The Deploy Key. This is the <strong>public</strong> key you created.</p>
 </li>
 <li>
-<p>The Payload URL (webhook).</p>
+<p>The Payload URL (webhook) from NKS.</p>
 </li>
 <li>
-<p>The Webhook Secret.</p>
+<p>The Webhook Secret from NKS.</p>
 </li>
 </ul>
 </div>
