@@ -27,28 +27,22 @@ Click **Projects** then select the Project you want to use.
 
 image::solutions-add-github-solution-select-project.png[Select your Project]
 
-Click **+ Add Solution**.
-
-image::solutions-add-github-solution-add-solution.png[Click to add Solution]
-
-Click **Application** as the Solution type.
+Click **+ Add Solution**. Click **Application** as the Solution type.
 
 image::solutions-add-github-solution-click-application.png[Click Application Solution type]
 
 Select the Workspace, Cluster, and Project you want to use, then click **Next**.
 
-image::solutions-add-github-solution-select-cluster.png[Select Workspace, Cluster, and Project]
-
 === Define Version Control
 
-In this step you will define the version control specifics. You will need to provide two things:
+In this step you will use two things:
 
 * The Remote URL
 * The Private Deploy Key
 
 **Remote URL**
 
-For a GitHub project, this is the project's SSH Clone URL. To get this URL, visit your project's GitHub repository page and click the green **Clone or download** button.
+To get this URL, visit your project's GitHub repository page and click the green **Clone or download** button.
 
 NOTE: You must use "Clone with SSH." If the pop-up says "Clone with HTTPS", click the "Use SSH" link in the upper right-hand corner of the pop-up to switch to SSH.
 
@@ -75,51 +69,46 @@ Click **Next** to continue.
 
 Set the application's name, update strategy, and scaling. Click **Next** to continue.
 
-image::solutions-add-github-solution-configure-application.png[Configure the application]
-
 === Review and Confirm
 
-Review and confirm all your settings. To change a setting, click the Edit button. When you are sure that everything is correct, click **Create** to create the Solution.
+Review and confirm all your settings. To change a setting, click the Edit button.
 
-image::solutions-add-github-solution-create-solution.png[Click to add the Solution]
-
-This creates your Solution and redirects you to the Application's page.
+When you are sure that everything is correct, click **Create** to create the Solution. This creates your Solution and redirects you to the Application's page.
 
 == Deploy and Update Code
 
 Next, you will add configurations to your GitHub repository. To do this, you will give GitHub:
 
 * The **public** key from the SSH keypair you used for the Deploy Key.
-* The Payload URL.
+* The Payload URL (webhook).
 * The Webhook Secret.
 
-You will find the Payload URL and Webhook Secret on the application's page.
-
-image::solutions-add-github-solution-deploy-code.png[Deploy the code]
+=== Add the Deploy Key
 
 Go to the GitHub page for your repository and click **Settings**.
 
 image::solutions-add-github-solution-github-settings.png[GitHub Settings]
 
-=== Add the Deploy Key
+Click **Deploy keys** then click **Add deploy key**.
 
-Click **Deploy keys** then click **Add deploy key**. Be sure to add the **public** (not private) SSH key. You do not need to enable write access.
-
-image::solutions-add-github-solution-add-deploy-key.png[Add deploy key to GitHub]
+* Be sure to add the **public** (not private) SSH key.
+* You do not need to enable write access.
 
 === Add the Webhook
 
-Click **Webhooks** then click **Add webhook**.
+From the GitHub **Settings** page, click **Webhooks** then click **Add webhook**.
 
 Return to the NKS application page, where you will find the Payload URL and Webhook Secret.
 
 image::solutions-add-github-solution-deploy-code.png[Deploy the code]
 
-Paste these in to the Payload URL and Webhook Secret fields on GitHub. For **Content Type** select `application/json`.
+Paste these in to the Payload URL and Webhook Secret fields on GitHub.
 
-image::solutions-add-github-solution-add-webhook.png[Add the webhook to GitHub]
+* For **Content Type** select `application/json`.
+* Enable SSL verification.
+* Set the events you want to trigger the webhook.
 
-Enable SSL verification, set the events you want to trigger the webhook, then click **Add webhook** to add it.
+Click **Add webhook** to add the webhook.
 
 === Trigger the Webhook if Necessary
 
