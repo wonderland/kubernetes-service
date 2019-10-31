@@ -726,7 +726,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-09-06 19:33:43 +0000">09/06/2019</time>
+<time datetime="2019-10-31 16:10:04 +0000">10/31/2019</time>
 
 
 <span>Contributors
@@ -1284,38 +1284,52 @@ The cluster creation request varies slightly between providers.&lt;/aside&gt;
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">AWS: <code>coreos</code>, <code>ubuntu</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AWS: <code>coreos</code>, <code>ubuntu</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Azure: <code>coreos</code>, <code>ubuntu</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GCE: <code>coreos</code>, <code>ubuntu</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">GKE: <code>gci</code> (send gci for "cos" as well)
-channel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GKE: <code>gci</code> (send gci for "cos" as well)</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>channel</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Distribution version to use. Options are:</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CoreOS: <code>stable</code>, <code>beta</code>, <code>alpha</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Ubuntu: <code>16.04-lts</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ubuntu: <code>16.04-lts</code>, <code>18.04-lts</code></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GCI: <code>stable</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>user_ssh_keyset</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the SSH keyset that contains the public key to be used to SSH into nodes.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ID of the SSH keyset that contains the public key to be used to SSH into nodes.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>solutions</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">map</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A list of solution objects.</p></td>
 </tr>
 </tbody>
