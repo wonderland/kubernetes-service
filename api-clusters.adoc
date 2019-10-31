@@ -250,16 +250,16 @@ POST "https://api.nks.netapp.io/orgs/{Org ID}/workspaces/{Workspace ID}/clusters
 |**k8s_dashboard_enabled** | boolean | Specify if you want to enable the dashboard.
 |**etcd_type** | string | Where to host etcd. Only valid value is `self_hosted`.
 |**platform** | string | Linux distribution to use. The allowed values are:
- | | AWS: `coreos`, `ubuntu`
- | | Azure: `coreos`, `ubuntu`
- | | GCE: `coreos`, `ubuntu`
- | | GKE: `gci` (send gci for "cos" as well)
-channel | string | Distribution version to use. Options are:
- | | CoreOS: `stable`, `beta`, `alpha`
- | | Ubuntu: `16.04-lts`
- | | GCI: `stable`
+| | | AWS: `coreos`, `ubuntu`
+| | | Azure: `coreos`, `ubuntu`
+| | | GCE: `coreos`, `ubuntu`
+| | | GKE: `gci` (send gci for "cos" as well)
+| **channel** | string | Distribution version to use. Options are:
+| | | CoreOS: `stable`, `beta`, `alpha`
+| | | Ubuntu: `16.04-lts`, `18.04-lts`
+| | | GCI: `stable`
 |**user_ssh_keyset** | integer | ID of the SSH keyset that contains the public key to be used to SSH into nodes.
-|**solutions** | A list of solution objects.
+|**solutions** | map | A list of solution objects.
 |===
 
 **Solution Attributes**
