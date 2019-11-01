@@ -10,7 +10,9 @@ After you have set up your organization and any workspaces and teams you want to
 
 == Access Rights
 
-Members with the Admin role can view, access, and manage your account's subscription and credentials. Admin role users have access to the **Organization > Setup** and **Organization > Subscription** areas of the site.
+Members with the Owner role have full access to the account, including the ability to add and modify the account's billing and subscription information.
+
+Admin role users have access to the **Organization > Setup** area of the site, and can add and remove credentials and SSH keys. A member with the Owner role can also opt to grant Admin users access to the account's billing and subscription information.
 
 Members with the Member role will not see those sections on the menu, and will not be able to access your subscription, credentials, or account setup information.
 
