@@ -83,10 +83,12 @@ entries:
         url: /intro-to-terraform-on-nks.html
   - title: Solutions
     entries:
-      - title: Add a Solution from GitHub
-        url: /solutions-add-solution-from-github.html
-      - title: Add a Solution from Bitbucket
+      - title: Add a Bitbucket Solution
         url: /solutions-add-solution-from-bitbucket.html
+      - title: Add a GitHub Solution
+        url: /solutions-add-solution-from-github.html
+      - title: Add a GitLab Solution
+        url: /solutions-add-solution-from-gitlab.html
   - title: Private Registry
     entries:
       - title: Intro to Private Registry
