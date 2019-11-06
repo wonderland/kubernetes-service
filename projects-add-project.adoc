@@ -1,0 +1,43 @@
+---
+sidebar: sidebar
+permalink: projects-add-project.html
+summary: How to add a Project to your NKS account
+---
+
+= Add a Project
+:imagesdir: assets/documentation/projects/
+
+Projects are created in your desired Workspace, and can contain any combination of Applications, Trackers, and Packages.
+
+**Requirements:**
+
+* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+* A cluster created in the desired Workspace.
+
+To begin, click **Projects** then **+ Project**.
+
+image::add-project-click-projects.png[Click to add a project]
+
+**Step 1: Name Your Project**
+
+The Kubernetes name will be automatically created, according to Kubernetes naming conventions. Select the Workspace and Cluster you want to use, then click **Next** to continue.
+
+image::add-project-set-project-details.png[Set project details]
+
+**Step 2: Configure your Project**
+
+Customize Project Quotas, Pod Limits, and Container Limits to suit your needs. When you are ready to continue, click **Next**.
+
+image::add-project-configure-your-project.png[Configure your project]
+
+**Step 3: Invite Members**
+
+By default, the project will use the same roles and permissions as the Workspace to which it is assigned. Click **Next**.
+
+image::add-project-invite-members.png[Configure your project]
+
+**Step 4: Review and Confirm**
+
+Review and confirm all your settings. To change a setting, click the Edit button. When you are sure that everything is correct, click **Create Project** to create the Project.
+
+image::add-project-review-and-confirm.png[Configure your project]

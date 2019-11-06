@@ -81,6 +81,10 @@ entries:
         url: /install-kubectl-to-control-a-kubernetes-cluster.html
       - title: Terraform on NKS
         url: /intro-to-terraform-on-nks.html
+  - title: Projects
+    entries:
+      - title: Add a Project
+        url: /projects-add-a-project.html
   - title: Solutions
     entries:
       - title: Add a Bitbucket Solution
