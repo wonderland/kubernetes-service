@@ -77,6 +77,12 @@ You have set up your NKS account, and launched one or more Kubernetes clusters. 
 * link:install-kubectl-to-control-a-kubernetes-cluster.html[Install kubectl to Control a Kubernetes Cluster]
 * link:intro-to-terraform-on-nks.html[Terraform on NKS]
 
+== Projects
+
+Learn how to create and manage Projects.
+
+* link:projects-add-project.html[Add a Project]
+
 == Solutions
 
 Solutions provide a developer-friendly Git workflow which lets you deploy your application to an NKS Kubernetes cluster with a few clicks.
