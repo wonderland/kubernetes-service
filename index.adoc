@@ -79,7 +79,7 @@ You have set up your NKS account, and launched one or more Kubernetes clusters. 
 
 == Projects
 
-Learn how to create and manage Projects.
+Projects let you organize workloads and simplify deployment. Each Project is assigned to a single Workspace. Projects can have multiple cluster and any combination of Solutions (including Applications, Trackers, and Packages).
 
 * link:projects-add-project.html[Add a Project]
 

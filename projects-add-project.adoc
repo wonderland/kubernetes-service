@@ -7,7 +7,7 @@ summary: How to add a Project to your NKS account
 = Add a Project
 :imagesdir: assets/documentation/projects/
 
-Projects are created in your desired Workspace, and can contain any combination of Applications, Trackers, and Packages.
+Learn how to add a project to your NetApp Kubernetes Service (NKS) account. Projects let you organize workloads and simplify deployment. Each Project is assigned to a single Workspace. Projects can have multiple cluster and any combination of Solutions (including Applications, Trackers, and Packages).
 
 **Requirements:**
 
