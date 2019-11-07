@@ -84,7 +84,7 @@ entries:
   - title: Projects
     entries:
       - title: Add a Project
-        url: /projects-add-a-project.html
+        url: /projects-add-project.html
   - title: Solutions
     entries:
       - title: Add a Bitbucket Solution
