@@ -83,6 +83,8 @@ entries:
         url: /intro-to-terraform-on-nks.html
   - title: Projects
     entries:
+      - title: Intro to Projects
+        url: /projects-intro-to-projects.html
       - title: Add a Project
         url: /projects-add-project.html
   - title: Solutions

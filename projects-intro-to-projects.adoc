@@ -1,0 +1,32 @@
+---
+sidebar: sidebar
+permalink: projects-intro-to-projects.html
+summary: Introduction and overview of Projects
+---
+
+= Intro to Projects
+:imagesdir: assets/documentation/projects/
+
+Learn how to use Projects to manage your application's lifecycle, from building to tracking and maintenance.
+
+Projects are the heart of application lifecycle management. Clusters can have many Projects, and each Project can have many Solutions, including Applications, Packages, and Trackers. Projects are designed to group together Solutions. A Project could be a discrete microservice in your system, or a collection of microservices owned by a team in your Organization.
+
+NOTE: Projects which need to talk to each other should be run in the same cluster.
+
+Clusters can represent different environments, like a test, staging, and production environment. In this case, each cluster environment will be running a similar version of the same Project.
+
+== Example
+
+As an example, Acme Industries wants to use Kubernetes to deploy a custom microservice. To begin, they link:projects-add-project.html[create a new Project] called `Acme CDS Test Env`. This will be their test environment.
+
+The core of Acme's microservice is an app which their developers have been collaboratively developing in a GitHub repository. They have three different GitHub repos, one each for test, staging, and production. For this first Project, they link:solutions-add-solution-from-github.html[add an Application] and connect it to the GitHub repo for the test version of their app.
+
+Now that they have set up their NKS Project, the Acme team can:
+
+* Monitor the performance and health of their microservice on the Project's **Metrics** page.
+* View and manage the cluster's settings and performance from the Project page.
+* Update the app by using the familiar `git push` workflow.
+* Set project quotas and limits on the Project's **Settings** page.
+* Test their app on different cloud providers by creating new versions of the Project.
+
+The Acme team's next step will be to set up Projects for the staging and production versions of their app. Each one will have the different relevant version of their microservice application deployed on the cluster.
