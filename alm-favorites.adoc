@@ -1,9 +1,0 @@
----
-sidebar: sidebar
-permalink: alm-favorites.html
-summary: An explanation of NKS Application Lifecycle Management Favorites and how to use them.
----
-
-= Application Lifecycle Management: Favorites
-
-Coming soon.

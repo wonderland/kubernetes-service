@@ -1,9 +1,0 @@
----
-sidebar: sidebar
-permalink: alm-projects.html
-summary: An explanation of NKS Application Lifecycle Management Projects and how to use them.
----
-
-= Application Lifecycle Management: Projects
-
-Coming soon.
