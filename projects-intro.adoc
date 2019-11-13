@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar
-permalink: projects-intro-to-projects.html
+permalink: projects-intro.html
 summary: Introduction and overview of Projects
 ---
 
