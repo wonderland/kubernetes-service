@@ -4,6 +4,6 @@ permalink: storage-intro.html
 summary: Learn how to use NKS storage
 ---
 
-= Intro to Storage
+= Storage
 
 Coming soon.

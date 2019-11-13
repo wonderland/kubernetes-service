@@ -1,0 +1,149 @@
+---
+sidebar: sidebar
+permalink: sitemap.html
+summary: NKS Sitemap
+---
+
+= Sitemap
+
+==  Getting Started
+
+* link:getting-started-intro.html[Intro to NKS]
+* link:getting-started-checklist.html[Checklist]
+* link:getting-started-subscription.html[Subscription]
+* link:getting-started-organizations.html[Organizations]
+* link:getting-started-user-access.html[Controlling User Access]
+* link:getting-started-members.html[Members]
+* link:getting-started-add-credentials.html[Add Provider Credentials]
+* link:getting-started-working-with-clusters.html[Working with NKS Kubernetes Clusters]
+
+== Add Provider Credentials
+
+* link:/create-auth-credentials-on-aws.html[AWS]
+* link:/find-aws-credentials-for-cvs.html[AWS for CVS]
+* link:/create-auth-credentials-on-azure.html[Azure]
+* link:/register-flexpod.html[Flexpod]
+* link:/create-auth-credentials-on-gce.html[GCE]
+* link:/create-auth-credentials-on-gke.html[GKE]
+* link:/hci-enable-nks-for-netapp-hci.html[NetApp HCI]
+* link:/register-vmware.html[VMware]
+
+== Control Plane
+
+=== Workspaces
+
+* link:/workspaces-intro.html[Intro to Workspaces]
+* link:/add-a-workspace.html[Add a Workspace]
+
+=== Clusters
+
+* link:/clusters-intro.html[Intro to Clusters]
+
+**Create a Cluster**
+
+    * link:create-aws-cluster.html[Create an AWS Cluster]
+    * link:create-aks-cluster.html[Create an Amazon Kubernetes Service (AKS) Cluster]
+    * link:create-azure-cluster.html[Create an Azure Cluster]
+    * link:create-anf-cluster.html[Create an Azure NetApp Files (ANF) Cluster]
+    * link:create-eks-cluster.html[Create an Amazon Elastic Kubernetes Service (EKS) Cluster]
+    * link:create-flexpod-cluster.html[Create a FlexPod Cluster]
+    * link:create-gce-cluster.html[Create a Google Compute Engine (GCE) Cluster]
+    * link:create-gke-cluster.html[Create a Google Kubernetes Engine (GKE) Cluster]
+    * link:/create-netapp-hci-cluster.html[Create a NetApp HCI Cluster]
+    * link:kubernetes-service/create-vmware-cluster.html[Create a VMware Cluster]
+
+**Cluster Lifecycle**
+
+* link:/add-a-kubernetes-master-node.html[Add a Master Node]
+* link:/add-a-node-pool.html[Add a Node Pool]
+* link:/upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
+* link:/using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
+
+**Istio**
+
+NOTE: Available in "Classic Mode" only.
+
+* link:/istio-create-cross-cluster-mesh.html[Create an Istio Mesh]
+* link://istio-test-cross-cluster-mesh.html[Test an Istio Mesh]
+
+**Accessing Clusters**
+
+* link:/ssh-to-a-node-in-an-nks-cluster.html[SSH to a Node in an NKS Cluster]
+* link:/install-kubectl-to-control-a-kubernetes-cluster.html[Install Kubectl]
+* link:/intro-to-terraform-on-nks.html[Terraform on NKS]
+
+=== Projects
+
+* link:/projects-intro.html[Intro to Projects]
+* link:/projects-add-project.html[Add a Project]
+
+=== Solutions
+
+* link:/solutions-intro.html[Intro to Solutions]
+* link:/solutions-add-solution-from-bitbucket.html[Add a Bitbucket Solution]
+* link:/solutions-add-solution-from-github.html[Add a GitHub Solution]
+* link:/solutions-add-solution-from-gitlab.html[Add a GitLab Solution]
+
+== Resources
+
+=== My Charts
+
+* link:/my-charts-intro.html[Intro to My Charts]
+
+=== Private Registry
+
+* link:/private-registry-intro.html[Intro to Private Registry]
+
+=== Storage
+
+* link:/storage-intro.html[Intro to Storage]
+
+== Organization
+
+=== Organization Setup
+
+* link:/org-setup-intro.html[Intro to Organization Setup]
+
+== Members
+
+* link:/members-intro.html[Intro to Members]
+* link:/add-a-member.html[Add a Member]
+
+=== Teams
+
+* link:/teams-intro.html[Intro to Teams]
+* link:/add-a-team.html[Add a Team]
+
+== API
+
+* link:api-basics.html[API Basics]
+* link:api-clusters.html[Clusters]
+* link:api-federations.html[Federations]
+* link:api-invoice.html[Invoices]
+* link:api-istio-mesh.html[Istio Mesh]
+* link:api-keysets.html[Keysets]
+* link:api-members.html[Members]
+* link:api-migrate-version.html[Migrate Version (Upgrade)]
+* link:api-my-charts.html[My Charts]
+* link:api-nodepools.html[Nodepools]
+* link:api-nodes.html[Nodes]
+* link:api-notifications.html[Notifications]
+* link:api-organizations.html[Organizations]
+* link:api-subscription.html[Subscription]
+* link:api-teams.html[Teams]
+* link:api-trusted-charts.html[Trusted Charts]
+* link:api-user.html[User]
+* link:api-workspaces.html[Workspaces]
+* link:api-notifications-to-slack.html[Tutorial: Push NKS Notifications to a Slack Channel]
+
+== Requirements and Other Details
+
+* link:netapp-hci-requirements.html[NetApp HCI Requirements]
+* link:nks-requirements.html[NKS Requirements]
+* link:whitelist-ports-and-ip-addresses.html[Whitelist Ports and IP Addresses]
+* link:cipher-suites.html[Cipher Suites]
+* link:more-resources.html[More Resources]
+
+== What's New
+
+* link:news.html[NetApp Kubernetes Service (NKS) News]

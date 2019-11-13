@@ -1,0 +1,23 @@
+---
+sidebar: sidebar
+permalink: workspaces-intro.html
+summary: Learn how to use NKS Workspaces
+---
+
+= Workspaces
+
+The https://nks.netapp.io[NetApp Kubernetes Service (NKS)] Workspace allows you to group together Projects, Teams, and Members. This lets you tailor access to the exact needs of a group of users.
+
+For example, you may want to allow a certain team access to build and manage clusters at one particular provider. This can be accomplished by creating a workspace for that team (or teams). Then assign specific *Provider Credentials* to that workspace. The same process can be used to enable or restrict access to other resources found under *Setup*:
+
+* Provider Credentials
+* Solution Credentials
+* Storage Credentials
+* VCS (Version Control System) Credentials
+* SSH Keys
+
+**Related Articles**
+
+* link:/add-a-workspace.html[Add a Workspace]
+* link:/add-a-user.html[Add a User]
+* link:/add-a-team.html[Add a Team]

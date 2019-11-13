@@ -1,0 +1,31 @@
+---
+sidebar: sidebar
+permalink: org-setup-intro.html
+summary: Learn how to use NKS Organization Setup
+---
+
+= Organization Setup
+
+The **Organization > Setup** page is where you can add credentials for providers, solutions, backup, VCS, and SSH keys.
+
+**Create Credentials**
+
+Provider credentials are the authorization keys for your account on AWS, NetApp HCI, Azure, and other supported providers. This lets you create clusters on the supported provider of your choice.
+
+Get step-by-step instructions for adding provider credentials for:
+
+* link:/create-auth-credentials-on-aws.html[AWS]
+* link:/find-aws-credentials-for-cvs.html[AWS for CVS]
+* link:/create-auth-credentials-on-azure.html[Azure]
+* link:/register-flexpod.html[Flexpod]
+* link:/create-auth-credentials-on-gce.html[GCE]
+* link:/create-auth-credentials-on-gke.html[GKE]
+* link:/hci-enable-nks-for-netapp-hci.html[NetApp HCI]
+* link:/register-vmware.html[VMware]
+
+
+**Related Articles**
+
+* link:/getting-started-organizations.html[Getting Started: Organizations]
+* link:/members-intro.html[Intro to Members]
+* link:/teams-intro.html[Intro to Teams]

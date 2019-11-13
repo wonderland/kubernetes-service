@@ -1,0 +1,52 @@
+---
+sidebar: sidebar
+permalink: clusters-intro.html
+summary: Learn how to use NKS Clusters
+---
+
+= Clusters
+
+https://nks.netapp.io[NetApp Kubernetes Service (NKS)] lets you create and manage clusters at the provider of your choice. If you don't have an NKS account, sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
+== Create a Cluster
+
+To create a Kubernetes cluster in NKS, click the **+CREATE CLUSTER** button. Customize any defaults you want, including changing the region, size and number of nodes, adding packaged Helm charts, etc. Then NKS will create your cluster on the provider of your choice.
+
+NOTE: Before you create a Kubernetes cluster with NKS, you will need to link:/getting-started-add-credentials.html[add your provider credentials].
+
+For step-by-step instructions, see our guides by provider:
+
+* link:create-aws-cluster.html[Amazon Web Services (AWS)]
+* link:create-aks-cluster.html[Amazon Kubernetes Service (AKS)]
+* link:create-azure-cluster.html[Azure]
+* link:create-anf-cluster.html[Azure NetApp Files (ANF)]
+* link:create-eks-cluster.html[Amazon Elastic Kubernetes Service (EKS)]
+* link:create-flexpod-cluster.html[FlexPod]
+* link:create-gce-cluster.html[Google Compute Engine (GCE)]
+* link:create-gke-cluster.html[Google Kubernetes Engine (GKE)]
+* link:/create-netapp-hci-cluster.html[NetApp HCI]
+* link:kubernetes-service/create-vmware-cluster.html[VMware]
+
+== Cluster Lifecycle
+
+Learn how to manage existing clusters.
+
+* link:/add-a-kubernetes-master-node.html[Add a Master Node]
+* link:/add-a-node-pool.html[Add a Node Pool]
+* link:/upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
+* link:/using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
+
+== Istio
+
+NOTE: Available in "Classic Mode" only.
+
+* link:/istio-create-cross-cluster-mesh.html[Create an Istio Mesh]
+* link://istio-test-cross-cluster-mesh.html[Test an Istio Mesh]
+
+== Accessing Clusters
+
+Although you can perform many tasks directly through the NKS UI, there are some cases when you will want to interact with your cluster(s) more directly.
+
+* link:/ssh-to-a-node-in-an-nks-cluster.html[SSH to a Node in an NKS Cluster]
+* link:/install-kubectl-to-control-a-kubernetes-cluster.html[Install Kubectl]
+* link:/intro-to-terraform-on-nks.html[Terraform on NKS]

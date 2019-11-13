@@ -4,7 +4,7 @@ permalink: private-registry-intro.html
 summary: An introduction to the NKS Private Registry
 ---
 
-= Intro to Private Registry
+= Private Registry
 :imagesdir: assets/documentation/private-registry/
 
 Learn more about the NKS Private Registry, including an overview of the Private Registry features, and how to use the NKS Private Registry to easily launch your app on a Kubernetes cluster.

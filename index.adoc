@@ -26,93 +26,45 @@ Welcome to NKS! Read through our series of Getting Started articles for an overv
 * link:getting-started-add-credentials.html[Add Provider Credentials]
 * link:getting-started-working-with-clusters.html[Working with NKS Kubernetes Clusters]
 
-== Add Credentials
+== Add Provider Credentials
 
 Provider credentials are the authorization keys for your account on AWS, NetApp HCI, Azure, and other supported providers. This lets you create clusters on the supported provider of your choice.
 
 Get step-by-step instructions for adding provider credentials for:
 
-* link:create-auth-credentials-on-aws.html[Amazon Web Services (AWS) Credentials]
-* link:find-aws-credentials-for-cvs.html[AWS Credentials for CVS]
-* link:create-auth-credentials-on-azure.html[Azure Credentials]
-* link:register-flexpod.html[FlexPod]
-* link:create-auth-credentials-on-gce.html[Google Compute Engine (GCE) Credentials]
-* link:create-auth-credentials-on-gke.html[Google Kubernetes Engine (GKE) Credentials]
-* link:register-vmware.html[VMware]
+* link:/create-auth-credentials-on-aws.html[AWS]
+* link:/find-aws-credentials-for-cvs.html[AWS for CVS]
+* link:/create-auth-credentials-on-azure.html[Azure]
+* link:/register-flexpod.html[Flexpod]
+* link:/create-auth-credentials-on-gce.html[GCE]
+* link:/create-auth-credentials-on-gke.html[GKE]
+* link:/hci-enable-nks-for-netapp-hci.html[NetApp HCI]
+* link:/register-vmware.html[VMware]
 
-== Create a Kubernetes Cluster
+== Control Plane
 
-After you set up your NKS account, it's time to create a Kubernetes cluster.
+The Control Plane is where you can create and manage NKS Workspaces, Clusters, Projects, and Solutions. Learn more about the Control Plane with these topics:
 
-Learn how to create a cluster at the provider of your choice with our step-by-step guides:
+* link:/workspaces-intro.html[Workspaces]
+* link:/clusters-intro.html[Clusters]
+* link:/projects-intro.html[Projects]
+* link:/solutions-intro.html[Solutions]
 
-* link:create-aws-cluster.html[Create a Kubernetes Cluster on Amazon Web Services (AWS)]
-* link:create-eks-cluster.html[Create a Kubernetes Cluster on Amazon EKS]
-* link:create-azure-cluster.html[Create a Kubernetes Cluster on Azure]
-* link:create-anf-cluster.html[Create a Kubernetes Cluster with Azure NetApp Files (ANF)]s
-* link:create-aks-cluster.html[Create a Kubernetes Cluster on Microsoft AKS]
-* link:create-flexpod-cluster.html[Create a Kubernetes Cluster on FlexPod]
-* link:create-gce-cluster.html[Create a Kubernetes Cluster on Google Compute Engine (GCE)]
-* link:create-gke-cluster.html[Create a Kubernetes Cluster on Google Kubernetes Engine (GKE)]
-* link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI Cluster]
-* link:create-vmware-cluster.html[Create a Kubernetes Cluster on VMware]
+== Resources
 
-== Manage Access
+In the Resources section, you can manage the Helm charts, storage, and Private Registry for your NKS clusters.
 
-Learn how to use NKS Teams and Workspaces to manage access for your users. NKS lets you set up multiple levels of access, so that you can restrict authorization keys to certain groups of users, prevent users from one group from creating or deleting clusters in another group's Workspace, and more.
+* link:/my-charts-intro.html[My Charts]
+* link:/private-registry-intro.html[Private Registry]
+* link:/storage-intro.html[Storage]
 
-* link:add-a-member.html[Add a Member]
-* link:add-a-team.html[Add a Team]
-* link:add-a-workspace.html[Add a Workspace]
-* link:ssh-to-a-node-in-an-nks-cluster.html[SSH to a Node in an NKS Cluster]
+== Organization
 
-== Cluster Lifecycle
+Your Organization is the top-level resource in your NKS account. Here you can add and manage Members and Teams, and manage access keys such as provider credentials.
 
-You have set up your NKS account, and launched one or more Kubernetes clusters. Now what? Learn more about how to use and extend NKS, and how to automate your NKS workflow with our new Terraform provider.
-
-* link:add-a-kubernetes-master-node.html[Add a Kubernetes Master Node]
-* link:add-a-node-pool.html[Add a Node Pool]
-* link:upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
-* link:using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
-* link:install-kubectl-to-control-a-kubernetes-cluster.html[Install kubectl to Control a Kubernetes Cluster]
-* link:intro-to-terraform-on-nks.html[Terraform on NKS]
-
-== Projects
-
-Learn how to create and manage Projects. Projects let you organize workloads and simplify deployment. Each Project is assigned to a single Workspace. Projects can have multiple cluster and any combination of Solutions (including Applications, Trackers, and Packages).
-
-* link:projects-intro-to-projects.html[Intro to Projects]
-* link:projects-add-project.html[Add a Project]
-
-== Solutions
-
-Solutions provide a developer-friendly Git workflow which lets you deploy your application to an NKS Kubernetes cluster with a few clicks.
-
-* link:solutions-add-solution-from-bitbucket.html[Add a Solution from Bitbucket]
-* link:solutions-add-solution-from-github.html[Add a Solution from GitHub]
-* link:solutions-add-solution-from-gitlab.html[Add a Solution from GitLab]
-
-
-== Private Registry
-
-The private registry lets you push a Docker image or Helm chart directly to a Kubernetes cluster on NKS. This provides security and privacy for your app. It also makes it easy to migrate your app from your desktop or development server to the cloud, using NKS.
-
-* link:private-registry-intro.html[Intro to Private Registry]
-
-== NetApp HCI
-
-Get started with NetApp HCI on NKS by reading our guides on the following topics:
-
-* link:netapp-hci-requirements.html[NetApp HCI Requirements]
-* link:hci-enable-nks-for-netapp-hci.html[Enable NKS for NetApp HCI]
-* link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI]
-
-== Istio
-
-Use Istio to create a service mesh with your NKS Kubernetes clusters.
-
-* link:istio-create-cross-cluster-mesh.html[Create an Istio Mesh]
-* link:istio-test-cross-cluster-mesh.html[Test an Istio Cross-Cluster Mesh]
+* link:/org-setup-intro.html[Setup]
+* link:/members-intro.html[Members]
+* link:/teams-intro.html[Teams]
 
 == API
 
@@ -155,5 +107,9 @@ The following articles cover specific requirements and other details necessary f
 Get the latest news and updates on NKS.
 
 * link:news.html[NetApp Kubernetes Service (NKS) News]
+
+== Sitemap
+
+* link:sitemap.html[Sitemap]
 
 _Did these articles answer your question? If not, mailto:nks@netapp.com[contact us.]_

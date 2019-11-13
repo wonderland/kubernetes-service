@@ -6,39 +6,6 @@ summary: Learn how to add and manage NKS teams
 
 = Add and Manage NKS Teams
 
-You can use teams, in conjunction with workspaces, to organize users and restrict their access on your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] account.
-
-* Each team can have many members.
-* Each workspace can be assigned to many teams.
-* Provider credentials can be restricted to specific workspaces.
-
-As an example, let's say you have:
-
-* One group of users who are developing applications for AWS and thus only need access to your AWS credentials.
-* Another group of users who need to be able to launch Kubernetes clusters on GKE and GCE.
-* A third group needs to have access to all of the available provider credentials on your account.
-
-To set this up, create three teams:
-
-* AWS Developers
-* GKE/GCE Developers
-* All Access
-
-Next, create a workspace for each provider (Amazon, GKE, GCE, and Azure). Assign the appropriate teams to the workspaces:
-
-* AWS Developers: Assign to the Amazon workspace.
-* GKE/GCE Developers: Assign to the GKE and GCE workspaces.
-* All Access: Assign to all four workspaces.
-
-For instructions on creating a workspace, https://docs.netapp.com/us-en/kubernetes-service/[see our article on this topic].
-
-**Related Articles**
-
-* https://docs.netapp.com/us-en/kubernetes-service/add-a-user.html[Add a User]
-* https://docs.netapp.com/us-en/kubernetes-service/add-a-workspace.html[Add a Workspace]
-
-== Create a Team
-
 To create a team, go to **Organization > Teams** then click **+ ADD TEAM**.
 
 image::assets/documentation/add-a-team/add-a-team-01.png?raw=true[Add an NKS Team]
