@@ -61,7 +61,7 @@ Learn how to create a cluster at the provider of your choice with our step-by-st
 
 Learn how to use NKS Teams and Workspaces to manage access for your users. NKS lets you set up multiple levels of access, so that you can restrict authorization keys to certain groups of users, prevent users from one group from creating or deleting clusters in another group's Workspace, and more.
 
-* link:add-a-user.html[Add a User]
+* link:add-a-member.html[Add a Member]
 * link:add-a-team.html[Add a Team]
 * link:add-a-workspace.html[Add a Workspace]
 * link:ssh-to-a-node-in-an-nks-cluster.html[SSH to a Node in an NKS Cluster]
@@ -81,7 +81,7 @@ You have set up your NKS account, and launched one or more Kubernetes clusters. 
 
 Learn how to create and manage Projects. Projects let you organize workloads and simplify deployment. Each Project is assigned to a single Workspace. Projects can have multiple cluster and any combination of Solutions (including Applications, Trackers, and Packages).
 
-* link:projects-intro.html[Intro to Projects]
+* link:projects-intro-to-projects.html[Intro to Projects]
 * link:projects-add-project.html[Add a Project]
 
 == Solutions

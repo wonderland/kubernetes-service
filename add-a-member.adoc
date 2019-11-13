@@ -1,0 +1,25 @@
+---
+sidebar: sidebar
+permalink: add-a-member.html
+summary: Learn about user privilege levels, and how to add a member to your NKS account
+---
+
+= Add a Member to your NKS Account
+
+To add a member to your NKS account, you will need to invite them to your Organization. If the member does not already have their own NKS account, they will be prompted to create one after they click on the invite.
+
+To send an invite, go to **Organizations > Members**. Click **+ ADD MEMBER**.
+
+image::assets/documentation/add-a-user/add-user-02.png?raw=true[Add an NKS User]
+
+In the pop-up window which appears, fill out the member's name and email address. Choose the member's role (Member or Admin). Optionally, you can set a Team for the user. Click **Submit** to send the invitation.
+
+After the invite has been sent, the user will appear on the Members page with status **Invited on [date]**.
+
+image::assets/documentation/add-a-user/add-user-03.png?raw=true[Add an NKS User]
+
+You can click here to resend the invitation email. You can also click to copy the link to your clipboard, so that you can send the invitation link to the member.
+
+When the member accepts the invitation and joins your Organization, their status will change to **Joined on [date]** and the `copy link | resend email` links will disappear.
+
+_Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

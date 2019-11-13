@@ -59,8 +59,8 @@ entries:
         url: /create-vmware-cluster.html
   - title: Manage Access
     entries:
-      - title: Add a User
-        url: /add-a-user.html
+      - title: Add a Member
+        url: /add-a-member.html
       - title: Add a Team
         url: /add-a-team.html
       - title: Add a Workspace
@@ -84,7 +84,7 @@ entries:
   - title: Projects
     entries:
       - title: Intro to Projects
-        url: /projects-intro.html
+        url: /projects-intro-to-projects.html
       - title: Add a Project
         url: /projects-add-project.html
   - title: Solutions
