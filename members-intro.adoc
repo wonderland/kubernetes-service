@@ -6,7 +6,7 @@ summary: Learn how to use NKS Members
 
 = Members
 
-You can add someone to your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] account as either a Member or an Admin. link:/add-a-member.html[Click here for step-by-step instructions on adding a Member].
+You can add someone to your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] account as either a Member or an Admin. link:add-a-member.html[Click here for step-by-step instructions on adding a Member].
 
 **Member:** By default, Member accounts have full access to Control Plane and Solutions functionality, including the ability to create and delete Kubernetes clusters. However, Members have restricted access to the Organization section.
 
@@ -37,6 +37,6 @@ image::assets/documentation/add-a-user/add-user-01.png?raw=true[Add an NKS User]
 
 **Related Articles**
 
-* link:/getting-started-members.html[Getting Started: Members]
-* link:/add-a-team.html[Add a Team]
-* link:/add-a-workspace.html[Add a Workspace]
+* link:getting-started-members.html[Getting Started: Members]
+* link:add-a-team.html[Add a Team]
+* link:add-a-workspace.html[Add a Workspace]

@@ -10,7 +10,7 @@ This NKS documentation shows how to upgrade the Kubernetes version on a https://
 
 NOTE: By keeping your cluster's version of Kubernetes up-to-date, you will ensure that you don't get left behind by the upgrade process. If your Kubernetes version falls too far behind what we currently offer, you will have to perform upgrades by hand.
 
-If your cluster is not eligible for a one-click upgrade, you will need to perform the upgrade by hand. For more information on this process, we recommend the official Kubernetes documents on https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm-upgrade/[using kubeadm upgrade].
+If your cluster is not eligible for a one-click upgrade, you will need to perform the upgrade by hand. For more information on this process, link:migrate-a-cluster.html[see our article on migrating a cluster].
 
 == Check Cluster Upgrade Eligibility
 

@@ -10,7 +10,7 @@ Here's a checklist of introductory, "Day 1" tasks for setting up your NKS accoun
 
 == User Access
 
-See our article on https://docs.netapp.com/us-en/kubernetes-service/getting-started-user-access.html[Setting up user access] for more details.
+See our article on link:getting-started-user-access.html[Setting up user access] for more details.
 
 **Organization**
 
@@ -34,4 +34,4 @@ See our article on https://docs.netapp.com/us-en/kubernetes-service/getting-star
 
 == Provider Credentials
 
-* Add your provider credentials to your organization. https://docs.netapp.com/us-en/kubernetes-service/getting-started-add-credentials.html[More information]
+* Add your provider credentials to your organization. link:getting-started-add-credentials.html[More information]

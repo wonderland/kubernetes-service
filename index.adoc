@@ -32,39 +32,39 @@ Provider credentials are the authorization keys for your account on AWS, NetApp 
 
 Get step-by-step instructions for adding provider credentials for:
 
-* link:/create-auth-credentials-on-aws.html[AWS]
-* link:/find-aws-credentials-for-cvs.html[AWS for CVS]
-* link:/create-auth-credentials-on-azure.html[Azure]
-* link:/register-flexpod.html[Flexpod]
-* link:/create-auth-credentials-on-gce.html[GCE]
-* link:/create-auth-credentials-on-gke.html[GKE]
-* link:/hci-enable-nks-for-netapp-hci.html[NetApp HCI]
-* link:/register-vmware.html[VMware]
+* link:create-auth-credentials-on-aws.html[AWS]
+* link:find-aws-credentials-for-cvs.html[AWS for CVS]
+* link:create-auth-credentials-on-azure.html[Azure]
+* link:register-flexpod.html[Flexpod]
+* link:create-auth-credentials-on-gce.html[GCE]
+* link:create-auth-credentials-on-gke.html[GKE]
+* link:hci-enable-nks-for-netapp-hci.html[NetApp HCI]
+* link:register-vmware.html[VMware]
 
 == Control Plane
 
 The Control Plane is where you can create and manage NKS Workspaces, Clusters, Projects, and Solutions. Learn more about the Control Plane with these topics:
 
-* link:/workspaces-intro.html[Workspaces]
-* link:/clusters-intro.html[Clusters]
-* link:/projects-intro.html[Projects]
-* link:/solutions-intro.html[Solutions]
+* link:workspaces-intro.html[Workspaces]
+* link:clusters-intro.html[Clusters]
+* link:projects-intro.html[Projects]
+* link:solutions-intro.html[Solutions]
 
 == Resources
 
 In the Resources section, you can manage the Helm charts, storage, and Private Registry for your NKS clusters.
 
-* link:/my-charts-intro.html[My Charts]
-* link:/private-registry-intro.html[Private Registry]
-* link:/storage-intro.html[Storage]
+* link:my-charts-intro.html[My Charts]
+* link:private-registry-intro.html[Private Registry]
+* link:storage-intro.html[Storage]
 
 == Organization
 
 Your Organization is the top-level resource in your NKS account. Here you can add and manage Members and Teams, and manage access keys such as provider credentials.
 
-* link:/org-setup-intro.html[Setup]
-* link:/members-intro.html[Members]
-* link:/teams-intro.html[Teams]
+* link:org-setup-intro.html[Setup]
+* link:members-intro.html[Members]
+* link:teams-intro.html[Teams]
 
 == API
 

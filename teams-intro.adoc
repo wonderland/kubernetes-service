@@ -30,10 +30,10 @@ Next, create a workspace for each provider (Amazon, GKE, GCE, and Azure). Assign
 * GKE/GCE Developers: Assign to the GKE and GCE workspaces.
 * All Access: Assign to all four workspaces.
 
-For instructions on creating a workspace, https://docs.netapp.com/us-en/kubernetes-service/[see our article on this topic].
+For instructions on creating a workspace, link:add-a-workspace.html[see our article on this topic].
 
 **Related Articles**
 
-* link:/add-a-team.html[Add a Team]
-* link:/add-a-member.html[Add a Member]
-* link:/add-a-workspace.html[Add a Workspace]
+* link:add-a-team.html[Add a Team]
+* link:add-a-member.html[Add a Member]
+* link:add-a-workspace.html[Add a Workspace]

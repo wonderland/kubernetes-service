@@ -13,8 +13,8 @@ A node pool is a group of worker nodes with similar configuration that handle cl
 
 **Related Articles**
 
-* https://docs.netapp.com/us-en/kubernetes-service/add-a-kubernetes-master-node.html[Add a Master Node]
-* https://docs.netapp.com/us-en/kubernetes-service/upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
+* link:add-a-kubernetes-master-node.html[Add a Master Node]
+* link:upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
 
 == Add Nodes to an Existing Node Pool
 

@@ -29,8 +29,8 @@ NOTE: These privilege levels are the same for API access.
 
 **Related Articles**
 
-* https://docs.netapp.com/us-en/kubernetes-service/add-a-workspace.html[Add a Workspace]
-* https://docs.netapp.com/us-en/kubernetes-service/add-a-team.html[Add a Team]
+* link:add-a-workspace.html[Add a Workspace]
+* link:add-a-team.html[Add a Team]
 
 == Members and Organizations
 
