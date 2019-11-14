@@ -41,16 +41,16 @@ summary: NKS Sitemap
 
 **Create a Cluster**
 
-    * link:create-aws-cluster.html[Create an AWS Cluster]
-    * link:create-aks-cluster.html[Create an Amazon Kubernetes Service (AKS) Cluster]
-    * link:create-azure-cluster.html[Create an Azure Cluster]
-    * link:create-anf-cluster.html[Create an Azure NetApp Files (ANF) Cluster]
-    * link:create-eks-cluster.html[Create an Amazon Elastic Kubernetes Service (EKS) Cluster]
-    * link:create-flexpod-cluster.html[Create a FlexPod Cluster]
-    * link:create-gce-cluster.html[Create a Google Compute Engine (GCE) Cluster]
-    * link:create-gke-cluster.html[Create a Google Kubernetes Engine (GKE) Cluster]
-    * link:/create-netapp-hci-cluster.html[Create a NetApp HCI Cluster]
-    * link:kubernetes-service/create-vmware-cluster.html[Create a VMware Cluster]
+* link:create-aws-cluster.html[Create an AWS Cluster]
+* link:create-aks-cluster.html[Create an Amazon Kubernetes Service (AKS) Cluster]
+* link:create-azure-cluster.html[Create an Azure Cluster]
+* link:create-anf-cluster.html[Create an Azure NetApp Files (ANF) Cluster]
+* link:create-eks-cluster.html[Create an Amazon Elastic Kubernetes Service (EKS) Cluster]
+* link:create-flexpod-cluster.html[Create a FlexPod Cluster]
+* link:create-gce-cluster.html[Create a Google Compute Engine (GCE) Cluster]
+* link:create-gke-cluster.html[Create a Google Kubernetes Engine (GKE) Cluster]
+* link:/create-netapp-hci-cluster.html[Create a NetApp HCI Cluster]
+* link:kubernetes-service/create-vmware-cluster.html[Create a VMware Cluster]
 
 **Cluster Lifecycle**
 
@@ -58,6 +58,7 @@ summary: NKS Sitemap
 * link:/add-a-node-pool.html[Add a Node Pool]
 * link:/upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
 * link:/using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
+* link:/migrate-a-cluster.html[Migrate a Cluster]
 
 **Istio**
 
