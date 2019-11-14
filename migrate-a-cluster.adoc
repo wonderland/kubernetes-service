@@ -6,7 +6,7 @@ summary: Learn how to use NKS storage
 
 = Migrate a Cluster
 
-To migrate to a new cluster, follow these instructions:
+To migrate to a new cluster, follow these instructions.
 
 == Volumes
 

@@ -35,6 +35,7 @@ Learn how to manage existing clusters.
 * link:/add-a-node-pool.html[Add a Node Pool]
 * link:/upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
 * link:/using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
+* link:/migrate-a-cluster.html[Migrate a Cluster]
 
 == Istio
 
