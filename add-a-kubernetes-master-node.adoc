@@ -24,7 +24,7 @@ image::assets/documentation/add-a-kubernetes-master-node/new-master-in-progress.
 
 **Related Articles**
 
-* https://docs.netapp.com/us-en/kubernetes-service/add-a-node-pool.html[Add a Node Pool]
-* https://docs.netapp.com/us-en/kubernetes-service/upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
+* link:add-a-node-pool.html[Add a Node Pool]
+* link:upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
 
 _Did this article answer your question? If not, mailto:nks@netapp.com[contact us.]_

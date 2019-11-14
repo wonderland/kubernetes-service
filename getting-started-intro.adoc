@@ -22,28 +22,28 @@ If you're a power user, we have a full API, and a Terraform provider plug-in. If
 
 Another benefit of NKS is the ability to restrict user access, using organizations and teams. This means that, for example, you can prevent the QA team from accidentally deleting clusters being used by your developers, or keep your sales team from using the QA team's Amazon credentials.
 
-As you set up your NKS account, https://docs.netapp.com/us-en/kubernetes-service/getting-started-checklist.html[use our checklist] to track your progress and make sure you don't overlook any important tasks.
+As you set up your NKS account, link:getting-started-checklist.html[use our checklist] to track your progress and make sure you don't overlook any important tasks.
 
 == Subscription
 
-Every NKS account starts with a free 30-day trial, no credit card required. After the trial expires, you have several options for setting up a paid subscription. https://docs.netapp.com/us-en/kubernetes-service/getting-started-subscription.html[Click here to read more about how your subscription works], and how to manage your NKS subscription.
+Every NKS account starts with a free 30-day trial, no credit card required. After the trial expires, you have several options for setting up a paid subscription. link:getting-started-subscription.html[Click here to read more about how your subscription works], and how to manage your NKS subscription.
 
 == Organizations
 
-Organizations are the top scope level of your NKS account. https://docs.netapp.com/us-en/kubernetes-service/getting-started-organizations.html[Learn more about organizations,] including how to set one up, and some considerations to keep in mind when managing your organizations.
+Organizations are the top scope level of your NKS account. link:getting-started-organizations.html[Learn more about organizations,] including how to set one up, and some considerations to keep in mind when managing your organizations.
 
 == User Access
 
-Learn how to set up user access to control and manage your users. See our article on https://docs.netapp.com/us-en/kubernetes-service/getting-started-user-access.html[Setting up user access] for more details.
+Learn how to set up user access to control and manage your users. See our article on link:getting-started-user-access.html[Setting up user access] for more details.
 
 == Members
 
-After you have set up your organization and any workspaces and teams you want to use, it's time to start inviting and assigning members. https://docs.netapp.com/us-en/kubernetes-service/getting-started-members.html[Click here to read more about adding and managing members].
+After you have set up your organization and any workspaces and teams you want to use, it's time to start inviting and assigning members. link:getting-started-members.html[Click here to read more about adding and managing members].
 
 == Credentials
 
-The next step is to locate your provider credentials and add them to your NKS account. When you add your provider credentials, you have the option to assign the credentials to a specific workspace and/or team. https://docs.netapp.com/us-en/kubernetes-service/getting-started-add-credentials.html[Read more about adding credentials.]
+The next step is to locate your provider credentials and add them to your NKS account. When you add your provider credentials, you have the option to assign the credentials to a specific workspace and/or team. link:getting-started-add-credentials.html[Read more about adding credentials.]
 
 == Working with NKS Clusters
 
-After you set up your NKS account, it's time to start working with Kubernetes clusters. https://docs.netapp.com/us-en/kubernetes-service/getting-started-working-with-clusters.html[Read more about the process,] and learn how to create, manage, and access your NKS Kubernetes clusters.
+After you set up your NKS account, it's time to start working with Kubernetes clusters. link:getting-started-working-with-clusters.html[Read more about the process,] and learn how to create, manage, and access your NKS Kubernetes clusters.

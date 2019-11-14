@@ -18,6 +18,6 @@ For example, you may want to allow a certain team access to build and manage clu
 
 **Related Articles**
 
-* link:/add-a-workspace.html[Add a Workspace]
-* link:/add-a-user.html[Add a User]
-* link:/add-a-team.html[Add a Team]
+* link:add-a-workspace.html[Add a Workspace]
+* link:add-a-user.html[Add a User]
+* link:add-a-team.html[Add a Team]

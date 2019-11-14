@@ -40,10 +40,10 @@ You can perform many basic Kubernetes management functions through the NKS Contr
 
 To work directly with the cluster, you will want to install and use Kubectl. Kubectl is the command-line interface for interacting with a Kubernetes cluster, and is available for Windows, Mac, and Linux.
 
-To use Kubectl, install it on your computer, then download the cluster's kubeconfig file from the Cluster Details page. For more information on using Kubectl to work with an NKS cluster, https://docs.netapp.com/us-en/kubernetes-service/install-kubectl-to-control-a-kubernetes-cluster.html[see our article on how to install and use Kubectl].
+To use Kubectl, install it on your computer, then download the cluster's kubeconfig file from the Cluster Details page. For more information on using Kubectl to work with an NKS cluster, link:install-kubectl-to-control-a-kubernetes-cluster.html[see our article on how to install and use Kubectl].
 
 === SSH
 
 Whenever possible, you should use Kubectl to interact with an NKS Kubernetes cluster. However, sometimes you may encounter a situation where you need to SSH directly to a node in a cluster.
 
-To learn how to SSH to a node in an NKS Kubernetes cluster, https://docs.netapp.com/us-en/kubernetes-service/ssh-to-a-node-in-an-nks-cluster.html[see our article on using SSH with NKS].
+To learn how to SSH to a node in an NKS Kubernetes cluster, link:ssh-to-a-node-in-an-nks-cluster.html[see our article on using SSH with NKS].

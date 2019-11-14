@@ -17,8 +17,8 @@ Clusters can represent different environments, like a test, staging, and product
 
 **Related Articles**
 
-* link:/projects-add-project.html[Add a Project]
-* link:/solutions-intro.html[Intro to Solutions]
+* link:projects-add-project.html[Add a Project]
+* link:solutions-intro.html[Intro to Solutions]
 
 == Example
 

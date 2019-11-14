@@ -18,7 +18,7 @@ NOTE: Istio mesh is not currently available for on-prem solutions.
 
 **Related**
 
-After you create your Istio mesh, https://docs.netapp.com/us-en/kubernetes-service/istio-test-cross-cluster-mesh.html[click here to learn how to deploy a demo to test the cross-cluster mesh].
+After you create your Istio mesh, link:istio-test-cross-cluster-mesh.html[click here to learn how to deploy a demo to test the cross-cluster mesh].
 
 == Create the Mesh
 

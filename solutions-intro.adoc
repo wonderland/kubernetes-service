@@ -10,9 +10,9 @@ Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from an external
 
 For step-by-step instructions on how to deploy a solution, see the article for your version control management system:
 
-* link:/solutions-add-solution-from-bitbucket.html[Add a Bitbucket Solution]
-* link:/solutions-add-solution-from-github.html[Add a GitHub Solution]
-* link:/solutions-add-solution-from-gitlab.html[Add a GitLab Solution]
+* link:solutions-add-solution-from-bitbucket.html[Add a Bitbucket Solution]
+* link:solutions-add-solution-from-github.html[Add a GitHub Solution]
+* link:solutions-add-solution-from-gitlab.html[Add a GitLab Solution]
 
 **Requirements**
 
@@ -24,5 +24,5 @@ For step-by-step instructions on how to deploy a solution, see the article for y
 
 **Related Articles**
 
-* link:/projects-intro.html[Intro to Projects]
-* link:/projects-add-project.html[Add a Project]
+* link:projects-intro.html[Intro to Projects]
+* link:projects-add-project.html[Add a Project]
