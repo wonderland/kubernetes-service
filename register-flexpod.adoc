@@ -21,8 +21,9 @@ NOTE: The ability to create VMware clusters with NKS is currently in pre-release
 
 Download the binary:
 
-    * Mac: https://storage.googleapis.com/nks-downloads/nks-register_darwin
-    * Linux: https://storage.googleapis.com/nks-downloads/nks-register_linux
+* Mac: https://storage.googleapis.com/nks-downloads/nks-v1.1.0-darwin
+* Linux: https://storage.googleapis.com/nks-downloads/nks-v1.1.0-linux
+* Windows: https://storage.googleapis.com/nks-downloads/nks-v1.1.0-windows.exe
 
 Rename the binary to `nks-register` and move it to the directory where you wish to run it.
 
