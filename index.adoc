@@ -11,7 +11,15 @@ summary: Welcome to the documentation portal for NetApp Kubernetes Service (NKS)
 :linkattrs:
 :imagesdir: ./media/
 
-NetApp Kubernetes Service (NKS) is a universal control plane for creating and managing Kubernetes clusters. If you don't already have an NKS account, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+NetApp Kubernetes Service (NKS) is a universal control plane for creating and managing Kubernetes clusters. Sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+
+== Top Articles
+
+Check out our most popular documentation articles.
+
+* link:install-kubectl-to-control-a-kubernetes-cluster.html[Install Kubectl]
+* link:intro-to-terraform-on-nks.html[Terraform on NKS]
+* link:register-vmware.html[Register VMware]
 
 == Getting Started
 
