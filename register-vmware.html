@@ -611,7 +611,7 @@
 <p class="page-details">
 
 
-<time datetime="2019-10-02 20:45:02 +0000">10/02/2019</time>
+<time datetime="2019-11-15 17:45:57 +0000">11/15/2019</time>
 
 
 <span>Contributors
@@ -673,15 +673,21 @@ The ability to create VMware clusters with NKS is currently in pre-release. This
 <p><strong>Your Registration Machine Environment</strong></p>
 </div>
 <div class="paragraph">
-<p>You must have the NKS Registrator command-line tool installed and configured. Download the binary:</p>
+<p>You must have the NKS Registrator command-line tool installed and configured.</p>
+</div>
+<div class="paragraph">
+<p>Download the binary:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Mac: <a href="https://storage.googleapis.com/nks-downloads/nks-register_darwin" class="bare">https://storage.googleapis.com/nks-downloads/nks-register_darwin</a></p>
+<p>Mac: <a href="https://storage.googleapis.com/nks-downloads/nks-v1.1.0-darwin" class="bare">https://storage.googleapis.com/nks-downloads/nks-v1.1.0-darwin</a></p>
 </li>
 <li>
-<p>Linux: <a href="https://storage.googleapis.com/nks-downloads/nks-register_linux" class="bare">https://storage.googleapis.com/nks-downloads/nks-register_linux</a></p>
+<p>Linux: <a href="https://storage.googleapis.com/nks-downloads/nks-v1.1.0-linux" class="bare">https://storage.googleapis.com/nks-downloads/nks-v1.1.0-linux</a></p>
+</li>
+<li>
+<p>Windows: <a href="https://storage.googleapis.com/nks-downloads/nks-v1.1.0-windows.exe" class="bare">https://storage.googleapis.com/nks-downloads/nks-v1.1.0-windows.exe</a></p>
 </li>
 </ul>
 </div>
@@ -700,6 +706,17 @@ The ability to create VMware clusters with NKS is currently in pre-release. This
 <p>Linux: <code>chmod 755 nks-register_linux</code></p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>To verify the installation, use the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>./nks-register --help</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the binary is installed and running correctly, this returns help information about the program.</p>
 </div>
 <div class="paragraph">
 <p>Additional registration machine environment requirements:</p>
