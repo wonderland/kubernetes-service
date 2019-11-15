@@ -22,10 +22,13 @@ You will need an NKS account. If you don't have one already, you can sign up for
 
 **Your Registration Machine Environment**
 
-You must have the NKS Registrator command-line tool installed and configured. Download the binary:
+You must have the NKS Registrator command-line tool installed and configured.
 
-    * Mac: https://storage.googleapis.com/nks-downloads/nks-register_darwin
-    * Linux: https://storage.googleapis.com/nks-downloads/nks-register_linux
+Download the binary:
+
+    * Mac: https://storage.googleapis.com/nks-downloads/nks-v1.1.0-darwin
+    * Linux: https://storage.googleapis.com/nks-downloads/nks-v1.1.0-linux
+    * Windows: https://storage.googleapis.com/nks-downloads/nks-v1.1.0-windows.exe
 
 Rename the binary to `nks-register` and move it to the directory where you wish to run it.
 
@@ -33,6 +36,14 @@ Make the binary executable:
 
     * Mac: `chmod +x nks-register_darwin`
     * Linux: `chmod 755 nks-register_linux`
+
+To verify the installation, use the command:
+
+```
+./nks-register --help
+```
+
+If the binary is installed and running correctly, this returns help information about the program.
 
 Additional registration machine environment requirements:
 
