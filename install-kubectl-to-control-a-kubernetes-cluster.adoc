@@ -54,7 +54,7 @@ Move to the `.kube` directory:
 cd .kube
 ----
 
-In a web browser, log in to the StackPointcloud Control Plane. Click on your cluster to view the details. Download your cluster’s `kubeconfig` file from the menu on the left-hand side of the screen.
+In a web browser, log in to NKS. Click on your cluster to view the details. Download your cluster’s `kubeconfig` file from the menu on the left-hand side of the screen.
 
 Move this file to the `C:\users\yourusername\.kube` directory. Then update your shell environment to call the file:
 
@@ -85,7 +85,7 @@ To install with Macports, open a Terminal window and use the command:
 port install kubectl
 ----
 
-In a web browser, log in to the StackPointCloud Control Plane. Click on your cluster to view the details. Download your cluster’s `kubeconfig` file from the menu on the left-hand side of the screen.
+In a web browser, log in to NKS. Click on your cluster to view the details. Download your cluster’s `kubeconfig` file from the menu on the left-hand side of the screen.
 
 Move this file to your home directory:
 
@@ -104,7 +104,7 @@ export KUBECONFIG=/Users/username/kubeconfig
 Another option is to SSH to a server, install kubectl, then use it to control your Kubernetes cluster. If you have access to a Linux server, there are several advantages to this approach:
 
 * If you have root on the server, you will be able to install the Kubernetes software without having to deal with any desktop computer permissions problems.
-* Speaking of computer permissions issues, I have found that in order to run Kubernetes on my Windows laptop, I need to run PowerShell on Windows as Administrator. If you are not able to run applications with administrator rights, you can avoid the issue by connecting to a Linux server with SSH and running kubectl from there.
+* Speaking of computer permissions issues, it's often the case that in order to run Kubernetes on a Windows computer, you need to run PowerShell on Windows as Administrator. If you are not able to run applications with administrator rights, you can avoid the issue by connecting to a Linux server with SSH and running kubectl from there.
 * If you frequently find yourself using several different computers, you can SSH to the server from anywhere. This saves you from having to install Kubernetes on every machine you use.
 * If you have customized your SSH program to your liking (fonts, colors, etc.) it can be nicer to use it than the stock terminal or PowerShell window.
 
@@ -144,7 +144,7 @@ EOF
 yum install -y kubectl
 ----
 
-In a web browser, log in to the StackPointCloud Control Plane. Click on your cluster to view the details. Download your cluster’s `kubeconfig` file from the menu on the left-hand side of the screen. Upload the file to the server. Then update your shell environment to call the file:
+In a web browser, log in to NKS. Click on your cluster to view the details. Download your cluster’s `kubeconfig` file from the menu on the left-hand side of the screen. Upload the file to the server. Then update your shell environment to call the file:
 
 ----
 export KUBECONFIG=/path/to/kubeconfig
