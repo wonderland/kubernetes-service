@@ -22,4 +22,4 @@ When you're ready to create your first cluster, learn how to create it at the pr
 * link:create-flexpod-cluster.html[FlexPod]
 * link:create-gce-cluster.html[Google Compute Engine (GCE)]
 * link:create-gke-cluster.html[Google Kubernetes Engine (GKE)]
-* link:kubernetes-service/create-vmware-cluster.html[VMware]
+* link:create-vmware-cluster.html[VMware]
