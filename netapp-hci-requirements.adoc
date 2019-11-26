@@ -6,11 +6,11 @@ summary: Requirements for using NetApp HCI with NKS
 
 = NetApp HCI Requirements
 
-The following are requirements for using NetApp HCI with https://nks.netapp.io[NetApp Kubernetes Service (NKS)]. For more information about using NetApp HCI, see http://docs.netapp.com/hci/index.jsp[the official NetApp HCI documentation].
+The following are requirements for using NetApp HCI with https://nks.netapp.io[NetApp Kubernetes Service (NKS)]. For more information about using NetApp HCI, see https://docs.netapp.com/us-en/hci/docs/index.html[the official NetApp HCI documentation].
 
 * A NetApp HCI system successfully installed.
 * System size requirements:
-    - 2x4 (2 compute nodes x 4 storage nodes) systems are not supported for production use. However, you can use these for demo work.
+    - 2x4 (2 compute nodes x 4 storage nodes) systems are not supported for production use. However, you can use these for demo work.[
     - 3x4 (3 compute nodes x 4 storage nodes) systems are the minimum production system size we support.
     - 4x4 (4 compute nodes x 4 storage nodes) systems are the recommended minimum size.
     - NetApp HCI v1.6 or later.
