@@ -6,6 +6,12 @@
   <link>https://docs.netapp.com/us-en/kubernetes-service/news.html</link>
   <description>News and updates for NetApp Kubernetes Service (NKS)</description>
   <item>
+    <title>Any Cloud, One Experience – Managed Kubernetes on VMware</title>
+    <link>https://blog.netapp.com/any-cloud-one-experience-managed-kubernetes-on-vmware/</link>
+    <description>Kubernetes gives an enterprise a standardized way to run containerized workloads anywhere at scale and with resiliency. NetApp Kubernetes Services is a management platform which provides operators, developers, and others the ability to manage Cloud Native Applications and Kubernetes infrastructure anywhere it is placed without needing prior knowledge.</description>
+    <pubDate>Tues, 26 Nov 2019 00:00:00 +0000</pubDate>
+  </item>
+  <item>
     <title>Introducing the NetApp Kubernetes Services Terraform Provider</title>
     <link>https://blog.stackpoint.io/introducing-the-netapp-kubernetes-services-terraform-provider-df60eba53d5a</link>
     <description>Terraform gives us a predictable method to build, update, and version our infrastructure. It has become an essential tool at many enterprises that use NKS. We’re excited to announce that, in the 1.0.0 release of the NetApp Kubernetes Services Terraform Provider, you can automate management of your multi-cloud Kubernetes infrastructure and the workload running on it. This can be done on a single cluster or many clusters — across one or many cloud providers.</description>
