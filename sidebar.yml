@@ -31,8 +31,6 @@ entries:
         url: /register-flexpod.html
       - title: GCE Credentials
         url: /create-auth-credentials-on-gce.html
-      - title: GKE Credentials
-        url: /create-auth-credentials-on-gke.html
       - title: VMware Credentials
         url: /register-vmware.html
   - title: Control Plane

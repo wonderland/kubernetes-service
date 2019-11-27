@@ -45,7 +45,6 @@ Get step-by-step instructions for adding provider credentials for:
 * link:create-auth-credentials-on-azure.html[Azure]
 * link:register-flexpod.html[Flexpod]
 * link:create-auth-credentials-on-gce.html[GCE]
-* link:create-auth-credentials-on-gke.html[GKE]
 * link:hci-enable-nks-for-netapp-hci.html[NetApp HCI]
 * link:register-vmware.html[VMware]
 
