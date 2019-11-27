@@ -14,6 +14,10 @@ To use the NKS API, you will need an NKS account. If you don't have one already,
 
 The full resource URL for the NKS API is `https://api.nks.netapp.io`.
 
+NOTE: For security reasons, this URL will return a "Resource not found" error in a browser.
+
+The resource URL is meant to be used in a Curl or automated API request. For more information on using Curl, we recommend https://curl.haxx.se/docs/httpscripting.html[the official Curl documentation].
+
 == Authorization Requirements
 
 All API requests must be authenticated with your API token. To obtain a token:
