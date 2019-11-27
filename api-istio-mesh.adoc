@@ -6,6 +6,8 @@ summary: How to use the Istio Mesh API resource for the NKS API.
 
 = Istio Meshes
 
+WARNING: This functionality has been deprecated.
+
 The Istio Mesh API resource lets you create and manage Istio meshes with your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] clusters.
 
 **Requirements**

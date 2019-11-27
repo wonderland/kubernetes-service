@@ -6,6 +6,8 @@ summary: Documentation on how to create a Kubernetes cluster on Amazon EKS using
 
 = Create a Kubernetes Cluster on Amazon EKS
 
+WARNING: This functionality has been deprecated.
+
 Learn how to create a Kubernetes cluster on EKS in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 
 To create an Amazon EKS cluster, you will need:

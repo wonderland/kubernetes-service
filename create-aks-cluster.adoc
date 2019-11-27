@@ -6,6 +6,8 @@ summary: Documentation on how to create a Kubernetes cluster on Microsoft AKS us
 
 = Create a Kubernetes Cluster on Microsoft AKS
 
+WARNING: This functionality has been deprecated.
+
 Learn how to create a Kubernetes cluster on AKS in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 
 To create a Microsoft AKS cluster, you will need:

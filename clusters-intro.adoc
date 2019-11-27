@@ -17,15 +17,13 @@ NOTE: Before you create a Kubernetes cluster with NKS, you will need to link:/ge
 For step-by-step instructions, see our guides by provider:
 
 * link:create-aws-cluster.html[Amazon Web Services (AWS)]
-* link:create-aks-cluster.html[Amazon Kubernetes Service (AKS)]
 * link:create-azure-cluster.html[Azure]
 * link:create-anf-cluster.html[Azure NetApp Files (ANF)]
-* link:create-eks-cluster.html[Amazon Elastic Kubernetes Service (EKS)]
 * link:create-flexpod-cluster.html[FlexPod]
 * link:create-gce-cluster.html[Google Compute Engine (GCE)]
 * link:create-gke-cluster.html[Google Kubernetes Engine (GKE)]
-* link:create-netapp-hci-cluster.html[NetApp HCI]
-* link:create-vmware-cluster.html[VMware]
+* link:/create-netapp-hci-cluster.html[NetApp HCI]
+* link:kubernetes-service/create-vmware-cluster.html[VMware]
 
 == Cluster Lifecycle
 
@@ -36,13 +34,6 @@ Learn how to manage existing clusters.
 * link:upgrade-kubernetes-on-an-nks-cluster.html[Upgrade Kubernetes]
 * link:using-the-kubernetes-cloud-backup.html[Using the Kubernetes Cloud Backup]
 * link:migrate-a-cluster.html[Migrate a Cluster]
-
-== Istio
-
-NOTE: Available in "Classic Mode" only.
-
-* link:istio-create-cross-cluster-mesh.html[Create an Istio Mesh]
-* link:istio-test-cross-cluster-mesh.html[Test an Istio Mesh]
 
 == Accessing Clusters
 

@@ -71,8 +71,6 @@ entries:
         url: /api-federations.html
       - title: Invoices
         url: /api-invoice.html
-      - title: Istio Mesh
-        url: /api-istio-mesh.html
       - title: Keysets
         url: /api-keysets.html
       - title: Members
