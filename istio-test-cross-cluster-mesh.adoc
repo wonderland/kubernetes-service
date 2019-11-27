@@ -6,6 +6,8 @@ summary: Learn how to deploy a demo to test your Istio cross-cluster mesh
 
 = Test Your Istio Cross-Cluster Mesh
 
+WARNING: This functionality has been deprecated.
+
 Learn how to deploy a custom demo to visually test out your Istio cross-cluster mesh.
 
 This tutorial will walk you through the process of setting up and demonstrating a two-cluster Istio cross-cluster mesh. The clusters can be created on the same service, or across different services (like AWS and GKE).

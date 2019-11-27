@@ -84,7 +84,6 @@ See our extensive API documentation for more information:
 * link:api-clusters.html[Clusters]
 * link:api-federations.html[Federations]
 * link:api-invoice.html[Invoices]
-* link:api-istio-mesh.html[Istio Mesh]
 * link:api-keysets.html[Keysets]
 * link:api-members.html[Members]
 * link:api-migrate-version.html[Migrate Version (Upgrade)]

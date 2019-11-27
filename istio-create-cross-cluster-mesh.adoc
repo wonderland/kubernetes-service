@@ -7,6 +7,8 @@ summary: Learn how to create an Istio mesh with NKS
 = Create a Cross-Cluster Istio Mesh
 :imagesdir: assets/documentation/create-istio-mesh/
 
+WARNING: This functionality has been deprecated.
+
 You can create an Istio mesh between NKS Kubernetes clusters in just a few clicks. An Istio mesh connects Kubernetes clusters, even those which are located in different data centers, or on different providers.
 
 NOTE: Istio mesh is not currently available for on-prem solutions.

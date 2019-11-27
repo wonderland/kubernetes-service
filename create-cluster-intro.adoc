@@ -15,10 +15,8 @@ In order to create Kubernetes clusters using NetApp Kubernetes Service (NKS) you
 When you're ready to create your first cluster, learn how to create it at the provider of your choice with our step-by-step guides:
 
 * link:create-aws-cluster.html[Amazon Web Services (AWS)]
-* link:create-aks-cluster.html[Amazon Kubernetes Service (AKS)]
 * link:create-azure-cluster.html[Azure]
 * link:create-anf-cluster.html[Azure NetApp Files (ANF)]
-* link:create-eks-cluster.html[Amazon Elastic Kubernetes Service (EKS)]
 * link:create-flexpod-cluster.html[FlexPod]
 * link:create-gce-cluster.html[Google Compute Engine (GCE)]
 * link:create-gke-cluster.html[Google Kubernetes Engine (GKE)]
