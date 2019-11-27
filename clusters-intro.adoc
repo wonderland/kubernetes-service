@@ -21,7 +21,6 @@ For step-by-step instructions, see our guides by provider:
 * link:create-anf-cluster.html[Azure NetApp Files (ANF)]
 * link:create-flexpod-cluster.html[FlexPod]
 * link:create-gce-cluster.html[Google Compute Engine (GCE)]
-* link:create-gke-cluster.html[Google Kubernetes Engine (GKE)]
 * link:/create-netapp-hci-cluster.html[NetApp HCI]
 * link:kubernetes-service/create-vmware-cluster.html[VMware]
 
