@@ -26,9 +26,11 @@ You must have the NKS Registrator command-line tool installed and configured.
 
 Download the binary:
 
-    * Mac: https://storage.googleapis.com/nks-downloads/nks-v1.1.0-darwin
-    * Linux: https://storage.googleapis.com/nks-downloads/nks-v1.1.0-linux
-    * Windows: https://storage.googleapis.com/nks-downloads/nks-v1.1.0-windows.exe
+* Mac: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.1-darwin
+* Linux: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.1-linux
+* Windows: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.1-windows
+
+NOTE: This version of the binary (1.1.1) requires you to accept our standard EULA. It deploys 3 masters and 3 nodes, and includes several bug fixes.
 
 Rename the binary to `nks-register` and move it to the directory where you wish to run it.
 
