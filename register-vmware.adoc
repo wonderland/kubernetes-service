@@ -28,7 +28,7 @@ Download the binary:
 
 * Mac: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.1-darwin
 * Linux: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.1-linux
-* Windows: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.1-windows
+* Windows: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.1-windows.exe
 
 NOTE: This version of the binary (1.1.1) requires you to accept our standard EULA. It deploys 3 masters and 3 nodes, and includes several bug fixes.
 
