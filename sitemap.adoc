@@ -148,3 +148,5 @@ NOTE: Available in "Classic Mode" only.
 == What's New
 
 * link:news.html[NetApp Kubernetes Service (NKS) News]
+
+* link:download.html[Download]
