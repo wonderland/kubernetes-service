@@ -106,10 +106,12 @@ entries:
       - title: Whitelist Ports and IP Addresses
         url: /whitelist-ports-and-ip-addresses.html
       - title: Cipher Suites
-        url: /cipher-suites.
+        url: /cipher-suites.html
       - title: More Resources
         url: /more-resources.html
   - title: What's New
     url: /news.html
   - title: Sitemap
     url: /sitemap.html
+  - title: Download
+    url: /download.html

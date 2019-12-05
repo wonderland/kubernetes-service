@@ -1,0 +1,9 @@
+---
+sidebar: sidebar
+permalink: download.html
+summary: How to download the NKS documentation
+---
+
+= Download the Documentation
+
+This set of NKS documentation is maintained in a GitHub repository. To download all the files as a .zip archive, https://github.com/NetAppDocs/kubernetes-service[visit the repository on the GitHub.com website]. Click **Clone or download,** then click **Download ZIP.**
