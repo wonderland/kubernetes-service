@@ -26,34 +26,36 @@ You must have the NKS Registrator command-line tool installed and configured.
 
 Download the binary:
 
-* Mac: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.1-darwin
-* Linux: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.1-linux
+* Mac: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.3-darwin
+* Linux: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.3-linux
 * Windows: https://storage.googleapis.com/nks-downloads/nks-register-v1.1.1-windows.exe
 
-NOTE: This version of the binary (1.1.1) requires you to accept our standard EULA. It deploys 3 masters and 3 nodes, and includes several bug fixes.
+NOTE: This version of the binary (1.1.3) requires you to accept our standard EULA. It deploys 3 masters and 3 nodes, and includes several bug fixes.
 
 Rename the binary to `nks-register` and move it to the directory where you wish to run it.
 
 Make the binary executable:
 
-    * Mac: `chmod +x nks-register_darwin`
-    * Linux: `chmod 755 nks-register_linux`
+    * Mac: `chmod +x nks-register`
+    * Linux: `chmod +x 755 nks-register`
+    * Depending on your Windows configuration, you may need to run this file as Administrator. To do this, right-click the file and choose "Run as Adminstrator."
 
 To verify the installation, use the command:
 
 ```
 ./nks-register --help
 ```
-
 If the binary is installed and running correctly, this returns help information about the program.
 
 Additional registration machine environment requirements:
 
-* An `id_rsa`, `id_rsa.pub` keypair in your `~/.ssh` directory.
 * Helpful but not required:
     - https://golang.org/[Golang] version 1.12.5 or later installed.
     - https://github.com/vmware/govmomi[Govc] version 0.18.0 or later installed.
 
+**Directory Details**
+
+The NKS Registrator stores configuration information in the `~/.nks` directory. Upon registration, the program creates a sub-directory with your region name. This is where the configuration files will be saved, including a keypair which you can use to SSH into the BootVM if necessary.
 
 == Create an NKS API token
 
