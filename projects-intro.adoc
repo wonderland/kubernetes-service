@@ -7,7 +7,7 @@ summary: Introduction and overview of Projects
 = Projects
 :imagesdir: assets/documentation/projects/
 
-Learn how to use Projects to manage your application's lifecycle, from building to tracking and maintenance. link:/projects-add-project.html[Click here for step-by-step instructions on adding a Project].
+Learn how to use Projects to manage your application's lifecycle, from building to tracking and maintenance. link:projects-add-project.html[Click here for step-by-step instructions on adding a Project].
 
 Projects are the heart of application lifecycle management. Clusters can have many Projects, and each Project can have many Solutions, including Applications, Packages, and Trackers. Projects are designed to group together Solutions. A Project could be a discrete microservice in your system, or a collection of microservices owned by a team in your Organization.
 
