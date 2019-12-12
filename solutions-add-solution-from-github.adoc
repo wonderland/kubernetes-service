@@ -17,6 +17,8 @@ Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from a https://g
 * An application in a GitHub repository.
 * An SSH keypair for use as the deploy key. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article].
 
+WARNING: You must create the SSH keypair without a passphrase.
+
 == Add the Solution
 
 The first step is to add the Solution to your NKS account.

@@ -22,6 +22,8 @@ For step-by-step instructions on how to deploy a solution, see the article for y
 * An application in an external repository.
 * An SSH keypair for use as the deploy key. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article].
 
+WARNING: You must create the SSH keypair without a passphrase.
+
 **Related Articles**
 
 * link:projects-intro.html[Intro to Projects]
