@@ -15,9 +15,9 @@ Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from a https://g
 * A Project set up and configured on your NKS account.
 * An NKS cluster with Build Version: `Classic`.
 * An application in a GitHub repository.
-* An SSH keypair for use as the deploy key. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article].
+* An SSH key pair for use as the deploy key. **IMPORTANT:** Create this key pair without a passphrase.
 
-WARNING: You must create the SSH keypair without a passphrase.
+For instructions on how to create an SSH key pair, link:create-an-ssh-keypair.html[follow the instructions in this article].
 
 == Add the Solution
 
@@ -56,12 +56,17 @@ image::solutions-add-github-solution-add-remote-url.png[Add the Remote URL]
 
 **Private Deploy Key**
 
-For this step you will need an SSH keypair. To learn how to generate an SSH keypair, we recommend https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key[this GitHub article].
+For this step you will need an SSH key pair. **IMPORTANT:** Create this key pair without a passphrase.
 
-NOTE: Do not set a passphrase for the keypair.
+For more information on how to create an SSH key pair, link:create-an-ssh-keypair.html[see this article].
 
-* You will use the **public** key as the Deploy Key on GitHub in the next section.
-* Paste the **private** key into the Private Deploy Key field on NKS.
+Use caution when copying the SSH key. For instructions on how to copy the SSH key, see link:create-an-ssh-keypair.html[this article].
+
+* **Mac:** Use `pbcopy`.
+* **Linux:** Use `xclip`.
+* **Windows:** Use Notepad. If you have https://gitforwindows.org/[Git BASH], use the `clip` command.
+
+Paste the **private** key into the Private Deploy Key field on NKS. You will add the **public** key to GitHub in the next section.
 
 image::solutions-add-github-solution-add-private-key.png[Add your private key]
 
