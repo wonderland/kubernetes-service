@@ -1,0 +1,129 @@
+---
+sidebar: sidebar
+permalink: create-an-ssh-keypair.html
+summary: Instructions on how to create an SSH key pair
+---
+
+= Create an SSH Keypair
+:imagesdir: assets/documentation/projects/
+
+Learn how to create an SSH key pair on Mac, Windows, and Linux. This key pair is designed to be used as your deploy key for deploying an Application on NKS.
+
+== Mac
+
+Open Terminal.
+
+Use the following command:
+
+```
+ssh-keygen -t rsa -b 4096 -C "[your GitHub email address]"
+```
+
+For example:
+
+```
+ssh-keygen -t rsa -b 4096 -C "jdoe@gmail.com"
+```
+
+When the program asks you to `enter a file in which to save the key` choose a unique file name. For example:
+
+```
+Enter a file in which to save the key (/Users/jdoe/.ssh/id_rsa): /Users/jdoe/.ssh/my-deploy-key
+```
+
+IMPORTANT: Do not set a passphrase for the key pair.
+
+When the program prompts you for a passphrase, hit **Enter** to continue without one.
+
+=== Copy the SSH Key
+
+Use the `pbcopy` command to copy the public or private key. Do not use `more` or edit the key file directly.
+
+For example, to copy the private key:
+
+```
+pbcopy < /Users/jdoe/.ssh/my-deploy-key
+```
+
+To copy the public key:
+
+```
+pbcopy < /Users/jdoe/.ssh/my-deploy-key.pub
+```
+
+
+== Windows
+
+We recommend you use https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html[PuTTYgen] to create an SSH key pair on Windows.
+
+For step-by-step instructions on using PuTTYgen, https://the.earth.li/~sgtatham/putty/0.73/htmldoc/Chapter8.html#pubkey-puttygen[see the official documentation]. You will need to create an SSH key with the following specifications:
+
+* Type of key: RSA.
+* Number of bits in a generated key: 2048.
+* No passphrase (leave the passphrase field blank).
+* Save both the public and private keys.
+
+=== Copy the SSH Key
+
+Use Notepad to open the public or private key files to copy their contents. Do not use Word or another text editor.
+
+If you have https://gitforwindows.org/[Git BASH] installed, you can copy the private key with:
+
+```
+clip < ~/.ssh/my-deploy-key
+```
+
+Copy the public key with:
+
+```
+clip < ~/.ssh/my-deploy-key.pub
+```
+
+
+== Linux
+
+Open a terminal window.
+
+Use the following command:
+
+```
+ssh-keygen -t rsa -b 4096 -C "[your GitHub email address]"
+```
+
+For example:
+
+```
+ssh-keygen -t rsa -b 4096 -C "jdoe@gmail.com"
+```
+
+When the program asks you to `enter a file in which to save the key` choose a unique file name. For example:
+
+```
+Enter a file in which to save the key (~/.ssh/id_rsa): ~/.ssh/my-deploy-key
+```
+
+IMPORTANT: Do not set a passphrase for the key pair.
+
+When the program prompts you for a passphrase, hit **Enter** to continue without one.
+
+=== Copy the SSH Key
+
+Use `xclip` to copy the public or private key. Do not use `more` or edit the key file directly.
+
+On Ubuntu, install `xclip` with the command:
+
+```
+sudo apt-get install xclip
+```
+
+To copy the private key:
+
+```
+xclip -sel clip < ~/.ssh/my-deploy-key
+```
+
+To copy the public key:
+
+```
+xclip -sel clip < ~/.ssh/my-deploy-key.pub
+```
