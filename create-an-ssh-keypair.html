@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Subscription | NetApp Cloud Docs</title>
+  <title>Create an SSH Keypair | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Subscription | NetApp Cloud Docs" />
+  <meta property="og:title" content="Create an SSH Keypair | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/api-subscription.html" />
-	<meta property="og:description" content="How to use the Subscription API resource for the NKS API." />
+	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/create-an-ssh-keypair.html" />
+	<meta property="og:description" content="Instructions on how to create an SSH key pair" />
   <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="How to use the Subscription API resource for the NKS API.">
+  <meta name="description" content="Instructions on how to create an SSH key pair">
   <meta name="keywords" content=" ">
   
   
@@ -510,7 +510,7 @@
   
 
   
-    <li class="active"><a href="api-subscription.html">Subscription</a></li>
+    <li><a href="api-subscription.html">Subscription</a></li>
   
 
   
@@ -597,11 +597,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Subscription
+  <h1 class="n-doc__component-detail-heading">Create an SSH Keypair
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/api-subscription.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Subscription](https://docs.netapp.com/us-en/kubernetes-service/api-subscription.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/create-an-ssh-keypair.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Create an SSH Keypair](https://docs.netapp.com/us-en/kubernetes-service/create-an-ssh-keypair.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -609,7 +609,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-22 16:38:35 +0000">10/22/2019</time>
+<time datetime="2019-12-13 21:53:11 +0000">12/13/2019</time>
 
 
 <span>Contributors
@@ -629,274 +629,203 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>View your subscription information. Subscriptions cannot be created, updated, or deleted through the API.</p>
+<p>Learn how to create an SSH key pair on Mac, Windows, and Linux. This key pair is designed to be used as your deploy key for deploying an Application on NKS.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="get-all-subscription-details">GET All Subscription Details</h2>
+<h2 id="mac">Mac</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Retrieve details for the subscription of the user, as specified by the API key passed in the authentication header.</p>
+<p>Open Terminal.</p>
+</div>
+<div class="paragraph">
+<p>Use the following command:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">GET https://api.nks.netapp.io/user/subscription</code></pre>
+<pre class="highlight"><code>ssh-keygen -t rsa -b 4096 -C "[your GitHub email address]"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Example request:</p>
+<p>For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">curl -X GET \
--H "Authorization: Bearer abcdef123456789abcdef123456789" \
-"https://api.nks.netapp.io/user/subscription"</code></pre>
+<pre class="highlight"><code>ssh-keygen -t rsa -b 4096 -C "jdoe@gmail.com"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Example response:</p>
+<p>When the program asks you to <code>enter a file in which to save the key</code> choose a unique file name. For example:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">{
-  "pk": 15561,
-  "user": 18896,
-  "internal_id": "SPC-1234ABCDEF",
-  "customer_id": "",
-  "subscription_id": "",
-  "state": "active",
-  "source_id": "",
-  "access_plan": "metered-monthly",
-  "access_item_id": "",
-  "support_plan": "",
-  "support_item_id": "",
-  "suspension_reason": "trial_end",
-  "billing_contact": {
-
-  },
-  "invoice_data": {
-
-  },
-  "trial_end": "2019-04-04T22:43:57.541971Z",
-  "is_grand_fathered": false,
-  "is_metered": true,
-  "is_exempt": true,
-  "billing_method": "send_invoice",
-  "created": "2019-03-05T22:43:54.603887Z",
-  "updated": "2019-04-04T22:48:21.249153Z",
-  "is_active": true,
-  "is_trial_active": false,
-  "cluster_count": 0,
-  "node_count": 0,
-  "trial_time_left": "0\u00a0minutes",
-  "twitter_handle": "",
-  "customer": {
-
-  },
-  "covered_orgs": [
-    {
-      "pk": 15856,
-      "name": "Shy Bonus",
-      "slug": "shy-bonus-1",
-      "logo": null,
-      "enable_experimental_features": false,
-      "created": "2019-03-05T22:43:54.602681Z",
-      "updated": "2019-03-05T22:43:54.602700Z"
-    },
-    {
-      "pk": 17583,
-      "name": "Twilight Recipe",
-      "slug": "twilight-recipe-1",
-      "logo": null,
-      "enable_experimental_features": false,
-      "created": "2019-05-09T18:32:11.114208Z",
-      "updated": "2019-05-09T18:32:11.114227Z"
-    }
-  ],
-  "is_auto_charge": false,
-  "account_balance": {
-    "total_due": 0,
-    "payment_required": false
-  }
-}</code></pre>
+<pre class="highlight"><code>Enter a file in which to save the key (/Users/jdoe/.ssh/id_rsa): /Users/jdoe/.ssh/my-deploy-key</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p><strong>Return Values</strong></p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
+<div class="admonitionblock important">
+<table>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Name</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+Do not set a passphrase for the key pair.
+</td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Subscription ID.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>user</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s ID.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>internal_id</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The internal account ID.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>customer_id</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The customer ID.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>subscription_id</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The subscription ID.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>state</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The current state of the subscription: <code>active</code>, <code>suspended</code>, or <code>trial</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>source_id</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The source ID.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>access_plan</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The billing plan.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>access_item_id</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The access item ID.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>support_plan</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The support plan.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>support_item_id</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The support item ID.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>suspension_reason</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The reason for the suspension, if the subscription is in <code>suspended</code> state.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>billing_contact</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The billing contact on file for the subscription.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>invoice_data</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Information used in creating invoices.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>trial_end</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The end date of the account&#8217;s trial period.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_grand_fathered</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account is grandfathered, <code>true</code> or <code>false</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_metered</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account is on a metered plan, <code>true</code> or <code>false</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_exempt</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account has exempt status, <code>true</code> or <code>false</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>billing_method</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The billing method.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>created</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The time stamp when the account was created.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>updated</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The time stamp when the account was last updated.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_active</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account is active, <code>true</code> or <code>false</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_trial_active</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account has an active trial, <code>true</code> or <code>false</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cluster_count</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of clusters on the account.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>node_count</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The number of nodes on the account.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>trial_time_left</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The amount of time left in the trial.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>twitter_handle</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The user&#8217;s Twitter login.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>customer</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Customer information.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>covered_orgs</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Information about the Organizations covered by this subscription.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>pk</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Organization ID.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>name</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Organization name.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>slug</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A human-readable unique identifier, used for storing Organization data.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>logo</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Organization logo. This value is <code>null</code> if a custom logo has not been set.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>enable_experimental_features</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not experimental features are enabled on the account, <code>true</code> or <code>false</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>created</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the Organization&#8217;s create date.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>updated</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Timestamp of the last update to the Organization.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>is_auto_charge</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not the account has enabled automatic billing, <code>true</code> or <code>false</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>account_balance</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Information about the current account balance.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>total_due</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The total amount due.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>payment_required</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Whether or not a payment is due, <code>true</code> or <code>false</code>.</p></td>
-</tr>
-</tbody>
 </table>
+</div>
+<div class="paragraph">
+<p>When the program prompts you for a passphrase, hit <strong>Enter</strong> to continue without one.</p>
+</div>
+<div class="sect2">
+<h3 id="copy-the-ssh-key">Copy the SSH Key</h3>
+<div class="paragraph">
+<p>Use the <code>pbcopy</code> command to copy the public or private key. Do not use <code>more</code> or edit the key file directly.</p>
+</div>
+<div class="paragraph">
+<p>For example, to copy the private key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>pbcopy &lt; /Users/jdoe/.ssh/my-deploy-key</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To copy the public key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>pbcopy &lt; /Users/jdoe/.ssh/my-deploy-key.pub</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="windows">Windows</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We recommend you use <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTYgen</a> to create an SSH key pair on Windows.</p>
+</div>
+<div class="paragraph">
+<p>For step-by-step instructions on using PuTTYgen, <a href="https://the.earth.li/~sgtatham/putty/0.73/htmldoc/Chapter8.html#pubkey-puttygen">see the official documentation</a>. You will need to create an SSH key with the following specifications:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type of key: RSA.</p>
+</li>
+<li>
+<p>Number of bits in a generated key: 2048.</p>
+</li>
+<li>
+<p>No passphrase (leave the passphrase field blank).</p>
+</li>
+<li>
+<p>Save both the public and private keys.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="copy-the-ssh-key-2">Copy the SSH Key</h3>
+<div class="paragraph">
+<p>Use Notepad to open the public or private key files to copy their contents. Do not use Word or another text editor.</p>
+</div>
+<div class="paragraph">
+<p>If you have <a href="https://gitforwindows.org/">Git BASH</a> installed, you can copy the private key with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>clip &lt; ~/.ssh/my-deploy-key</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Copy the public key with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>clip &lt; ~/.ssh/my-deploy-key.pub</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="linux">Linux</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Open a terminal window.</p>
+</div>
+<div class="paragraph">
+<p>Use the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ssh-keygen -t rsa -b 4096 -C "[your GitHub email address]"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>ssh-keygen -t rsa -b 4096 -C "jdoe@gmail.com"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the program asks you to <code>enter a file in which to save the key</code> choose a unique file name. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>Enter a file in which to save the key (~/.ssh/id_rsa): ~/.ssh/my-deploy-key</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+Do not set a passphrase for the key pair.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When the program prompts you for a passphrase, hit <strong>Enter</strong> to continue without one.</p>
+</div>
+<div class="sect2">
+<h3 id="copy-the-ssh-key-3">Copy the SSH Key</h3>
+<div class="paragraph">
+<p>Use <code>xclip</code> to copy the public or private key. Do not use <code>more</code> or edit the key file directly.</p>
+</div>
+<div class="paragraph">
+<p>On Ubuntu, install <code>xclip</code> with the command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>sudo apt-get install xclip</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To copy the private key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>xclip -sel clip &lt; ~/.ssh/my-deploy-key</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To copy the public key:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>xclip -sel clip &lt; ~/.ssh/my-deploy-key.pub</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 

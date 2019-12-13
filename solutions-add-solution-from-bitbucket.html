@@ -609,7 +609,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-12 21:22:33 +0000">12/12/2019</time>
+<time datetime="2019-12-13 21:53:11 +0000">12/13/2019</time>
 
 
 <span>Contributors
@@ -649,21 +649,12 @@
 <p>An application in a Bitbucket repository.</p>
 </li>
 <li>
-<p>An SSH keypair for use as the deploy key. To learn how to generate an SSH keypair, we recommend <a href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">this GitHub article</a>.</p>
+<p>An SSH key pair for use as the deploy key. <strong>IMPORTANT:</strong> Create this key pair without a passphrase.</p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Warning</div>
-</td>
-<td class="content">
-You must create the SSH keypair without a passphrase.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>For instructions on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">follow the instructions in this article</a>.</p>
 </div>
 </div>
 </div>
@@ -745,29 +736,29 @@ You must clone with SSH. If the pop-up says HTTPS, click the drop-down menu in t
 <p><strong>Private Deploy Key</strong></p>
 </div>
 <div class="paragraph">
-<p>For this step you will need an SSH keypair. To learn how to generate an SSH keypair, we recommend <a href="https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">this GitHub article</a>.</p>
+<p>For this step you will need an SSH key pair. <strong>IMPORTANT:</strong> Create this key pair without a passphrase.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-Do not set a passphrase for the keypair.
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>For more information on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">see this article</a>.</p>
+</div>
+<div class="paragraph">
+<p>Use caution when copying the SSH key. For instructions on how to copy the SSH key, see <a href="create-an-ssh-keypair.html">this article</a>.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>You will use the <strong>public</strong> key as the Deploy Key on Bitbucket in the next section.</p>
+<p><strong>Mac:</strong> Use <code>pbcopy</code>.</p>
 </li>
 <li>
-<p>Paste the <strong>private</strong> key into the Private Deploy Key field on NKS.</p>
+<p><strong>Linux:</strong> Use <code>xclip</code>.</p>
+</li>
+<li>
+<p><strong>Windows:</strong> Use Notepad. If you have <a href="https://gitforwindows.org/">Git BASH</a>, use the <code>clip</code> command.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Paste the <strong>private</strong> key into the Private Deploy Key field on NKS. You will add the <strong>public</strong> key to BitBucket in the next section.</p>
 </div>
 <div class="imageblock">
 <div class="content">
