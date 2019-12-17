@@ -21,8 +21,8 @@ For step-by-step instructions, see our guides by provider:
 * link:create-anf-cluster.html[Azure NetApp Files (ANF)]
 * link:create-flexpod-cluster.html[FlexPod]
 * link:create-gce-cluster.html[Google Compute Engine (GCE)]
-* link:/create-netapp-hci-cluster.html[NetApp HCI]
-* link:kubernetes-service/create-vmware-cluster.html[VMware]
+* link:create-netapp-hci-cluster.html[NetApp HCI]
+* link:create-vmware-cluster.html[VMware]
 
 == Cluster Lifecycle
 
