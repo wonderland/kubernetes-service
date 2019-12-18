@@ -21,7 +21,7 @@ For step-by-step instructions, see our guides by provider:
 * link:create-anf-cluster.html[Azure NetApp Files (ANF)]
 * link:create-flexpod-cluster.html[FlexPod]
 * link:create-gce-cluster.html[Google Compute Engine (GCE)]
-* link:kubernetes-service/create-vmware-cluster.html[VMware]
+* link:create-vmware-cluster.html[VMware]
 
 == Manage an NKS Kubernetes Cluster
 
