@@ -18,13 +18,15 @@ You can log in as the user `core` (on ContainerLinux) or `ubuntu` (on Ubuntu) wi
 ssh -i ~/.ssh/id_rsa core@192.168.0.1
 ```
 
-== Get the SSH Keys
+== Set Up the SSH Keys
 
-To improve security, NKS nodes use SSH keys for authentication instead of passwords. You will need to download and install these SSH keys before you can SSH to a node in the cluster. You will need to install the SSH keys on your desktop computer.
+To improve security, NKS nodes use SSH keys for authentication instead of passwords. To SSH to a cluster, you will need to upload your own pair of SSH keys, then use those keys to build the cluster.
 
-Log in to https://nks.netapp.io[NetApp Kubernetes Service (NKS)] and go to **Organization > Setup**. In the **SSH Keys** section, click the "download" icon to download your SSH keypair.
+For help creating SSH keys, link:create-an-ssh-keypair.html[see our article "Create an SSH Keypair"].
 
-Unzip the contents of this file, and move both files to the desired directory on your computer. By common convention, this directory is `/home/[your username]/.ssh` on Linux and Mac, and `C:\[your username]\.ssh` on Windows.
+To add the SSH keys to your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] account, go to **Organization > Setup**. In the **SSH Keys** section, click **Add SSH keys**.
+
+When you build the cluster, choose your new set of SSH keys in the Cluster Create workflow. The cluster will be built with your custom SSH keys, so that you can use them to access the cluster.
 
 == SSH to the Node
 
