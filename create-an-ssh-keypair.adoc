@@ -7,7 +7,7 @@ summary: Instructions on how to create an SSH key pair
 = Create an SSH Keypair
 :imagesdir: assets/documentation/projects/
 
-Learn how to create an SSH key pair on Mac, Windows, and Linux. This key pair is designed to be used as your deploy key for deploying an Application on NKS.
+Learn how to create an SSH key pair on Mac, Windows, and Linux. 
 
 == Mac
 
