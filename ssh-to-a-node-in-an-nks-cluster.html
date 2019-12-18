@@ -609,7 +609,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-10-24 17:00:57 +0000">10/24/2019</time>
+<time datetime="2019-12-18 22:37:19 +0000">12/18/2019</time>
 
 
 <span>Contributors
@@ -657,16 +657,19 @@ If you are familiar with using SSH to interact with a Linux server, the username
 </div>
 </div>
 <div class="sect1">
-<h2 id="get-the-ssh-keys">Get the SSH Keys</h2>
+<h2 id="set-up-the-ssh-keys">Set Up the SSH Keys</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To improve security, NKS nodes use SSH keys for authentication instead of passwords. You will need to download and install these SSH keys before you can SSH to a node in the cluster. You will need to install the SSH keys on your desktop computer.</p>
+<p>To improve security, NKS nodes use SSH keys for authentication instead of passwords. To SSH to a cluster, you will need to upload your own pair of SSH keys, then use those keys to build the cluster.</p>
 </div>
 <div class="paragraph">
-<p>Log in to <a href="https://nks.netapp.io">NetApp Kubernetes Service (NKS)</a> and go to <strong>Organization &gt; Setup</strong>. In the <strong>SSH Keys</strong> section, click the "download" icon to download your SSH keypair.</p>
+<p>For help creating SSH keys, <a href="create-an-ssh-keypair.html">see our article "Create an SSH Keypair"</a>.</p>
 </div>
 <div class="paragraph">
-<p>Unzip the contents of this file, and move both files to the desired directory on your computer. By common convention, this directory is <code>/home/[your username]/.ssh</code> on Linux and Mac, and <code>C:\[your username]\.ssh</code> on Windows.</p>
+<p>To add the SSH keys to your <a href="https://nks.netapp.io">NetApp Kubernetes Service (NKS)</a> account, go to <strong>Organization &gt; Setup</strong>. In the <strong>SSH Keys</strong> section, click <strong>Add SSH keys</strong>.</p>
+</div>
+<div class="paragraph">
+<p>When you build the cluster, choose your new set of SSH keys in the Cluster Create workflow. The cluster will be built with your custom SSH keys, so that you can use them to access the cluster.</p>
 </div>
 </div>
 </div>
