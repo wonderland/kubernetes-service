@@ -24,7 +24,7 @@ To improve security, NKS nodes use SSH keys for authentication instead of passwo
 
 For help creating SSH keys, link:create-an-ssh-keypair.html[see our article "Create an SSH Keypair"].
 
-To add the SSH keys to your https://nks.netapp.io[NetApp Kubernetes Service (NKS)] account, go to **Organization > Setup**. In the **SSH Keys** section, click **Add SSH keys**.
+To add the SSH keys to your NKS account, go to **Organization > Setup**. In the **SSH Keys** section, click **Add SSH keys**.
 
 When you build the cluster, choose your new set of SSH keys in the Cluster Create workflow. The cluster will be built with your custom SSH keys, so that you can use them to access the cluster.
 
