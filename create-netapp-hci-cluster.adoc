@@ -14,12 +14,9 @@ keywords: netapp, hci, on premise, cloud services, kubernetes
 
 Learn how to create a Kubernetes cluster on NetApp HCI in three clicks, using https://nks.netapp.io[NetApp Kubernetes Service (NKS)].
 
-To create a NetApp HCI cluster, you will need:
+To create a NetApp HCI cluster, you will need NKS enabled for your NetApp HCI account. https://docs.netapp.com/us-en/kubernetes-service/hci-enable-nks-for-netapp-hci.html[See our step-by-step instructions here.]
 
-* NKS enabled for your NetApp HCI account. https://docs.netapp.com/us-en/kubernetes-service/hci-enable-nks-for-netapp-hci.html[See our step-by-step instructions here.]
-* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
-
-For more details, see the https://docs.netapp.com/us-en/kubernetes-service/nks-requirements.html[NKS Requirements] and https://docs.netapp.com/us-en/kubernetes-service/netapp-hci-requirements.html[NetApp HCI Requirements] pages.
+You will also need to complete all of the necessary networking and other requirements. https://docs.netapp.com/us-en/hci/docs/reference_requirements_beforeyoubegin.html[Click here for a full list of the current requirements].
 
 == Step 1: Choose a Provider
 

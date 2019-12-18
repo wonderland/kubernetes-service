@@ -14,6 +14,8 @@ For more details on using the Hybrid Cloud Control wizard, see the http://docs.n
 
 NOTE: The following steps will enable cloud volumes with a 90-day trial license. To convert the trial license to a production license, upload the NetApp license file (.nlf file) to your account.
 
+Before you use NKS on NetApp HCI, you should complete all of the necessary networking and other requirements. https://docs.netapp.com/us-en/hci/docs/reference_requirements_beforeyoubegin.html[Click here for a full list of the current requirements].
+
 == Log In at NetApp Cloud Central
 
 To access the NetApp HCI Hybrid Cloud Control wizard, go to the IP address of the management node in a browser.
