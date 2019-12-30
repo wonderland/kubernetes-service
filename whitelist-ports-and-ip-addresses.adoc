@@ -19,6 +19,8 @@ If you decide to restrict access to individual NKS clusters, you will need to wh
 | connect.pub.nks.cloud | 443 | Outbound | Secure "Dispatch" tunnel communications | Provides secure communications between NKS Cloud Providers and the hosted NKS Service; e.g.when NKS is deployed on NetApp HCI or VMware on-premises traffic makes use of this Northbound MTLS secured channel.
 | api.nks.netapp.io | 443 | Outbound | Region registration | Facilitates initial deployment-time registration of on-premises "regions."
 | repo.netapp.com | 443 | Outbound | Artifact repository | Provides access to components necessary to install/update on-premises deployment.
+| bintray.com/netapp-downloads | 443 | Outbound | Redirect | The repo.netapp.com URL redirects here as the endpoint for the hosted artifact repository.
+| cloud.netapp.com | 443 | Outbound | Future integration | A URL that is tested for connectivity now and integration with future versions of the product.
 .4+| 34.208.181.140 34.217.162.31 54.187.65.159 18.236.231.155 | 443 | Inbound | HTTPS .4+| Applies to securing individual NKS-provisioned Kubernetes cluster(s) in Public Clouds. All traffic flows outbound through 443 for on-premises deployed clusters.
 | 6443 | Inbound | Kubernetes API
 | 12443 | Inbound | Proxy to dashboard
