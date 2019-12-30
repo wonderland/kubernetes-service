@@ -81,22 +81,29 @@
 
   <script>
       $(document).ready(function() {
-          // Initialize navgoco with default options
-          $("#mysidebar").navgoco({
-              caretHtml: '',
-              accordion: true,
-              openClass: 'active', // open
-              save: false, // leave false or nav highlighting doesn't work right
-              cookie: {
-                  name: 'navgoco',
-                  expires: false,
-                  path: '/'
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
               },
-              slide: {
-                  duration: 400,
-                  easing: 'swing'
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
               }
-          });
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
 
           $("#collapseAll").click(function(e) {
               e.preventDefault();
@@ -609,7 +616,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-11-26 18:35:50 +0000">11/26/2019</time>
+<time datetime="2019-12-30 20:02:05 +0000">12/30/2019</time>
 
 
 <span>Contributors
@@ -639,6 +646,9 @@
 <h2 id="any-cloud-one-experience-managed-kubernetes-on-vmware">Any Cloud, One Experience – Managed Kubernetes on VMware</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p><strong>Nov 26, 2019</strong></p>
+</div>
+<div class="paragraph">
 <p>Kubernetes gives an enterprise a standardized way to run containerized workloads anywhere at scale and with resiliency. NetApp Kubernetes Services is a management platform which provides operators, developers, and others the ability to manage Cloud Native Applications and Kubernetes infrastructure anywhere it is placed without needing prior knowledge. <a href="https://blog.netapp.com/any-cloud-one-experience-managed-kubernetes-on-vmware/">Read more&#8230;&#8203;</a></p>
 </div>
 </div>
@@ -646,6 +656,9 @@
 <div class="sect1">
 <h2 id="introducing-the-netapp-kubernetes-services-terraform-provider">Introducing the NetApp Kubernetes Services Terraform Provider</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><strong>March 6, 2019</strong></p>
+</div>
 <div class="paragraph">
 <p>Terraform gives us a predictable method to build, update, and version our infrastructure. It has become an essential tool at many enterprises that use NKS.</p>
 </div>
@@ -657,6 +670,9 @@
 <div class="sect1">
 <h2 id="stackpoint-io-joins-the-netapp-family">Stackpoint.io Joins the NetApp Family</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><strong>Nov 17, 2018</strong></p>
+</div>
 <div class="paragraph">
 <p>Seattle and New York — September 17, 2018 — We’re excited to announce we are joining the NetApp family. After numerous conversations where time was forgotten and we got lost in ideas, we realized NetApp’s and Stackpoint’s vision for Cloud Native workload and infrastructure management aligned. <a href="https://blog.stackpoint.io/stackpoint-io-joins-the-netapp-family-d0712ad54e81">Click here to read more.</a></p>
 </div>
@@ -742,6 +758,9 @@
               </div>
               <div class="n-footer__copyright">
                 <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/announcements/" class="n-footer__copyright-link">Announcements</a>
               </div>
             </div>
           </div>
