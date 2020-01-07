@@ -19,6 +19,8 @@ Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from a https://b
 
 For instructions on how to create an SSH key pair, link:create-an-ssh-keypair.html[follow the instructions in this article].
 
+If you have problems getting your Application up and running, you may need to customize your Procfile. link:solutions-customize-procfile.html[Learn more about using a Procfile.]
+
 == Add the Solution
 
 The first step is to add the Solution to your NKS account.

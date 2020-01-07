@@ -1,0 +1,47 @@
+---
+sidebar: sidebar
+permalink: solutions-customize-procfile.html
+summary: Customize your application's Procfile to adjust how NKS handles your app
+---
+
+= Customize your Application's Procfile
+
+In most cases, NetApp Kubernetes Services (NKS) will be able to correctly detect your application's process type(s). NKS will auto-generate a Procfile for your project. The auto-generation is based on popular frameworks, and usually does what you expect.
+
+If you have problems deploying your application on NKS, the answer may be to customize your application's Procfile to declare your application's processes and settings.
+
+== About the Procfile
+
+The Procfile is a plain text file named `Procfile` (capital P, no file extension) which must be placed in your application's root directory.
+
+The following examples will **not** work:
+
+* `procfile` (not capitalized)
+* `Procfile.txt` (file extension)
+* `/app/files/Procfile` (not in root directory)
+
+The Procfile format requires you to declare each process type on its own line, in the format:
+
+```
+[process type]: [command]
+```
+
+For example:
+
+```
+web: node index.js
+```
+
+== Web Process
+
+In the previous example, we used the `web` process:
+
+```
+web: node index.js
+```
+
+The `web` process is the only one which can work with external HTTP traffic. Most simple web apps will only need a single `web` process type declared in the Procfile.
+
+== Other Process Types
+
+This feature is currently in preview mode. As of the most recent release, `web` is the only available process type.
