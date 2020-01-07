@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Add a Solution from GitHub | NetApp Cloud Docs</title>
+  <title>Customize your Application&#8217;s Procfile | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Add a Solution from GitHub | NetApp Cloud Docs" />
+  <meta property="og:title" content="Customize your Application&#8217;s Procfile | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/solutions-add-solution-from-github.html" />
-	<meta property="og:description" content="Learn how to deploy a Solution from a GitHub repository." />
-  <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/images/logo-tophat-social.png" />
+	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/us-en/solutions-customize-procfile.html" />
+	<meta property="og:description" content="Customize your application's Procfile to adjust how NKS handles your app" />
+  <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/us-en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -17,17 +17,17 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="Learn how to deploy a Solution from a GitHub repository.">
+  <meta name="description" content="Customize your application's Procfile to adjust how NKS handles your app">
   <meta name="keywords" content=" ">
   
   
 
   <!-- Icons -->
-  <link rel="icon" href="/kubernetes-service/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/kubernetes-service/us-en/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed -->
   
-  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/kubernetes-service/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/kubernetes-service/us-en/feed.xml">
   
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -36,23 +36,23 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/kubernetes-service/common/css/esb.min.css">
-  <link rel="stylesheet" href="/kubernetes-service/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/kubernetes-service/common/css/doc.css">
-  <link rel="stylesheet" href="/kubernetes-service/common/css/doc-components.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/kubernetes-service/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/kubernetes-service/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/kubernetes-service/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/kubernetes-service/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/kubernetes-service/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/kubernetes-service/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/kubernetes-service/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/kubernetes-service/us-en/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/kubernetes-service/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/kubernetes-service/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/netapp.css' type='text/css'>
 
   
 
@@ -61,23 +61,23 @@
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/kubernetes-service/js/na-search.js'></script>
+    <script src='/kubernetes-service/us-en/js/na-search.js'></script>
   
 
   
-  <link rel='stylesheet' href='/kubernetes-service/css/na-pagenav.css' type='text/css' id="pagenav-css">
-  <script src='/kubernetes-service/js/na-pagenav.js'></script>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/kubernetes-service/us-en/js/na-pagenav.js'></script>
   
 
-  <link rel='stylesheet' href='/kubernetes-service/css/prism.css' type='text/css'>
-  <link rel='stylesheet' href='/kubernetes-service/css/prism-netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/prism-netapp.css' type='text/css'>
 
-  <script src='/kubernetes-service/js/clouddocs.js'></script>
-  <script src='/kubernetes-service/js/s_code_impl.js'></script>
-  <script src='/kubernetes-service/js/jquery.navgoco.min.js'></script>
+  <script src='/kubernetes-service/us-en/js/clouddocs.js'></script>
+  <script src='/kubernetes-service/us-en/js/s_code_impl.js'></script>
+  <script src='/kubernetes-service/us-en/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src='/kubernetes-service/js/toc.js'></script>
-  <script src='/kubernetes-service/js/customscripts.js'></script>
+  <script src='/kubernetes-service/us-en/js/toc.js'></script>
+  <script src='/kubernetes-service/us-en/js/customscripts.js'></script>
 
   <script>
       $(document).ready(function() {
@@ -201,7 +201,7 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/kubernetes-service/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
@@ -209,11 +209,11 @@
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/kubernetes-service/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/kubernetes-service/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -234,7 +234,7 @@
                 <span class="ie-i18n-lang">English</span>
                 <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
                   <title>globe</title>
-                  <use xlink:href="/kubernetes-service/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+                  <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
                 </svg>
               </a>
             </li>
@@ -604,11 +604,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Add a Solution from GitHub
+  <h1 class="n-doc__component-detail-heading">Customize your Application&#8217;s Procfile
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/solutions-add-solution-from-github.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Add a Solution from GitHub](https://docs.netapp.com/us-en/kubernetes-service/solutions-add-solution-from-github.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/solutions-customize-procfile.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Customize your Application&#8217;s Procfile](https://docs.netapp.com/us-en/kubernetes-service/solutions-customize-procfile.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -636,279 +636,74 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from a <a href="https://github.com">GitHub</a> repository.</p>
+<p>In most cases, NetApp Kubernetes Services (NKS) will be able to correctly detect your application&#8217;s process type(s). NKS will auto-generate a Procfile for your project. The auto-generation is based on popular frameworks, and usually does what you expect.</p>
 </div>
 <div class="paragraph">
-<p><strong>Requirements</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>An NKS account. If you don&#8217;t have one already, you can sign up for a free 30-day trial with no credit card required at <a href="https://nks.netapp.io" class="bare">https://nks.netapp.io</a>.</p>
-</li>
-<li>
-<p>A Project set up and configured on your NKS account.</p>
-</li>
-<li>
-<p>An NKS cluster with Build Version: <code>Classic</code>.</p>
-</li>
-<li>
-<p>An application in a GitHub repository.</p>
-</li>
-<li>
-<p>An SSH key pair for use as the deploy key. <strong>IMPORTANT:</strong> Create this key pair without a passphrase.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For instructions on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">follow the instructions in this article</a>.</p>
-</div>
-<div class="paragraph">
-<p>If you have problems getting your Application up and running, you may need to customize your Procfile. <a href="solutions-customize-procfile.html">Learn more about using a Procfile.</a></p>
+<p>If you have problems deploying your application on NKS, the answer may be to customize your application&#8217;s Procfile to declare your application&#8217;s processes and settings.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="add-the-solution">Add the Solution</h2>
+<h2 id="about-the-procfile">About the Procfile</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The first step is to add the Solution to your NKS account.</p>
-</div>
-<div class="sect2">
-<h3 id="select-solution-type">Select Solution Type</h3>
-<div class="paragraph">
-<p>Click <strong>Projects</strong> then select the Project you want to use.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-select-project.png" alt="Select your Project">
-</div>
+<p>The Procfile is a plain text file named <code>Procfile</code> (capital P, no file extension) which must be placed in your application&#8217;s root directory.</p>
 </div>
 <div class="paragraph">
-<p>Click <strong>+ Add Solution</strong>. Click <strong>Application</strong> as the Solution type.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-click-application.png" alt="Click Application Solution type">
-</div>
-</div>
-<div class="paragraph">
-<p>Select the Workspace, Cluster, and Project you want to use, then click <strong>Next</strong>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="define-version-control">Define Version Control</h3>
-<div class="paragraph">
-<p>In this step you will set two items:</p>
+<p>The following examples will <strong>not</strong> work:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>NKS: The Remote URL</p>
+<p><code>procfile</code> (not capitalized)</p>
 </li>
 <li>
-<p>GitHub: The Private Deploy Key</p>
+<p><code>Procfile.txt</code> (file extension)</p>
+</li>
+<li>
+<p><code>/app/files/Procfile</code> (not in root directory)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Remote URL</strong></p>
+<p>The Procfile format requires you to declare each process type on its own line, in the format:</p>
 </div>
-<div class="paragraph">
-<p>To get this URL, visit your project&#8217;s GitHub repository page and click the green <strong>Clone or download</strong> button.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-You must use "Clone with SSH." If the pop-up says "Clone with HTTPS", click the "Use SSH" link in the upper right-hand corner of the pop-up to switch to SSH.
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-clone-with-ssh.png" alt="Clone with SSH">
+<pre class="highlight"><code>[process type]: [command]</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Click to copy the SSH URL. Paste this in to NKS as the Remote URL.</p>
+<p>For example:</p>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-add-remote-url.png" alt="Add the Remote URL">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Private Deploy Key</strong></p>
-</div>
-<div class="paragraph">
-<p>For this step you will need an SSH key pair. <strong>IMPORTANT:</strong> Create this key pair without a passphrase.</p>
-</div>
-<div class="paragraph">
-<p>For more information on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">see this article</a>.</p>
-</div>
-<div class="paragraph">
-<p>Use caution when copying the SSH key. For instructions on how to copy the SSH key, see <a href="create-an-ssh-keypair.html">this article</a>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Mac:</strong> Use <code>pbcopy</code>.</p>
-</li>
-<li>
-<p><strong>Linux:</strong> Use <code>xclip</code>.</p>
-</li>
-<li>
-<p><strong>Windows:</strong> Use Notepad. If you have <a href="https://gitforwindows.org/">Git BASH</a>, use the <code>clip</code> command.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Paste the <strong>private</strong> key into the Private Deploy Key field on NKS. You will add the <strong>public</strong> key to GitHub in the next section.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-add-private-key.png" alt="Add your private key">
-</div>
-</div>
-<div class="paragraph">
-<p>Click <strong>Next</strong> to continue.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="configure-application">Configure Application</h3>
-<div class="paragraph">
-<p>Set the application&#8217;s name, update strategy, and scaling. Click <strong>Next</strong> to continue.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="review-and-confirm">Review and Confirm</h3>
-<div class="paragraph">
-<p>Review and confirm all your settings. To change a setting, click the Edit button.</p>
-</div>
-<div class="paragraph">
-<p>When you are sure that everything is correct, click <strong>Create</strong> to create the Solution. This creates your Solution and redirects you to the Application&#8217;s page.</p>
+<pre class="highlight"><code>web: node index.js</code></pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="deploy-and-update-code">Deploy and Update Code</h2>
+<h2 id="web-process">Web Process</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Next, you will add configurations to your GitHub repository. To do this, you will give GitHub:</p>
+<p>In the previous example, we used the <code>web</code> process:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>The Deploy Key. This is the <strong>public</strong> key you created.</p>
-</li>
-<li>
-<p>The Payload URL (webhook) from NKS.</p>
-</li>
-<li>
-<p>The Webhook Secret from NKS.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="add-the-deploy-key">Add the Deploy Key</h3>
-<div class="paragraph">
-<p>Go to the GitHub page for your repository and click <strong>Settings</strong>.</p>
-</div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-github-settings.png" alt="GitHub Settings">
+<pre class="highlight"><code>web: node index.js</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Click <strong>Deploy keys</strong> then click <strong>Add deploy key</strong>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Be sure to add the <strong>public</strong> (not private) SSH key.</p>
-</li>
-<li>
-<p>You do not need to enable write access.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-the-webhook">Add the Webhook</h3>
-<div class="paragraph">
-<p>From the GitHub <strong>Settings</strong> page, click <strong>Webhooks</strong> then click <strong>Add webhook</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Return to the NKS application page, where you will find the Payload URL and Webhook Secret.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-deploy-code.png" alt="Deploy the code">
-</div>
-</div>
-<div class="paragraph">
-<p>Paste these in to the Payload URL and Webhook Secret fields on GitHub.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>For <strong>Content Type</strong> select <code>application/json</code>.</p>
-</li>
-<li>
-<p>Enable SSL verification.</p>
-</li>
-<li>
-<p>Set the events you want to trigger the webhook.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Click <strong>Add webhook</strong> to add the webhook.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="trigger-the-webhook-if-necessary">Trigger the Webhook if Necessary</h3>
-<div class="paragraph">
-<p>When you add your webhook, GitHub gives you three choices for which events trigger the webhook:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Just the <code>push</code> event</p>
-</li>
-<li>
-<p>Send me everything</p>
-</li>
-<li>
-<p>Let me select individual events</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>If your webhook is triggered by a <code>push</code> event, you will need to do a <code>git push</code> to trigger the webhook.</p>
-</div>
+<p>The <code>web</code> process is the only one which can work with external HTTP traffic. Most simple web apps will only need a single <code>web</code> process type declared in the Procfile.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="check-your-application">Check Your Application</h2>
+<h2 id="other-process-types">Other Process Types</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>At this point everything is configured, although it make take a few minutes for the deployment to complete. You can monitor the process on the Solution&#8217;s <strong>Metrics</strong> tab.</p>
-</div>
-<div class="paragraph">
-<p>When the deployment is ready, you can view your application by visiting the ingress URL which NKS automatically created for your application.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-github-solution-ingress-url.png" alt="Get your ingress URL">
-</div>
+<p>This feature is currently in preview mode. As of the most recent release, <code>web</code> is the only available process type.</p>
 </div>
 </div>
 </div>
@@ -951,7 +746,7 @@ You must use "Clone with SSH." If the pop-up says "Clone with HTTPS", click the 
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -960,7 +755,7 @@ You must use "Clone with SSH." If the pop-up says "Clone with HTTPS", click the 
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -970,7 +765,7 @@ You must use "Clone with SSH." If the pop-up says "Clone with HTTPS", click the 
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -979,7 +774,7 @@ You must use "Clone with SSH." If the pop-up says "Clone with HTTPS", click the 
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -1003,15 +798,15 @@ You must use "Clone with SSH." If the pop-up says "Clone with HTTPS", click the 
 
     </div>
 
-    <script src="/kubernetes-service/common/js/components.js"></script>
-    <script src="/kubernetes-service/common/js/doc-components.js"></script>
+    <script src="/kubernetes-service/us-en/common/js/components.js"></script>
+    <script src="/kubernetes-service/us-en/common/js/doc-components.js"></script>
 
     <!-- Elasticsearch JS -->
-    <script type="text/javascript" src='/kubernetes-service/js/bundle.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/bundle.js'></script>
 
     <!-- Syntax Highlighting -->
-    <script type="text/javascript" src='/kubernetes-service/js/prism.js'></script>
-    <script type="text/javascript" src='/kubernetes-service/js/prism-curl.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/prism-curl.js'></script>
 
   </body>
 
