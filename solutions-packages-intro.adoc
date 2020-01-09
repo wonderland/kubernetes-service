@@ -4,7 +4,8 @@ permalink: solutions-packages-intro.html
 summary: Learn how to use NKS Packages
 ---
 
-== Packages
+
+= Packages
 
 Coming soon.
 
