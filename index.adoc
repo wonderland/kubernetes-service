@@ -55,7 +55,15 @@ The Control Plane is where you can create and manage NKS Workspaces, Clusters, P
 * link:workspaces-intro.html[Workspaces]
 * link:clusters-intro.html[Clusters]
 * link:projects-intro.html[Projects]
-* link:solutions-intro.html[Solutions]
+
+== Solutions
+
+Learn how to deploy and manage Solutions on your NKS clusters.
+
+* link:solutions-intro.html[Intro to Solutions]
+* link:solutions-applications-intro.html[Applications]
+* link:solutions-packages-intro.html[Packages]
+* link:solutions-trackers-intro.html[Trackers]
 
 == Resources
 

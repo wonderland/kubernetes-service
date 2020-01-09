@@ -5,30 +5,11 @@ summary: Learn how to use NKS Solutions
 ---
 
 = Solutions
+In just a few easy steps, you can deploy a Solution to your NetApp Kubernetes Service (NKS) cluster. Learn more about how to deploy and manage:
 
-Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from an external repository.
-
-For step-by-step instructions on how to deploy a solution, see the article for your version control management system:
-
-* link:solutions-add-solution-from-bitbucket.html[Add a Bitbucket Solution]
-* link:solutions-add-solution-from-github.html[Add a GitHub Solution]
-* link:solutions-add-solution-from-gitlab.html[Add a GitLab Solution]
-
-**Helpful Tips**
-
-For instructions on how to create an SSH key pair, link:create-an-ssh-keypair.html[follow the instructions in this article].
-
-If you have problems getting your Application up and running, you may need to customize your Procfile. link:solutions-customize-procfile.html[Learn more about using a Procfile.]
-
-If you don't have an app to test, feel free to use https://github.com/ebarcott/nks-bg-demo-app[our demo app].
-
-**Requirements**
-
-* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
-* A Project set up and configured on your NKS account.
-* An NKS cluster with Build Version: `Classic`.
-* An application in an external repository.
-* An SSH key pair for use as the deploy key. **IMPORTANT:** Create this key pair without a passphrase.
+* link:solutions-applications-intro.html[Applications]
+* link:solutions-packages-intro.html[Packages]
+* link:solutions-trackers-intro.html[Trackers]
 
 **Related Articles**
 

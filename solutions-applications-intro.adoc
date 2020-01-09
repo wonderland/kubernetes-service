@@ -1,0 +1,35 @@
+---
+sidebar: sidebar
+permalink: solutions-applications-intro.html
+summary: Learn how to use NKS Solutions
+---
+
+== Application
+
+For step-by-step instructions on how to deploy an Application, see the article for your version control management system:
+
+* link:solutions-add-application-from-bitbucket.html[Bitbucket]
+* link:solutions-add-application-from-github.html[GitHub]
+* link:solutions-add-application-from-gitlab.html[GitLab]
+
+**Helpful Tips**
+
+For instructions on how to create an SSH key pair, link:create-an-ssh-keypair.html[follow the instructions in this article].
+
+If you have problems getting your Application up and running, you may need to customize your Procfile. link:solutions-customize-procfile.html[Learn more about using a Procfile.]
+
+If you don't have an app to test, feel free to use https://github.com/ebarcott/nks-bg-demo-app[our demo app].
+
+**Requirements**
+
+* An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
+* A Project set up and configured on your NKS account.
+* An NKS cluster with Build Version: `Classic`.
+* An application in an external repository.
+* An SSH key pair for use as the deploy key. **IMPORTANT:** Create this key pair without a passphrase.
+
+**Related Articles**
+
+* link:solutions-intro.html[Intro to Solutions]
+* link:solutions-packages-intro.html[Packages]
+* link:solutions-trackers-intro.html[Trackers]

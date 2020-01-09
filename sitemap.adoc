@@ -78,12 +78,23 @@ NOTE: Available in "Classic Mode" only.
 * link:projects-intro.html[Intro to Projects]
 * link:projects-add-project.html[Add a Project]
 
-=== Solutions
+== Solutions
+
+=== Applications
 
 * link:solutions-intro.html[Intro to Solutions]
-* link:solutions-add-solution-from-bitbucket.html[Add a Bitbucket Solution]
-* link:solutions-add-solution-from-github.html[Add a GitHub Solution]
-* link:solutions-add-solution-from-gitlab.html[Add a GitLab Solution]
+* link:solutions-customize-procfile.html[Customize your Procfile]
+* link:solutions-add-application-from-bitbucket.html[Add an Application from Bitbucket]
+* link:solutions-add-application-from-github.html[Add an Application from GitHub]
+* link:solutions-add-application-from-gitlab.html[Add an Application from GitLab]
+
+=== Packages
+
+* link:solutions-packages-intro.html[Intro to Packages]
+
+=== Trackers
+
+* link:solutions-trackers-intro.html[Intro to Trackers]
 
 == Resources
 
