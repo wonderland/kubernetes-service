@@ -5,6 +5,7 @@ summary: Learn how to use NKS Solutions
 ---
 
 = Solutions
+
 In just a few easy steps, you can deploy a Solution to your NetApp Kubernetes Service (NKS) cluster. Learn more about how to deploy and manage:
 
 * link:solutions-applications-intro.html[Applications]

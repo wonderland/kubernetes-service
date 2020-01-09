@@ -4,7 +4,7 @@ permalink: solutions-applications-intro.html
 summary: Learn how to use NKS Solutions
 ---
 
-== Application
+= Applications
 
 For step-by-step instructions on how to deploy an Application, see the article for your version control management system:
 
