@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Add a Solution from Bitbucket | NetApp Cloud Docs</title>
+  <title> | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Add a Solution from Bitbucket | NetApp Cloud Docs" />
+  <meta property="og:title" content=" | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/solutions-add-solution-from-bitbucket.html" />
-	<meta property="og:description" content="Learn how to deploy a Solution from a Bitbucket repository." />
-  <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/images/logo-tophat-social.png" />
+	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/us-en/solutions-trackers-intro.html" />
+	<meta property="og:description" content="Learn how to use NKS Trackers" />
+  <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/us-en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -17,17 +17,17 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="Learn how to deploy a Solution from a Bitbucket repository.">
+  <meta name="description" content="Learn how to use NKS Trackers">
   <meta name="keywords" content=" ">
   
   
 
   <!-- Icons -->
-  <link rel="icon" href="/kubernetes-service/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/kubernetes-service/us-en/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed -->
   
-  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/kubernetes-service/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/kubernetes-service/us-en/feed.xml">
   
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -36,23 +36,23 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/kubernetes-service/common/css/esb.min.css">
-  <link rel="stylesheet" href="/kubernetes-service/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/kubernetes-service/common/css/doc.css">
-  <link rel="stylesheet" href="/kubernetes-service/common/css/doc-components.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/kubernetes-service/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/kubernetes-service/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/kubernetes-service/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/kubernetes-service/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/kubernetes-service/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/kubernetes-service/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/kubernetes-service/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/kubernetes-service/us-en/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/kubernetes-service/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/kubernetes-service/us-en/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/kubernetes-service/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/netapp.css' type='text/css'>
 
   
 
@@ -61,23 +61,23 @@
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/kubernetes-service/js/na-search.js'></script>
+    <script src='/kubernetes-service/us-en/js/na-search.js'></script>
   
 
   
-  <link rel='stylesheet' href='/kubernetes-service/css/na-pagenav.css' type='text/css' id="pagenav-css">
-  <script src='/kubernetes-service/js/na-pagenav.js'></script>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/kubernetes-service/us-en/js/na-pagenav.js'></script>
   
 
-  <link rel='stylesheet' href='/kubernetes-service/css/prism.css' type='text/css'>
-  <link rel='stylesheet' href='/kubernetes-service/css/prism-netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/us-en/css/prism-netapp.css' type='text/css'>
 
-  <script src='/kubernetes-service/js/clouddocs.js'></script>
-  <script src='/kubernetes-service/js/s_code_impl.js'></script>
-  <script src='/kubernetes-service/js/jquery.navgoco.min.js'></script>
+  <script src='/kubernetes-service/us-en/js/clouddocs.js'></script>
+  <script src='/kubernetes-service/us-en/js/s_code_impl.js'></script>
+  <script src='/kubernetes-service/us-en/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src='/kubernetes-service/js/toc.js'></script>
-  <script src='/kubernetes-service/js/customscripts.js'></script>
+  <script src='/kubernetes-service/us-en/js/toc.js'></script>
+  <script src='/kubernetes-service/us-en/js/customscripts.js'></script>
 
   <script>
       $(document).ready(function() {
@@ -201,7 +201,7 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/kubernetes-service/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
@@ -209,11 +209,11 @@
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/kubernetes-service/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/kubernetes-service/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -234,7 +234,7 @@
                 <span class="ie-i18n-lang">English</span>
                 <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
                   <title>globe</title>
-                  <use xlink:href="/kubernetes-service/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+                  <use xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
                 </svg>
               </a>
             </li>
@@ -404,8 +404,32 @@
     <li><a href="projects-intro.html">Projects</a></li>
   
 
+
+      </ul>
+    </li>
   
-    <li><a href="solutions-intro.html">Solutions</a></li>
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Solutions</a>
+      <ul>
+        
+
+  
+    <li><a href="solutions-intro.html">Intro</a></li>
+  
+
+  
+    <li><a href="solutions-applications-intro.html">Applications</a></li>
+  
+
+  
+    <li><a href="solutions-packages-intro.html">Packages</a></li>
+  
+
+  
+    <li class="active"><a href="solutions-trackers-intro.html">Trackers</a></li>
   
 
 
@@ -604,11 +628,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Add a Solution from Bitbucket
+  <h1 class="n-doc__component-detail-heading">
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/solutions-add-solution-from-bitbucket.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Add a Solution from Bitbucket](https://docs.netapp.com/us-en/kubernetes-service/solutions-add-solution-from-bitbucket.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/solutions-trackers-intro.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[](https://docs.netapp.com/us-en/kubernetes-service/solutions-trackers-intro.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -616,7 +640,7 @@
 
 <p class="page-details">
 
-<time datetime="2020-01-07 20:57:12 +0000">01/07/2020</time>
+<time datetime="2020-01-09 18:59:22 +0000">01/09/2020</time>
 
 
 <span>Contributors
@@ -633,10 +657,11 @@
 
 </p>
 
-<div id="preamble">
+<div class="sect1">
+<h2 id="trackers">Trackers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from a <a href="https://bitbucket.org/">Bitbucket</a> repository.</p>
+<p>Coming soon.</p>
 </div>
 <div class="paragraph">
 <p><strong>Requirements</strong></p>
@@ -652,218 +677,23 @@
 <li>
 <p>An NKS cluster with Build Version: <code>Classic</code>.</p>
 </li>
-<li>
-<p>An application in a Bitbucket repository.</p>
-</li>
-<li>
-<p>An SSH key pair for use as the deploy key. <strong>IMPORTANT:</strong> Create this key pair without a passphrase.</p>
-</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>For instructions on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">follow the instructions in this article</a>.</p>
-</div>
-<div class="paragraph">
-<p>If you have problems getting your Application up and running, you may need to customize your Procfile. <a href="solutions-customize-procfile.html">Learn more about using a Procfile.</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="add-the-solution">Add the Solution</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The first step is to add the Solution to your NKS account.</p>
-</div>
-<div class="sect2">
-<h3 id="select-solution-type">Select Solution Type</h3>
-<div class="paragraph">
-<p>Click <strong>Projects</strong> then select the Project you want to use.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-select-project.png" alt="Select your Project">
-</div>
-</div>
-<div class="paragraph">
-<p>Click <strong>+ Add Solution</strong>. Click <strong>Application</strong> as the Solution type.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-click-application.png" alt="Click Application Solution type">
-</div>
-</div>
-<div class="paragraph">
-<p>Select the Workspace, Cluster, and Project you want to use, then click <strong>Next</strong>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="define-version-control">Define Version Control</h3>
-<div class="paragraph">
-<p>In this step you will set two items:</p>
+<p><strong>Related Articles</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>NKS: The Remote URL</p>
+<p><a href="solutions-intro.html">Intro to Solutions</a></p>
 </li>
 <li>
-<p>Bitbucket: The Private Deploy Key</p>
+<p><a href="solutions-applications-intro.html">Applications</a></p>
+</li>
+<li>
+<p><a href="solutions-packages-intro.html">Packages</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><strong>Remote URL</strong></p>
-</div>
-<div class="paragraph">
-<p>To get this URL, visit your project&#8217;s Bitbucket repository page and click the <strong>Clone</strong> link in the upper right-hand corner.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-You must clone with SSH. If the pop-up says HTTPS, click the drop-down menu in the upper right-hand corner of the pop-up to switch to SSH.
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-clone-with-ssh.png" alt="Clone with SSH">
-</div>
-</div>
-<div class="paragraph">
-<p>Click to copy the SSH URL. Paste this in to NKS as the Remote URL.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-add-remote-url.png" alt="Add the Remote URL">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Private Deploy Key</strong></p>
-</div>
-<div class="paragraph">
-<p>For this step you will need an SSH key pair. <strong>IMPORTANT:</strong> Create this key pair without a passphrase.</p>
-</div>
-<div class="paragraph">
-<p>For more information on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">see this article</a>.</p>
-</div>
-<div class="paragraph">
-<p>Use caution when copying the SSH key. For instructions on how to copy the SSH key, see <a href="create-an-ssh-keypair.html">this article</a>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Mac:</strong> Use <code>pbcopy</code>.</p>
-</li>
-<li>
-<p><strong>Linux:</strong> Use <code>xclip</code>.</p>
-</li>
-<li>
-<p><strong>Windows:</strong> Use Notepad. If you have <a href="https://gitforwindows.org/">Git BASH</a>, use the <code>clip</code> command.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Paste the <strong>private</strong> key into the Private Deploy Key field on NKS. You will add the <strong>public</strong> key to BitBucket in the next section.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-add-private-key.png" alt="Add your private key">
-</div>
-</div>
-<div class="paragraph">
-<p>Click <strong>Next</strong> to continue.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="configure-application">Configure Application</h3>
-<div class="paragraph">
-<p>Set the application&#8217;s name, update strategy, and scaling. Click <strong>Next</strong> to continue.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="review-and-confirm">Review and Confirm</h3>
-<div class="paragraph">
-<p>Review and confirm all your settings. To change a setting, click the Edit button.</p>
-</div>
-<div class="paragraph">
-<p>When you are sure that everything is correct, click <strong>Create</strong> to create the Solution. This creates your Solution and redirects you to the Application&#8217;s page.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="deploy-and-update-code">Deploy and Update Code</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Next, you will add configurations to your Bitbucket repository. To do this, you will give Bitbucket:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The Deploy Key. This is the <strong>public</strong> key you created.</p>
-</li>
-<li>
-<p>The Payload URL (webhook) from NKS.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="add-the-deploy-key">Add the Deploy Key</h3>
-<div class="paragraph">
-<p>Go to the Bitbucket page for your repository and click <strong>Settings</strong>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-bitbucket-settings.png" alt="bitbucket Settings">
-</div>
-</div>
-<div class="paragraph">
-<p>Click <strong>Access Keys</strong> then click <strong>Add key</strong>. Add the <strong>public</strong> SSH key you created.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-the-webhook">Add the Webhook</h3>
-<div class="paragraph">
-<p>From the Bitbucket <strong>Settings</strong> page, click <strong>Webhooks</strong> then click <strong>Add webhook</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Return to the NKS application page, where you will find the Payload URL.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-deploy-code.png" alt="Deploy the code">
-</div>
-</div>
-<div class="paragraph">
-<p>Paste this in to the URL field on Bitbucket. Set the events you want to trigger the webhook, then click <strong>Add webhook</strong> to add it.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="trigger-the-webhook-if-necessary">Trigger the Webhook if Necessary</h3>
-<div class="paragraph">
-<p>When you add your webhook, Bitbucket gives you a list of choices for events which trigger the webhook. By default, a repository push is the webhook trigger. If this is the case for your webhook, you will need to do a <code>git push</code> to trigger the webhook.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="check-your-application">Check Your Application</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>At this point everything is configured, although it make take a few minutes for the deployment to complete. You can monitor the process on the Solution&#8217;s <strong>Metrics</strong> tab.</p>
-</div>
-<div class="paragraph">
-<p>When the deployment is ready, you can view your application by visiting the ingress URL which NKS automatically created for your application.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-ingress-url.png" alt="Get your ingress URL">
-</div>
 </div>
 </div>
 </div>
@@ -906,7 +736,7 @@ You must clone with SSH. If the pop-up says HTTPS, click the drop-down menu in t
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -915,7 +745,7 @@ You must clone with SSH. If the pop-up says HTTPS, click the drop-down menu in t
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -925,7 +755,7 @@ You must clone with SSH. If the pop-up says HTTPS, click the drop-down menu in t
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -934,7 +764,7 @@ You must clone with SSH. If the pop-up says HTTPS, click the drop-down menu in t
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/us-en/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -958,15 +788,15 @@ You must clone with SSH. If the pop-up says HTTPS, click the drop-down menu in t
 
     </div>
 
-    <script src="/kubernetes-service/common/js/components.js"></script>
-    <script src="/kubernetes-service/common/js/doc-components.js"></script>
+    <script src="/kubernetes-service/us-en/common/js/components.js"></script>
+    <script src="/kubernetes-service/us-en/common/js/doc-components.js"></script>
 
     <!-- Elasticsearch JS -->
-    <script type="text/javascript" src='/kubernetes-service/js/bundle.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/bundle.js'></script>
 
     <!-- Syntax Highlighting -->
-    <script type="text/javascript" src='/kubernetes-service/js/prism.js'></script>
-    <script type="text/javascript" src='/kubernetes-service/js/prism-curl.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/us-en/js/prism-curl.js'></script>
 
   </body>
 

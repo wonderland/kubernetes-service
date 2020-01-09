@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Add an Application from Bitbucket | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Add an Application from Bitbucket | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/solutions-add-application-from-bitbucket.html" />
+	<meta property="og:description" content="Learn how to deploy an application from a Bitbucket repository." />
+  <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="Learn how to deploy an application from a Bitbucket repository.">
+  <meta name="keywords" content=" ">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/kubernetes-service/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/kubernetes-service/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/kubernetes-service/common/css/esb.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/kubernetes-service/common/css/doc.css">
+  <link rel="stylesheet" href="/kubernetes-service/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/kubernetes-service/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/kubernetes-service/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/kubernetes-service/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/kubernetes-service/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/kubernetes-service/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/kubernetes-service/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/kubernetes-service/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/kubernetes-service/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/kubernetes-service/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/kubernetes-service/css/prism-netapp.css' type='text/css'>
+
+  <script src='/kubernetes-service/js/clouddocs.js'></script>
+  <script src='/kubernetes-service/js/s_code_impl.js'></script>
+  <script src='/kubernetes-service/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/kubernetes-service/js/toc.js'></script>
+  <script src='/kubernetes-service/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/kubernetes-service/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/kubernetes-service/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/kubernetes-service/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n" class="n-property-bar__utils">
+        <div id="ie-i18n-menu">
+          <ul class="n-property-navigation-bar__utils-list">
+            <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+              <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+                <span class="ie-i18n-lang">English</span>
+                <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                  <title>globe</title>
+                  <use xlink:href="/kubernetes-service/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/kubernetes-service/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="index.html">NKS Docs</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting Started</a>
+      <ul>
+        
+
+  
+    <li><a href="getting-started-intro.html">Intro to NKS</a></li>
+  
+
+  
+    <li><a href="getting-started-checklist.html">Checklist</a></li>
+  
+
+  
+    <li><a href="getting-started-subscription.html">Subscription</a></li>
+  
+
+  
+    <li><a href="getting-started-organizations.html">Organizations</a></li>
+  
+
+  
+    <li><a href="getting-started-user-access.html">User Access</a></li>
+  
+
+  
+    <li><a href="getting-started-members.html">Members</a></li>
+  
+
+  
+    <li><a href="getting-started-add-credentials.html">Credentials</a></li>
+  
+
+  
+    <li><a href="getting-started-working-with-clusters.html">Working with NKS Clusters</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Add Credentials</a>
+      <ul>
+        
+
+  
+    <li><a href="create-auth-credentials-on-aws.html">AWS Credentials</a></li>
+  
+
+  
+    <li><a href="find-aws-credentials-for-cvs.html">AWS Credentials for CVS</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-azure.html">Azure Credentials</a></li>
+  
+
+  
+    <li><a href="register-flexpod.html">FlexPod</a></li>
+  
+
+  
+    <li><a href="create-auth-credentials-on-gce.html">GCE Credentials</a></li>
+  
+
+  
+    <li><a href="register-vmware.html">VMware Credentials</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Control Plane</a>
+      <ul>
+        
+
+  
+    <li><a href="workspaces-intro.html">Workspaces</a></li>
+  
+
+  
+    <li><a href="clusters-intro.html">Clusters</a></li>
+  
+
+  
+    <li><a href="projects-intro.html">Projects</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Solutions</a>
+      <ul>
+        
+
+  
+    <li><a href="solutions-intro.html">Intro</a></li>
+  
+
+  
+    <li><a href="solutions-applications-intro.html">Applications</a></li>
+  
+
+  
+    <li><a href="solutions-packages-intro.html">Packages</a></li>
+  
+
+  
+    <li><a href="solutions-trackers-intro.html">Trackers</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Resources</a>
+      <ul>
+        
+
+  
+    <li><a href="my-charts-intro.html">My Charts</a></li>
+  
+
+  
+    <li><a href="private-registry-intro.html">Private Registry</a></li>
+  
+
+  
+    <li><a href="storage-intro.html">Storage</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Organization</a>
+      <ul>
+        
+
+  
+    <li><a href="org-setup-intro.html">Setup</a></li>
+  
+
+  
+    <li><a href="members-intro.html">Members</a></li>
+  
+
+  
+    <li><a href="teams-intro.html">Teams</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">API</a>
+      <ul>
+        
+
+  
+    <li><a href="api-basics.html">API Basics</a></li>
+  
+
+  
+    <li><a href="api-clusters.html">Clusters</a></li>
+  
+
+  
+    <li><a href="api-federations.html">Federations</a></li>
+  
+
+  
+    <li><a href="api-invoice.html">Invoices</a></li>
+  
+
+  
+    <li><a href="api-keysets.html">Keysets</a></li>
+  
+
+  
+    <li><a href="api-members.html">Members</a></li>
+  
+
+  
+    <li><a href="api-migrate-version.html">Migrate Version (Upgrade)</a></li>
+  
+
+  
+    <li><a href="api-my-charts.html">My Charts</a></li>
+  
+
+  
+    <li><a href="api-nodepools.html">Nodepools</a></li>
+  
+
+  
+    <li><a href="api-nodes.html">Nodes</a></li>
+  
+
+  
+    <li><a href="api-notifications.html">Notifications</a></li>
+  
+
+  
+    <li><a href="api-organizations.html">Organizations</a></li>
+  
+
+  
+    <li><a href="api-subscription.html">Subscription</a></li>
+  
+
+  
+    <li><a href="api-teams.html">Teams</a></li>
+  
+
+  
+    <li><a href="api-trusted-charts.html">Trusted Charts</a></li>
+  
+
+  
+    <li><a href="api-user.html">User</a></li>
+  
+
+  
+    <li><a href="api-workspaces.html">Workspaces</a></li>
+  
+
+  
+    <li><a href="api-notifications-to-slack.html">Tutorial - Push NKS Notifications to a Slack Channel</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Requirements and Other Details</a>
+      <ul>
+        
+
+  
+    <li><a href="netapp-hci-requirements.html">NetApp HCI Requirements</a></li>
+  
+
+  
+    <li><a href="nks-requirements.html">NKS Requirements</a></li>
+  
+
+  
+    <li><a href="whitelist-ports-and-ip-addresses.html">Whitelist Ports and IP Addresses</a></li>
+  
+
+  
+    <li><a href="cipher-suites.html">Cipher Suites</a></li>
+  
+
+  
+    <li><a href="more-resources.html">More Resources</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="news.html">What's New</a></li>
+  
+
+  
+    <li><a href="sitemap.html">Sitemap</a></li>
+  
+
+  
+    <li><a href="download.html">Download</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Add an Application from Bitbucket
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/solutions-add-application-from-bitbucket.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Add an Application from Bitbucket](https://docs.netapp.com/us-en/kubernetes-service/solutions-add-application-from-bitbucket.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2020-01-09 18:59:22 +0000">01/09/2020</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/ebarcott">
+    <img  class="avatar avatar-small"
+          alt="ebarcott"
+          width="20" height="20"
+          src="https://avatars3.githubusercontent.com/u/44878916?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Learn how to deploy an application on your NetApp Kubernetes Services (NKS) Solution from a <a href="https://bitbucket.org/">Bitbucket</a> repository.</p>
+</div>
+<div class="paragraph">
+<p><strong>Requirements</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An NKS account. If you don&#8217;t have one already, you can sign up for a free 30-day trial with no credit card required at <a href="https://nks.netapp.io" class="bare">https://nks.netapp.io</a>.</p>
+</li>
+<li>
+<p>A Project set up and configured on your NKS account.</p>
+</li>
+<li>
+<p>An NKS cluster with Build Version: <code>Classic</code>.</p>
+</li>
+<li>
+<p>An application in a Bitbucket repository.</p>
+</li>
+<li>
+<p>An SSH key pair for use as the deploy key. <strong>IMPORTANT:</strong> Create this key pair without a passphrase.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For instructions on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">follow the instructions in this article</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you have problems getting your application up and running, you may need to customize your Procfile. <a href="solutions-customize-procfile.html">Learn more about using a Procfile.</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="add-the-application">Add the Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The first step is to add the application to your NKS account.</p>
+</div>
+<div class="sect2">
+<h3 id="select-application-type">Select Application Type</h3>
+<div class="paragraph">
+<p>Click <strong>Projects</strong> then select the Project you want to use.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-select-project.png" alt="Select your Project">
+</div>
+</div>
+<div class="paragraph">
+<p>Click <strong>+ Add Solution</strong>. Click <strong>Application</strong> as the Solution type.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-click-application.png" alt="Click Application Solution type">
+</div>
+</div>
+<div class="paragraph">
+<p>Select the Workspace, Cluster, and Project you want to use, then click <strong>Next</strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="define-version-control">Define Version Control</h3>
+<div class="paragraph">
+<p>In this step you will set two items:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>NKS: The Remote URL</p>
+</li>
+<li>
+<p>Bitbucket: The Private Deploy Key</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Remote URL</strong></p>
+</div>
+<div class="paragraph">
+<p>To get this URL, visit your project&#8217;s Bitbucket repository page and click the <strong>Clone</strong> link in the upper right-hand corner.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+You must clone with SSH. If the pop-up says HTTPS, click the drop-down menu in the upper right-hand corner of the pop-up to switch to SSH.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-clone-with-ssh.png" alt="Clone with SSH">
+</div>
+</div>
+<div class="paragraph">
+<p>Click to copy the SSH URL. Paste this in to NKS as the Remote URL.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-add-remote-url.png" alt="Add the Remote URL">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Private Deploy Key</strong></p>
+</div>
+<div class="paragraph">
+<p>For this step you will need an SSH key pair. <strong>IMPORTANT:</strong> Create this key pair without a passphrase.</p>
+</div>
+<div class="paragraph">
+<p>For more information on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">see this article</a>.</p>
+</div>
+<div class="paragraph">
+<p>Use caution when copying the SSH key. For instructions on how to copy the SSH key, see <a href="create-an-ssh-keypair.html">this article</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Mac:</strong> Use <code>pbcopy</code>.</p>
+</li>
+<li>
+<p><strong>Linux:</strong> Use <code>xclip</code>.</p>
+</li>
+<li>
+<p><strong>Windows:</strong> Use Notepad. If you have <a href="https://gitforwindows.org/">Git BASH</a>, use the <code>clip</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Paste the <strong>private</strong> key into the Private Deploy Key field on NKS. You will add the <strong>public</strong> key to BitBucket in the next section.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-add-private-key.png" alt="Add your private key">
+</div>
+</div>
+<div class="paragraph">
+<p>Click <strong>Next</strong> to continue.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configure-application">Configure Application</h3>
+<div class="paragraph">
+<p>Set the application&#8217;s name, update strategy, and scaling. Click <strong>Next</strong> to continue.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="review-and-confirm">Review and Confirm</h3>
+<div class="paragraph">
+<p>Review and confirm all your settings. To change a setting, click the Edit button.</p>
+</div>
+<div class="paragraph">
+<p>When you are sure that everything is correct, click <strong>Create</strong> to create the Solution. This creates your Solution and redirects you to the Application&#8217;s page.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="deploy-and-update-code">Deploy and Update Code</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Next, you will add configurations to your Bitbucket repository. To do this, you will give Bitbucket:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Deploy Key. This is the <strong>public</strong> key you created.</p>
+</li>
+<li>
+<p>The Payload URL (webhook) from NKS.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="add-the-deploy-key">Add the Deploy Key</h3>
+<div class="paragraph">
+<p>Go to the Bitbucket page for your repository and click <strong>Settings</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-bitbucket-settings.png" alt="bitbucket Settings">
+</div>
+</div>
+<div class="paragraph">
+<p>Click <strong>Access Keys</strong> then click <strong>Add key</strong>. Add the <strong>public</strong> SSH key you created.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-the-webhook">Add the Webhook</h3>
+<div class="paragraph">
+<p>From the Bitbucket <strong>Settings</strong> page, click <strong>Webhooks</strong> then click <strong>Add webhook</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Return to the NKS application page, where you will find the Payload URL.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-deploy-code.png" alt="Deploy the code">
+</div>
+</div>
+<div class="paragraph">
+<p>Paste this in to the URL field on Bitbucket. Set the events you want to trigger the webhook, then click <strong>Add webhook</strong> to add it.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trigger-the-webhook-if-necessary">Trigger the Webhook if Necessary</h3>
+<div class="paragraph">
+<p>When you add your webhook, Bitbucket gives you a list of choices for events which trigger the webhook. By default, a repository push is the webhook trigger. If this is the case for your webhook, you will need to do a <code>git push</code> to trigger the webhook.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="check-your-application">Check Your Application</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At this point everything is configured, although it make take a few minutes for the deployment to complete. You can monitor the process on the Solution&#8217;s <strong>Metrics</strong> tab.</p>
+</div>
+<div class="paragraph">
+<p>When the deployment is ready, you can view your application by visiting the ingress URL which NKS automatically created for your application.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-ingress-url.png" alt="Get your ingress URL">
+</div>
+</div>
+</div>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2020 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/kubernetes-service/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/announcements/" class="n-footer__copyright-link">Announcements</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/kubernetes-service/common/js/components.js"></script>
+    <script src="/kubernetes-service/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/kubernetes-service/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/kubernetes-service/js/prism.js'></script>
+    <script type="text/javascript" src='/kubernetes-service/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>

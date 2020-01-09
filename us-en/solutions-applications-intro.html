@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Add a Solution from Bitbucket | NetApp Cloud Docs</title>
+  <title> | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Add a Solution from Bitbucket | NetApp Cloud Docs" />
+  <meta property="og:title" content=" | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/us-en/solutions-add-solution-from-bitbucket.html" />
-	<meta property="og:description" content="Learn how to deploy a Solution from a Bitbucket repository." />
+	<meta property="og:url" content="https://docs.netapp.com/kubernetes-service/us-en/solutions-applications-intro.html" />
+	<meta property="og:description" content="Learn how to use NKS Solutions" />
   <meta property="og:image" content="https://docs.netapp.com/kubernetes-service/us-en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,7 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="Learn how to deploy a Solution from a Bitbucket repository.">
+  <meta name="description" content="Learn how to use NKS Solutions">
   <meta name="keywords" content=" ">
   
   
@@ -404,8 +404,32 @@
     <li><a href="projects-intro.html">Projects</a></li>
   
 
+
+      </ul>
+    </li>
   
-    <li><a href="solutions-intro.html">Solutions</a></li>
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Solutions</a>
+      <ul>
+        
+
+  
+    <li><a href="solutions-intro.html">Intro</a></li>
+  
+
+  
+    <li class="active"><a href="solutions-applications-intro.html">Applications</a></li>
+  
+
+  
+    <li><a href="solutions-packages-intro.html">Packages</a></li>
+  
+
+  
+    <li><a href="solutions-trackers-intro.html">Trackers</a></li>
   
 
 
@@ -604,11 +628,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Add a Solution from Bitbucket
+  <h1 class="n-doc__component-detail-heading">
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/solutions-add-solution-from-bitbucket.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[Add a Solution from Bitbucket](https://docs.netapp.com/us-en/kubernetes-service/solutions-add-solution-from-bitbucket.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/blob/master/solutions-applications-intro.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/kubernetes-service/issues/new?body=Page%3A%20[](https://docs.netapp.com/us-en/kubernetes-service/solutions-applications-intro.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -616,7 +640,7 @@
 
 <p class="page-details">
 
-<time datetime="2020-01-07 20:57:12 +0000">01/07/2020</time>
+<time datetime="2020-01-09 18:59:22 +0000">01/09/2020</time>
 
 
 <span>Contributors
@@ -633,10 +657,36 @@
 
 </p>
 
-<div id="preamble">
+<div class="sect1">
+<h2 id="application">Application</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from a <a href="https://bitbucket.org/">Bitbucket</a> repository.</p>
+<p>For step-by-step instructions on how to deploy an Application, see the article for your version control management system:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="solutions-add-application-from-bitbucket.html">Bitbucket</a></p>
+</li>
+<li>
+<p><a href="solutions-add-application-from-github.html">GitHub</a></p>
+</li>
+<li>
+<p><a href="solutions-add-application-from-gitlab.html">GitLab</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Helpful Tips</strong></p>
+</div>
+<div class="paragraph">
+<p>For instructions on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">follow the instructions in this article</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you have problems getting your Application up and running, you may need to customize your Procfile. <a href="solutions-customize-procfile.html">Learn more about using a Procfile.</a></p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t have an app to test, feel free to use <a href="https://github.com/ebarcott/nks-bg-demo-app">our demo app</a>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Requirements</strong></p>
@@ -653,7 +703,7 @@
 <p>An NKS cluster with Build Version: <code>Classic</code>.</p>
 </li>
 <li>
-<p>An application in a Bitbucket repository.</p>
+<p>An application in an external repository.</p>
 </li>
 <li>
 <p>An SSH key pair for use as the deploy key. <strong>IMPORTANT:</strong> Create this key pair without a passphrase.</p>
@@ -661,209 +711,20 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>For instructions on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">follow the instructions in this article</a>.</p>
-</div>
-<div class="paragraph">
-<p>If you have problems getting your Application up and running, you may need to customize your Procfile. <a href="solutions-customize-procfile.html">Learn more about using a Procfile.</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="add-the-solution">Add the Solution</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The first step is to add the Solution to your NKS account.</p>
-</div>
-<div class="sect2">
-<h3 id="select-solution-type">Select Solution Type</h3>
-<div class="paragraph">
-<p>Click <strong>Projects</strong> then select the Project you want to use.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-select-project.png" alt="Select your Project">
-</div>
-</div>
-<div class="paragraph">
-<p>Click <strong>+ Add Solution</strong>. Click <strong>Application</strong> as the Solution type.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-click-application.png" alt="Click Application Solution type">
-</div>
-</div>
-<div class="paragraph">
-<p>Select the Workspace, Cluster, and Project you want to use, then click <strong>Next</strong>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="define-version-control">Define Version Control</h3>
-<div class="paragraph">
-<p>In this step you will set two items:</p>
+<p><strong>Related Articles</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>NKS: The Remote URL</p>
+<p><a href="solutions-intro.html">Intro to Solutions</a></p>
 </li>
 <li>
-<p>Bitbucket: The Private Deploy Key</p>
+<p><a href="solutions-packages-intro.html">Packages</a></p>
+</li>
+<li>
+<p><a href="solutions-trackers-intro.html">Trackers</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><strong>Remote URL</strong></p>
-</div>
-<div class="paragraph">
-<p>To get this URL, visit your project&#8217;s Bitbucket repository page and click the <strong>Clone</strong> link in the upper right-hand corner.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-You must clone with SSH. If the pop-up says HTTPS, click the drop-down menu in the upper right-hand corner of the pop-up to switch to SSH.
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-clone-with-ssh.png" alt="Clone with SSH">
-</div>
-</div>
-<div class="paragraph">
-<p>Click to copy the SSH URL. Paste this in to NKS as the Remote URL.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-add-remote-url.png" alt="Add the Remote URL">
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Private Deploy Key</strong></p>
-</div>
-<div class="paragraph">
-<p>For this step you will need an SSH key pair. <strong>IMPORTANT:</strong> Create this key pair without a passphrase.</p>
-</div>
-<div class="paragraph">
-<p>For more information on how to create an SSH key pair, <a href="create-an-ssh-keypair.html">see this article</a>.</p>
-</div>
-<div class="paragraph">
-<p>Use caution when copying the SSH key. For instructions on how to copy the SSH key, see <a href="create-an-ssh-keypair.html">this article</a>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Mac:</strong> Use <code>pbcopy</code>.</p>
-</li>
-<li>
-<p><strong>Linux:</strong> Use <code>xclip</code>.</p>
-</li>
-<li>
-<p><strong>Windows:</strong> Use Notepad. If you have <a href="https://gitforwindows.org/">Git BASH</a>, use the <code>clip</code> command.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Paste the <strong>private</strong> key into the Private Deploy Key field on NKS. You will add the <strong>public</strong> key to BitBucket in the next section.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-add-private-key.png" alt="Add your private key">
-</div>
-</div>
-<div class="paragraph">
-<p>Click <strong>Next</strong> to continue.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="configure-application">Configure Application</h3>
-<div class="paragraph">
-<p>Set the application&#8217;s name, update strategy, and scaling. Click <strong>Next</strong> to continue.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="review-and-confirm">Review and Confirm</h3>
-<div class="paragraph">
-<p>Review and confirm all your settings. To change a setting, click the Edit button.</p>
-</div>
-<div class="paragraph">
-<p>When you are sure that everything is correct, click <strong>Create</strong> to create the Solution. This creates your Solution and redirects you to the Application&#8217;s page.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="deploy-and-update-code">Deploy and Update Code</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Next, you will add configurations to your Bitbucket repository. To do this, you will give Bitbucket:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The Deploy Key. This is the <strong>public</strong> key you created.</p>
-</li>
-<li>
-<p>The Payload URL (webhook) from NKS.</p>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="add-the-deploy-key">Add the Deploy Key</h3>
-<div class="paragraph">
-<p>Go to the Bitbucket page for your repository and click <strong>Settings</strong>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-bitbucket-settings.png" alt="bitbucket Settings">
-</div>
-</div>
-<div class="paragraph">
-<p>Click <strong>Access Keys</strong> then click <strong>Add key</strong>. Add the <strong>public</strong> SSH key you created.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-the-webhook">Add the Webhook</h3>
-<div class="paragraph">
-<p>From the Bitbucket <strong>Settings</strong> page, click <strong>Webhooks</strong> then click <strong>Add webhook</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Return to the NKS application page, where you will find the Payload URL.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-deploy-code.png" alt="Deploy the code">
-</div>
-</div>
-<div class="paragraph">
-<p>Paste this in to the URL field on Bitbucket. Set the events you want to trigger the webhook, then click <strong>Add webhook</strong> to add it.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="trigger-the-webhook-if-necessary">Trigger the Webhook if Necessary</h3>
-<div class="paragraph">
-<p>When you add your webhook, Bitbucket gives you a list of choices for events which trigger the webhook. By default, a repository push is the webhook trigger. If this is the case for your webhook, you will need to do a <code>git push</code> to trigger the webhook.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="check-your-application">Check Your Application</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>At this point everything is configured, although it make take a few minutes for the deployment to complete. You can monitor the process on the Solution&#8217;s <strong>Metrics</strong> tab.</p>
-</div>
-<div class="paragraph">
-<p>When the deployment is ready, you can view your application by visiting the ingress URL which NKS automatically created for your application.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="assets/documentation/solutions/solutions-add-bitbucket-solution-ingress-url.png" alt="Get your ingress URL">
-</div>
 </div>
 </div>
 </div>
