@@ -1,39 +1,41 @@
 ---
 sidebar: sidebar
-permalink: solutions-add-solution-from-gitlab.html
-summary: Learn how to deploy a Solution from a GitLab repository.
+permalink: solutions-add-application-from-github.html
+summary: Learn how to deploy an Application from a GitHub repository.
 ---
 
-= Add a Solution from GitLab
+= Add an Application from GitHub
 :imagesdir: assets/documentation/solutions/
 
-Learn how to deploy a NetApp Kubernetes Services (NKS) Solution from a https://gitlab.com[GitLab] repository.
+Learn how to deploy an Application on your NetApp Kubernetes Services (NKS) cluster from a https://github.com[GitHub] repository.
+
+If you don't have an app to test, feel free to use https://github.com/ebarcott/nks-bg-demo-app[our demo app].
 
 **Requirements**
 
 * An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
 * A Project set up and configured on your NKS account.
 * An NKS cluster with Build Version: `Classic`.
-* An application in a GitLab repository.
+* An application in a GitHub repository.
 * An SSH key pair for use as the deploy key. **IMPORTANT:** Create this key pair without a passphrase.
 
 For instructions on how to create an SSH key pair, link:create-an-ssh-keypair.html[follow the instructions in this article].
 
 If you have problems getting your Application up and running, you may need to customize your Procfile. link:solutions-customize-procfile.html[Learn more about using a Procfile.]
 
-== Add the Solution
+== Add the Application
 
-The first step is to add the Solution to your NKS account.
+The first step is to add the Application to your NKS account.
 
 === Select Solution Type
 
 Click **Projects** then select the Project you want to use.
 
-image::solutions-add-gitlab-solution-select-project.png[Select your Project]
+image::solutions-add-github-solution-select-project.png[Select your Project]
 
 Click **+ Add Solution**. Click **Application** as the Solution type.
 
-image::solutions-add-gitlab-solution-click-application.png[Click Application Solution type]
+image::solutions-add-github-solution-click-application.png[Click Application Solution type]
 
 Select the Workspace, Cluster, and Project you want to use, then click **Next**.
 
@@ -42,19 +44,19 @@ Select the Workspace, Cluster, and Project you want to use, then click **Next**.
 In this step you will set two items:
 
 * NKS: The Remote URL
-* GitLab: The Private Deploy Key
+* GitHub: The Private Deploy Key
 
 **Remote URL**
 
-To get this URL, visit your project's GitLab repository page and click the blue **Clone** button.
+To get this URL, visit your project's GitHub repository page and click the green **Clone or download** button.
 
-NOTE: You must use "Clone with SSH."
+NOTE: You must use "Clone with SSH." If the pop-up says "Clone with HTTPS", click the "Use SSH" link in the upper right-hand corner of the pop-up to switch to SSH.
 
-image::solutions-add-gitlab-solution-clone-with-ssh.png[Clone with SSH]
+image::solutions-add-github-solution-clone-with-ssh.png[Clone with SSH]
 
 Click to copy the SSH URL. Paste this in to NKS as the Remote URL.
 
-image::solutions-add-gitlab-solution-add-remote-url.png[Add the Remote URL]
+image::solutions-add-github-solution-add-remote-url.png[Add the Remote URL]
 
 **Private Deploy Key**
 
@@ -68,9 +70,9 @@ Use caution when copying the SSH key. For instructions on how to copy the SSH ke
 * **Linux:** Use `xclip`.
 * **Windows:** Use Notepad. If you have https://gitforwindows.org/[Git BASH], use the `clip` command.
 
-Paste the **private** key into the Private Deploy Key field on NKS. You will add the **public** key to GitLab in the next section.
+Paste the **private** key into the Private Deploy Key field on NKS. You will add the **public** key to GitHub in the next section.
 
-image::solutions-add-gitlab-solution-add-private-key.png[Add your private key]
+image::solutions-add-github-solution-add-private-key.png[Add your private key]
 
 Click **Next** to continue.
 
@@ -86,7 +88,7 @@ When you are sure that everything is correct, click **Create** to create the Sol
 
 == Deploy and Update Code
 
-Next, you will add configurations to your GitLab repository. To do this, you will give GitLab:
+Next, you will add configurations to your GitHub repository. To do this, you will give GitHub:
 
 * The Deploy Key. This is the **public** key you created.
 * The Payload URL (webhook) from NKS.
@@ -94,35 +96,40 @@ Next, you will add configurations to your GitLab repository. To do this, you wil
 
 === Add the Deploy Key
 
-Go to the GitLab page for your repository and click **Settings > Repository**.
+Go to the GitHub page for your repository and click **Settings**.
 
-image::solutions-add-gitlab-solution-gitlab-settings.png[GitLab Settings]
+image::solutions-add-github-solution-github-settings.png[GitHub Settings]
 
-Click to expand **Deploy keys**.
+Click **Deploy keys** then click **Add deploy key**.
 
 * Be sure to add the **public** (not private) SSH key.
 * You do not need to enable write access.
 
-Click **Add key** to add your Deploy key.
-
 === Add the Webhook
 
-From the GitLab page for your repository, click **Settings > Integrations**.
+From the GitHub **Settings** page, click **Webhooks** then click **Add webhook**.
 
 Return to the NKS application page, where you will find the Payload URL and Webhook Secret.
 
-image::solutions-add-gitlab-solution-deploy-code.png[Deploy the code]
+image::solutions-add-github-solution-deploy-code.png[Deploy the code]
 
-Paste these in to the URL and Secret Token fields on GitLab.
+Paste these in to the Payload URL and Webhook Secret fields on GitHub.
 
-* Set the event(s) you want to trigger the webhook.
+* For **Content Type** select `application/json`.
 * Enable SSL verification.
+* Set the events you want to trigger the webhook.
 
 Click **Add webhook** to add the webhook.
 
 === Trigger the Webhook if Necessary
 
-When you add your webhook, GitLab gives you a list of choices for events which trigger the webhook. By default, a repository push is the webhook trigger. If this is the case for your webhook, you will need to do a `git push` to trigger the webhook.
+When you add your webhook, GitHub gives you three choices for which events trigger the webhook:
+
+* Just the `push` event
+* Send me everything
+* Let me select individual events
+
+If your webhook is triggered by a `push` event, you will need to do a `git push` to trigger the webhook.
 
 == Check Your Application
 
@@ -130,4 +137,4 @@ At this point everything is configured, although it make take a few minutes for 
 
 When the deployment is ready, you can view your application by visiting the ingress URL which NKS automatically created for your application.
 
-image::solutions-add-gitlab-solution-ingress-url.png[Get your ingress URL]
+image::solutions-add-github-solution-ingress-url.png[Get your ingress URL]

@@ -41,8 +41,16 @@ entries:
         url: /clusters-intro.html
       - title: Projects
         url: /projects-intro.html
-      - title: Solutions
+  - title: Solutions
+    entries:
+      - title: Intro
         url: /solutions-intro.html
+      - title: Applications
+        url: /solutions-applications-intro.html
+      - title: Packages
+        url: /solutions-packages-intro.html
+      - title: Trackers
+        url: /solutions-trackers-intro.html
   - title: Resources
     entries:
       - title: My Charts
