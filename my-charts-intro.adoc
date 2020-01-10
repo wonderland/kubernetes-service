@@ -8,4 +8,4 @@ summary: Learn how to use NKS My Charts
 
 My Charts lets you import a custom Helm chart repository, either public or private. You can then add these Helm charts to your NKS clusters.
 
-NOTE: If you see outdated version numbers on your Charts, you may need to re-sync the Repository with our systems. Go to the https://staging.nks.netapp.io/v2/charts/list[Manage Chart Repos page] and use the "Re-sync" action under the actions menu for the Repository you wish to sync.
+NOTE: If you see outdated version numbers on your Charts, you may need to re-sync the Repository with our systems. Go to the https://nks.netapp.io/v2/charts/list[Manage Chart Repos page] and use the "Re-sync" action under the actions menu for the Repository you wish to sync.
