@@ -4,16 +4,23 @@ permalink: solutions-packages-intro.html
 summary: Learn how to use NKS Packages
 ---
 
-
 = Packages
 
-Coming soon.
+Packages are solutions which are based on a Helm chart. You can choose from our gallery of supported Packages, or upload your own.
+
+To manage Packages, go to **Resources > My Charts**. Here you can install a Package, click to see more details about Packages in the gallery, or import your own charts.
 
 **Requirements**
 
 * An NKS account. If you don't have one already, you can sign up for a free 30-day trial with no credit card required at https://nks.netapp.io.
 * A Project set up and configured on your NKS account.
 * An NKS cluster with Build Version: `Classic`.
+
+== Import Helm Charts
+
+My Charts lets you import a custom Helm chart repository, either public or private. You can then add these Helm charts to your NKS clusters.
+
+NOTE: If you see outdated version numbers on your Charts, you may need to re-sync the Repository with our systems. Go to the https://staging.nks.netapp.io/v2/charts/list[Manage Chart Repos page] and use the "Re-sync" action under the actions menu for the Repository you wish to sync.
 
 **Related Articles**
 
