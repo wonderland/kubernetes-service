@@ -1,0 +1,423 @@
+---
+sidebar: sidebar
+permalink: run-sap-data-hub-on-nks.html
+summary: This document describes the configuration of a NetApp Kubernetes Service (NKS)-based Kubernetes cluster using NetApp Trident as storage orchestration solution and the installation of SAP Data Hub inside this NKS cluster.
+---
+
+= Run SAP Data HUB on NKS
+Holger Zecha, NetApp
+December 2019
+
+== Introduction
+
+In general, the installation of SAP Data Hub Foundation inside an NKS Cluster follows these steps:
+
+* Deploy an NKS Cluster 
+* Install and configure NetApp Trident as storage orchestration solution
+* Validate the prerequisites for installing SAP Data Hub
+* Install SAP Data Hub inside the NKS cluster
+
+== NKS Cluster validation matrix
+
+The following version combinations of SAP Data Hub 2.X and NetApp Kubernetes Services have been validated:
+
+[cols=4*,options=header]
+|===
+|SAP Data Hub
+|NKS/k8s Version
+|Storage Solution
+|Storage Protocol
+
+|2.7
+|1.14
+|Trident 19.07.1 or higher
+|iSCSI
+
+|2.7
+|1.15
+|Trident 19.07.1 or higher
+|iSCSI
+|===
+
+== Requirements
+
+The general sizing of the NKS environment for deploying SAP Data Hub 2.7 or newer must be done according to the SAP Data Hub sizing guide: https://help.sap.com/viewer/1f833eab23244ef2ad66fe982dd14873/2.7.latest/en-US/633d429ff69441ae81fe57d912397903.html[SAP Data Hub Sizing Guide]
+
+The minimum sizing requirements for running non-productive SAP Data Hub installations require at least:
+
+* 1 master node, which must not run SAP Data Hub pods
+* 3 worker nodes. Each worker node must be configured with 8vCPUs and 32GByte RAM.
+
+The minimum sizing requirements for running productive SAP Data Hub installations require at least:
+
+* 1 master node, which must not run SAP Data Hub pods
+* 4 worker nodes. Each worker node must be configured with 16vCPUs and 64GByte RAM.
+
+More details regarding the minimum sizing can be found at the SAP documentation https://help.sap.com/viewer/1f833eab23244ef2ad66fe982dd14873/2.7.latest/en-US/d771891d749d425ba92603ec9b0084a8.html[Minimum Sizing for SAP Data Hub]
+
+=== Master Node
+
+The following are the requirements for the NKS worker nodes
+
+* NKS/k8s version: 1.14, 1.15
+* CPU: 4vCPUs 
+* Memory: 16GByte 
+* Diskspace: 100 GByte for /
+
+=== Worker Nodes
+
+The following are the requirements for the NKS worker nodes
+
+* NKS version: 1.14, 1.15
+* CPU: 8vCPUs or 16 vCPUs depending on the SAP Data Hub use case, non-production or production
+* Memory: 32GByte or 64Gbyte depending on the SAP Data Hub use case, non-production or production
+* Diskspace: 100 GByte for /
+
+=== NetApp Trident
+
+The installation of SAP Data Hub on NKS has been tested with Trident version 19.07.1. So, a version of NetApp Trident equal or greater than version 19.07.1 must be used.  
+More details regarding NetApp Trident and the supported NetApp backend storage systems can be found at the https://netapp-trident.readthedocs.io/[official NetApp Trident product documentation].
+
+According to SAP note https://launchpad.support.sap.com/#/notes/2712050[2712050] Backend type ontap-nas is not supported, so only backend type ontap-san using iSCSI LUNs are supported in conjunction with NetApp Trident as storage orchestration solution.
+
+`SAP Data Hub backend storage requirements: 500Gbyte. The storage can be thin-provisioned`
+
+
+
+=== NetApp StorageGRID
+
+When activating the SAP Data Hub checkpoint store, an object store is required. For on-prem scenarios, NetApp StorageGRID can be used as S3 storage. 
+
+NetApp StorageGRID is available as appliance or can also be deployed in a Kubernetes Cluster. Details regarding the deployment in a Kubernetes Cluster can be found at:
+
+* https://netapp.io/2019/01/15/deploying-storagegrid-in-a-kubernetes-cluster/[NetApp-StorageGRID/Kubernetes: Sample configuration files for Kubernetes deployments]
+* https://netapp.io/2019/01/15/deploying-storagegrid-in-a-kubernetes-cluster/[Deploying StorageGRID in a Kubernetes Cluster - thePub]
+
+For accessing the S3 bucket configured in StorageGRID out of SAP Data Hub, a certificate must be used which has been issued from an official Trust Center.
+
+=== Additional SAP Data Hub requirements
+
+The following additional requirements must be fulfilled:
+
+* https://github.com/kubernetes/ingress-nginx/tree/master/docs/examples/docker-registry[Docker Registry]: The local Docker registry is needed for storing the SAP Data Hub container images locally. 
+In our environment, we configured the Docker registry using SSL without user authentication, meaning the Docker registry can be accessed without entering a user and a password. For SSL access signed certificates which have been issued from Let’s Encrypt and automatically requested from Cert Manager have been used. 
+The local Docker registry must meet the following requirements: _Diskspace: 50GByte_ 
+* An appropriate helm version must be installed i.e. https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.tar.gz[2.12.1] 
+* Access to SAP Service Marketplace for downloading the docker images
+
+=== Optional components
+In addition to the official required components the following solutions have been installed inside the NetApp NKS cluster which simplified the overall installation:
+
+* https://kubernetes.io/docs/concepts/services-networking/ingress[Ingress NGINX]
+* https://cert-manager.io/docs[Cert Manager] using https://letsencrypt.org/[Let’s Encrypt certificates]
+
+== Install the NKS Cluster
+
+The following NKS deployment option are currently available:
+
+* *Cloud environments*
+** *Google Compute Engine (GCE)*: The GCE account details for deploying an NKS cluster must be configured according to the following documentation: link:create-auth-credentials-on-gce.html[Google Compute Engine (GCE) Credentials]
+** *Amazon Web Services (AWS)*: The AWS account details for deploying an NKS cluster must be configured according to the following documentation: link:create-auth-credentials-on-aws.html[Amazon Web Services (AWS) Credentials]
+** *Microsoft Azure*: The Azure account details for deploying an NKS cluster must be configured according to the following documentation: link:create-auth-credentials-on-azure.html[Azure Credentials and Permissions]
+* *On-Prem scenarios*
+** *NetApp HCI* The prerequisites to deploy an NKS cluster on a NetApp HCI system are described in the following documentation: link:create-netapp-hci-cluster.html[Create a Kubernetes Cluster on NetApp HCI]
+ToDo:  Link zum Setup des NKS Management Clusters
+** *VMware* The prerequisites to deploy an NKS cluster onto a VMware environment are described in the following documentation: link:register-vmware.html[Register Your VMware Environment With NKS]
+** *FlexPod* The prerequisites to deploy an NKS cluster onto a FlexPod system are described in the following documentation: link:register-flexpod.html[Register Your FlexPod Environment With NKS]
+
+On https://nks.netapp.io this is reflected during the deployment with the following deployment options:
+
+image:assets/documentation/run-sap-data-hub-on-nks/cluster-deployment-options.png?raw=true
+
+This chapter describes the installation of two flavors of an NKS cluster. 
+
+* On-Prem on a NetApp HCI system: <<Deploy NKS on HCI>>
+* Public Cloud Service infrastructure: <<Deploy NKS in Azure>>
+
+In addition, the following necessary configuration steps are explained in the following chapters:
+
+* Configuring NetApp Trident as storage orchestration solution: <<Prepare NetApp Trident and the backend storage systems>>
+* Configure NetApp StorageGRID as object store for the SAP Data Hub checkpoint store: <<Prepare NetApp StorageGRID>>
+* Configuring helm: <<Install helm>>
+
+
+=== Deploy NKS on HCI
+
+To start an NKS deployment onto an On-Prem HCI system, the HCI system must be configured and register at NetApp Cloud Central.
+In the following menu you configure the NKS nodes that are going to be installed on the HCI system by pressing **EDIT**
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI.png?raw=true
+
+By pressing **Basic HCI options** the configuration of the master and worker nodes can be changed.
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-basic-options.png?raw=true
+
+Then the node size, number of vCPUs, main memory and hard disk size, as well as the number of master and worker nodes must be configured. The Size of the workers must match the SAP Data Hub sizing, i.e. 8vCPUS, 32GByte RAM and 100GByte for **/** file system for non-production environments.
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-tshirt-size.png?raw=true
+
+Then increase the number of worker nodes as necessary and increase the disk size of the **/** Filesystem.
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-final-config.png?raw=true
+
+After pressing **Save** the changed configuration is being updated on the overview page.
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-updated-view.png?raw=true
+
+In the following menu the name of the Kubernetes cluster can be specified (in this example we have adopted the proposed name) as well as the version of Kubernetes that is going to be installed. In the HCI example it is version 1.14.3.
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-final-env.png?raw=true
+
+The deployment will be started by pressing **SUBMIT**.
+
+=== Deploy NKS in Azure
+
+To start an NKS deployment inside an Azure environment, the credentials for the Azure environment must configured according to the documentation link:create-auth-credentials-on-azure.html[Azure Credentials and Permissions]
+
+In the following menu you configure the NKS nodes that are going to be installed inside Azure system by pressing **EDIT**
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure.png?raw=true
+
+By pressing **D-Series** an Azure predefined virtual machine type can be selected. This machine Type must match the sizing (i.e. 8vCPUs and 32GByte RAM for no-production environments) for the SAP Data Hub scenario.
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-worker-size.png?raw=true
+
+**D8s v3** has been chosen as the machine type (which determine the number of vCPUs and the size of the main memory).
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-worker-size-2.png?raw=true
+
+Then the Azure location, the resource group, the virtual networks, the hard disk size, the number of master and worker nodes and the size of the **/** filesystem must be configured.
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-node-config.png?raw=true
+
+After pressing **Save** the changed configuration is being updated on the overview page.
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-updated-config.png?raw=true
+
+In the following menu the name of the Kubernetes cluster can be specified (in this example we have chosen **DataHub_Azure**) as well as the version of Kubernetes that is going to be installed. In the Azure example it is version 1.15.5.
+
+image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-final-config.png?raw=true
+
+The deployment will be started by pressing **SUBMIT**.
+
+=== Prepare NetApp Trident and the backend storage systems
+
+Install and configure NetApp Trident according to the https://netapp-trident.readthedocs.io/[NetApp Trident documentation]. Create a storage class with backend type **san**, so that iSCSI LUNs can be created. Either **ext4** or **xfs** must be used as filesystem. In the example in “Appendix B: storage-class-basic_iscsi_ext4.yaml” an ONTAP SAN system has been configured as backend system and the default format for LUNs has been set to **ext4**. Create the storage class with `kubectl create -f storage-calss-basic_iscsi_ext4.yaml`.
+If the default format for new iSCSI LUNS should be set to **xfs**, the line following line in the **storage-calss-basic_iscsi_ext4.yaml** file 
+
+`fsType: "ext4"`
+
+must be changed to:
+
+`fsType: "xfs"`
+
+Make sure that the backend systems are properly set up for the iSCSI protocol and that all initiator names from the NKS nodes have been added to the corresponding igroup on the backend system. For an ONTAP based system follow these steps:
+* Log on to each NKS node and perform the following steps
+** Edit `/etc/iscsi/iscsid.conf` and set `“node.startup = automatic”`
+** Get the initiator names and make sure, that all initiator names are unique: +
+`cat /etc/iscsi/initiatorname.iscsi` +
+The last line should look like this: +
+`InitiatorName=iqn.1996-04.de.suse:01:86ce8bfdded` +
+The name you must use is `iqn.1996-04.de.suse:01:86ce8bfdded`
+If the initiator names are not unique, create a new one using the command `/sbin/iscsi-iname` and enter the new initiator name in `/etc/iscsi/initiatorname.iscsi`. If there is no initiator name in `/etc/iscsi/initiatorname.iscsi` execute `iscsiadm -m discovery -t st -p <IP of ONTAP iSCSi LIF>` and recheck the content of `/etc/iscsi/initiatorname.iscsi`. Now there should be an initiator name in the file.
+** Restart iSCSI service `systemctl restart iscsi`
+* Make sure that iSCSI for the used SVM is activated according to the documentation https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.exp-iscsi-cpg%2FGUID-D322649F-0334-4AD7-9700-2A4494544CB9.html[Configuring iSCSI on an existing SVM]
+* Log on via SSH to your ONTAP operating system and execute the following steps
+** Create **trident** igroup +
+`igroup create -vserver <vserver> -igroup trident -protocol iscsi -ostype linux -initiator <initiator from NKS master node>`
+** Add initiator names from all NKS worker nodes +
+`igroup add trident <initiator from NKS workers>`
+* Go back to your NKS worker nodes and verify that the iSCSI discovery works using the following command: +
+`iscsiadm -m discovery -t st -p <IP of ONTAP iSCSi LIF>``
+
+=== Prepare NetApp StorageGRID
+
+If SAP Data Hub checkpoint store should be used, an object store is necessary. In this case NetApp StorageGRID will be used.
+
+To use NetApp StorageGRID as object store for SAP Data Hub, the following installation steps (if StorageGRID is not be used an appliance) and configuration steps are necessary:
+
+* Install NetApp StorageGRID into an Kubernetes cluster: https://netapp.io/2019/01/15/deploying-storagegrid-in-a-kubernetes-cluster/[Deploying StorageGRID in a Kubernetes Cluster - thePub]
+* Manage Certificates and make certificates are being used, issued from an official Trust Center: https://github.com/NetApp-StorageGRID/SSL-Certificate-Configuration[NetApp-StorageGRID/SSL-Certificate-Configuration]
+* Configure a tenant according to the https://docs.netapp.com/sgws-113[StorageGRID documentation]
+* Log in into the created tenant and create a bucket (i.e. datahub) according to the https://docs.netapp.com/sgws-113[StorageGRID documentation]
+* Define an access key according to the https://docs.netapp.com/sgws-113[StorageGRID documentation] and save the generated access key and the corresponding secret
+
+=== Install helm
+
+Install https://helm.sh/docs/[helm] by executing the following steps:
+
+* Extract the downloaded https://storage.googleapis.com/kubernetes-helm/helm-v2.12.1-linux-amd64.zip[helm file] (in this example helm version 2.12.1) and move the following files to **/usr/local/bin**:
+** helm
+** tiller
+* Create a helm service account
+** Create the file **helm.yaml** with the content described in Appendix A: helm.yaml
+** `kubectl apply -f helm.yaml`
+* Initialize helm and install tiller
+** `helm init --service-account helm``
+
+== Install SAP Data Hub
+
+This chapter describes the installation of SAP Data Hub using the following options:
+
+* <<Install SAP Data Hub using install.sh>>
+* <<Install SAP Data Hub using SL PlugIn>>
+
+The installation of SAP Data Hub does not differ whether an On-Prem NKS version is used or NKS deployment in a public cloud environment. 
+
+The following installation steps are therefore identical for all NKS deployments.
+
+* Download SAP Data Hub 2.7 Foundation installation ZIP file: **DHFOUNDATION07_<Patch Level>.ZIP**
+* Extract the ZIP File
+
+===	Install SAP Data Hub using install.sh
+
+Log on to the NKS master node. Set the following two environment variables:
+
+* `export NAMESPACE=nkslocal` +
+This defines the namespace for the SAP Data Hub installation in the NKS cluster
+* `export DOCKER_REGISTRY=registry.nkslocal.com:32120`+
+This defines the Docker registry which is going to be used for storing the SAP Data Hub images locally
+
+Start the installation:
+
+* Change the directory to your SAP Data Hub installation source and execute the following command: +
+`./install.sh --pv-storage-class ontap-iscsi --vsystem-disable-load-nfs-modules` +
+This command starts the SAP Data Hub installation setting the default storage class to **ontap-iscsi** +
+If different storage classes should or must be specified, run **install.sh** with the following arguments: +
+`./install.sh --vsystem-storage-class ontap-iscsi --pv-storage-class ontap-iscsi --dlog-storage-class ontap-iscsi --disk-storage-class ontap-iscsi --consul-storage-class ontap-iscsi  --hana-storage-class ontap-iscsi --diagnostic-storage-class ontap-iscsi --pv-storage-class ontap-iscsi --vsystem-disable-load-nfs-modules` +
+This command starts the SAP Data Hub installation setting the storage classes of each component to **ontap-iscsi** as well as the default storage class. +
+More details regarding possible command line parameters can be found in the https://help.sap.com/viewer/e66c399612e84a83a8abe97c0eeb443a/2.7.latest/en-US/9f866d8ef9a94c30947f12e73eaf0dd9.html[SAP Data Hub 2.7 installation documentation]
+* Specify the following parameters:
+** **S-User and Password**
+** **Hostname for certificates**: i.e. `datahub.nkslocal.com`
+** **Password**: `Abcpoiuz01!`
+** **Tenant Name**: default
+** **Vora admin user**: voraadm
+** **Vora checkpoint store**: Depending on your setup either **Yes** or **No**. If the vora checkpoint store is being used and StorageGRID is used as object store, the following parameters must be specified in addition
+*** **Type of checkpoint store**: `s3`
+*** **Access Key**: `O7UQ5IF1P156S8ZZ3Q3B`
+*** **Secret**: `9oH+cX8O5IM8LyjKlhMdQZ/pSfiZMxzguap3P3UX`
+*** **S3 host**: `https://s3.nkslocal.com:32182/`
+*** **Region**: `us-east-1`
+*** **S3 bucket**: `datahub/`
+* Once the installation has been finished, expose the following services i.e. as NodePort:
+** vsystem +
+`kubectl expose service -n nkslocal vsystem --type=NodePort --name=my-vsystem-nodeport`
+** vora-tx-coordinator-ext +
+`kubectl expose service -n nkslocal vora-tx-coordinator-ext --type=NodePort --name=my-vora-tx-coordinator-ext`
+** vora-textanalysis +
+`kubectl expose service -n nkslocal vora-textanalysis --type=NodePort --name=my-vora-textanalysis``
+
+=== Install SAP Data Hub using SL PlugIn
+
+Log on to the NKS master node. Start the installation:
+
+* Change the directory to your SAP Data Hub installation source.
+* Change into the subdirectory **slplugin/workdir** and execute the command ``./setup.sh`
+* Next action: **n** (for next)
+* Set the Kubernetes namespace: **nkslocal**
+* Accept the license agreement: **y**
+* Select Advanced installation: **2**
+* Select not to use saved container images: **1**
+* S-User name
+* S-User password
+* Choose existing technical user: **1**
+* Container registry: **registry.nkslocal.com:32120**
+* Do not use an image pull secret: *1* +
+The Docker registry has been configured in our scenario without the need for a user and a password
+* Certificate domain: **datahub.nkslocal.com**
+* Password: **Abcpoiuz01!**
+* Tenant name: **default**
+* Username: **voraadm**
+* Use the same password: **1**
+* Do not configure proxy settings: **2**
+* Enable checkpoint store: **Yes** or **No**. If the vora checkpoint store is being used and StorageGRID is used as object store, the following parameters must be specified in addition
+** Type of checkpoint store: **s3**
+** Access Key: **O7UQ5IF1P156S8ZZ3Q3B**
+** Secret: **9oH+cX8O5IM8LyjKlhMdQZ/pSfiZMxzguap3P3UX**
+** S3 host: **https://s3.nkslocal.com:32182/** */
+** Region: **us-east-1**
+** S3 bucket: **datahub/** */
+* Configure storage classes: **2**
+* Default storage class: **ontap-iscsi**
+* Confirm **ontap-iscsi** for all of the following storage classes
+** System Management
+** Dlog
+** Disk
+** Consul
+** SAP HANA
+** SAP Data Hub Diagnostics
+* Do not configure Docker container log path: **1**
+* Use default registry for SAP Data Hub Modeler: **2**
+* Disable loading NFS modules: **2**
+* Disable network policies: **2**
+* Helm Timeout: **1800**
+* Pod Wait Timeout: **500**
+* No Additional Installation Parameters
+* Start the deployment: **n** (for next)
+* Once the installation has been finished, expose the following services i.e. as NodePort:
+** vsystem +
+`kubectl expose service -n nkslocal vsystem --type=NodePort --name=my-vsystem-nodeport`
+** vora-tx-coordinator-ext +
+`kubectl expose service -n nkslocal vora-tx-coordinator-ext --type=NodePort --name=my-vora-tx-coordinator-ext`
+** vora-textanalysis +
+`kubectl expose service -n nkslocal vora-textanalysis --type=NodePort --name=my-vora-textanalysis``
+
+== Troubleshooting
+
+After uninstalling and purging an existing SAP Data Hub installation, make sure, all persistent volumes have been deleted.
+
+`kubectl get pv | grep <SAP Data Hub namespace>``
+
+If the **vsystem-application-runtime-storage** persistent volume has not been deleted, remove it with the following command:
+
+`kubectl delete pv nkslocal-vsystem-application-runtime-storage`
+
+
+== Appendix A: helm.yaml
+[source,yaml]
+----
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: helm
+  namespace: kube-system
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: helm
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: helm
+    namespace: kube-system
+
+== Appendix B: storage-class-basic_iscsi_ext4.yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ontap-iscsi
+provisioner: netapp.io/trident
+parameters:
+  backendType: ontap-san
+  fsType: "ext4"
+----
+
+Appendix B: storage-class-basic_iscsi_ext4.yaml
+[source,yaml]
+----
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ontap-iscsi
+provisioner: netapp.io/trident
+parameters:
+  backendType: ontap-san
+  fsType: "ext4"
+----
