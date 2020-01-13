@@ -127,7 +127,7 @@ ToDo:  Link zum Setup des NKS Management Clusters
 
 On https://nks.netapp.io this is reflected during the deployment with the following deployment options:
 
-image:assets/documentation/run-sap-data-hub-on-nks/cluster-deployment-options.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/cluster-deployment-options.png?raw=true
 
 This chapter describes the installation of two flavors of an NKS cluster. 
 
@@ -146,27 +146,27 @@ In addition, the following necessary configuration steps are explained in the fo
 To start an NKS deployment onto an On-Prem HCI system, the HCI system must be configured and register at NetApp Cloud Central.
 In the following menu you configure the NKS nodes that are going to be installed on the HCI system by pressing **EDIT**
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI.png?raw=true
 
 By pressing **Basic HCI options** the configuration of the master and worker nodes can be changed.
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-basic-options.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-basic-options.png?raw=true
 
 Then the node size, number of vCPUs, main memory and hard disk size, as well as the number of master and worker nodes must be configured. The Size of the workers must match the SAP Data Hub sizing, i.e. 8vCPUS, 32GByte RAM and 100GByte for **/** file system for non-production environments.
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-tshirt-size.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-tshirt-size.png?raw=true
 
 Then increase the number of worker nodes as necessary and increase the disk size of the **/** Filesystem.
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-final-config.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-final-config.png?raw=true
 
 After pressing **Save** the changed configuration is being updated on the overview page.
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-updated-view.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-updated-view.png?raw=true
 
 In the following menu the name of the Kubernetes cluster can be specified (in this example we have adopted the proposed name) as well as the version of Kubernetes that is going to be installed. In the HCI example it is version 1.14.3.
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-final-env.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-HCI-final-env.png?raw=true
 
 The deployment will be started by pressing **SUBMIT**.
 
@@ -176,27 +176,27 @@ To start an NKS deployment inside an Azure environment, the credentials for the 
 
 In the following menu you configure the NKS nodes that are going to be installed inside Azure system by pressing **EDIT**
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure.png?raw=true
 
 By pressing **D-Series** an Azure predefined virtual machine type can be selected. This machine Type must match the sizing (i.e. 8vCPUs and 32GByte RAM for no-production environments) for the SAP Data Hub scenario.
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-worker-size.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-worker-size.png?raw=true
 
 **D8s v3** has been chosen as the machine type (which determine the number of vCPUs and the size of the main memory).
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-worker-size-2.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-worker-size-2.png?raw=true
 
 Then the Azure location, the resource group, the virtual networks, the hard disk size, the number of master and worker nodes and the size of the **/** filesystem must be configured.
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-node-config.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-node-config.png?raw=true
 
 After pressing **Save** the changed configuration is being updated on the overview page.
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-updated-config.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-updated-config.png?raw=true
 
 In the following menu the name of the Kubernetes cluster can be specified (in this example we have chosen **DataHub_Azure**) as well as the version of Kubernetes that is going to be installed. In the Azure example it is version 1.15.5.
 
-image:assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-final-config.png?raw=true
+image::assets/documentation/run-sap-data-hub-on-nks/configuration-nks-nodes-azure-final-config.png?raw=true
 
 The deployment will be started by pressing **SUBMIT**.
 
