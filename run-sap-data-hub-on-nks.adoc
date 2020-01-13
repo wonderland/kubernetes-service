@@ -7,6 +7,8 @@ summary: This document describes the configuration of a NetApp Kubernetes Servic
 = Run SAP Data HUB on NKS
 Holger Zecha, NetApp
 December 2019
+:sectnums:
+:toc:
 
 == Introduction
 
@@ -129,6 +131,7 @@ On https://nks.netapp.io this is reflected during the deployment with the follow
 
 image::assets/documentation/run-sap-data-hub-on-nks/cluster-deployment-options.png?raw=true[]
 
+
 This chapter describes the installation of two flavors of an NKS cluster. 
 
 * On-Prem on a NetApp HCI system: <<Deploy NKS on HCI>>
@@ -212,12 +215,17 @@ must be changed to:
 `fsType: "xfs"`
 
 Make sure that the backend systems are properly set up for the iSCSI protocol and that all initiator names from the NKS nodes have been added to the corresponding igroup on the backend system. For an ONTAP based system follow these steps:
+
 * Log on to each NKS node and perform the following steps
 ** Edit `/etc/iscsi/iscsid.conf` and set `“node.startup = automatic”`
 ** Get the initiator names and make sure, that all initiator names are unique: +
+ +
 `cat /etc/iscsi/initiatorname.iscsi` +
+ +
 The last line should look like this: +
+ +
 `InitiatorName=iqn.1996-04.de.suse:01:86ce8bfdded` +
+ +
 The name you must use is `iqn.1996-04.de.suse:01:86ce8bfdded`
 If the initiator names are not unique, create a new one using the command `/sbin/iscsi-iname` and enter the new initiator name in `/etc/iscsi/initiatorname.iscsi`. If there is no initiator name in `/etc/iscsi/initiatorname.iscsi` execute `iscsiadm -m discovery -t st -p <IP of ONTAP iSCSi LIF>` and recheck the content of `/etc/iscsi/initiatorname.iscsi`. Now there should be an initiator name in the file.
 ** Restart iSCSI service `systemctl restart iscsi`
@@ -228,7 +236,7 @@ If the initiator names are not unique, create a new one using the command `/sbin
 ** Add initiator names from all NKS worker nodes +
 `igroup add trident <initiator from NKS workers>`
 * Go back to your NKS worker nodes and verify that the iSCSI discovery works using the following command: +
-`iscsiadm -m discovery -t st -p <IP of ONTAP iSCSi LIF>``
+`iscsiadm -m discovery -t st -p <IP of ONTAP iSCSi LIF>`
 
 === Prepare NetApp StorageGRID
 
@@ -253,7 +261,7 @@ Install https://helm.sh/docs/[helm] by executing the following steps:
 ** Create the file **helm.yaml** with the content described in Appendix A: helm.yaml
 ** `kubectl apply -f helm.yaml`
 * Initialize helm and install tiller
-** `helm init --service-account helm``
+** `helm init --service-account helm`
 
 == Install SAP Data Hub
 
@@ -275,7 +283,7 @@ Log on to the NKS master node. Set the following two environment variables:
 
 * `export NAMESPACE=nkslocal` +
 This defines the namespace for the SAP Data Hub installation in the NKS cluster
-* `export DOCKER_REGISTRY=registry.nkslocal.com:32120`+
+* `export DOCKER_REGISTRY=registry.nkslocal.com:32120` +
 This defines the Docker registry which is going to be used for storing the SAP Data Hub images locally
 
 Start the installation:
@@ -335,9 +343,9 @@ The Docker registry has been configured in our scenario without the need for a u
 ** Type of checkpoint store: **s3**
 ** Access Key: **O7UQ5IF1P156S8ZZ3Q3B**
 ** Secret: **9oH+cX8O5IM8LyjKlhMdQZ/pSfiZMxzguap3P3UX**
-** S3 host: **https://s3.nkslocal.com:32182/** */
+** S3 host: **https://s3.nkslocal.com:32182/**
 ** Region: **us-east-1**
-** S3 bucket: **datahub/** */
+** S3 bucket: **datahub/** 
 * Configure storage classes: **2**
 * Default storage class: **ontap-iscsi**
 * Confirm **ontap-iscsi** for all of the following storage classes
@@ -373,7 +381,7 @@ If the **vsystem-application-runtime-storage** persistent volume has not been de
 
 `kubectl delete pv nkslocal-vsystem-application-runtime-storage`
 
-
+:sectnums!:
 == Appendix A: helm.yaml
 [source,yaml]
 ----
@@ -409,7 +417,8 @@ parameters:
   fsType: "ext4"
 ----
 
-Appendix B: storage-class-basic_iscsi_ext4.yaml
+:sectnums!:
+== Appendix B: storage-class-basic_iscsi_ext4.yaml
 [source,yaml]
 ----
 apiVersion: storage.k8s.io/v1
